@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Xuan Quyen — Dịch vụ kỹ thuật &amp; phần mềm</title>
+<link rel="icon" href="images/avatar.png" type="image/png">
+<meta property="og:title" content="Xuan Quyen — Dịch vụ kỹ thuật & phần mềm">
+<meta property="og:description" content="Cài Windows, Office, Locket Gold — nhanh · sạch · uy tín · bảo hành tận tâm.">
+<meta property="og:image" content="https://ie1w3n.github.io/images/avatar.png">
+<meta property="og:url" content="https://ie1w3n.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07091a; --card:#0d1225; --card2:#101628; --border:#182038;
+  --c1:#00d4ff; --c2:#0055ff; --green:#00e676;
+  --text:#ddeeff; --muted:#6a84a8; --r:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Be Vietnam Pro',sans-serif;
+  font-size:15px; line-height:1.7;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,212,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,.025) 1px, transparent 1px);
+  background-size:44px 44px;
+}
+.wrap{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:24px 16px 90px;}
+
+/* FADE-IN */
+.fi{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+.fi.in{opacity:1;transform:none;}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,rgba(0,212,255,.07),rgba(0,85,255,.05));
+  border:1px solid rgba(0,212,255,.2); border-radius:var(--r);
+  padding:22px; display:flex; align-items:center;
+  justify-content:space-between; gap:16px; flex-wrap:wrap;
+  margin-bottom:16px;
+  box-shadow:0 0 40px rgba(0,212,255,.08);
+  animation:heroIn .6s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes heroIn{from{opacity:0;transform:translateY(-14px);}}
+.brand{display:flex;align-items:center;gap:14px;}
+.avatar{
+  width:68px; height:68px; border-radius:14px;
+  object-fit:cover; flex-shrink:0;
+  box-shadow:0 0 20px rgba(0,180,255,.3);
+}
+.hero-text h1{
+  font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:800;
+  color:var(--c1); text-shadow:0 0 16px rgba(0,212,255,.35); letter-spacing:-.3px;
+}
+.hero-text p{color:var(--muted);font-size:.82rem;margin-top:2px;}
+.btn-cta{
+  background:linear-gradient(135deg,var(--c2),var(--c1));
+  color:#fff; padding:10px 20px; border-radius:999px;
+  font-weight:700; font-size:13px; text-decoration:none;
+  white-space:nowrap; box-shadow:0 0 18px rgba(0,180,255,.3); transition:.2s;
+}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 0 28px rgba(0,180,255,.5);}
+
+/* BLOCK */
+.block{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--r); padding:22px; margin-bottom:14px;
+  transition:border-color .3s;
+}
+.block:hover{border-color:rgba(0,212,255,.18);}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--c1);margin-bottom:6px;}
+.sec-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:-.2px;margin-bottom:14px;}
+
+/* SERVICE GRID */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:500px){.svc-grid{grid-template-columns:1fr;}}
+.svc{
+  background:var(--card2); border:1px solid var(--border); border-radius:12px;
+  padding:14px; display:flex; gap:11px; align-items:flex-start;
+  transition:border-color .25s,transform .25s;
+}
+.svc:hover{border-color:rgba(0,212,255,.22);transform:translateY(-2px);}
+.svc-img{width:38px;height:38px;object-fit:contain;flex-shrink:0;margin-top:1px;border-radius:9px;}
+.svc-img.ghost{filter:brightness(0) invert(.55) sepia(.1);}
+.svc h3{font-family:'Be Vietnam Pro',sans-serif;font-size:.87rem;font-weight:700;margin-bottom:3px;}
+.svc p{font-size:.75rem;color:var(--muted);line-height:1.5;}
+
+/* PRICING STRIP */
+.price-strip{
+  background:linear-gradient(135deg,#060f20,#091830);
+  border:1px solid rgba(0,85,255,.28); border-radius:12px;
+  padding:18px 20px; margin-top:14px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; flex-wrap:wrap; position:relative; overflow:hidden;
+}
+.price-strip::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--c2),var(--c1));
+}
+.ps-left{display:flex;align-items:center;gap:12px;}
+.ps-icon{width:40px;height:40px;object-fit:contain;border-radius:10px;flex-shrink:0;}
+.ps-text h3{font-size:.92rem;font-weight:700;margin-bottom:2px;}
+.ps-text p{font-size:.75rem;color:var(--muted);}
+.price-from{
+  font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:800;
+  background:linear-gradient(90deg,var(--c1),#7df9ff);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.btn-see{
+  background:linear-gradient(135deg,var(--c2),var(--c1));
+  color:#fff; padding:9px 18px; border-radius:999px;
+  font-weight:700; font-size:12px; text-decoration:none;
+  display:inline-flex; align-items:center; gap:5px;
+  box-shadow:0 3px 14px rgba(0,100,255,.35); transition:.2s;
+  white-space:nowrap; flex-shrink:0;
+}
+.btn-see:hover{transform:translateY(-1px);box-shadow:0 5px 20px rgba(0,180,255,.45);}
+
+/* LOCKET CARD */
+.locket-card{
+  background:linear-gradient(135deg,#100f1e,#160f28);
+  border:1px solid rgba(168,85,247,.22); border-radius:var(--r);
+  padding:20px 22px; margin-bottom:14px;
+  position:relative; overflow:hidden;
+  text-decoration:none; display:block; color:inherit;
+  transition:border-color .3s,transform .25s,box-shadow .3s;
+}
+.locket-card:hover{
+  border-color:rgba(168,85,247,.45); transform:translateY(-3px);
+  box-shadow:0 8px 30px rgba(140,60,255,.15);
+}
+.locket-card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,#a855f7,#ec4899,#f97316);
+}
+.locket-glow{
+  position:absolute; top:-20px; right:-20px; width:120px; height:120px;
+  background:radial-gradient(circle,rgba(168,85,247,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.locket-top{display:flex;align-items:center;gap:13px;margin-bottom:11px;}
+.locket-icon{
+  width:48px; height:48px; border-radius:13px;
+  background:linear-gradient(135deg,#1a0d30,#2d1260);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; box-shadow:0 0 14px rgba(168,85,247,.35);
+  overflow:hidden; padding:2px;
+}
+.locket-icon img{width:100%;height:100%;object-fit:cover;border-radius:11px;}
+.locket-title{
+  font-family:'Syne',sans-serif; font-size:.95rem; font-weight:800;
+  background:linear-gradient(90deg,#c084fc,#f9a8d4);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  margin-bottom:2px;
+}
+.locket-sub{font-size:.75rem;color:var(--muted);}
+.locket-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px;}
+.ltag{
+  font-size:11px; padding:3px 9px; border-radius:100px; font-weight:600;
+  background:rgba(168,85,247,.08); border:1px solid rgba(168,85,247,.18); color:#c084fc;
+}
+.locket-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.locket-price-label{font-size:.7rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+.locket-price{
+  font-family:'Syne',sans-serif; font-size:1.15rem; font-weight:800;
+  background:linear-gradient(90deg,#c084fc,#f9a8d4);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.btn-locket{
+  background:linear-gradient(135deg,#7c3aed,#a855f7); color:#fff;
+  padding:9px 18px; border-radius:999px; font-weight:700; font-size:12px;
+  display:inline-flex; align-items:center; gap:5px;
+  box-shadow:0 3px 14px rgba(124,58,237,.4); transition:.2s;
+}
+.btn-locket:hover{opacity:.85;transform:scale(1.03);}
+
+/* BADGES */
+.badge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:9px;}
+.badge{
+  background:var(--card2); border:1px solid var(--border); border-radius:11px;
+  padding:11px 13px; display:flex; align-items:center; gap:9px;
+  font-size:.78rem; font-weight:500; color:#a8bdd4; transition:border-color .2s;
+}
+.badge:hover{border-color:rgba(0,212,255,.18);}
+.badge-icon{font-size:17px;flex-shrink:0;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px;}
+.cbtn{
+  display:flex; flex-direction:column; align-items:center; gap:7px;
+  padding:16px 8px; border-radius:13px; font-weight:700; font-size:13px;
+  text-decoration:none; color:var(--text);
+  border:1px solid var(--border); background:var(--card2); transition:.25s;
+}
+.cbtn:hover{transform:translateY(-3px);}
+.cbtn img{width:32px;height:32px;object-fit:contain;}
+.cbtn.zalo{border-color:rgba(0,100,255,.25);}
+.cbtn.zalo:hover{background:rgba(0,100,255,.1);border-color:rgba(0,100,255,.45);box-shadow:0 0 18px rgba(0,100,255,.18);}
+.cbtn.fb{border-color:rgba(24,119,242,.25);}
+.cbtn.fb:hover{background:rgba(24,119,242,.1);border-color:rgba(24,119,242,.45);}
+.cbtn.call{border-color:rgba(0,230,118,.25);background:rgba(0,230,118,.04);color:var(--green);}
+.cbtn.call:hover{background:rgba(0,230,118,.1);border-color:rgba(0,230,118,.45);box-shadow:0 0 16px rgba(0,230,118,.18);}
+.cbtn .call-icon{font-size:28px;}
+
+footer{
+  text-align:center; font-size:.7rem; color:var(--muted);
+  padding-top:24px; border-top:1px solid var(--border); margin-top:6px;
+}
+
+/* FLOAT ZALO */
+.fz{
+  position:fixed; bottom:22px; right:18px; z-index:999;
+  width:50px; height:50px; border-radius:50%; background:#0068ff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 18px rgba(0,104,255,.5); text-decoration:none;
+  animation:fzp 2.8s infinite;
+}
+@keyframes fzp{
+  0%,100%{box-shadow:0 4px 18px rgba(0,104,255,.5),0 0 0 0 rgba(0,104,255,.4);}
+  60%{box-shadow:0 4px 18px rgba(0,104,255,.5),0 0 0 9px rgba(0,104,255,0);}
+}
+.fz img{width:28px;height:28px;object-fit:contain;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="brand">
+      <img src="images/avatar.png" class="avatar" alt="Xuan Quyen">
+      <div class="hero-text">
+        <h1>Xuan Quyen</h1>
+        <p>⚡ Dịch vụ kỹ thuật &amp; phần mềm · Nhanh · Sạch · Uy tín</p>
+      </div>
+    </div>
+    <a href="#contact" class="btn-cta">💬 Liên hệ ngay</a>
+  </header>
+
+  <!-- WINDOWS & OFFICE -->
+  <div class="block fi">
+    <div class="sec-label">🖥️ Dịch vụ chính</div>
+    <div class="sec-title">Cài đặt Windows &amp; Office</div>
+    <div class="svc-grid">
+      <div class="svc">
+        <img src="images/windows.png" class="svc-img" alt="Windows">
+        <div>
+          <h3>Windows Chuẩn Microsoft</h3>
+          <p>ISO gốc, driver đầy đủ, ổn định dùng lâu dài.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <img src="images/windows ghost.png" class="svc-img ghost" alt="Ghost">
+        <div>
+          <h3>Windows Tối Ưu Hiệu Năng</h3>
+          <p>Nhẹ – mượt – nhanh. Phù hợp máy yếu, máy cũ.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <img src="images/office.png" class="svc-img" alt="Office">
+        <div>
+          <h3>Microsoft Office</h3>
+          <p>Word, Excel, PowerPoint. Office 365 &amp; 2021/2019.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <div style="font-size:28px;width:38px;flex-shrink:0;margin-top:2px;text-align:center;">🔧</div>
+        <div>
+          <h3>Khắc phục lỗi Windows</h3>
+          <p>Máy đơ, lag, BSOD. Báo giá sau kiểm tra.</p>
+        </div>
+      </div>
+    </div>
+    <!-- PRICING STRIP -->
+    <div class="price-strip">
+      <div class="ps-left">
+        <img src="images/logowd2.png" class="ps-icon" alt="Install">
+        <div class="ps-text">
+          <h3>📋 Báo giá dịch vụ Windows</h3>
+          <p>Từ <span class="price-from">80.000đ</span> &nbsp;·&nbsp; Giá rõ ràng, không phát sinh</p>
+        </div>
+      </div>
+      <a href="windows-pricing.html" class="btn-see" target="_blank">Xem bảng giá →</a>
+    </div>
+  </div>
+
+  <!-- LOCKET -->
+  <a href="locket.html" class="locket-card fi" style="transition-delay:.08s">
+    <div class="locket-glow"></div>
+    <div class="locket-top">
+      <div class="locket-icon">
+        <img src="images/locket.png" alt="Locket Gold">
+      </div>
+      <div>
+        <div class="locket-title">Locket Gold — Kết nối người thương</div>
+        <div class="locket-sub">Kích hoạt nhanh · An toàn · Bảo hành trọn đời</div>
+      </div>
+    </div>
+    <div class="locket-tags">
+      <span class="ltag">✅ An toàn 100%</span>
+      <span class="ltag">♾️ Bảo hành vĩnh viễn</span>
+      <span class="ltag">⚡ Kích hoạt 2–5 phút</span>
+      <span class="ltag">📱 Hỗ trợ đổi máy mới</span>
+    </div>
+    <div class="locket-bottom">
+      <div>
+        <div class="locket-price-label">Chỉ từ</div>
+        <div class="locket-price">40.000đ / tài khoản</div>
+      </div>
+      <span class="btn-locket">Xem chi tiết ✨</span>
+    </div>
+  </a>
+
+  <!-- BADGES -->
+  <div class="block fi" style="transition-delay:.14s">
+    <div class="sec-label">🛡️ Cam kết chất lượng</div>
+    <div class="badge-grid">
+      <div class="badge"><span class="badge-icon">💾</span>Sao lưu dữ liệu an toàn</div>
+      <div class="badge"><span class="badge-icon">⚡</span>Xong trong 30–60 phút</div>
+      <div class="badge"><span class="badge-icon">🎮</span>Tối ưu gaming &amp; công việc</div>
+      <div class="badge"><span class="badge-icon">💬</span>Hỗ trợ hỏi đáp 24/24</div>
+      <div class="badge"><span class="badge-icon">🛡️</span>Win/Office bảo hành 6 tháng</div>
+      <div class="badge"><span class="badge-icon">♾️</span>Locket bảo hành vĩnh viễn</div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="block fi" id="contact" style="transition-delay:.2s">
+    <div class="sec-label">📞 Liên hệ</div>
+    <div class="sec-title">Tìm mình ở đây 👋</div>
+    <div class="contact-grid">
+      <a href="https://zalo.me/0822307662" target="_blank" class="cbtn zalo">
+        <img src="images/zalo.png" alt="Zalo">Zalo
+      </a>
+      <a href="https://www.facebook.com/xwuan1/" target="_blank" class="cbtn fb">
+        <img src="images/facebook.png" alt="Facebook">Facebook
+      </a>
+      <a href="tel:0822307662" class="cbtn call">
+        <span class="call-icon">📞</span>0822.307.662
+      </a>
+    </div>
+  </div>
+
+  <footer>© <span id="yr"></span> ie.1w3n &nbsp;·&nbsp; Xuan Quyen &nbsp;·&nbsp; Dịch vụ kỹ thuật &amp; phần mềm</footer>
+</div>
+
+<a href="https://zalo.me/0822307662" target="_blank" class="fz" title="Nhắn Zalo">
+  <img src="images/zalo.png" alt="Zalo">
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }});
+},{threshold:.1});
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

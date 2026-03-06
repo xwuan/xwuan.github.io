@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Locket Gold ✨ Xwuan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f4ff; --card:#fff; --border:#e6e0ff;
+  --p1:#7c3aed; --p2:#a855f7; --mint:#06b6d4;
+  --text:#1e1b3a; --muted:#8878b0; --r:18px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Be Vietnam Pro',sans-serif;
+  font-size:15px; line-height:1.7;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased; min-height:100vh;
+}
+body::before{
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:radial-gradient(circle,rgba(168,85,247,.1) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+.wrap{position:relative;z-index:1;max-width:460px;margin:0 auto;padding:28px 16px 72px;}
+
+.back{
+  display:inline-flex; align-items:center; gap:5px; color:var(--muted);
+  font-size:.8rem; font-weight:600; text-decoration:none;
+  margin-bottom:20px; transition:color .2s;
+}
+.back:hover{color:var(--p1);}
+
+/* PROFILE */
+.profile{text-align:center;margin-bottom:18px;animation:popIn .55s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes popIn{from{opacity:0;transform:scale(.88) translateY(8px);}}
+.av-wrap{display:inline-block;position:relative;margin-bottom:12px;}
+.av{
+  width:96px; height:96px; border-radius:50%; object-fit:cover;
+  border:3px solid var(--p2);
+  box-shadow:0 0 0 5px rgba(168,85,247,.12),0 6px 20px rgba(124,58,237,.2);
+}
+.av-badge{
+  position:absolute; bottom:2px; right:2px;
+  width:32px; height:32px; border-radius:50%;
+  border:2.5px solid white;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+  overflow:hidden; background:#000;
+}
+.av-badge img{width:100%;height:100%;object-fit:cover;}
+.brand-name{
+  font-family:'Nunito',sans-serif; font-size:1.9rem; font-weight:900;
+  background:linear-gradient(135deg,var(--p1),var(--p2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  letter-spacing:-.3px; margin-bottom:4px;
+}
+.brand-sub{font-size:.8rem;color:var(--muted);font-weight:500;}
+
+/* PRICE TAG */
+.price-tag{
+  background:linear-gradient(135deg,#fefce8,#fef9c3);
+  border:2px dashed #f59e0b; border-radius:14px;
+  padding:12px 16px; margin-bottom:14px;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  animation:popIn .55s .08s cubic-bezier(.34,1.56,.64,1) both;
+}
+.pt-emoji{font-size:20px;}
+.pt-main{font-family:'Nunito',sans-serif;font-size:1.35rem;font-weight:900;color:#92400e;}
+.pt-sub{font-size:.72rem;color:#b45309;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:1px;}
+
+/* CARD */
+.card{
+  background:var(--card); border:1.5px solid var(--border); border-radius:var(--r);
+  padding:18px 20px; margin-bottom:12px;
+  box-shadow:0 2px 16px rgba(124,58,237,.06);
+}
+.card:nth-of-type(1){animation:slideUp .45s .12s ease both;}
+.card:nth-of-type(2){animation:slideUp .45s .2s ease both;}
+@keyframes slideUp{from{opacity:0;transform:translateY(14px);}}
+
+.card-head{display:flex;align-items:center;gap:9px;margin-bottom:12px;}
+.card-ico{
+  width:32px; height:32px; border-radius:10px;
+  background:linear-gradient(135deg,var(--p1),var(--p2));
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; flex-shrink:0; color:#fff;
+}
+.card-ico.mint{background:linear-gradient(135deg,var(--mint),#22d3ee);}
+.card-ttl{font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:900;color:var(--p1);}
+
+/* COMMIT LIST */
+.clist{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.clist li{
+  display:flex; align-items:flex-start; gap:10px;
+  font-size:.86rem; font-weight:500;
+  background:#f9f7ff; padding:9px 12px; border-radius:11px;
+  border:1px solid rgba(168,85,247,.1); transition:.2s; color:var(--text);
+}
+.clist li:hover{transform:translateX(3px);background:#f0ecff;border-color:rgba(168,85,247,.25);}
+.ck{
+  width:20px; height:20px; min-width:20px;
+  background:linear-gradient(135deg,var(--mint),#22d3ee);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:10px; color:#fff; font-weight:900; margin-top:1px;
+}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:10px;}
+.step{display:flex;align-items:flex-start;gap:11px;font-size:.84rem;}
+.sn{
+  width:26px; height:26px; min-width:26px;
+  background:linear-gradient(135deg,var(--p1),var(--p2));
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:900; color:#fff; margin-top:1px;
+}
+.step h4{font-weight:800;font-size:.84rem;margin-bottom:2px;color:var(--text);}
+.step p{font-size:.77rem;color:var(--muted);}
+
+/* BUTTONS */
+.btn-z{
+  display:flex; align-items:center; justify-content:center; gap:9px;
+  background:#0068ff; color:#fff; padding:15px; border-radius:15px;
+  font-family:'Nunito',sans-serif; font-weight:900; font-size:.95rem;
+  border:none; margin-bottom:10px; text-decoration:none;
+  box-shadow:0 5px 0 #004dbf,0 6px 18px rgba(0,104,255,.3); transition:.12s;
+}
+.btn-z:active{transform:translateY(4px);box-shadow:0 1px 0 #004dbf;}
+.btn-z:hover{background:#0077ff;}
+.btn-z img{width:22px;height:22px;object-fit:contain;}
+
+.btn-fb{
+  display:flex; align-items:center; justify-content:center; gap:9px;
+  background:linear-gradient(135deg,var(--p1),var(--p2)); color:#fff;
+  padding:15px; border-radius:15px;
+  font-family:'Nunito',sans-serif; font-weight:900; font-size:.95rem;
+  border:none; margin-bottom:10px; text-decoration:none;
+  box-shadow:0 5px 0 #5b20c0,0 6px 18px rgba(124,58,237,.3); transition:.12s;
+}
+.btn-fb:active{transform:translateY(4px);box-shadow:0 1px 0 #5b20c0;}
+.btn-fb:hover{opacity:.92;}
+.btn-fb img{width:22px;height:22px;object-fit:contain;}
+
+footer{text-align:center;font-size:.7rem;color:var(--muted);padding-top:8px;font-weight:500;}
+
+.deco{position:fixed;pointer-events:none;z-index:0;font-size:1.8rem;opacity:.06;animation:fdeco 7s ease-in-out infinite;}
+.d1{top:6%;left:4%;animation-delay:0s;}
+.d2{top:15%;right:5%;animation-delay:2s;}
+.d3{bottom:28%;left:3%;animation-delay:4s;}
+.d4{bottom:12%;right:4%;animation-delay:1s;}
+@keyframes fdeco{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+</style>
+</head>
+<body>
+<span class="deco d1">✨</span>
+<span class="deco d2">💫</span>
+<span class="deco d3">⭐</span>
+<span class="deco d4">🌟</span>
+
+<div class="wrap">
+  <a href="index.html" class="back">← Quay về trang chủ</a>
+
+  <!-- PROFILE -->
+  <div class="profile">
+    <div class="av-wrap">
+      <img src="images/avatar.png" class="av" alt="Xwuan">
+      <div class="av-badge"><img src="images/locket.png" alt="Locket"></div>
+    </div>
+    <div class="brand-name">Locket Gold</div>
+    <div class="brand-sub">✦ Gói ghém khoảnh khắc · Kết nối người thương ✦</div>
+  </div>
+
+  <!-- PRICE -->
+  <div class="price-tag">
+    <span class="pt-emoji">💛</span>
+    <div>
+      <div class="pt-main">Chỉ 40.000đ</div>
+      <div class="pt-sub">/ Tài khoản · Bảo hành vĩnh viễn</div>
+    </div>
+  </div>
+
+  <!-- COMMITMENT -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ico">🛡️</div>
+      <div class="card-ttl">Cam kết từ Xwuan</div>
+    </div>
+    <ul class="clist">
+      <li><div class="ck">✓</div>An toàn tuyệt đối — không ảnh hưởng iCloud cá nhân</li>
+      <li><div class="ck">✓</div>Bảo hành trọn gói trong suốt quá trình sử dụng</li>
+      <li><div class="ck">✓</div>Hỗ trợ miễn phí kể cả khi bạn đổi máy mới</li>
+      <li><div class="ck">✓</div>Kích hoạt nhanh chóng chỉ trong 2–5 phút</li>
+      <li><div class="ck">✓</div>Liên hệ bất cứ lúc nào, phản hồi nhanh</li>
+    </ul>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-ico mint">⚡</div>
+      <div class="card-ttl">Cách thức hoạt động</div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="sn">1</div>
+        <div><h4>Liên hệ qua Zalo hoặc Facebook</h4><p>Nhắn Xwuan và cho biết Apple ID của bạn.</p></div>
+      </div>
+      <div class="step">
+        <div class="sn">2</div>
+        <div><h4>Kích hoạt nhanh</h4><p>Xwuan xử lý kích hoạt Locket Gold trong 2–5 phút.</p></div>
+      </div>
+      <div class="step">
+        <div class="sn">3</div>
+        <div><h4>Dùng ngay · Bảo hành mãi mãi</h4><p>Tận hưởng Locket Gold không giới hạn thời gian.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <a href="https://zalo.me/0822307662" target="_blank" class="btn-z">
+    <img src="images/zalo.png" alt="Zalo">
+    Nhắn Xwuan qua Zalo
+  </a>
+  <a href="https://www.facebook.com/xwuan1/" target="_blank" class="btn-fb">
+    <img src="images/facebook.png" alt="Facebook">
+    Nhắn qua Facebook
+  </a>
+
+  <footer>© 2025 Locket Gold Xwuan &nbsp;·&nbsp; Uy tín tạo niềm tin 💜</footer>
+</div>
+</body>
+</html>

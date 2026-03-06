@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Báo giá Windows &amp; Office — Xuan Quyen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07091a; --card:#0d1225; --card2:#101628; --border:#182038;
+  --c1:#00d4ff; --c2:#0055ff; --gold:#f5c842; --green:#00e676;
+  --text:#ddeeff; --muted:#6a84a8; --r:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Be Vietnam Pro',sans-serif; font-size:15px; line-height:1.7;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,212,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,212,255,.025) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.wrap{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:24px 16px 90px;}
+
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.fi.in{opacity:1;transform:none;}
+
+.back{
+  display:inline-flex;align-items:center;gap:5px;color:var(--muted);
+  font-size:.8rem;font-weight:600;text-decoration:none;margin-bottom:18px;transition:color .2s;
+}
+.back:hover{color:var(--c1);}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(0,85,255,.04));
+  border:1px solid rgba(0,212,255,.16); border-radius:var(--r);
+  padding:22px; margin-bottom:16px; position:relative; overflow:hidden;
+  box-shadow:0 0 30px rgba(0,212,255,.07);
+}
+.hero-inner{display:flex;align-items:center;gap:14px;margin-bottom:10px;justify-content:center;}
+.hero-logo{width:52px;height:52px;object-fit:contain;border-radius:12px;}
+.hero h1{
+  font-family:'Syne',sans-serif; font-size:clamp(1.2rem,4vw,1.8rem);
+  font-weight:800; letter-spacing:-.4px; text-align:center;
+}
+.hero h1 span{
+  background:linear-gradient(90deg,var(--c1),#7df9ff);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero p{color:var(--muted);font-size:.84rem;text-align:center;}
+
+/* TRUST BAR */
+.trust{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:10px 20px;
+  padding:14px 16px;
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  background:rgba(13,18,37,.5); margin-bottom:20px;
+}
+.ti{display:flex;align-items:center;gap:6px;font-size:.77rem;color:var(--muted);}
+.ti strong{color:var(--text);font-weight:600;}
+
+/* SECTION */
+.sec-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--c1);margin-bottom:6px;}
+.sec-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:-.2px;margin-bottom:16px;}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:20px;}
+.pcard{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--r);
+  padding:22px; position:relative; overflow:hidden;
+  transition:border-color .25s,transform .25s,box-shadow .25s;
+}
+.pcard::before{
+  content:''; position:absolute; top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--c2),var(--c1)); opacity:0; transition:.25s;
+}
+.pcard:hover{border-color:rgba(0,212,255,.28);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,212,255,.1);}
+.pcard:hover::before{opacity:1;}
+.pcard.featured{border-color:rgba(0,212,255,.3);background:linear-gradient(160deg,#0d1225,#0b1a2e);}
+.pcard.featured::before{opacity:1;}
+
+.pc-badge{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-bottom:12px;
+}
+.bc-blue{background:rgba(0,212,255,.1);color:var(--c1);border:1px solid rgba(0,212,255,.2);}
+.bc-green{background:rgba(0,230,118,.1);color:var(--green);border:1px solid rgba(0,230,118,.2);}
+.bc-gold{background:rgba(245,200,66,.1);color:var(--gold);border:1px solid rgba(245,200,66,.2);}
+
+.pc-icon-wrap{margin-bottom:10px;}
+.pc-icon{width:40px;height:40px;object-fit:contain;border-radius:9px;}
+.pc-icon.ghost{filter:brightness(0) invert(.55) sepia(.1);}
+
+.pcard h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;margin-bottom:6px;}
+.pcard p{font-size:.77rem;color:var(--muted);margin-bottom:14px;line-height:1.55;}
+
+.feat-list{list-style:none;margin-bottom:18px;}
+.feat-list li{
+  display:flex;align-items:flex-start;gap:7px;font-size:.77rem;padding:3px 0;color:#b0c0d4;
+}
+.feat-list li::before{content:'✓';color:var(--c1);font-weight:700;font-size:11px;margin-top:2px;flex-shrink:0;}
+
+.pc-price{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:14px;}
+.pc-price small{font-size:.72rem;color:var(--muted);font-weight:400;}
+
+.btn-order{
+  width:100%;background:linear-gradient(135deg,var(--c2),var(--c1));color:#fff;
+  border:none;padding:11px;border-radius:9px;
+  font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:13px;
+  cursor:pointer;text-decoration:none;
+  display:flex;align-items:center;justify-content:center;gap:6px;transition:.2s;
+}
+.btn-order:hover{opacity:.85;transform:scale(1.01);}
+.btn-order.ghost-btn{background:transparent;border:1px solid var(--border);color:var(--text);}
+.btn-order.ghost-btn:hover{border-color:var(--c1);background:rgba(0,212,255,.06);}
+
+/* COMBO */
+.combos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.combo{
+  background:linear-gradient(135deg,#0c1a2e,#091525);
+  border:1px solid rgba(0,212,255,.18); border-radius:var(--r);
+  padding:22px; position:relative; overflow:hidden; transition:.25s;
+}
+.combo:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,85,255,.15);}
+.combo::after{
+  content:''; position:absolute; top:-30px; right:-30px; width:90px; height:90px;
+  background:radial-gradient(circle,rgba(0,212,255,.06) 0%,transparent 70%);
+}
+.fire-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  background:rgba(255,100,0,.1);border:1px solid rgba(255,100,0,.22);
+  color:#ff8c00;font-size:10px;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:12px;
+}
+.combo-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;margin-bottom:10px;}
+.combo-items{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.ci{display:flex;align-items:center;gap:8px;font-size:.78rem;color:#a8bdd4;}
+.ci img{width:20px;height:20px;object-fit:contain;border-radius:5px;flex-shrink:0;}
+.ci img.ghost{filter:brightness(0) invert(.55) sepia(.1);}
+.ci-emoji{font-size:16px;width:20px;text-align:center;flex-shrink:0;}
+.combo-price-row{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:8px;margin-bottom:14px;
+}
+.combo-price{
+  font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;
+  background:linear-gradient(90deg,var(--gold),#fde68a);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.save-tag{
+  font-size:.72rem;background:rgba(0,230,118,.1);color:var(--green);
+  padding:3px 9px;border-radius:100px;border:1px solid rgba(0,230,118,.2);font-weight:600;
+}
+
+/* REPAIR */
+.repair{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.repair-icon{font-size:36px;flex-shrink:0;}
+.repair-info{flex:1;min-width:180px;}
+.repair-info h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;margin-bottom:5px;}
+.repair-info p{font-size:.77rem;color:var(--muted);}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
+.tag{font-size:.72rem;padding:3px 9px;border-radius:6px;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--muted);}
+
+/* CTA BANNER */
+.cta-banner{
+  background:linear-gradient(135deg,#07152a,#0b1f3a);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:38px 16px;text-align:center;
+  position:relative;overflow:hidden;margin:22px -16px 0;
+}
+.cta-banner::before{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:400px;height:240px;
+  background:radial-gradient(ellipse,rgba(0,85,255,.1) 0%,transparent 70%);pointer-events:none;
+}
+.cta-banner h2{font-family:'Syne',sans-serif;font-size:clamp(1.1rem,3vw,1.4rem);font-weight:800;margin-bottom:6px;}
+.cta-banner p{color:var(--muted);font-size:.83rem;margin-bottom:20px;}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+.btn-zalo{
+  background:#0068ff;color:#fff;padding:12px 22px;
+  border-radius:10px;font-weight:700;font-size:13px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:7px;
+  box-shadow:0 4px 18px rgba(0,104,255,.4);transition:.2s;
+}
+.btn-zalo:hover{opacity:.85;transform:translateY(-2px);}
+.btn-zalo img{width:18px;height:18px;object-fit:contain;}
+.btn-fb{
+  background:rgba(24,119,242,.08);color:#4fc3f7;
+  border:1px solid rgba(24,119,242,.25);padding:12px 20px;
+  border-radius:10px;font-weight:600;font-size:13px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;transition:.2s;
+}
+.btn-fb:hover{background:rgba(24,119,242,.14);}
+.btn-fb img{width:16px;height:16px;object-fit:contain;}
+.btn-call{
+  background:rgba(0,230,118,.08);color:var(--green);
+  border:1px solid rgba(0,230,118,.3);padding:12px 20px;
+  border-radius:10px;font-weight:600;font-size:13px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;transition:.2s;
+}
+.btn-call:hover{background:rgba(0,230,118,.14);}
+
+footer{text-align:center;font-size:.7rem;color:var(--muted);padding:22px 0 0;}
+
+.fz{
+  position:fixed;bottom:22px;right:18px;z-index:999;
+  width:50px;height:50px;border-radius:50%;background:#0068ff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 18px rgba(0,104,255,.5);text-decoration:none;
+  animation:fzp 2.8s infinite;
+}
+@keyframes fzp{
+  0%,100%{box-shadow:0 4px 18px rgba(0,104,255,.5),0 0 0 0 rgba(0,104,255,.4);}
+  60%{box-shadow:0 4px 18px rgba(0,104,255,.5),0 0 0 9px rgba(0,104,255,0);}
+}
+.fz img{width:28px;height:28px;object-fit:contain;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="index.html" class="back">← Quay về trang chủ</a>
+
+  <!-- HERO -->
+  <div class="hero fi">
+    <div class="hero-inner">
+      <img src="images/logowd2.png" class="hero-logo" alt="Install Windows">
+      <h1>Báo giá <span>Windows &amp; Office</span></h1>
+    </div>
+    <p>Giá minh bạch · Không phát sinh · Bảo hành 6 tháng</p>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust fi" style="transition-delay:.06s">
+    <div class="ti">⚡ Xong trong <strong>30–60 phút</strong></div>
+    <div class="ti">🛡️ Bảo hành <strong>6 tháng</strong></div>
+    <div class="ti">✅ Bản gốc <strong>Microsoft</strong></div>
+    <div class="ti">💾 Giữ nguyên <strong>dữ liệu</strong></div>
+  </div>
+
+  <!-- SERVICE CARDS -->
+  <div class="sec-label fi" style="transition-delay:.1s">💰 Đơn lẻ</div>
+  <div class="sec-title fi" style="transition-delay:.1s">Chọn gói phù hợp</div>
+
+  <div class="cards fi" style="transition-delay:.12s">
+
+    <div class="pcard featured">
+      <div class="pc-badge bc-blue">Phổ biến nhất</div>
+      <div class="pc-icon-wrap">
+        <img src="images/windows.png" class="pc-icon" alt="Windows">
+      </div>
+      <h3>Windows Chuẩn Microsoft</h3>
+      <p>Cài sạch từ ISO gốc Microsoft, ổn định cao, phù hợp dùng lâu dài.</p>
+      <ul class="feat-list">
+        <li>ISO chuẩn từ Microsoft</li>
+        <li>Driver đầy đủ, không thiếu</li>
+        <li>Không bloatware, không rác</li>
+        <li>Ổn định, ít lỗi vặt</li>
+        <li>Bảo hành lỗi phát sinh</li>
+      </ul>
+      <div class="pc-price">100k – 130k <small>đ</small></div>
+      <a href="tel:0822307662" class="btn-order">📞 Đặt lịch ngay</a>
+    </div>
+
+    <div class="pcard">
+      <div class="pc-badge bc-green">Máy yếu / Cũ</div>
+      <div class="pc-icon-wrap">
+        <img src="images/windows ghost.png" class="pc-icon ghost" alt="Ghost">
+      </div>
+      <h3>Windows Tối Ưu Hiệu Năng</h3>
+      <p>Loại bỏ dịch vụ nền không cần, nhẹ – mượt – khởi động nhanh hơn.</p>
+      <ul class="feat-list">
+        <li>Tắt service ngầm dư thừa</li>
+        <li>Tối ưu RAM &amp; CPU</li>
+        <li>Khởi động nhanh hơn rõ rệt</li>
+        <li>Phù hợp máy RAM 4GB trở xuống</li>
+        <li>Bảo hành lỗi phát sinh</li>
+      </ul>
+      <div class="pc-price">80k – 100k <small>đ</small></div>
+      <a href="tel:0822307662" class="btn-order ghost-btn">📞 Hỏi thêm</a>
+    </div>
+
+    <div class="pcard">
+      <div class="pc-badge bc-gold">Office 365 / 2021</div>
+      <div class="pc-icon-wrap">
+        <img src="images/office.png" class="pc-icon" alt="Office">
+      </div>
+      <h3>Cài Microsoft Office</h3>
+      <p>Word, Excel, PowerPoint đầy đủ. Hỗ trợ Office 365 và bản offline.</p>
+      <ul class="feat-list">
+        <li>Word, Excel, PowerPoint</li>
+        <li>Outlook, OneNote tùy chọn</li>
+        <li>Office 365 hoặc 2021/2019</li>
+      </ul>
+      <div class="pc-price">50k – 80k <small>đ</small></div>
+      <a href="tel:0822307662" class="btn-order">📞 Đặt lịch ngay</a>
+    </div>
+
+  </div>
+
+  <!-- COMBO -->
+  <div class="sec-label fi" style="transition-delay:.16s">🔥 Tiết kiệm hơn</div>
+  <div class="sec-title fi" style="transition-delay:.16s">Combo gộp — Giá rẻ hơn</div>
+
+  <div class="combos fi" style="transition-delay:.18s">
+    <div class="combo">
+      <div class="fire-badge">🔥 Hot deal</div>
+      <div class="combo-title">Win Chuẩn + Office</div>
+      <div class="combo-items">
+        <div class="ci"><img src="images/windows.png"> Windows Chuẩn Microsoft</div>
+        <div class="ci"><img src="images/office.png"> Microsoft Office đầy đủ</div>
+        <div class="ci"><span class="ci-emoji">🛡️</span> Bảo hành lỗi phát sinh</div>
+      </div>
+      <div class="combo-price-row">
+        <span class="combo-price">150k – 180k</span>
+        <span class="save-tag">Tiết kiệm ~30k</span>
+      </div>
+      <a href="tel:0822307662" class="btn-order">📞 Chọn gói này</a>
+    </div>
+
+    <div class="combo">
+      <div class="fire-badge">⚡ Nhẹ nhất</div>
+      <div class="combo-title">Win Tối Ưu + Office</div>
+      <div class="combo-items">
+        <div class="ci"><img src="images/windows ghost.png" class="ghost"> Windows Tối Ưu Hiệu Năng</div>
+        <div class="ci"><img src="images/office.png"> Microsoft Office đầy đủ</div>
+        <div class="ci"><span class="ci-emoji">🛡️</span> Bảo hành lỗi phát sinh</div>
+      </div>
+      <div class="combo-price-row">
+        <span class="combo-price">120k – 130k</span>
+        <span class="save-tag">Tiết kiệm ~20k</span>
+      </div>
+      <a href="tel:0822307662" class="btn-order">📞 Chọn gói này</a>
+    </div>
+  </div>
+
+  <!-- REPAIR -->
+  <div class="repair fi" style="transition-delay:.22s;margin-top:14px;">
+    <div class="repair-icon">🔧</div>
+    <div class="repair-info">
+      <h3>Khắc phục lỗi Windows</h3>
+      <p>Máy chạy chậm, màn hình xanh BSOD, lỗi khởi động, virus... Kiểm tra trước, báo giá sau.</p>
+      <div class="tags">
+        <span class="tag">🔵 BSOD</span>
+        <span class="tag">🐌 Máy lag</span>
+        <span class="tag">🦠 Diệt virus</span>
+        <span class="tag">❌ Lỗi khởi động</span>
+      </div>
+    </div>
+    <a href="tel:0822307662" class="btn-order" style="min-width:150px;max-width:170px;flex-shrink:0;">📞 Gửi yêu cầu</a>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner fi" style="transition-delay:.26s">
+    <h2>Cần tư vấn? Liên hệ ngay!</h2>
+    <p>Phản hồi nhanh · Hỗ trợ online &amp; tại nhà</p>
+    <div class="cta-btns">
+      <a href="https://zalo.me/0822307662" target="_blank" class="btn-zalo">
+        <img src="images/zalo.png" alt="Zalo"> Chat Zalo
+      </a>
+      <a href="https://www.facebook.com/xwuan1/" target="_blank" class="btn-fb">
+        <img src="images/facebook.png" alt="Facebook"> Facebook
+      </a>
+      <a href="tel:0822307662" class="btn-call">📞 0822.307.662</a>
+    </div>
+  </div>
+
+  <footer>© 2025 Xuan Quyen &nbsp;·&nbsp; Dịch vụ cài Windows &amp; Office &nbsp;·&nbsp; Giá đã bao gồm công thợ</footer>
+</div>
+
+<a href="https://zalo.me/0822307662" target="_blank" class="fz" title="Chat Zalo">
+  <img src="images/zalo.png" alt="Zalo">
+</a>
+
+<script>
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }});
+},{threshold:.08});
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
