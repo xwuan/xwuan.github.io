@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>CapCut Pro - Xwuan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d0d14;       /* Very dark purple-black */
+            --card: #15152a;      /* Dark purple card */
+            --card2: #1c1c38;     /* Secondary */
+            --border: #2a2a4e;    /* Purple-ish borders */
+            --accent: #d946ef;    /* Fuchsia/Magenta */
+            --accent2: #a855f7;   /* Purple */
+            --cyan: #06b6d4;      /* Cyan accent */
+            --text: #ede9fe;
+            --muted: #9388b5;
+            --r: 16px;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+        }
+
+        .container {
+            max-width: 460px;
+            margin: 0 auto;
+            padding: 24px 16px 80px;
+            position: relative;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 32px;
+            animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .avatar-wrap {
+            position: relative;
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 16px;
+        }
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 20px rgba(217, 70, 239, 0.3);
+        }
+        .badge {
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--bg);
+            background: #fff;
+            object-fit: contain;
+        }
+        .title {
+            font-size: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Card */
+        .card {
+            background: var(--card);
+            border-radius: var(--r);
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .card.visible {
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .pricing-grid.visible {
+            animation: slideUp 0.5s ease forwards;
+        }
+        .price-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 16px;
+            text-align: center;
+            position: relative;
+        }
+        .price-card.best {
+            background: linear-gradient(to bottom, var(--card), var(--card2));
+            border-color: var(--accent2);
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.15);
+        }
+        .badge-best {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+        .price-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .price-amount {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        .price-shield {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* Comparison Table */
+        .comparison-title {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .table th, .table td {
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .table th {
+            font-weight: 600;
+            color: var(--muted);
+            border-bottom: 2px solid var(--border);
+        }
+        .table th:nth-child(2), .table td:nth-child(2) {
+            text-align: center;
+            color: var(--muted);
+        }
+        .table th:nth-child(3), .table td:nth-child(3) {
+            text-align: center;
+            color: #fff;
+            font-weight: 600;
+        }
+        .table tr:last-child td { border-bottom: none; }
+        
+        .check { color: var(--accent); }
+        .cross { color: #ef4444; }
+        
+        /* List */
+        .feature-list {
+            list-style: none;
+        }
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+        .feature-list li:hover {
+            transform: translateX(4px);
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .list-icon {
+            font-size: 20px;
+        }
+
+        /* Steps */
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .step:last-child { margin-bottom: 0; }
+        .step-num {
+            width: 28px;
+            height: 28px;
+            background: rgba(217, 70, 239, 0.1);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+            gap: 8px;
+        }
+        .btn:active { transform: translateY(2px); }
+        
+        .btn-zalo {
+            background: #0068ff;
+            color: white;
+            box-shadow: 0 4px 0 #0052cc, 0 8px 16px rgba(0, 104, 255, 0.3);
+        }
+        .btn-zalo:active {
+            box-shadow: 0 2px 0 #0052cc, 0 4px 8px rgba(0, 104, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: white;
+            box-shadow: 0 4px 0 #8b5cf6, 0 8px 16px rgba(217, 70, 239, 0.3);
+        }
+        .btn-secondary:active {
+            box-shadow: 0 2px 0 #8b5cf6, 0 4px 8px rgba(217, 70, 239, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* Zalo Float */
+        .zalo-float {
+            position: fixed;
+            bottom: 22px;
+            right: 18px;
+            width: 50px;
+            height: 50px;
+            background: #0068ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 104, 255, 0.4);
+            animation: pulse 2s infinite;
+        }
+        .zalo-float img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Utilities & Animations */
+        .text-strike { text-decoration: line-through; color: var(--muted); }
+        .text-accent { color: var(--accent); font-weight: 700; }
+        .text-green { color: #10b981; }
+        .font-weight-600 { font-weight: 600; }
+        
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 104, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0); }
+        }
+        
+        /* Floating Emojis */
+        .floater { position: absolute; font-size: 24px; opacity: 0.5; animation: float 6s ease-in-out infinite; z-index: -1; pointer-events: none; }
+        .f1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .f2 { top: 20%; right: 5%; animation-delay: 1s; }
+        .f3 { top: 50%; left: 2%; animation-delay: 2s; }
+        .f4 { top: 60%; right: 2%; animation-delay: 3s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="zalo-float">
+        <a href="https://zalo.me/0822307662" target="_blank">
+            <img src="images/zalo-icon.png" alt="Zalo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0yMSAxMTVjMCA0LjQxOC00LjAzIDgtOSA4YTEwLjUyIDEwLjUyIDAgMCAxLTQuMTU0LS44MzhMMyAyM2wyLjUwNi00LjE3NkE4LjY1NyA4LjY1NyAwIDAgMSAzIDE1YzAtNC40MTggNC4wMy04IDktOHNzOSAzLjU4MiA5IDhaIi8+PC9zdmc+'">
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Decorative Emojis -->
+        <div class="floater f1">✨</div>
+        <div class="floater f2">🎨</div>
+        <div class="floater f3">🎬</div>
+        <div class="floater f4">⭐</div>
+
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Quay về trang chủ
+        </a>
+
+        <div class="hero">
+            <div class="avatar-wrap">
+                <img src="images/avatar.png" alt="Avatar" class="avatar">
+                <img src="images/capcut.png" alt="CapCut" class="badge" onerror="this.style.display='none'">
+            </div>
+            <h1 class="title">CapCut Pro</h1>
+            <p class="subtitle">✦ Mở khóa toàn bộ tính năng chỉnh sửa chuyên nghiệp ✦</p>
+        </div>
+
+        <div class="pricing-grid obs-el" style="animation-delay: 0.1s">
+            <div class="price-card">
+                <div class="price-title">Gói 7 ngày</div>
+                <div class="price-amount">20.000đ</div>
+                <div class="price-shield">🛡️ Bảo hành full thời gian</div>
+            </div>
+            <div class="price-card best">
+                <div class="badge-best">Tiết kiệm</div>
+                <div class="price-title">Gói 30 ngày</div>
+                <div class="price-amount">100.000đ</div>
+                <div class="price-shield">🛡️ Bảo hành full thời gian</div>
+            </div>
+        </div>
+
+        <div class="card obs-el" style="animation-delay: 0.2s">
+            <h2 class="comparison-title">SO SÁNH: Free vs Pro</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tính năng</th>
+                        <th>Free 😐</th>
+                        <th>Pro ✨</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Watermark CapCut</td>
+                        <td class="cross">Có watermark</td>
+                        <td><span class="check">❌</span> Không watermark</td>
+                    </tr>
+                    <tr>
+                        <td>Hiệu ứng cao cấp</td>
+                        <td class="cross">Bị khóa 🔒</td>
+                        <td><span class="check">✅</span> Mở khóa toàn bộ</td>
+                    </tr>
+                    <tr>
+                        <td>Font chữ Premium</td>
+                        <td class="cross">Giới hạn</td>
+                        <td><span class="check">✅</span> 500+ font chữ</td>
+                    </tr>
+                    <tr>
+                        <td>Nhạc bản quyền</td>
+                        <td class="cross">Giới hạn</td>
+                        <td><span class="check">✅</span> Kho nhạc không giới hạn</td>
+                    </tr>
+                    <tr>
+                        <td>Bộ lọc & sticker Pro</td>
+                        <td class="cross">Bị khóa 🔒</td>
+                        <td><span class="check">✅</span> Toàn bộ bộ lọc Pro</td>
+                    </tr>
+                    <tr>
+                        <td>Xuất video</td>
+                        <td>1080p max</td>
+                        <td><span class="check">✅</span> Xuất 4K chất lượng cao</td>
+                    </tr>
+                    <tr>
+                        <td>Dung lượng đám mây</td>
+                        <td>500MB</td>
+                        <td><span class="check">✅</span> 100GB cloud</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card obs-el" style="animation-delay: 0.3s">
+            <h3 style="margin-bottom: 12px; font-size: 18px;">SO SÁNH GIÁ</h3>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; justify-content: space-between;">
+                    <span class="text-muted">Giá chính hãng CapCut Pro:</span>
+                    <span class="text-strike">~250.000đ / tháng</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 18px; align-items: center;">
+                    <span>Giá tại Xwuan (30 ngày):</span>
+                    <span class="text-accent">100.000đ</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span class="text-green font-weight-600">Tiết kiệm:</span>
+                    <span class="text-green">~60%</span>
+                </div>
+                <div style="margin-top: 8px; font-size: 14px; text-align: center; color: var(--muted);">
+                    Or try 7 ngày chỉ với <span class="text-accent">20.000đ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card obs-el" style="animation-delay: 0.4s">
+            <h3 style="margin-bottom: 12px; font-size: 18px;">Ai nên dùng CapCut Pro?</h3>
+            <ul class="feature-list">
+                <li><span class="list-icon">🎬</span> Bạn làm video TikTok, Reels, YouTube Shorts</li>
+                <li><span class="list-icon">📸</span> Bạn chỉnh ảnh, edit video cho công việc</li>
+                <li><span class="list-icon">🎓</span> Sinh viên làm bài thuyết trình, video project</li>
+                <li><span class="list-icon">💼</span> Freelancer, content creator cần công cụ chuyên nghiệp</li>
+                <li><span class="list-icon">🎨</span> Bất kỳ ai muốn video đẹp hơn, chuyên nghiệp hơn</li>
+            </ul>
+        </div>
+
+        <div class="card obs-el" style="animation-delay: 0.5s">
+            <h3 style="margin-bottom: 12px; font-size: 18px;">Cam kết từ Xwuan</h3>
+            <ul class="feature-list">
+                <li><span class="list-icon">🛡️</span> Bảo hành full thời gian sử dụng</li>
+                <li><span class="list-icon">⚡</span> Kích hoạt trong 2–5 phút</li>
+                <li><span class="list-icon">📱</span> Hỗ trợ cả điện thoại và máy tính</li>
+                <li><span class="list-icon">🔄</span> Hỗ trợ đổi nếu có lỗi</li>
+                <li><span class="list-icon">💬</span> Liên hệ bất cứ lúc nào</li>
+            </ul>
+        </div>
+
+        <div class="card obs-el" style="animation-delay: 0.6s">
+            <h3 style="margin-bottom: 16px; font-size: 18px;">Cách thức hoạt động</h3>
+            <div class="step">
+                <div class="step-num">1</div>
+                <div>Liên hệ qua Zalo hoặc Facebook</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div>Xwuan kích hoạt CapCut Pro cho bạn</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div>Sáng tạo ngay · Bảo hành suốt thời gian sử dụng</div>
+            </div>
+        </div>
+
+        <div class="obs-el" style="margin-top: 24px; animation-delay: 0.7s">
+            <a href="https://zalo.me/0822307662" target="_blank" class="btn btn-zalo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                LIÊN HỆ ZALO
+            </a>
+            <a href="https://drive.google.com/drive/folders/18hHoMdFI_Dak6nLCD4vd-PGp1rhEQy4v?usp=drive_link" target="_blank" class="btn btn-secondary">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                CHECK FEEDBACK KHÁCH IU
+            </a>
+        </div>
+
+        <div class="footer obs-el" style="animation-delay: 0.8s">
+            © <span id="yr">2025</span> CapCut Pro Xwuan · Uy tín tạo niềm tin 🎨
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('yr').textContent = new Date().getFullYear();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.obs-el').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

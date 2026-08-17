@@ -60,17 +60,30 @@ body::before{
 }
 .brand-sub{font-size:.8rem;color:var(--muted);font-weight:500;}
 
-/* PRICE TAG */
-.price-tag{
-  background:linear-gradient(135deg,#fefce8,#fef9c3);
-  border:2px dashed #f59e0b; border-radius:14px;
-  padding:12px 16px; margin-bottom:14px;
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  animation:popIn .55s .08s cubic-bezier(.34,1.56,.64,1) both;
+/* PRICING */
+.pricing{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+@media (max-width:420px) { .pricing{grid-template-columns:1fr;} }
+.ptier{
+  background:var(--card); border:1.5px solid var(--border); border-radius:18px;
+  padding:16px 12px; position:relative;
+  box-shadow:0 4px 18px rgba(124,58,237,.06);
+  animation:popIn .55s cubic-bezier(.34,1.56,.64,1) both;
 }
-.pt-emoji{font-size:20px;}
-.pt-main{font-family:'Nunito',sans-serif;font-size:1.35rem;font-weight:900;color:#92400e;}
-.pt-sub{font-size:.72rem;color:#b45309;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:1px;}
+.ptier:nth-child(1){animation-delay:.08s; background:linear-gradient(180deg,#fff,#fcfbff);}
+.ptier:nth-child(2){animation-delay:.12s; background:linear-gradient(180deg,#fff,#f9f7ff); border-color:rgba(168,85,247,.3);}
+.ptier-name{font-family:'Nunito',sans-serif;font-size:1.15rem;font-weight:900;color:var(--text);margin-bottom:12px;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px;}
+.p-opts{display:flex;flex-direction:column;gap:8px;}
+.p-opt{
+  display:flex; justify-content:space-between; align-items:center;
+  background:#f4f2fb; padding:8px 10px; border-radius:12px;
+  font-size:.82rem; font-weight:600; color:var(--text); border:1px solid transparent;
+}
+.p-opt .prc{font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:900;color:var(--p1);}
+.p-opt.best{
+  background:linear-gradient(135deg,#fefce8,#fef9c3);
+  border:1px dashed #f59e0b; color:#92400e;
+}
+.p-opt.best .prc{color:#92400e;}
 
 /* CARD */
 .card{
@@ -152,6 +165,20 @@ footer{text-align:center;font-size:.7rem;color:var(--muted);padding-top:8px;font
 .d3{bottom:28%;left:3%;animation-delay:4s;}
 .d4{bottom:12%;right:4%;animation-delay:1s;}
 @keyframes fdeco{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+/* FLOATING ZALO */
+.fz{
+  position:fixed; bottom:22px; right:18px; z-index:999;
+  width:50px; height:50px; border-radius:50%; background:#0068ff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 18px rgba(0,104,255,.5); text-decoration:none;
+  animation:fzp 2.8s infinite;
+}
+@keyframes fzp{
+  0%,100%{box-shadow:0 4px 18px rgba(0,104,255,.5),0 0 0 0 rgba(0,104,255,.4);}
+  60%{box-shadow:0 4px 18px rgba(0,104,255,.5),0 0 0 9px rgba(0,104,255,0);}
+}
+.fz img{width:28px;height:28px;object-fit:contain;}
 </style>
 </head>
 <body>
@@ -174,11 +201,22 @@ footer{text-align:center;font-size:.7rem;color:var(--muted);padding-top:8px;font
   </div>
 
   <!-- PRICE -->
-  <div class="price-tag">
-    <span class="pt-emoji">💛</span>
-    <div>
-      <div class="pt-main">Chỉ 40.000đ</div>
-      <div class="pt-sub">/ Tài khoản · Bảo hành vĩnh viễn</div>
+  <div class="pricing">
+    <div class="ptier">
+      <div class="ptier-name">🎥 Quay 5s</div>
+      <div class="p-opts">
+        <div class="p-opt"><span>6 tháng</span><span class="prc">50k</span></div>
+        <div class="p-opt"><span>1 năm</span><span class="prc">80k</span></div>
+        <div class="p-opt best"><span>Vĩnh viễn ♾️</span><span class="prc">150k</span></div>
+      </div>
+    </div>
+    <div class="ptier">
+      <div class="ptier-name">🎬 Quay 15s</div>
+      <div class="p-opts">
+        <div class="p-opt"><span>6 tháng</span><span class="prc">60k</span></div>
+        <div class="p-opt"><span>1 năm</span><span class="prc">100k</span></div>
+        <div class="p-opt best"><span>Vĩnh viễn ♾️</span><span class="prc">180k</span></div>
+      </div>
     </div>
   </div>
 
@@ -190,7 +228,8 @@ footer{text-align:center;font-size:.7rem;color:var(--muted);padding-top:8px;font
     </div>
     <ul class="clist">
       <li><div class="ck">✓</div>An toàn tuyệt đối — không ảnh hưởng iCloud cá nhân</li>
-      <li><div class="ck">✓</div>Bảo hành trọn gói trong suốt quá trình sử dụng</li>
+      <li><div class="ck">✓</div>Bảo hành trong thời gian sử dụng</li>
+      <li><div class="ck">✓</div>Hỗ trợ iOS & Android</li>
       <li><div class="ck">✓</div>Hỗ trợ miễn phí kể cả khi bạn đổi máy mới</li>
       <li><div class="ck">✓</div>Kích hoạt nhanh chóng chỉ trong 2–5 phút</li>
       <li><div class="ck">✓</div>Liên hệ bất cứ lúc nào, phản hồi nhanh</li>
@@ -228,7 +267,13 @@ footer{text-align:center;font-size:.7rem;color:var(--muted);padding-top:8px;font
     CHECK FEEDBACK KHÁCH IU
   </a>
 
-  <footer>© 2025 Locket Gold Xwuan &nbsp;·&nbsp; Uy tín tạo niềm tin 💜</footer>
+  <footer>© <span id="yr">2025</span> Locket Gold Xwuan &nbsp;·&nbsp; Uy tín tạo niềm tin 💜</footer>
 </div>
+
+<a href="https://zalo.me/0822307662" target="_blank" class="fz" title="Nhắn Zalo">
+  <img src="images/zalo.png" alt="Zalo">
+</a>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
