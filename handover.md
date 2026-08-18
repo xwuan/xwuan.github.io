@@ -130,7 +130,7 @@ Giá gốc bị gạch hiển thị cùng badge SALE màu tương ứng brand.
 ## 6. VIỆC CÒN TỒN ĐỌNG / TODO
 
 - [x] Tạo trang chi tiết canva.html (đã hoàn thành)
-- [ ] Update footer year windows-pricing.html (hiện ghi cứng 2025)
+- [x] Update footer year windows-pricing.html (đã chuyển sang dynamic getFullYear())
 - [ ] Test thực tế trên iPhone SE (375px) và Android nhỏ sau khi deploy
 
 ---
