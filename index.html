@@ -214,22 +214,35 @@ body[data-current-theme="ent"] .bg-cinematic { opacity: 1; }
 .ltier ul li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 .ltier-price { font-weight: 800; color: #fff; }
 
-.locket-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
-.locket-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.locket-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+}
+.locket-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .ltag {
   font-size: 11px; padding: 5px 12px; border-radius: 100px; font-weight: 700;
   background: rgba(236, 72, 153, 0.12); border: 1px solid rgba(236, 72, 153, 0.25); color: #f472b6;
 }
 .btn-locket {
   background: linear-gradient(135deg, #d946ef, #ec4899); color: #fff;
-  padding: 11px 24px; border-radius: 999px; font-weight: 800; font-size: 13px;
-  display: inline-flex; align-items: center; gap: 6px;
-  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4); transition: 0.3s; margin-left: auto;
+  padding: 13px 24px; border-radius: 12px; font-weight: 800; font-size: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; box-sizing: border-box; text-align: center;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4); transition: 0.3s;
 }
-.locket-card:hover .btn-locket { transform: scale(1.05); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6); }
-@media(max-width: 500px) {
-  .locket-bottom { flex-direction: column; align-items: stretch; }
-  .btn-locket { margin-left: 0; justify-content: center; width: 100%; }
+.locket-card:hover .btn-locket {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+  background: linear-gradient(135deg, #e879f9, #f43f5e);
 }
 
 /* ENTERTAINMENT BLOCK (YouTube, Netflix, CapCut) */
