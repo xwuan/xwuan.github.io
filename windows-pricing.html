@@ -318,7 +318,7 @@ footer{text-align:center;font-size:.7rem;color:var(--muted);padding:22px 0 0;}
     <div class="pcard">
       <div class="pc-badge bc-green">Máy yếu / Cũ</div>
       <div class="pc-icon-wrap">
-        <img src="images/winghost.png" class="pc-icon" alt="Ghost">
+        <img src="images/winghost.png" class="pc-icon" alt="Windows Tối Ưu">
       </div>
       <h3>Windows Tối Ưu Hiệu Năng</h3>
       <p>Loại bỏ dịch vụ nền không cần, nhẹ – mượt – khởi động nhanh hơn.</p>
@@ -418,7 +418,7 @@ footer{text-align:center;font-size:.7rem;color:var(--muted);padding:22px 0 0;}
     </div>
   </div>
 
-  <footer>© 2025 Xuan Quyen &nbsp;·&nbsp; Dịch vụ cài Windows &amp; Office &nbsp;·&nbsp; Giá đã bao gồm công thợ</footer>
+  <footer>© <span id="yr"></span> Xuan Quyen &nbsp;·&nbsp; Dịch vụ cài Windows &amp; Office &nbsp;·&nbsp; Giá đã bao gồm công thợ</footer>
 </div>
 
 <a href="https://zalo.me/0822307662" target="_blank" class="fz" title="Chat Zalo">
@@ -426,6 +426,7 @@ footer{text-align:center;font-size:.7rem;color:var(--muted);padding:22px 0 0;}
 </a>
 
 <script>
+document.getElementById('yr').textContent = new Date().getFullYear();
 const obs = new IntersectionObserver(es => {
   es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }});
 },{threshold:.08});

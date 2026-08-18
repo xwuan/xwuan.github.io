@@ -1,7 +1,7 @@
-﻿# 📦 HANDOVER — xwuan.github.io
+# 📦 HANDOVER — xwuan.github.io
 
 > **Ngày bàn giao:** 2026-08-18
-> **Người bàn giao:** AI Assistant (Antigravity / Claude)
+> **Người bàn giao:** AI Assistant (Antigravity / Gemini)
 > **Dự án:** Landing page dịch vụ kỹ thuật & phần mềm — Xuan Quyen
 > **Domain:** https://ie1w3n.github.io/
 
@@ -18,10 +18,11 @@ xwuan.github.io-main/
 ├── youtube.html            # YouTube Premium
 ├── netflix.html            # Netflix 4K UHD
 ├── capcut.html             # CapCut Pro
+├── canva.html              # Canva Pro 1 Năm
 │
 ├── PROMPT-MASTER.md        # Master prompt gốc (cũ)
 ├── handover.md             # File này
-├── claude.md               # Master prompt cập nhật (dùng thay PROMPT-MASTER.md)
+├── gemini.md               # Master prompt cập nhật (dùng thay claude.md & PROMPT-MASTER.md)
 │
 └── images/
     ├── avatar.png          # Ảnh đại diện Xuan Quyen
@@ -128,7 +129,7 @@ Giá gốc bị gạch hiển thị cùng badge SALE màu tương ứng brand.
 
 ## 6. VIỆC CÒN TỒN ĐỌNG / TODO
 
-- [ ] Tạo trang chi tiết canva.html (hiện Canva Pro chỉ link Zalo trực tiếp)
+- [x] Tạo trang chi tiết canva.html (đã hoàn thành)
 - [ ] Update footer year windows-pricing.html (hiện ghi cứng 2025)
 - [ ] Test thực tế trên iPhone SE (375px) và Android nhỏ sau khi deploy
 

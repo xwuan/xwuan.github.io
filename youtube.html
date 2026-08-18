@@ -332,6 +332,11 @@
             background: #0068ff;
             box-shadow: 0 6px 0 #0052cc, 0 10px 20px rgba(0,104,255,0.3);
         }
+        .btn-zalo img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
 
         .btn-secondary {
             background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -361,6 +366,11 @@
             z-index: 999;
             box-shadow: 0 4px 12px rgba(0,104,255,0.4);
             animation: pulse 2s infinite;
+        }
+        .zalo-float img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
         }
 
         /* Animations */
@@ -554,14 +564,9 @@
 
         <div class="btn-group d-4">
             <a href="https://zalo.me/0822307662" target="_blank" class="btn btn-zalo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.24 12.08C20.24 16.5 16.66 20.08 12.24 20.08C11.13 20.08 10.08 19.86 9.13 19.46L4.24 21.08L5.86 16.19C5.46 15.24 5.24 14.19 5.24 13.08C5.24 8.66 8.82 5.08 13.24 5.08C17.66 5.08 21.24 8.66 21.24 13.08H20.24ZM12.24 4.08C7.27 4.08 3.24 8.11 3.24 13.08C3.24 14.67 3.66 16.17 4.39 17.47L2.24 22.08L6.85 19.93C8.15 20.66 9.65 21.08 11.24 21.08C16.21 21.08 20.24 17.05 20.24 12.08C20.24 7.11 16.21 4.08 11.24 4.08H12.24Z" fill="white"/>
-                    <path d="M9.74 9.58008L14.74 9.58008V11.5801H9.74V9.58008Z" fill="white"/>
-                    <path d="M9.74 12.5801L14.74 12.5801V14.5801H9.74V12.5801Z" fill="white"/>
-                </svg>
-                Liên hệ Zalo: 0822.307.662
+                <img src="images/zalo.png" alt="Zalo">
+                <span>Liên hệ Zalo: 0822.307.662</span>
             </a>
-
         </div>
 
         <div class="footer d-4">
@@ -569,12 +574,8 @@
         </div>
     </div>
 
-    <a href="https://zalo.me/0822307662" target="_blank" class="zalo-float">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.24 12.08C20.24 16.5 16.66 20.08 12.24 20.08C11.13 20.08 10.08 19.86 9.13 19.46L4.24 21.08L5.86 16.19C5.46 15.24 5.24 14.19 5.24 13.08C5.24 8.66 8.82 5.08 13.24 5.08C17.66 5.08 21.24 8.66 21.24 13.08H20.24ZM12.24 4.08C7.27 4.08 3.24 8.11 3.24 13.08C3.24 14.67 3.66 16.17 4.39 17.47L2.24 22.08L6.85 19.93C8.15 20.66 9.65 21.08 11.24 21.08C16.21 21.08 20.24 17.05 20.24 12.08C20.24 7.11 16.21 4.08 11.24 4.08H12.24Z" fill="white"/>
-            <path d="M9.74 9.58008L14.74 9.58008V11.5801H9.74V9.58008Z" fill="white"/>
-            <path d="M9.74 12.5801L14.74 12.5801V14.5801H9.74V12.5801Z" fill="white"/>
-        </svg>
+    <a href="https://zalo.me/0822307662" target="_blank" class="zalo-float" title="Nhắn Zalo">
+        <img src="images/zalo.png" alt="Zalo">
     </a>
 
     <script>

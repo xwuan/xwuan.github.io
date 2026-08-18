@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -239,9 +239,18 @@
         }
         .btn:active { transform: translateY(2px); }
         .btn-zalo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             background: #0068ff;
             color: white;
             box-shadow: 0 5px 0 #0052cc, 0 8px 16px rgba(0,104,255,0.3);
+        }
+        .btn-zalo img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
         }
         .btn-zalo:active { box-shadow: 0 2px 0 #0052cc; }
 
@@ -420,7 +429,8 @@
     <!-- BUTTON -->
     <div class="obs" style="margin-top: 8px;">
         <a href="https://zalo.me/0822307662" target="_blank" class="btn btn-zalo">
-            💬 &nbsp; Đăng ký Canva Pro qua Zalo
+            <img src="images/zalo.png" alt="Zalo">
+            <span>Đăng ký Canva Pro qua Zalo</span>
         </a>
     </div>
 

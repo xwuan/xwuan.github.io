@@ -319,9 +319,18 @@
         .btn:active { transform: translateY(2px); }
         
         .btn-zalo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             background: #0068ff;
             color: white;
             box-shadow: 0 6px 0 #0056d6, 0 8px 15px rgba(0, 104, 255, 0.3);
+        }
+        .btn-zalo img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
         }
         .btn-zalo:hover { background: #1a77ff; }
         .btn-zalo:active { box-shadow: 0 2px 0 #0056d6; }
@@ -359,7 +368,7 @@
             color: white;
             animation: pulse 2s infinite;
         }
-        .float-btn svg { width: 24px; height: 24px; fill: currentColor; }
+        .float-btn img { width: 28px; height: 28px; object-fit: contain; }
 
         /* Animations */
         @keyframes popIn {
@@ -568,7 +577,8 @@
     <!-- Buttons -->
     <div class="delay-5" style="margin-top: 24px;">
         <a href="https://zalo.me/0822307662" target="_blank" rel="noopener noreferrer" class="btn btn-zalo">
-            Nhắn tin Zalo ngay
+            <img src="images/zalo.png" alt="Zalo">
+            <span>Nhắn tin Zalo ngay</span>
         </a>
     </div>
 
@@ -578,8 +588,8 @@
 </div>
 
 <!-- Float Button -->
-<a href="https://zalo.me/0822307662" target="_blank" rel="noopener noreferrer" class="float-btn" aria-label="Chat Zalo">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.4 11.6c-1.3-4.5-5.5-7.6-10.4-7.6C5.5 4 1 8.5 1 14c0 3.1 1.6 6 4.2 7.7l-1 3.2c-.1.5.3 1 .8.8l3.6-1.5c.8.2 1.6.3 2.4.3 5.5 0 10-4.5 10-10 0-1-.2-2-.6-2.9zm-4.7 3c-.2.2-.4.4-.7.5-.5.2-1.2.3-2 .3-.7 0-1.4-.2-2-.5-.4-.2-.8-.5-1.2-.8-.4-.4-.7-.8-1-1.3-.3-.5-.5-1.1-.5-1.7 0-.7.2-1.3.5-1.8.3-.5.7-.9 1.1-1.2.5-.3 1-.5 1.6-.6.6-.1 1.2-.1 1.7 0 .5.1 1 .2 1.4.5.4.3.7.6.9 1 .2.4.3.9.3 1.4 0 .6-.2 1.1-.5 1.6-.3.5-.7.9-1.3 1.3zm1.1-2.6c-.1-.3-.3-.5-.6-.7-.3-.2-.6-.3-1-.4-.4-.1-.8-.1-1.2 0-.4.1-.7.2-1 .5-.3.2-.5.5-.7.8-.1.3-.2.7-.2 1.1 0 .4.1.8.3 1.1.2.3.5.6.8.8.4.2.8.3 1.2.3s.8-.1 1.1-.3c.3-.2.6-.4.8-.7.2-.3.3-.6.3-1 0-.4-.1-.8-.3-1.1z"/></svg>
+<a href="https://zalo.me/0822307662" target="_blank" rel="noopener noreferrer" class="float-btn" aria-label="Chat Zalo" title="Nhắn Zalo">
+    <img src="images/zalo.png" alt="Zalo">
 </a>
 
 <script>
