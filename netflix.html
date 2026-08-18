@@ -384,6 +384,51 @@
 
         /* Emojis */
         .emoji { display: inline-block; }
+
+        /* ── MOBILE RESPONSIVE ── */
+        @media (max-width: 480px) {
+            .container { padding: 20px 14px 90px; max-width: 100%; }
+
+            .title { font-size: clamp(1.4rem, 6vw, 1.75rem); }
+            .subtitle { font-size: 13px; }
+
+            /* Hero avatar */
+            .avatar { width: 80px; height: 80px; }
+
+            /* Price card */
+            .price-card { padding: 20px 16px; }
+            .price-amount { font-size: clamp(26px, 7vw, 36px); }
+
+            /* Bảng so sánh: wrapper scroll ngang */
+            .card { padding: 16px 14px; }
+            .card .table-wrap { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .table-wrap { font-size: 13px; min-width: 300px; }
+            .table-wrap th, .table-wrap td { padding: 9px 6px; white-space: nowrap; }
+
+            /* So sánh giá */
+            .price-compare { gap: 8px; }
+            .pc-label { font-size: 13px; }
+            .pc-value { font-size: 14px; }
+            .pc-value.highlight { font-size: 15px; }
+
+            /* Saving box */
+            .saving-text { font-size: 14px; }
+
+            /* Lists */
+            .list li { font-size: 13px; padding: 10px 0 10px 28px; }
+
+            /* Steps */
+            .step-title { font-size: 14px; }
+            .step-desc { font-size: 13px; }
+
+            /* Buttons */
+            .btn { padding: 14px; font-size: 15px; min-height: 50px; border-radius: 14px; }
+        }
+
+        @media (max-width: 360px) {
+            .title { font-size: 1.3rem; }
+            .price-amount { font-size: 24px; }
+        }
     </style>
 </head>
 <body>
@@ -524,9 +569,6 @@
     <div class="delay-5" style="margin-top: 24px;">
         <a href="https://zalo.me/0822307662" target="_blank" rel="noopener noreferrer" class="btn btn-zalo">
             Nhắn tin Zalo ngay
-        </a>
-        <a href="https://drive.google.com/drive/folders/18hHoMdFI_Dak6nLCD4vd-PGp1rhEQy4v?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            CHECK FEEDBACK KHÁCH IU
         </a>
     </div>
 

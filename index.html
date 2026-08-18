@@ -235,7 +235,7 @@ body[data-current-theme="ent"] .bg-cinematic { opacity: 1; }
   backdrop-filter: blur(10px);
 }
 .ent-block .sec-label { color: #f87171; }
-.ent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.ent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
 
 /* Ent Cards Base */
 .ent-card {
@@ -284,6 +284,15 @@ body[data-current-theme="ent"] .bg-cinematic { opacity: 1; }
 .ent-cc .ent-price { color: #99f6e4; }
 .ent-cc .btn-ent { background: rgba(45, 212, 191, 0.1); color: #99f6e4; border: 1px solid rgba(45, 212, 191, 0.3); }
 .ent-cc:hover .btn-ent { background: #2dd4bf; color: #000; }
+
+/* Canva Style */
+.ent-cv { background: linear-gradient(180deg, rgba(14, 10, 28, 0.9), rgba(10, 8, 20, 0.95)); border: 1px solid rgba(125, 42, 232, 0.2); }
+.ent-cv::before { background: linear-gradient(90deg, #00c4cc, #7d2ae8); }
+.ent-cv:hover { border-color: rgba(125, 42, 232, 0.5); box-shadow: 0 10px 30px rgba(125, 42, 232, 0.15); }
+.ent-cv .ent-price { color: #c4b5fd; }
+.ent-cv .btn-ent { background: rgba(125, 42, 232, 0.1); color: #c4b5fd; border: 1px solid rgba(125, 42, 232, 0.3); }
+.ent-cv:hover .btn-ent { background: linear-gradient(135deg, #00c4cc, #7d2ae8); color: #fff; }
+
 
 /* BADGES (Bridge style) */
 .bridge-block {
@@ -511,6 +520,19 @@ footer {
         </div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
         <a href="capcut.html" class="ent-detail">Xem chi tiết →</a>
+      </div>
+
+      <!-- Canva Pro -->
+      <div class="ent-card ent-cv">
+        <img src="images/canva.png" class="ent-icon" alt="Canva Pro">
+        <div class="ent-title">Canva Pro</div>
+        <div class="ent-features">
+          <span>🛡️ Bảo hành full thời gian</span>
+          <span>🎨 Mở khóa 100+ triệu templates</span>
+          <span>✨ Background remover & AI tools</span>
+        </div>
+        <div class="ent-price">130.000đ <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 1 năm</span></div>
+        <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
       </div>
     </div>
   </div>
