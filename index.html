@@ -227,6 +227,10 @@ body[data-current-theme="ent"] .bg-cinematic { opacity: 1; }
   box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4); transition: 0.3s; margin-left: auto;
 }
 .locket-card:hover .btn-locket { transform: scale(1.05); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6); }
+@media(max-width: 500px) {
+  .locket-bottom { flex-direction: column; align-items: stretch; }
+  .btn-locket { margin-left: 0; justify-content: center; width: 100%; }
+}
 
 /* ENTERTAINMENT BLOCK (YouTube, Netflix, CapCut) */
 .ent-block {
@@ -235,7 +239,8 @@ body[data-current-theme="ent"] .bg-cinematic { opacity: 1; }
   backdrop-filter: blur(10px);
 }
 .ent-block .sec-label { color: #f87171; }
-.ent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+.ent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width: 500px) { .ent-grid { grid-template-columns: 1fr; } }
 
 /* Ent Cards Base */
 .ent-card {
@@ -333,6 +338,8 @@ body[data-current-theme="ent"] .bg-cinematic { opacity: 1; }
 .cbtn.call { border-color: rgba(0, 230, 118, 0.3); background: rgba(0, 230, 118, 0.05); color: var(--green); }
 .cbtn.call:hover { background: rgba(0, 230, 118, 0.15); border-color: rgba(0, 230, 118, 0.6); box-shadow: 0 8px 20px rgba(0, 230, 118, 0.2); }
 .cbtn .call-icon { font-size: 30px; line-height: 1; }
+.cbtn.tt { border-color: rgba(255, 255, 255, 0.15); }
+.cbtn.tt:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.35); box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08); }
 
 footer {
   text-align: center; font-size: 0.75rem; color: var(--muted);
@@ -533,6 +540,7 @@ footer {
         </div>
         <div class="ent-price">130.000đ <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 1 năm</span></div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
+        <a href="canva.html" class="ent-detail">Xem chi tiết →</a>
       </div>
     </div>
   </div>
@@ -561,13 +569,16 @@ footer {
       <a href="https://www.facebook.com/xwuan1/" target="_blank" class="cbtn fb">
         <img src="images/facebook.png" alt="Facebook">Facebook
       </a>
+      <a href="https://www.tiktok.com/@xwuan2" target="_blank" class="cbtn tt">
+        <img src="images/tiktok.png" alt="TikTok">TikTok
+      </a>
       <a href="tel:0822307662" class="cbtn call">
         <span class="call-icon">📞</span>0822.307.662
       </a>
     </div>
   </div>
 
-  <footer>© <span id="yr"></span> ie.1w3n &nbsp;·&nbsp; Xuan Quyen &nbsp;·&nbsp; Dịch vụ kỹ thuật &amp; phần mềm</footer>
+  <footer>© <span id="yr"></span> xwuan.github.io &nbsp;·&nbsp; Xuan Quyen &nbsp;·&nbsp; Dịch vụ kỹ thuật &amp; phần mềm</footer>
 </div>
 
 <a href="https://zalo.me/0822307662" target="_blank" class="fz" title="Nhắn Zalo">

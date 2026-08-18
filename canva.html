@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>Canva Pro 1 Năm | Xwuan</title>
+    <meta property="og:title" content="Canva Pro 1 Năm — Xwuan">
+    <meta property="og:description" content="Canva Pro 1 năm chỉ 130k — Mở khóa toàn bộ tính năng thiết kế chuyên nghiệp. Bảo hành full thời gian.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #08060f;
+            --card: #120e1e;
+            --card2: #1a1430;
+            --border: #2a2040;
+            --c1: #00c4cc;
+            --c2: #7d2ae8;
+            --text: #ede9fe;
+            --muted: #8878b0;
+            --r: 16px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(0,196,204,.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(125,42,232,.07) 0%, transparent 50%);
+        }
+
+        h1,h2,h3,h4 { font-family: 'Syne', sans-serif; font-weight: 800; }
+
+        .container {
+            max-width: 460px;
+            margin: 0 auto;
+            padding: 24px 16px 90px;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 28px;
+            animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .avatar-wrap {
+            position: relative;
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 16px;
+        }
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--c2);
+            box-shadow: 0 0 24px rgba(125,42,232,0.35);
+        }
+        .badge {
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--bg);
+            object-fit: contain;
+            background: #fff;
+        }
+        .title {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--c1), var(--c2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .subtitle { color: var(--muted); font-size: 14px; font-weight: 500; }
+
+        /* Card */
+        .card {
+            background: var(--card);
+            border-radius: var(--r);
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .card.visible { animation: slideUp 0.5s ease forwards; }
+        .card:hover { border-color: rgba(125,42,232,0.3); }
+
+        /* Price card */
+        .price-card {
+            background: linear-gradient(160deg, var(--card2), var(--card));
+            border: 1px solid rgba(125,42,232,0.35);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--c1), var(--c2));
+        }
+        .price-badge {
+            display: inline-block;
+            background: rgba(0,196,204,0.1);
+            color: var(--c1);
+            border: 1px solid rgba(0,196,204,0.25);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .price-amount {
+            font-size: 40px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--c1), var(--c2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 8px 0;
+            line-height: 1;
+        }
+        .price-period { font-size: 15px; color: var(--muted); font-weight: 500; }
+        .price-warranty { font-size: 14px; color: #4ade80; font-weight: 500; margin-top: 10px; }
+
+        /* Card title */
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Comparison table */
+        .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 300px;
+        }
+        .table th, .table td {
+            padding: 11px 8px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .table th { color: var(--muted); font-weight: 600; }
+        .table td:nth-child(2) { text-align: center; color: var(--muted); }
+        .table td:nth-child(3) { text-align: center; color: #fff; font-weight: 600; }
+        .table tr:last-child td { border-bottom: none; }
+        .check { color: var(--c1); }
+        .cross { color: #ef4444; }
+
+        /* Price compare rows */
+        .pc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--border);
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .pc-row:last-child { border-bottom: none; }
+        .pc-label { font-size: 14px; color: var(--muted); }
+        .pc-old { text-decoration: line-through; color: var(--muted); font-size: 14px; }
+        .pc-new { font-size: 16px; font-weight: 700; background: linear-gradient(135deg, var(--c1), var(--c2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .pc-save { background: rgba(74,222,128,0.1); color: #4ade80; padding: 4px 10px; border-radius: 8px; font-weight: 600; font-size: 13px; }
+
+        /* Feature list */
+        .feature-list { list-style: none; }
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            transition: transform 0.2s;
+        }
+        .feature-list li:hover { transform: translateX(4px); }
+        .feature-list li:last-child { border-bottom: none; }
+        .list-icon { font-size: 18px; flex-shrink: 0; }
+
+        /* Steps */
+        .step { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+        .step:last-child { margin-bottom: 0; }
+        .step-num {
+            width: 28px; height: 28px; min-width: 28px;
+            background: linear-gradient(135deg, var(--c1), var(--c2));
+            color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 13px;
+        }
+        .step-text { font-size: 14px; color: var(--text); }
+        .step-text strong { color: #fff; display: block; margin-bottom: 2px; }
+
+        /* Buttons */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+            min-height: 52px;
+        }
+        .btn:active { transform: translateY(2px); }
+        .btn-zalo {
+            background: #0068ff;
+            color: white;
+            box-shadow: 0 5px 0 #0052cc, 0 8px 16px rgba(0,104,255,0.3);
+        }
+        .btn-zalo:active { box-shadow: 0 2px 0 #0052cc; }
+
+        /* Zalo Float */
+        .fz {
+            position: fixed; bottom: 22px; right: 18px; z-index: 999;
+            width: 50px; height: 50px; border-radius: 50%; background: #0068ff;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 18px rgba(0,104,255,.5); text-decoration: none;
+            animation: fzp 2.8s infinite;
+        }
+        @keyframes fzp {
+            0%,100% { box-shadow: 0 4px 18px rgba(0,104,255,.5), 0 0 0 0 rgba(0,104,255,.4); }
+            60% { box-shadow: 0 4px 18px rgba(0,104,255,.5), 0 0 0 9px rgba(0,104,255,0); }
+        }
+        .fz img { width: 28px; height: 28px; object-fit: contain; }
+
+        footer {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* Animations */
+        @keyframes popIn { 0% { opacity:0; transform:scale(0.9); } 100% { opacity:1; transform:scale(1); } }
+        @keyframes slideUp { 0% { opacity:0; transform:translateY(20px); } 100% { opacity:1; transform:translateY(0); } }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .container { padding: 20px 14px 90px; }
+            .title { font-size: clamp(1.5rem, 6.5vw, 2rem); }
+            .price-amount { font-size: clamp(28px, 8vw, 40px); }
+            .card { padding: 16px 14px; }
+            .btn { padding: 14px; font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Quay về trang chủ
+    </a>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="avatar-wrap">
+            <img src="images/avatar.png" alt="Xwuan" class="avatar">
+            <img src="images/canva.png" alt="Canva" class="badge">
+        </div>
+        <h1 class="title">Canva Pro</h1>
+        <p class="subtitle">✦ Thiết kế đẹp không cần giỏi · AI tạo ảnh · Không watermark ✦</p>
+    </div>
+
+    <!-- PRICE CARD -->
+    <div class="card price-card obs">
+        <div class="price-badge">Gói Pro · 1 Năm Đầy Đủ</div>
+        <div class="price-amount">130.000đ</div>
+        <div class="price-period">/ 1 năm</div>
+        <div class="price-warranty">🛡️ Bảo hành full thời gian sử dụng</div>
+    </div>
+
+    <!-- SO SÁNH FREE vs PRO -->
+    <div class="card obs">
+        <h2 class="card-title">🔍 SO SÁNH: Free vs Pro</h2>
+        <div class="table-wrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tính năng</th>
+                        <th>Free 😐</th>
+                        <th>Pro ✨</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Templates cao cấp</td>
+                        <td class="cross">Giới hạn</td>
+                        <td><span class="check">✅</span> 100M+ templates</td>
+                    </tr>
+                    <tr>
+                        <td>Background Remover</td>
+                        <td class="cross">Không có 🔒</td>
+                        <td><span class="check">✅</span> Xóa nền 1 click</td>
+                    </tr>
+                    <tr>
+                        <td>Magic Resize</td>
+                        <td class="cross">Không có 🔒</td>
+                        <td><span class="check">✅</span> Resize đa nền tảng</td>
+                    </tr>
+                    <tr>
+                        <td>AI tạo ảnh</td>
+                        <td class="cross">Giới hạn</td>
+                        <td><span class="check">✅</span> Dream Lab không giới hạn</td>
+                    </tr>
+                    <tr>
+                        <td>Brand Kit</td>
+                        <td class="cross">Không có 🔒</td>
+                        <td><span class="check">✅</span> Lưu bộ nhận diện thương hiệu</td>
+                    </tr>
+                    <tr>
+                        <td>Watermark xuất file</td>
+                        <td class="cross">Có watermark</td>
+                        <td><span class="check">✅</span> Sạch hoàn toàn</td>
+                    </tr>
+                    <tr>
+                        <td>Dung lượng lưu trữ</td>
+                        <td>5GB</td>
+                        <td><span class="check">✅</span> 1TB cloud</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SO SÁNH GIÁ -->
+    <div class="card obs">
+        <h2 class="card-title">💰 SO SÁNH GIÁ</h2>
+        <div class="pc-row">
+            <span class="pc-label">Giá gốc Canva Pro (1 năm):</span>
+            <span class="pc-old">~1.600.000đ</span>
+        </div>
+        <div class="pc-row">
+            <span class="pc-label">Giá tại Xwuan (1 năm):</span>
+            <span class="pc-new">130.000đ</span>
+        </div>
+        <div class="pc-row">
+            <span class="pc-label">Tiết kiệm:</span>
+            <span class="pc-save">~92% · hơn 1,4 triệu</span>
+        </div>
+    </div>
+
+    <!-- TÍNH NĂNG NỔI BẬT -->
+    <div class="card obs">
+        <h2 class="card-title">🌟 Ai nên dùng Canva Pro?</h2>
+        <ul class="feature-list">
+            <li><span class="list-icon">📱</span> Content creator làm ảnh TikTok, Instagram, Facebook</li>
+            <li><span class="list-icon">💼</span> Doanh nghiệp cần thiết kế nhanh banner, poster, logo</li>
+            <li><span class="list-icon">🎓</span> Sinh viên làm slides thuyết trình đẹp chuyên nghiệp</li>
+            <li><span class="list-icon">🛍️</span> Người bán hàng online cần ảnh sản phẩm bắt mắt</li>
+            <li><span class="list-icon">✨</span> Bất kỳ ai muốn thiết kế đẹp mà không cần học Photoshop</li>
+        </ul>
+    </div>
+
+    <!-- CAM KẾT -->
+    <div class="card obs">
+        <h2 class="card-title">💎 Cam kết từ Xwuan</h2>
+        <ul class="feature-list">
+            <li><span class="list-icon">🛡️</span> Bảo hành full thời gian sử dụng</li>
+            <li><span class="list-icon">⚡</span> Kích hoạt trong 2–5 phút</li>
+            <li><span class="list-icon">📱</span> Hỗ trợ mọi thiết bị: điện thoại, máy tính, tablet</li>
+            <li><span class="list-icon">🔄</span> Đổi tài khoản ngay nếu có lỗi</li>
+            <li><span class="list-icon">💬</span> Hỗ trợ 24/7, phản hồi nhanh</li>
+        </ul>
+    </div>
+
+    <!-- CÁCH THỨC -->
+    <div class="card obs">
+        <h2 class="card-title">🚀 Cách thức hoạt động</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>Liên hệ qua Zalo</strong>Nhắn Xwuan và cho biết bạn muốn mua Canva Pro.</div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Kích hoạt nhanh</strong>Xwuan kích hoạt Canva Pro cho tài khoản của bạn trong 2–5 phút.</div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>Thiết kế ngay · Bảo hành mãi</strong>Đăng nhập Canva và tận hưởng toàn bộ tính năng Pro.</div>
+        </div>
+    </div>
+
+    <!-- BUTTON -->
+    <div class="obs" style="margin-top: 8px;">
+        <a href="https://zalo.me/0822307662" target="_blank" class="btn btn-zalo">
+            💬 &nbsp; Đăng ký Canva Pro qua Zalo
+        </a>
+    </div>
+
+    <footer>© <span id="yr"></span> Canva Pro Xwuan · Uy tín tạo niềm tin 🎨</footer>
+</div>
+
+<!-- Float Zalo -->
+<a href="https://zalo.me/0822307662" target="_blank" class="fz" title="Nhắn Zalo">
+    <img src="images/zalo.png" alt="Zalo">
+</a>
+
+<script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.obs').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
