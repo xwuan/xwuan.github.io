@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title id="page-title">Chi Tiết Dịch Vụ | Xuan Quyen</title>
+<meta name="description" id="page-desc" content="Dịch vụ tài khoản bản quyền giá rẻ, bảo hành full thời gian tại Xuan Quyen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script src="pricing.js"></script>
+<style>
+:root {
+  --bg: #07091a;
+  --card: #0d1225;
+  --card2: #12182e;
+  --border: #1e284a;
+  --c1: #00d4ff;
+  --c2: #0055ff;
+  --brand: #00d4ff;
+  --brand2: #7d2ae8;
+  --green: #00e676;
+  --gold: #f5c842;
+  --text: #ddeeff;
+  --muted: #7890b0;
+  --r: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(0, 212, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(125, 42, 232, 0.08) 0%, transparent 40%);
+}
+h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 800; }
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 16px 90px;
+}
+
+/* TOP BACK LINK */
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--muted); font-size: 13.5px; font-weight: 600;
+  margin-bottom: 20px; transition: color 0.2s;
+}
+.back-link:hover { color: #fff; }
+
+/* HERO CARD */
+.hero-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px 20px;
+  text-align: center;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+}
+.brand-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 99px;
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  font-size: 11px; font-weight: 800; color: var(--brand);
+  margin-bottom: 14px; text-transform: uppercase;
+}
+.brand-icon-wrap {
+  width: 72px; height: 72px; margin: 0 auto 14px;
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 34px;
+  background: var(--card2);
+  border: 1.5px solid var(--border);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+.brand-icon-img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 16px;
+}
+.hero-title {
+  font-size: 1.5rem; font-weight: 800; color: #fff;
+  margin-bottom: 8px; line-height: 1.3;
+}
+.hero-desc {
+  font-size: 13px; color: var(--muted); line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* PRICE DISPLAY */
+.price-box {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 14px 16px;
+  margin-bottom: 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.price-left { text-align: left; }
+.price-current {
+  font-size: 1.45rem; font-weight: 800; color: var(--brand);
+  display: flex; align-items: baseline; gap: 4px;
+}
+.price-unit { font-size: 12px; color: var(--muted); font-weight: 500; }
+.price-old {
+  font-size: 12px; color: #6b7280; text-decoration: line-through;
+  margin-top: 2px;
+}
+.sale-pill {
+  background: #ff0055; color: #fff; font-size: 11px; font-weight: 800;
+  padding: 4px 10px; border-radius: 8px;
+}
+
+/* CTA BUTTON */
+.btn-cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; height: 50px;
+  background: linear-gradient(135deg, var(--c2), var(--c1));
+  border: none; border-radius: 14px;
+  color: #fff; font-size: 15px; font-weight: 800;
+  box-shadow: 0 5px 25px rgba(0, 212, 255, 0.35);
+  cursor: pointer; transition: transform 0.15s;
+}
+.btn-cta:active { transform: scale(0.98); }
+
+/* SECTION HEADERS */
+.sec-title {
+  font-size: 1.1rem; font-weight: 800; color: #fff;
+  margin: 22px 0 12px; display: flex; align-items: center; gap: 8px;
+}
+
+/* FEATURES GRID */
+.features-list { display: flex; flex-direction: column; gap: 10px; }
+.feat-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 14px;
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.feat-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--brand);
+}
+.feat-text h4 { font-size: 13.5px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.feat-text p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* COMPARISON TABLE */
+.comp-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; margin-bottom: 16px;
+}
+.comp-table {
+  width: 100%; border-collapse: collapse; font-size: 12.5px;
+}
+.comp-table th, .comp-table td {
+  padding: 12px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.comp-table th {
+  background: var(--card2); font-weight: 800; color: #fff;
+}
+.comp-table th:last-child { color: var(--brand); text-align: right; }
+.comp-table td:last-child { text-align: right; font-weight: 700; color: var(--green); }
+.comp-table tr:last-child td { border-bottom: none; }
+
+/* TRUST BAR */
+.trust-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;
+  margin-top: 14px;
+}
+.trust-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px 8px; text-align: center;
+}
+.trust-item span { font-size: 20px; display: block; margin-bottom: 4px; }
+.trust-item h5 { font-size: 11px; font-weight: 700; color: #fff; }
+.trust-item p { font-size: 10px; color: var(--muted); }
+
+/* FAQ ACCORDION */
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+.faq-q {
+  padding: 14px; font-size: 13px; font-weight: 700; color: #fff;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; user-select: none;
+}
+.faq-a {
+  padding: 0 14px 14px; font-size: 12px; color: var(--muted);
+  line-height: 1.6; display: none; border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 10px;
+}
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-icon { transform: rotate(180deg); }
+.faq-icon { transition: transform 0.2s; font-size: 11px; color: var(--muted); }
+
+/* FOOTER & FLOAT ZALO */
+footer {
+  text-align: center; font-size: 11.5px; color: var(--muted);
+  margin-top: 30px;
+}
+.fz {
+  position: fixed; bottom: 22px; right: 18px; z-index: 999;
+  width: 52px; height: 52px; background: #0068ff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 25px rgba(0, 104, 255, 0.45);
+  animation: pulse 2s infinite;
+}
+.fz img { width: 30px; height: 30px; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,104,255,0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(0,104,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,104,255,0); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  
+  <a href="index.html" class="back-link">← Quay lại trang chủ</a>
+
+  <!-- HERO CARD -->
+  <div class="hero-card">
+    <div class="brand-badge" id="brand-badge">Bản Quyền Chính Hãng</div>
+    <div class="brand-icon-wrap" id="brand-icon-wrap">
+      <span id="brand-emoji">✨</span>
+    </div>
+    <h1 class="hero-title" id="item-name">Tên Dịch Vụ</h1>
+    <p class="hero-desc" id="item-desc">Mở khóa toàn bộ tính năng cao cấp bản quyền với mức giá tiết kiệm tối đa. Hỗ trợ kích hoạt nhanh và bảo hành uy tín suốt thời gian sử dụng.</p>
+
+    <!-- PRICE BOX -->
+    <div class="price-box">
+      <div class="price-left">
+        <div class="price-current">
+          <span id="item-price">...</span>
+          <span class="price-unit" id="item-unit"></span>
+        </div>
+        <div class="price-old" id="item-old-wrap" style="display:none;">
+          Giá gốc: <s id="item-old"></s>
+        </div>
+      </div>
+      <div class="sale-pill" id="item-sale-pill" style="display:none;">SALE</div>
+    </div>
+
+    <!-- CTA BUTTON -->
+    <a href="https://zalo.me/0822307662" target="_blank" class="btn-cta" id="cta-link">
+      <span>💬</span> Mua Ngay Qua Zalo
+    </a>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust-grid">
+    <div class="trust-item">
+      <span>⚡</span>
+      <h5>Siêu Tốc</h5>
+      <p>Cấp sau 5 phút</p>
+    </div>
+    <div class="trust-item">
+      <span>🛡️</span>
+      <h5>Bảo Hành</h5>
+      <p id="trust-warranty">Full thời gian</p>
+    </div>
+    <div class="trust-item">
+      <span>💬</span>
+      <h5>Hỗ Trợ</h5>
+      <p>24/7 tận tâm</p>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="sec-title">✨ Tính Năng Nổi Bật</div>
+  <div class="features-list" id="features-list"></div>
+
+  <!-- COMPARISON -->
+  <div class="sec-title">📊 So Sánh Lợi Ích</div>
+  <div class="comp-card">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Tiêu chí</th>
+          <th>Mua trực tiếp</th>
+          <th>Tại Xuan Quyen</th>
+        </tr>
+      </thead>
+      <tbody id="comp-body"></tbody>
+    </table>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec-title">❓ Câu Hỏi Thường Gặp</div>
+  <div class="faq-list" id="faq-list"></div>
+
+  <footer>
+    © <span id="yr"></span> xwuan.github.io · Xuan Quyen · Dịch vụ kỹ thuật &amp; phần mềm
+  </footer>
+
+</div>
+
+<!-- FLOAT ZALO -->
+<a href="https://zalo.me/0822307662" target="_blank" class="fz" id="fz-link" title="Nhắn Zalo">
+  <img src="images/zalo.png" alt="Zalo" onerror="this.parentElement.innerHTML='💬'">
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Toggle FAQ
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+// RENDER CHI TIẾT SẢN PHẨM TỪ CONFIG
+function renderDetailPage() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const cfg = window.SITE_CONFIG || window.DEFAULT_SITE_CONFIG;
+  if (!cfg) return;
+
+  // Cập nhật Zalo links
+  if (cfg.contact) {
+    const zalo = cfg.contact.zaloLink || `https://zalo.me/${cfg.contact.zalo || '0822307662'}`;
+    const fz = document.getElementById('fz-link');
+    if (fz) fz.href = zalo;
+  }
+
+  // Tìm sản phẩm trong customProducts hoặc services
+  let p = null;
+  if (cfg.customProducts && cfg.customProducts.length) {
+    p = cfg.customProducts.find(x => x.id === id);
+  }
+  if (!p && cfg.services && cfg.services[id]) {
+    p = cfg.services[id];
+  }
+
+  // Fallback nếu không có ID: lấy sản phẩm đầu tiên hoặc tạo mẫu
+  if (!p) {
+    if (cfg.customProducts && cfg.customProducts[0]) {
+      p = cfg.customProducts[0];
+    } else {
+      p = {
+        name: "Dịch Vụ Bản Quyền",
+        price: "120.000đ",
+        unit: "/ năm",
+        originalPrice: "240.000đ",
+        isSale: true,
+        saleTag: "-50%",
+        warranty: "Bảo hành full thời gian",
+        tagline: "Mở khóa toàn bộ tính năng cao cấp với chi phí tiết kiệm nhất. Kích hoạt nhanh chóng và hỗ trợ 24/7.",
+        features: [
+          { title: "Mở khóa 100% tính năng", desc: "Sử dụng đầy đủ mọi công cụ cao cấp nhất không bị giới hạn." },
+          { title: "Bảo hành 1 đổi 1", desc: "Cam kết hỗ trợ đổi mới ngay lập tức nếu có bất kỳ trục trặc nào." },
+          { title: "Kích hoạt siêu tốc", desc: "Nhận tài khoản và hướng dẫn cài đặt chỉ trong 5 - 10 phút." },
+          { title: "Hỗ trợ 24/7 qua Zalo", desc: "Kỹ thuật viên Xuan Quyen hỗ trợ nhiệt tình mọi lúc mọi nơi." }
+        ],
+        comparison: [
+          { name: "Chi phí", orig: "Đắt gấp 2 - 3 lần", shop: "Tiết kiệm tới 60%" },
+          { name: "Bảo hành", orig: "Thủ tục phức tạp", shop: "Đổi 1-1 ngay lập tức" },
+          { name: "Hỗ trợ", orig: "Chờ email tiếng Anh", shop: "Zalo tiếng Việt 24/7" }
+        ],
+        faqs: [
+          { q: "Tôi sẽ nhận tài khoản thế nào sau khi mua?", a: "Sau khi bạn thanh toán qua Zalo, chúng tôi sẽ gửi thông tin tài khoản và hướng dẫn đăng nhập chi tiết ngay trong 5 phút." },
+          { q: "Chế độ bảo hành hoạt động ra sao?", a: "Toàn bộ tài khoản được bảo hành trọn vẹn trong suốt thời gian gói dịch vụ bạn đăng ký. Nếu có lỗi, chúng tôi xử lý hoặc cấp mới ngay." },
+          { q: "Tôi có thể dùng trên mấy thiết bị?", a: "Bạn có thể đăng nhập trên máy tính, điện thoại hoặc máy tính bảng tùy thuộc vào chính sách của từng gói dịch vụ." }
+        ]
+      };
+    }
+  }
+
+  // BIND DATA
+  document.getElementById('page-title').textContent = `${p.name} | Xuan Quyen`;
+  document.getElementById('item-name').textContent = p.name;
+  document.getElementById('item-price').textContent = p.price;
+  document.getElementById('item-unit').textContent = p.unit || "";
+  document.getElementById('trust-warranty').textContent = p.warranty || "Full thời gian";
+
+  if (p.tagline) {
+    document.getElementById('item-desc').textContent = p.tagline;
+  }
+
+  // Giá cũ & Sale pill
+  if (p.originalPrice) {
+    document.getElementById('item-old-wrap').style.display = 'block';
+    document.getElementById('item-old').textContent = p.originalPrice;
+  }
+  if (p.isSale) {
+    const pill = document.getElementById('item-sale-pill');
+    pill.style.display = 'inline-block';
+    pill.textContent = p.saleTag || "SALE";
+  }
+
+  // Brand Icon / Image
+  const iconWrap = document.getElementById('brand-icon-wrap');
+  if (p.icon && (p.icon.startsWith('http') || p.icon.includes('/'))) {
+    iconWrap.innerHTML = `<img src="${p.icon}" class="brand-icon-img" alt="${p.name}" onerror="this.parentElement.innerHTML='✨'">`;
+  } else if (p.icon) {
+    document.getElementById('brand-emoji').textContent = p.icon;
+  }
+
+  // CTA link
+  const cta = document.getElementById('cta-link');
+  const zaloUrl = (cfg.contact && cfg.contact.zaloLink) || "https://zalo.me/0822307662";
+  cta.href = `${zaloUrl}?text=${encodeURIComponent('Chào bạn, mình muốn mua gói ' + p.name)}`;
+
+  // Features list
+  const featBox = document.getElementById('features-list');
+  const feats = Array.isArray(p.features) ? p.features : [
+    { title: "Mở khóa trọn bộ tính năng", desc: "Không giới hạn công cụ cao cấp nhất." },
+    { title: "Bảo hành 1 đổi 1", desc: "Hỗ trợ nhanh suốt thời gian dùng." },
+    { title: "Kích hoạt 5 phút", desc: "Nhận tài khoản nhanh gọn qua Zalo." },
+    { title: "Tiết kiệm chi phí", desc: "Mức giá tối ưu nhất thị trường." }
+  ];
+  featBox.innerHTML = feats.map((f, i) => {
+    const title = typeof f === 'string' ? f : f.title;
+    const desc = typeof f === 'string' ? "Đảm bảo tính năng cao cấp ổn định 100%." : f.desc;
+    const icons = ["⚡", "🛡️", "💎", "🚀", "🎯"];
+    return `
+      <div class="feat-item">
+        <div class="feat-icon">${icons[i % icons.length]}</div>
+        <div class="feat-text">
+          <h4>${title}</h4>
+          <p>${desc}</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Comparison table
+  const compBox = document.getElementById('comp-body');
+  const comps = Array.isArray(p.comparison) && p.comparison.length ? p.comparison : [
+    { name: "Chi phí", orig: "Giá hãng rất cao", shop: "Tiết kiệm 50% – 70%" },
+    { name: "Bảo hành", orig: "Khó liên hệ", shop: "1 đổi 1 siêu tốc" },
+    { name: "Hỗ trợ kỹ thuật", orig: "Email tiếng Anh chậm", shop: "Zalo tiếng Việt 24/7" }
+  ];
+  compBox.innerHTML = comps.map(c => `
+    <tr>
+      <td><strong>${c.name}</strong></td>
+      <td style="color:#9ca3af;">${c.orig}</td>
+      <td>${c.shop}</td>
+    </tr>
+  `).join('');
+
+  // FAQs
+  const faqBox = document.getElementById('faq-list');
+  const faqs = Array.isArray(p.faqs) && p.faqs.length ? p.faqs : [
+    { q: "Sau khi thanh toán tôi nhận tài khoản thế nào?", a: "Xuan Quyen sẽ gửi thông tin đăng nhập hoặc link kích hoạt trực tiếp qua Zalo chỉ sau 5 - 10 phút." },
+    { q: "Chế độ bảo hành của gói này ra sao?", a: "Bảo hành 1 đổi 1 trong toàn bộ thời gian đăng ký. Nếu có bất kỳ vấn đề gì, bạn chỉ cần nhắn Zalo là được đổi mới ngay." },
+    { q: "Tôi có được hỗ trợ cài đặt không?", a: "Có! Chúng tôi hỗ trợ hướng dẫn tận tình, thậm chí hỗ trợ UltraViewer / TeamViewer nếu bạn cần cài đặt trên máy tính." }
+  ];
+  faqBox.innerHTML = faqs.map(f => `
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>${f.q}</span>
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-a">${f.a}</div>
+    </div>
+  `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', renderDetailPage);
+// Re-render when pricing.js updates from Firebase
+window.addEventListener('load', () => {
+  setTimeout(renderDetailPage, 400);
+});
+</script>
+</body>
+</html>

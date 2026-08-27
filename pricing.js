@@ -425,9 +425,14 @@
           ${saleHtml}
           ${p.price} <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">${p.unit || ""}</span>
         </div>
-        <a href="${p.orderUrl || window.SITE_CONFIG.contact.zaloLink}" class="btn-ent" style="background:rgba(0,212,255,0.15);color:#00d4ff;border:1px solid rgba(0,212,255,0.4);">
-          Mua ngay qua Zalo
-        </a>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">
+          <a href="detail.html?id=${p.id}" class="btn-ent" style="background:rgba(255,255,255,0.06);color:#fff;border:1px solid rgba(255,255,255,0.2);text-align:center;font-size:12px;padding:8px 0;">
+            🔍 Chi tiết
+          </a>
+          <a href="${p.orderUrl || window.SITE_CONFIG.contact.zaloLink}" class="btn-ent" style="background:rgba(0,212,255,0.15);color:#00d4ff;border:1px solid rgba(0,212,255,0.4);text-align:center;font-size:12px;padding:8px 0;">
+            Mua Zalo
+          </a>
+        </div>
       `;
       entGrid.appendChild(card);
     });

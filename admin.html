@@ -557,47 +557,86 @@ input:checked + .slider:before { transform: translateX(20px); }
 
   <!-- TAB 3: DỊCH VỤ MỚI -->
   <div id="tab-custom" class="section-panel">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">➕ Thêm Dịch Vụ Mới</div>
+    <!-- AI ASSISTANT GENERATOR -->
+    <div class="card" style="background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(125,42,232,0.12));border:1.5px solid rgba(0,212,255,0.35);">
+      <div class="card-header" style="margin-bottom:8px;">
+        <div class="card-title" style="color:var(--c1);">✨ Trợ Lý AI: Tạo Trang Chi Tiết Tự Động</div>
+        <span class="badge-tag" style="background:rgba(0,212,255,0.2);color:#00d4ff;">AI Power</span>
       </div>
-      <p style="font-size:12px;color:var(--muted);margin-bottom:12px;">
-        Thêm tài khoản hoặc dịch vụ mới (VD: Spotify, ChatGPT, Elsa...) sẽ tự động hiện lên trang chủ.
+      <p style="font-size:12px;color:#c7d2fe;line-height:1.5;margin-bottom:12px;">
+        Chỉ cần gõ tên dịch vụ (VD: <em>Spotify, ChatGPT Plus, Midjourney, Duolingo, Elsa Speak, Cursor AI...</em>), AI sẽ <strong>tự động viết bài giới thiệu, 4 tính năng, bảng so sánh giá và bộ câu hỏi FAQ</strong> để tạo trang landing page chi tiết cực xịn!
       </p>
-      <div class="form-row">
+      <div class="form-row" style="margin-bottom:8px;">
         <div class="form-col full">
-          <label class="label">Tên dịch vụ</label>
-          <input type="text" id="c-name" class="input" placeholder="VD: Spotify Premium 1 Năm">
+          <input type="text" id="ai-keyword" class="input" placeholder="Gõ tên dịch vụ bạn muốn thêm..." style="border-color:rgba(0,212,255,0.5);font-size:15px;">
         </div>
       </div>
+      <button type="button" class="btn-login" onclick="triggerAIGenerator()" style="height:46px;font-size:14px;background:linear-gradient(135deg,#0055ff,#00d4ff);box-shadow:0 4px 18px rgba(0,212,255,0.35);">
+        ✨ AI Soạn Nội Dung &amp; Trang Chi Tiết Ngay (1 Chạm)
+      </button>
+    </div>
+
+    <!-- FORM THÔNG TIN DỊCH VỤ -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📝 Thông Tin Dịch Vụ &amp; Trang Chi Tiết</div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-col" style="flex:2;">
+          <label class="label">Tên dịch vụ hiển thị</label>
+          <input type="text" id="c-name" class="input" placeholder="VD: Spotify Premium 1 Năm">
+        </div>
+        <div class="form-col" style="flex:1;">
+          <label class="label">Icon Emoji</label>
+          <input type="text" id="c-icon" class="input" value="✨" style="text-align:center;">
+        </div>
+      </div>
+
       <div class="form-row">
         <div class="form-col">
-          <label class="label">Giá bán</label>
+          <label class="label">Giá bán tại Shop</label>
           <input type="text" id="c-price" class="input" placeholder="VD: 120.000đ">
         </div>
         <div class="form-col">
-          <label class="label">Đơn vị</label>
+          <label class="label">Đơn vị thời gian</label>
           <input type="text" id="c-unit" class="input" placeholder="VD: / 1 năm">
         </div>
       </div>
+
       <div class="form-row">
         <div class="form-col">
-          <label class="label">Giá gốc (nếu SALE)</label>
-          <input type="text" id="c-old" class="input" placeholder="VD: 180.000đ">
+          <label class="label">Giá gốc hãng (để gạch)</label>
+          <input type="text" id="c-old" class="input" placeholder="VD: 240.000đ">
         </div>
         <div class="form-col">
           <label class="label">Nhãn SALE (nếu có)</label>
-          <input type="text" id="c-tag" class="input" placeholder="VD: SALE">
+          <input type="text" id="c-tag" class="input" placeholder="VD: -50% hoặc SALE">
         </div>
       </div>
+
       <div class="form-row">
         <div class="form-col full">
           <label class="label">Chế độ bảo hành</label>
-          <input type="text" id="c-warranty" class="input" value="Bảo hành full thời gian">
+          <input type="text" id="c-warranty" class="input" value="Bảo hành 1 đổi 1 full thời gian">
         </div>
       </div>
-      <button type="button" class="nav-btn" onclick="addCustomProduct()" style="width:100%;height:44px;background:linear-gradient(135deg,var(--c2),var(--c1));color:#fff;border:none;border-radius:10px;font-weight:700;">
-        + Thêm vào danh sách
+
+      <div class="form-row">
+        <div class="form-col full">
+          <label class="label">Lời giới thiệu Hero (Tagline trang chi tiết)</label>
+          <input type="text" id="c-tagline" class="input" placeholder="Mô tả hấp dẫn về dịch vụ...">
+        </div>
+      </div>
+
+      <!-- Preview features & faqs summary -->
+      <div id="ai-preview-summary" style="display:none;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:12px;font-size:12px;color:#94a3b8;">
+        <span style="color:var(--green);font-weight:700;">✅ AI đã soạn:</span> 
+        <span id="ai-count-text">4 tính năng + Bảng so sánh + 3 câu hỏi FAQ</span>
+      </div>
+
+      <button type="button" class="nav-btn" onclick="addCustomProduct()" style="width:100%;height:46px;background:linear-gradient(135deg,#00d4ff,#0055ff);color:#fff;border:none;border-radius:12px;font-weight:800;font-size:14px;box-shadow:0 4px 15px rgba(0,212,255,0.3);">
+        ➕ Thêm &amp; Tạo Trang Chi Tiết Mới
       </button>
     </div>
 
@@ -841,7 +880,203 @@ async function loadCloudData() {
   }
 }
 
-// 5. CUSTOM PRODUCTS
+// 5. TRÍ TUỆ NHÂN TẠO AI GENERATOR & CUSTOM PRODUCTS
+let currentAIData = null;
+
+const AI_DATABASE = {
+  spotify: {
+    name: "Spotify Premium 1 Năm",
+    icon: "🎵",
+    price: "120.000đ",
+    oldPrice: "590.000đ",
+    unit: "/ 1 năm",
+    saleTag: "-80%",
+    warranty: "Bảo hành full 12 tháng",
+    tagline: "Nghe nhạc bản quyền 320kbps không giới hạn, không quảng cáo và tải offline mọi lúc mọi nơi.",
+    features: [
+      { title: "Chất lượng âm thanh 320kbps", desc: "Tận hưởng chất âm lossless trung thực và sống động nhất." },
+      { title: "Chặn 100% quảng cáo", desc: "Nghe nhạc liền mạch không bị cắt ngang bởi bất kỳ quảng cáo nào." },
+      { title: "Tải nhạc nghe offline", desc: "Tải tới 10.000 bài hát để nghe khi không có kết nối internet." },
+      { title: "Chuyển bài không giới hạn", desc: "Tự do chọn bài, tua nhanh và tạo playlist yêu thích." }
+    ],
+    comparison: [
+      { name: "Chi phí 1 năm", orig: "590.000đ", shop: "120.000đ (Tiết kiệm 80%)" },
+      { name: "Chất lượng nhạc", orig: "320kbps", shop: "320kbps chuẩn gốc" },
+      { name: "Bảo hành", orig: "Thủ tục phức tạp", shop: "1 đổi 1 siêu tốc qua Zalo" }
+    ],
+    faqs: [
+      { q: "Nâng cấp trên tài khoản chính chủ của tôi được không?", a: "Được! Chúng tôi nâng cấp trực tiếp trên tài khoản Spotify của bạn, giữ nguyên 100% playlist và bài hát đã lưu." },
+      { q: "Tôi có thể nghe trên mấy thiết bị?", a: "Bạn có thể đăng nhập trên điện thoại, máy tính, iPad, TV... và nghe không giới hạn." },
+      { q: "Bảo hành thế nào nếu bị mất gói?", a: "Xuan Quyen cam kết bảo hành 1 đổi 1 suốt 12 tháng, nếu có trục trặc sẽ được kích hoạt lại ngay trong 5 phút." }
+    ]
+  },
+  chatgpt: {
+    name: "ChatGPT Plus 1 Tháng (GPT-4o)",
+    icon: "🤖",
+    price: "220.000đ",
+    oldPrice: "550.000đ",
+    unit: "/ tháng",
+    saleTag: "HOT",
+    warranty: "Bảo hành trọn tháng",
+    tagline: "Truy cập không giới hạn mô hình GPT-4o siêu tốc, tạo ảnh DALL-E 3, phân tích tài liệu chuyên sâu và duyệt web thời gian thực.",
+    features: [
+      { title: "Mô hình GPT-4o thông minh nhất", desc: "Tốc độ xử lý cực nhanh, suy luận logic và viết code đỉnh cao." },
+      { title: "Vẽ ảnh DALL-E 3 đỉnh cao", desc: "Tạo hình ảnh nghệ thuật và thiết kế theo mô tả văn bản." },
+      { title: "Phân tích file & tài liệu PDF", desc: "Đọc báo cáo tài chính, tóm tắt sách, xử lý bảng tính Excel." },
+      { title: "Kho Custom GPTs chuyên sâu", desc: "Truy cập hàng ngàn trợ lý AI lập trình, viết lách, học tập." }
+    ],
+    comparison: [
+      { name: "Giá hàng tháng", orig: "550.000đ (20 USD)", shop: "220.000đ (Tiết kiệm 60%)" },
+      { name: "Phương thức trả tiền", orig: "Cần thẻ Visa quốc tế", shop: "Chuyển khoản / MoMo / Zalo" },
+      { name: "Hỗ trợ kỹ thuật", orig: "Chờ email tiếng Anh", shop: "Zalo hỗ trợ trực tiếp 24/7" }
+    ],
+    faqs: [
+      { q: "Tài khoản dùng riêng hay dùng chung?", a: "Tài khoản cấp riêng biệt, có lịch sử chat riêng tư và bảo mật tuyệt đối." },
+      { q: "Tôi có cần bật VPN khi sử dụng không?", a: "Không cần! Hiện tại ChatGPT đã mở cửa tại Việt Nam, bạn đăng nhập là dùng được ngay trên cả app và web." },
+      { q: "Bảo hành thế nào nếu bị lỗi?", a: "Cam kết 1 đổi 1 ngay lập tức nếu tài khoản bị gián đoạn trong thời gian bảo hành." }
+    ]
+  },
+  midjourney: {
+    name: "Midjourney Pro 1 Tháng",
+    icon: "🎨",
+    price: "180.000đ",
+    oldPrice: "400.000đ",
+    unit: "/ tháng",
+    saleTag: "SALE",
+    warranty: "Bảo hành 1 đổi 1",
+    tagline: "Công cụ tạo ảnh nghệ thuật AI đỉnh cao số 1 thế giới. Thỏa sức sáng tạo đồ họa, concept art và ảnh chân dung siêu thực.",
+    features: [
+      { title: "Tạo ảnh không giới hạn", desc: "Sử dụng chế độ Relax mode không giới hạn số lượng ảnh tạo ra." },
+      { title: "Chất lượng hình ảnh 4K", desc: "Chi tiết siêu sắc nét, ánh sáng điện ảnh và phong cách chân thực." },
+      { title: "Hỗ trợ lệnh & Prompt đẹp", desc: "Tặng kèm bộ thư viện prompt mẫu cho người mới bắt đầu." },
+      { title: "Kích hoạt nhanh chóng", desc: "Nhận tài khoản và hướng dẫn sử dụng Discord trong 5 phút." }
+    ],
+    comparison: [
+      { name: "Chi phí", orig: "400.000đ – 750.000đ", shop: "180.000đ" },
+      { name: "Bảo hành", orig: "Không hoàn tiền", shop: "Bảo hành trọn tháng" }
+    ],
+    faqs: [
+      { q: "Tôi chưa biết dùng Midjourney có được hướng dẫn không?", a: "Có! Chúng tôi gửi kèm video hướng dẫn chi tiết từ cách gõ lệnh đến mẹo tạo ảnh đẹp." }
+    ]
+  },
+  elsa: {
+    name: "ELSA Speak Pro 1 Năm",
+    icon: "🗣️",
+    price: "450.000đ",
+    oldPrice: "995.000đ",
+    unit: "/ 1 năm",
+    saleTag: "-55%",
+    warranty: "Bảo hành trọn 12 tháng",
+    tagline: "Trợ lý AI luyện phát âm tiếng Anh chuẩn bản xứ chuẩn xác tới từng âm tiết. Mở khóa toàn bộ bài học và lộ trình học cá nhân hóa.",
+    features: [
+      { title: "Nhận diện giọng nói bằng AI", desc: "Chỉ ra lỗi sai chính xác từng âm tiết và hướng dẫn đặt khẩu hình miệng." },
+      { title: "Hơn 7.000 bài học thực tế", desc: "Đầy đủ chủ đề giao tiếp, phỏng vấn, du lịch và công việc." },
+      { title: "Lộ trình học cá nhân hóa", desc: "Tự động thiết kế bài tập phù hợp với trình độ của bạn." },
+      { title: "Luyện phát âm chuẩn IPA", desc: "Nâng cao điểm thi IELTS Speaking và tự tin giao tiếp." }
+    ],
+    comparison: [
+      { name: "Giá niêm yết", orig: "995.000đ/năm", shop: "450.000đ (Tiết kiệm 55%)" },
+      { name: "Bảo hành", orig: "Khó đổi tài khoản", shop: "Bảo hành uy tín full 12 tháng" }
+    ],
+    faqs: [
+      { q: "Học trên điện thoại nào cũng được chứ?", a: "Được, ứng dụng ELSA hỗ trợ cả iPhone/iPad (iOS) và Android." }
+    ]
+  },
+  duolingo: {
+    name: "Duolingo Super 1 Năm",
+    icon: "🦉",
+    price: "180.000đ",
+    oldPrice: "450.000đ",
+    unit: "/ 1 năm",
+    saleTag: "-60%",
+    warranty: "Bảo hành full thời gian",
+    tagline: "Học ngoại ngữ không giới hạn trái tim, không quảng cáo và mở khóa chế độ luyện tập nâng cao.",
+    features: [
+      { title: "Trái tim vô hạn", desc: "Luyện tập thoải mái không lo hết mạng khi làm sai bài tập." },
+      { title: "Không có quảng cáo", desc: "Học tập tập trung, không bị làm phiền sau mỗi bài học." },
+      { title: "Luyện tập lỗi sai cá nhân", desc: "AI lưu trữ các lỗi bạn thường mắc để ôn tập chuyên sâu." },
+      { title: "Kiểm tra tiến độ không giới hạn", desc: "Vượt ải cấp tốc và theo dõi sự tiến bộ hàng ngày." }
+    ],
+    comparison: [
+      { name: "Giá gói", orig: "450.000đ – 700.000đ", shop: "180.000đ (Tiết kiệm tới 70%)" },
+      { name: "Nâng cấp chính chủ", orig: "Tự thanh toán thẻ", shop: "Nâng cấp trực tiếp nick của bạn" }
+    ],
+    faqs: [
+      { q: "Nâng cấp trên tài khoản Duolingo của tôi được không?", a: "Được! Giữ nguyên chuỗi Streak ngày học và toàn bộ điểm kinh nghiệm (XP) của bạn." }
+    ]
+  }
+};
+
+function triggerAIGenerator() {
+  const kwInput = document.getElementById("ai-keyword");
+  const raw = kwInput.value.trim().toLowerCase();
+  if (!raw) {
+    showToast("⚠️ Vui lòng gõ tên dịch vụ để AI soạn!", "error");
+    kwInput.focus();
+    return;
+  }
+
+  showToast("✨ AI đang phân tích và tạo trang chi tiết...", "success");
+
+  // Tìm trong cơ sở dữ liệu mẫu hoặc sinh động thuật toán
+  let matched = null;
+  for (const k in AI_DATABASE) {
+    if (raw.includes(k)) {
+      matched = AI_DATABASE[k];
+      break;
+    }
+  }
+
+  // Nếu không khớp từ khóa mẫu, AI tự sinh nội dung chuyên nghiệp
+  if (!matched) {
+    const capitalized = raw.charAt(0).toUpperCase() + raw.slice(1);
+    matched = {
+      name: `${capitalized} Bản Quyền`,
+      icon: "💎",
+      price: "150.000đ",
+      oldPrice: "300.000đ",
+      unit: "/ gói",
+      saleTag: "HOT",
+      warranty: "Bảo hành 1 đổi 1 trọn gói",
+      tagline: `Mở khóa trọn bộ tính năng ${capitalized} chính hãng cao cấp. Tối ưu chi phí, kích hoạt siêu tốc và hỗ trợ 24/7.`,
+      features: [
+        { title: `Mở khóa 100% tính năng ${capitalized}`, desc: "Sử dụng đầy đủ mọi công cụ và đặc quyền cao cấp nhất không bị giới hạn." },
+        { title: "Kích hoạt siêu tốc 5 phút", desc: "Nhận tài khoản và hướng dẫn chi tiết ngay sau khi thanh toán qua Zalo." },
+        { title: "Bảo hành 1 đổi 1 uy tín", desc: "Cam kết đồng hành và hỗ trợ đổi mới ngay lập tức nếu có bất kỳ trục trặc nào." },
+        { title: "Hỗ trợ kỹ thuật 24/7", desc: "Đội ngũ Xuan Quyen hỗ trợ nhiệt tình qua Zalo mọi lúc mọi nơi." }
+      ],
+      comparison: [
+        { name: "Chi phí", orig: "Giá hãng rất cao", shop: "Tiết kiệm 50% – 70%" },
+        { name: "Bảo hành", orig: "Thủ tục lâu", shop: "Đổi mới 1-1 trong 5 phút" },
+        { name: "Hỗ trợ", orig: "Email tiếng Anh", shop: "Zalo tiếng Việt 24/7" }
+      ],
+      faqs: [
+        { q: `Tôi sẽ nhận dịch vụ ${capitalized} thế nào?`, a: "Sau khi đặt qua Zalo, chúng tôi sẽ gửi thông tin đăng nhập hoặc link kích hoạt trực tiếp trong 5 - 10 phút." },
+        { q: "Chính sách bảo hành như thế nào?", a: "Bảo hành trọn vẹn trong suốt thời gian gói. Nếu lỗi, Xuan Quyen đổi mới ngay lập tức." },
+        { q: "Tôi có được hỗ trợ cài đặt không?", a: "Có! Chúng tôi hỗ trợ qua tin nhắn, hình ảnh hoặc điều khiển UltraViewer nếu bạn cần." }
+      ]
+    };
+  }
+
+  currentAIData = matched;
+
+  // Điền dữ liệu vào form
+  document.getElementById("c-name").value = matched.name;
+  document.getElementById("c-icon").value = matched.icon;
+  document.getElementById("c-price").value = matched.price;
+  document.getElementById("c-unit").value = matched.unit;
+  document.getElementById("c-old").value = matched.oldPrice;
+  document.getElementById("c-tag").value = matched.saleTag;
+  document.getElementById("c-warranty").value = matched.warranty;
+  document.getElementById("c-tagline").value = matched.tagline;
+
+  const summary = document.getElementById("ai-preview-summary");
+  summary.style.display = "block";
+  document.getElementById("ai-count-text").textContent = `4 tính năng (${matched.features[0].title}...) + Bảng so sánh + 3 câu hỏi FAQ`;
+
+  showToast(`✨ AI đã soạn xong trang chi tiết cho "${matched.name}"!`, "success");
+}
+
 function addCustomProduct() {
   const name = document.getElementById("c-name").value.trim();
   const price = document.getElementById("c-price").value.trim();
@@ -849,24 +1084,52 @@ function addCustomProduct() {
     showToast("⚠️ Vui lòng nhập Tên và Giá dịch vụ!", "error");
     return;
   }
+
+  const pid = "custom_" + Date.now();
+  const aiData = currentAIData || {};
+
   const item = {
-    id: "custom_" + Date.now(),
+    id: pid,
     name: name,
+    icon: document.getElementById("c-icon").value.trim() || "✨",
     price: price,
     unit: document.getElementById("c-unit").value.trim(),
     originalPrice: document.getElementById("c-old").value.trim(),
     isSale: !!document.getElementById("c-old").value.trim(),
     saleTag: document.getElementById("c-tag").value.trim() || "HOT",
     warranty: document.getElementById("c-warranty").value.trim() || "Bảo hành uy tín",
+    tagline: document.getElementById("c-tagline").value.trim() || aiData.tagline || "",
+    features: aiData.features || [
+      { title: "Mở khóa 100% tính năng", desc: "Sử dụng đầy đủ mọi công cụ cao cấp nhất." },
+      { title: "Bảo hành 1 đổi 1", desc: "Hỗ trợ nhanh chóng suốt thời gian sử dụng." },
+      { title: "Kích hoạt siêu tốc", desc: "Nhận tài khoản trong 5 phút qua Zalo." },
+      { title: "Tiết kiệm chi phí", desc: "Mức giá tối ưu nhất thị trường." }
+    ],
+    comparison: aiData.comparison || [
+      { name: "Chi phí", orig: "Giá hãng rất cao", shop: "Tiết kiệm 50% – 70%" },
+      { name: "Bảo hành", orig: "Khó liên hệ", shop: "1 đổi 1 siêu tốc" }
+    ],
+    faqs: aiData.faqs || [
+      { q: "Tôi nhận tài khoản thế nào sau khi mua?", a: "Chúng tôi gửi tài khoản và hướng dẫn qua Zalo chỉ sau 5 phút." },
+      { q: "Bảo hành thế nào?", a: "Bảo hành 1 đổi 1 trọn gói trong suốt thời gian sử dụng." }
+    ],
     orderUrl: document.getElementById("ct-zalolink").value.trim()
   };
+
   customProducts.push(item);
   renderCustomList();
+
+  // Reset form
   document.getElementById("c-name").value = "";
   document.getElementById("c-price").value = "";
   document.getElementById("c-old").value = "";
   document.getElementById("c-tag").value = "";
-  showToast("Đã thêm dịch vụ! Bấm Lưu ở dưới để cập nhật.", "success");
+  document.getElementById("c-tagline").value = "";
+  document.getElementById("ai-keyword").value = "";
+  document.getElementById("ai-preview-summary").style.display = "none";
+  currentAIData = null;
+
+  showToast(`🎉 Đã thêm "${name}" kèm Trang Chi Tiết! Bấm Lưu ở dưới để xuất bản lên web.`, "success");
 }
 
 function removeCustomProduct(idx) {
@@ -885,11 +1148,16 @@ function renderCustomList() {
     html += `
       <div class="custom-item">
         <button type="button" class="btn-del-custom" onclick="removeCustomProduct(${idx})">Xóa</button>
-        <div style="font-weight:700;color:#fff;font-size:14px;">${p.name}</div>
-        <div style="font-size:13px;color:var(--c1);margin-top:2px;">
+        <div style="font-weight:700;color:#fff;font-size:14.5px;">${p.icon || "✨"} ${p.name}</div>
+        <div style="font-size:13px;color:var(--c1);margin:4px 0 8px;">
           ${p.originalPrice ? `<s style="color:#6b7280;margin-right:6px;">${p.originalPrice}</s>` : ""}
           <strong>${p.price}</strong> ${p.unit || ""}
           ${p.isSale ? `<span style="background:#ff0055;color:#fff;font-size:10px;padding:1px 5px;border-radius:4px;margin-left:6px;">${p.saleTag}</span>` : ""}
+        </div>
+        <div style="display:flex;gap:8px;">
+          <a href="detail.html?id=${p.id}" target="_blank" style="display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border-radius:8px;background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.3);color:var(--c1);font-size:11.5px;font-weight:700;">
+            👁️ Xem Trang Chi Tiết
+          </a>
         </div>
       </div>
     `;

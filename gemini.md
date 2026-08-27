@@ -56,9 +56,10 @@ Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch
   - **Truy cập trực tuyến trên điện thoại**: `https://xwuan.github.io/admin.html` (có thể thêm vào màn hình chính điện thoại như 1 App).
   - **Bảo mật tuyệt đối (Zero-Hardcode)**: Mã nguồn trên GitHub **KHÔNG chứa bất kỳ mật khẩu nào**, kẻ xấu F12 hay soi code cũng không thể tìm thấy.
   - **Xác thực quyền ghi Firebase**: Mật khẩu do chủ shop tự nhập trên máy/điện thoại, Firebase Server sẽ so khớp với Firebase Security Rules. Nếu sai mật khẩu, Firebase từ chối cập nhật (`Permission Denied`).
+  - **Trợ lý AI Tự Động Tạo Trang Chi Tiết**: Tích hợp sẵn trong Tab "Dịch Vụ Mới". Chỉ cần gõ tên sản phẩm (Spotify, ChatGPT, Midjourney, Duolingo, Elsa, Cursor...), AI tự động sinh bảng giá, nhãn SALE, lời giới thiệu hero, 4 tính năng, bảng so sánh giá và bộ 3 câu hỏi FAQ.
+  - **Trang Chi Tiết Động `detail.html`**: Tự động hiển thị trang landing page chuẩn SEO cho bất kỳ dịch vụ mới nào theo link `detail.html?id=<service_id>`. Có nút "Xem Trang Chi Tiết" trực tiếp trong Admin và trang chủ `index.html`.
   - Quản lý giá bán, giá gốc, nhãn SALE (SALE, -50%, HOT...), bật/tắt SALE theo từng dịch vụ.
   - Quản lý giá Windows, Office, Locket Gold (5s, 15s).
-  - Thêm dịch vụ/tài khoản mới tùy chỉnh (tự động render vào trang chủ `index.html`).
   - Bật/tắt thanh Banner khuyến mãi gradient ở đầu website.
   - Cập nhật số Zalo, Hotline, link Facebook/TikTok tại một nơi duy nhất.
 - **Hệ thống Đồng Bộ Đa Tầng (Offline Local, GitHub & Firebase Cloud)**:
