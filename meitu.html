@@ -12,12 +12,13 @@
 <style>
 :root {
   --bg: #0c0714;
-  --card: #140d21;
-  --card2: #1b122c;
-  --border: #2c1a44;
+  --card: rgba(20, 13, 33, 0.85);
+  --card2: rgba(27, 18, 44, 0.95);
+  --border: rgba(255, 45, 117, 0.3);
+  --border-subtle: #2c1a44;
   --m-pink: #ff2d75;
   --m-purple: #9333ea;
-  --m-glow: rgba(255, 45, 117, 0.4);
+  --m-glow: rgba(255, 45, 117, 0.45);
   --gold: #f5a623;
   --green: #00e676;
   --text: #f1e8f8;
@@ -30,40 +31,122 @@ body {
   font-family: 'Be Vietnam Pro', sans-serif;
   line-height: 1.6;
   min-height: 100vh;
-  background-image:
-    radial-gradient(circle at 50% 0%, rgba(255, 45, 117, 0.16) 0%, transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.1) 0%, transparent 50%);
+  overflow-x: hidden;
+  position: relative;
 }
+
+/* ── ANIMATED BACKGROUND & GRID ── */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 45, 117, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 51, 234, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.bg-glow-1 {
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255, 45, 117, 0.22) 0%, transparent 65%);
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+  animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+.bg-glow-2 {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  bottom: 10%;
+  right: -50px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.2) 0%, transparent 65%);
+  filter: blur(55px);
+  z-index: 0;
+  pointer-events: none;
+  animation: pulseGlow 10s ease-in-out infinite alternate-reverse;
+}
+@keyframes pulseGlow {
+  0% { transform: scale(0.9) translate(0, 0); opacity: 0.8; }
+  100% { transform: scale(1.15) translate(20px, 20px); opacity: 1; }
+}
+
+/* ── DRIFTING GLAM EMOJIS ── */
+.floater {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  font-size: 26px;
+  opacity: 0.16;
+  animation: float 7s ease-in-out infinite;
+}
+.f1 { top: 10%; left: 5%; animation-delay: 0s; }
+.f2 { top: 25%; right: 6%; animation-delay: 1.5s; font-size: 30px; opacity: 0.22; }
+.f3 { top: 52%; left: 4%; animation-delay: 3s; font-size: 28px; }
+.f4 { top: 75%; right: 7%; animation-delay: 4.5s; font-size: 26px; }
+.f5 { top: 88%; left: 8%; animation-delay: 2s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-22px) rotate(12deg); }
+}
+
+/* ── LAYOUT & ENTRANCE ANIMATIONS ── */
 h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 800; }
 a { text-decoration: none; color: inherit; }
 
 .container {
+  position: relative;
+  z-index: 1;
   max-width: 480px;
   margin: 0 auto;
   padding: 20px 16px 90px;
 }
 
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.anim-1 { animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
+.anim-2 { animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both; }
+.anim-3 { animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both; }
+.anim-4 { animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both; }
+.anim-5 { animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.30s both; }
+.anim-6 { animation: slideUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.36s both; }
+
 /* TOP BACK LINK */
 .back-link {
   display: inline-flex; align-items: center; gap: 8px;
   color: var(--muted); font-size: 13.5px; font-weight: 600;
-  margin-bottom: 20px; transition: color 0.2s;
+  margin-bottom: 20px; transition: color 0.2s, transform 0.2s;
 }
-.back-link:hover { color: #fff; }
+.back-link:hover { color: #fff; transform: translateX(-3px); }
 
 /* HERO BRAND */
 .hero-box {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 .brand-logo-wrap {
-  width: 80px; height: 80px; margin: 0 auto 14px;
+  width: 84px; height: 84px; margin: 0 auto 14px;
   background: #ff2d75;
   border-radius: 22px;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 10px 30px var(--m-glow);
+  box-shadow: 0 12px 35px var(--m-glow);
   padding: 4px;
   overflow: hidden;
+  animation: logoPulse 4s infinite alternate;
+}
+@keyframes logoPulse {
+  0% { transform: scale(1); box-shadow: 0 10px 30px var(--m-glow); }
+  100% { transform: scale(1.04); box-shadow: 0 15px 45px rgba(255, 45, 117, 0.7); }
 }
 .brand-logo-wrap img {
   width: 100%; height: 100%; object-fit: cover; border-radius: 18px;
@@ -78,7 +161,7 @@ a { text-decoration: none; color: inherit; }
   text-transform: uppercase;
 }
 .hero-title {
-  font-size: 1.85rem; font-weight: 800; color: #fff;
+  font-size: 1.9rem; font-weight: 800; color: #fff;
   letter-spacing: -0.5px; margin-bottom: 6px;
 }
 .hero-sub {
@@ -88,24 +171,42 @@ a { text-decoration: none; color: inherit; }
 /* VIP PRICE CARD */
 .vip-card {
   background: linear-gradient(180deg, var(--card2) 0%, var(--card) 100%);
-  border: 1.5px solid rgba(255, 45, 117, 0.35);
+  border: 1.5px solid rgba(255, 45, 117, 0.4);
   border-radius: 22px; padding: 22px 18px;
   text-align: center; position: relative;
   overflow: hidden; margin-bottom: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 25px rgba(255, 45, 117, 0.15);
+  backdrop-filter: blur(12px);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.vip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 0 35px rgba(255, 45, 117, 0.25);
 }
 .vip-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3.5px;
-  background: linear-gradient(90deg, var(--m-pink), #a855f7);
+  background: linear-gradient(90deg, transparent, var(--m-pink), #a855f7, transparent);
 }
+.live-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11.5px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.live-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: blink 1.5s infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
 .price-display {
-  display: flex; align-items: baseline; justify-content: center; gap: 4px;
+  display: flex; align-items: baseline; justify-content: center; gap: 6px;
   margin: 10px 0 6px;
 }
 .price-val {
   font-family: 'Syne', sans-serif;
-  font-size: 2.6rem; font-weight: 800; color: #fff;
+  font-size: 2.7rem; font-weight: 800; color: #fff;
   text-shadow: 0 0 25px var(--m-glow);
+  line-height: 1;
 }
 .price-unit {
   font-size: 15px; color: var(--muted); font-weight: 600;
@@ -113,21 +214,33 @@ a { text-decoration: none; color: inherit; }
 .warranty-chip {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: 12.5px; font-weight: 700; color: var(--green);
-  background: rgba(0, 230, 118, 0.1);
+  background: rgba(0, 230, 118, 0.12);
   padding: 4px 12px; border-radius: 20px;
-  border: 1px solid rgba(0, 230, 118, 0.2);
+  border: 1px solid rgba(0, 230, 118, 0.25);
   margin-bottom: 18px;
 }
 .btn-order-big {
+  position: relative;
   display: flex; align-items: center; justify-content: center; gap: 10px;
   width: 100%; height: 52px;
   background: linear-gradient(135deg, #ff2d75, #9333ea);
   border: none; border-radius: 14px;
   color: #fff; font-size: 15.5px; font-weight: 800;
   box-shadow: 0 8px 25px rgba(255, 45, 117, 0.45);
-  cursor: pointer; transition: 0.15s;
+  cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+  overflow: hidden;
 }
 .btn-order-big:active { transform: scale(0.98); }
+.btn-order-big::after {
+  content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: skewX(-20deg);
+  animation: btnShine 4s infinite;
+}
+@keyframes btnShine {
+  0% { left: -100%; }
+  25%, 100% { left: 200%; }
+}
 
 /* QUICK CHIPS */
 .perks-row {
@@ -136,9 +249,11 @@ a { text-decoration: none; color: inherit; }
 }
 .perk-chip {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px; padding: 10px 6px; text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
 }
+.perk-chip:hover { border-color: rgba(255, 45, 117, 0.4); transform: translateY(-2px); }
 .perk-chip span { font-size: 18px; display: block; margin-bottom: 2px; }
 .perk-chip p { font-size: 11px; font-weight: 700; color: #fff; }
 
@@ -153,15 +268,20 @@ a { text-decoration: none; color: inherit; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
 }
 .bento-card {
-  background: var(--card); border: 1px solid var(--border);
+  background: var(--card); border: 1px solid var(--border-subtle);
   border-radius: 16px; padding: 16px 14px;
-  transition: 0.2s;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
-.bento-card:hover { border-color: rgba(255, 45, 117, 0.4); }
+.bento-card:hover {
+  border-color: rgba(255, 45, 117, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 45, 117, 0.15);
+}
 .bento-icon {
   width: 40px; height: 40px; border-radius: 12px;
   background: rgba(255, 45, 117, 0.12);
-  border: 1px solid rgba(255, 45, 117, 0.25);
+  border: 1px solid rgba(255, 45, 117, 0.3);
   display: flex; align-items: center; justify-content: center;
   font-size: 20px; margin-bottom: 12px;
 }
@@ -170,12 +290,13 @@ a { text-decoration: none; color: inherit; }
 
 /* COMPARISON TABLE */
 .comp-box {
-  background: var(--card); border: 1px solid var(--border);
+  background: var(--card); border: 1px solid var(--border-subtle);
   border-radius: 18px; overflow: hidden; margin-top: 10px;
+  backdrop-filter: blur(10px);
 }
 .comp-row {
   display: grid; grid-template-columns: 1.2fr 1fr 1fr;
-  padding: 12px 14px; border-bottom: 1px solid var(--border);
+  padding: 12px 14px; border-bottom: 1px solid var(--border-subtle);
   font-size: 12.5px; align-items: center;
 }
 .comp-row:last-child { border-bottom: none; }
@@ -183,7 +304,7 @@ a { text-decoration: none; color: inherit; }
   background: var(--card2); font-weight: 800; color: #fff; font-size: 11.5px; text-transform: uppercase;
 }
 .comp-row.highlight {
-  background: rgba(255, 45, 117, 0.08); font-weight: 700;
+  background: rgba(255, 45, 117, 0.1); font-weight: 700;
 }
 .comp-orig { color: #94a3b8; text-decoration: line-through; }
 .comp-shop { color: var(--green); font-weight: 800; }
@@ -193,10 +314,13 @@ a { text-decoration: none; color: inherit; }
   display: flex; flex-direction: column; gap: 8px; margin-top: 10px;
 }
 .step-item {
-  background: var(--card); border: 1px solid var(--border);
+  background: var(--card); border: 1px solid var(--border-subtle);
   border-radius: 14px; padding: 12px 14px;
   display: flex; align-items: center; gap: 12px;
+  transition: transform 0.2s, border-color 0.2s;
+  backdrop-filter: blur(10px);
 }
+.step-item:hover { transform: translateX(3px); border-color: rgba(255, 45, 117, 0.35); }
 .step-num {
   width: 32px; height: 32px; border-radius: 10px;
   background: linear-gradient(135deg, var(--m-pink), var(--m-purple));
@@ -209,13 +333,16 @@ a { text-decoration: none; color: inherit; }
 /* FAQ ACCORDION */
 .faq-wrap { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
 .faq-card {
-  background: var(--card); border: 1px solid var(--border);
+  background: var(--card); border: 1px solid var(--border-subtle);
   border-radius: 14px; overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s;
 }
+.faq-card:hover { border-color: rgba(255, 45, 117, 0.35); }
 .faq-head {
   padding: 14px; font-size: 13px; font-weight: 700; color: #fff;
   display: flex; align-items: center; justify-content: space-between;
-  cursor: pointer;
+  cursor: pointer; user-select: none;
 }
 .faq-body {
   padding: 0 14px 14px; font-size: 12px; color: var(--muted);
@@ -223,8 +350,8 @@ a { text-decoration: none; color: inherit; }
   padding-top: 10px;
 }
 .faq-card.active .faq-body { display: block; }
-.faq-card.active .faq-arrow { transform: rotate(180deg); }
-.faq-arrow { transition: 0.2s; font-size: 11px; color: var(--muted); }
+.faq-card.active .faq-arrow { transform: rotate(180deg); color: #ff6097; }
+.faq-arrow { transition: transform 0.25s ease; font-size: 11px; color: var(--muted); }
 
 /* FOOTER & FLOATING ZALO */
 footer {
@@ -248,15 +375,27 @@ footer {
 </head>
 <body>
 
+<!-- BACKGROUND LAYERS -->
+<div class="bg-grid"></div>
+<div class="bg-glow-1"></div>
+<div class="bg-glow-2"></div>
+
+<!-- DRIFTING GLAM EMOJIS -->
+<div class="floater f1">💄</div>
+<div class="floater f2">📸</div>
+<div class="floater f3">✨</div>
+<div class="floater f4">👑</div>
+<div class="floater f5">🌸</div>
+
 <div class="container">
   
-  <a href="index.html" class="back-link">
+  <a href="index.html" class="back-link anim-1">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
     Quay lại trang chủ
   </a>
 
   <!-- HERO BRAND -->
-  <div class="hero-box">
+  <div class="hero-box anim-1">
     <div class="brand-logo-wrap">
       <img src="images/meitu.png" alt="Meitu SVIP">
     </div>
@@ -266,10 +405,12 @@ footer {
   </div>
 
   <!-- VIP PRICE CARD -->
-  <div class="vip-card">
-    <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;">Bảng Giá Thống Nhất</span>
+  <div class="vip-card anim-2">
+    <div class="live-tag">
+      <span class="live-dot"></span> Bảng Giá Thống Nhất
+    </div>
     <div class="price-display">
-      <span class="price-val" data-price-key="meitu">80k</span>
+      <span class="price-val" data-price-key="meitu" data-price-only="true">80k</span>
       <span class="price-unit">/ 30 ngày</span>
     </div>
     <div>
@@ -298,8 +439,8 @@ footer {
   </div>
 
   <!-- BENTO FEATURES -->
-  <div class="sec-head">✨ Đặc Quyền Chỉ Có Ở Meitu SVIP</div>
-  <div class="bento-grid">
+  <div class="sec-head anim-3">✨ Đặc Quyền Chỉ Có Ở Meitu SVIP</div>
+  <div class="bento-grid anim-3">
     <div class="bento-card">
       <div class="bento-icon">📸</div>
       <h4>Làm Nét Ảnh AI 4K</h4>
@@ -323,8 +464,8 @@ footer {
   </div>
 
   <!-- COMPARISON TABLE -->
-  <div class="sec-head">📊 So Sánh Lợi Ích Với Giá Gốc</div>
-  <div class="comp-box">
+  <div class="sec-head anim-4">📊 So Sánh Lợi Ích Với Giá Gốc</div>
+  <div class="comp-box anim-4">
     <div class="comp-row head">
       <span>Tiêu chí</span>
       <span>Mua trên App</span>
@@ -353,8 +494,8 @@ footer {
   </div>
 
   <!-- HOW TO ORDER -->
-  <div class="sec-head">🚀 3 Bước Nâng Cấp Nhanh</div>
-  <div class="steps-wrap">
+  <div class="sec-head anim-5">🚀 3 Bước Nâng Cấp Nhanh</div>
+  <div class="steps-wrap anim-5">
     <div class="step-item">
       <div class="step-num">1</div>
       <div class="step-txt">
@@ -379,8 +520,8 @@ footer {
   </div>
 
   <!-- FAQ -->
-  <div class="sec-head">❓ Câu Hỏi Thường Gặp</div>
-  <div class="faq-wrap">
+  <div class="sec-head anim-6">❓ Câu Hỏi Thường Gặp</div>
+  <div class="faq-wrap anim-6">
     <div class="faq-card active">
       <div class="faq-head" onclick="toggleFaq(this)">
         <span>Dùng được trên iPhone và Android không?</span>
@@ -410,7 +551,7 @@ footer {
     </div>
   </div>
 
-  <footer>
+  <footer class="anim-6">
     © <span id="yr"></span> xwuan.github.io · Xuan Quyen · Dịch vụ phần mềm &amp; tài khoản uy tín
   </footer>
 

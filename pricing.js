@@ -220,7 +220,20 @@
         html += `<span style="color:#ef4444;font-size:0.72rem;font-weight:700;margin-left:4px;padding:1px 6px;border-radius:10px;background:rgba(239,68,68,0.15);">${svc.saleTag || "SALE"}</span><br>`;
       }
       html += `${svc.price}`;
-      if (svc.unit) {
+      
+      // Chống trùng lặp đơn vị (/ 30 ngày / 30 ngày hoặc / 1 năm / 1 năm)
+      const next = elem.nextElementSibling;
+      const hasUnitSibling = next && (
+        next.classList.contains("price-unit") ||
+        next.classList.contains("price-month") ||
+        next.classList.contains("price-period") ||
+        next.classList.contains("cv-price-unit") ||
+        next.classList.contains("yt-price-unit") ||
+        next.textContent.trim().startsWith("/")
+      );
+      const isPriceOnly = elem.hasAttribute("data-price-only") || elem.classList.contains("price-val");
+      
+      if (svc.unit && !isPriceOnly && !hasUnitSibling) {
         html += ` <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">${svc.unit}</span>`;
       }
       elem.innerHTML = html;
