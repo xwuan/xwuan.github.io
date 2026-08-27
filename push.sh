@@ -6,7 +6,7 @@ echo "============================================="
 git status
 git add .
 git commit -m "feat: them admin.html quan ly gia/sale va module pricing.js dong bo" || true
-git push -u https://github.com/xwuan/xwuan.github.io main
+git push -u https://xwuan@github.com/xwuan/xwuan.github.io main
 echo ""
 echo "============================================="
 read -p "Nhan Enter de thoat..."
