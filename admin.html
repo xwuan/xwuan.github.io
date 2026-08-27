@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Xuan Quyen — Quản Trị Bảng Giá</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -255,6 +258,7 @@ input:checked + .slider:before { transform: translateX(20px); }
   <div class="login-card">
     <img src="images/avatar.png" alt="Avatar" class="login-avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'68\' height=\'68\'><rect fill=\'%230055ff\' width=\'68\' height=\'68\'/><text fill=\'%23fff\' x=\'50%\' y=\'50%\' font-size=\'28\' text-anchor=\'middle\' dy=\'.35em\'>X</text></svg>'">
     <h2 class="login-title">Xuan Quyen Admin</h2>
+    <div style="font-size:11px;font-weight:700;color:var(--c1);background:rgba(0,212,255,0.1);padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;border:1px solid rgba(0,212,255,0.25);">🔒 Bản Mobile v2026.3 (Khóa admin@1809)</div>
     <p class="login-sub">Cập nhật giá &amp; SALE thời gian thực</p>
     <div class="login-input-wrap">
       <input type="password" id="admin-pass-input" class="login-input" placeholder="Nhập mật khẩu quản trị..." autofocus>
@@ -687,31 +691,42 @@ const FIREBASE_DB = "https://xwuan-store-default-rtdb.asia-southeast1.firebaseda
 const MASTER_PASS = "admin@1809"; // Mật khẩu chuẩn xác của bạn
 let customProducts = [];
 
-// 1. AUTHENTICATION (BẢO MẬT CHUẨN XÁC)
+// 1. AUTHENTICATION (BẢO MẬT CHUẨN XÁC admin@1809)
 function handleLogin() {
-  const passInput = document.getElementById("admin-pass-input");
+  const passInput = document.getElementById("admin-pass-input") || document.getElementById("pin-input");
   const errDiv = document.getElementById("login-err");
+  if (!passInput) return;
   const enteredPass = passInput.value.trim();
 
   // Kiểm tra chặt chẽ mật khẩu admin@1809
-  if (enteredPass === MASTER_PASS) {
-    sessionStorage.setItem("xwuan_logged_in", "true");
-    sessionStorage.setItem("xwuan_pass", enteredPass);
-    localStorage.setItem("xwuan_pass", enteredPass);
-    
-    document.getElementById("login-screen").style.display = "none";
-    document.getElementById("admin-main").style.display = "block";
-    document.getElementById("bottom-bar").style.display = "block";
-    
-    errDiv.style.display = "none";
-    loadCloudData();
-    showToast("🔓 Đăng nhập thành công!", "success");
-  } else {
-    errDiv.style.display = "block";
+  if (enteredPass !== MASTER_PASS) {
+    if (errDiv) {
+      errDiv.style.display = "block";
+      errDiv.textContent = "❌ Mật khẩu '" + enteredPass + "' không chính xác! Vui lòng thử lại.";
+    }
     passInput.value = "";
     passInput.focus();
     showToast("❌ Sai mật khẩu!", "error");
+    return;
   }
+
+  // ĐÚNG MẬT KHẨU admin@1809
+  sessionStorage.setItem("xwuan_logged_in", "true");
+  sessionStorage.setItem("xwuan_pass", enteredPass);
+  localStorage.setItem("xwuan_pass", enteredPass);
+  
+  document.getElementById("login-screen").style.display = "none";
+  document.getElementById("admin-main").style.display = "block";
+  document.getElementById("bottom-bar").style.display = "block";
+  
+  if (errDiv) errDiv.style.display = "none";
+  loadCloudData();
+  showToast("🔓 Đăng nhập thành công!", "success");
+}
+
+// Hỗ trợ nút từ phiên bản cũ (nếu trình duyệt còn cache)
+function checkPin() {
+  handleLogin();
 }
 
 document.getElementById("admin-pass-input").addEventListener("keyup", function(e) {
@@ -1019,7 +1034,8 @@ async function saveToCloud() {
 
 // 7. AUTO-LOGIN ON RELOAD
 window.addEventListener("DOMContentLoaded", () => {
-  if (sessionStorage.getItem("xwuan_logged_in") === "true") {
+  sessionStorage.removeItem("xwuan_admin_auth"); // Xóa sạch session của phiên bản cũ
+  if (sessionStorage.getItem("xwuan_logged_in") === "true" && sessionStorage.getItem("xwuan_pass") === MASTER_PASS) {
     document.getElementById("login-screen").style.display = "none";
     document.getElementById("admin-main").style.display = "block";
     document.getElementById("bottom-bar").style.display = "block";
