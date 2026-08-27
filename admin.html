@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Bảng Quản Trị — Xuan Quyen Store</title>
+<link rel="icon" href="images/avatar.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script src="pricing.js"></script>
+
+<style>
+:root {
+  --bg: #07091a;
+  --card: #0d1225;
+  --card2: #101628;
+  --card-hover: #141c33;
+  --border: #182038;
+  --border-focus: #00d4ff;
+  --c1: #00d4ff;
+  --c2: #0055ff;
+  --green: #00e676;
+  --gold: #f5c842;
+  --red: #ef4444;
+  --purple: #a855f7;
+  --text: #ddeeff;
+  --muted: #6a84a8;
+  --r: 14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background Grid */
+.bg-grid {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* LOGIN OVERLAY */
+#login-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(7, 9, 26, 0.96);
+  backdrop-filter: blur(16px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.login-box {
+  background: var(--card);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  padding: 32px 28px;
+  width: 100%; max-width: 380px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 212, 255, 0.1);
+  animation: modalIn 0.3s ease;
+}
+@keyframes modalIn { from { opacity: 0; transform: scale(0.95); } }
+.login-avatar {
+  width: 72px; height: 72px; border-radius: 16px; margin: 0 auto 16px;
+  object-fit: cover; box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+}
+.login-title {
+  font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800;
+  color: #fff; margin-bottom: 6px;
+}
+.login-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 22px; }
+.pin-input {
+  width: 100%; padding: 14px 18px; border-radius: 12px;
+  background: var(--card2); border: 1px solid var(--border);
+  color: #fff; font-size: 18px; text-align: center; letter-spacing: 4px;
+  margin-bottom: 16px; outline: none; transition: 0.25s;
+}
+.pin-input:focus { border-color: var(--c1); box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); }
+.btn-login {
+  width: 100%; padding: 13px; border-radius: 12px; border: none;
+  background: linear-gradient(135deg, var(--c2), var(--c1));
+  color: #fff; font-weight: 700; font-size: 14px; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3); transition: 0.25s;
+}
+.btn-login:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0, 212, 255, 0.5); }
+.login-hint { font-size: 12px; color: var(--muted); margin-top: 14px; }
+
+/* APP WRAPPER */
+.app-container {
+  position: relative; z-index: 1;
+  max-width: 1000px; margin: 0 auto;
+  padding: 24px 16px 80px;
+}
+
+/* HEADER */
+.admin-header {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(0, 85, 255, 0.04));
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 18px; padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 22px;
+  backdrop-filter: blur(10px);
+}
+.brand-left { display: flex; align-items: center; gap: 14px; }
+.brand-logo { width: 50px; height: 50px; border-radius: 12px; object-fit: cover; }
+.brand-info h1 {
+  font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 800;
+  color: #fff; display: flex; align-items: center; gap: 8px;
+}
+.badge-ver {
+  font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px;
+  background: rgba(0, 212, 255, 0.15); color: var(--c1); border: 1px solid rgba(0, 212, 255, 0.3);
+}
+.brand-info p { font-size: 0.8rem; color: var(--muted); }
+
+.header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.btn-top {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; border-radius: 10px; font-size: 12px; font-weight: 700;
+  text-decoration: none; border: 1px solid var(--border); color: var(--text);
+  background: var(--card2); cursor: pointer; transition: 0.2s;
+}
+.btn-top:hover { border-color: var(--c1); color: #fff; transform: translateY(-1px); }
+.btn-top.primary {
+  background: linear-gradient(135deg, var(--c2), var(--c1));
+  border: none; color: #fff; box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+.btn-top.primary:hover { box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5); }
+.btn-top.danger { color: #f87171; }
+.btn-top.danger:hover { border-color: var(--red); background: rgba(239, 68, 68, 0.1); }
+
+/* TABS NAVIGATION */
+.tabs-nav {
+  display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 22px;
+  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+}
+.tabs-nav::-webkit-scrollbar { height: 4px; }
+.tabs-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.tab-btn {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--muted); padding: 10px 18px; border-radius: 12px;
+  font-family: 'Be Vietnam Pro', sans-serif; font-size: 13px; font-weight: 600;
+  white-space: nowrap; cursor: pointer; display: flex; align-items: center; gap: 8px;
+  transition: all 0.25s;
+}
+.tab-btn:hover { color: #fff; border-color: rgba(0, 212, 255, 0.3); }
+.tab-btn.active {
+  background: rgba(0, 212, 255, 0.1); border-color: var(--c1);
+  color: var(--c1); font-weight: 700; box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+}
+
+/* TAB PANELS */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* COMMON CARD */
+.admin-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 22px; margin-bottom: 18px;
+}
+.card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.card-header h2 {
+  font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800;
+  color: #fff; display: flex; align-items: center; gap: 8px;
+}
+.card-desc { font-size: 0.8rem; color: var(--muted); }
+
+/* GRID LAYOUTS */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* STATS */
+.stat-box {
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 18px; display: flex; align-items: center; gap: 14px;
+}
+.stat-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.2);
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.stat-num { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: #fff; }
+.stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* SERVICE ITEM ROW */
+.svc-edit-row {
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 18px; margin-bottom: 14px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.svc-edit-row:hover { border-color: rgba(0, 212, 255, 0.3); }
+.svc-edit-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 14px; flex-wrap: wrap;
+}
+.svc-title-wrap { display: flex; align-items: center; gap: 10px; }
+.svc-icon-sm { width: 32px; height: 32px; border-radius: 8px; object-fit: contain; }
+.svc-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; }
+
+/* FORMS & INPUTS */
+.form-group { margin-bottom: 12px; }
+.form-label {
+  display: block; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--muted); margin-bottom: 6px;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 10px 14px; border-radius: 10px;
+  background: #090e1f; border: 1px solid var(--border);
+  color: #fff; font-size: 13px; font-family: inherit;
+  outline: none; transition: 0.2s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--c1); box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+.form-textarea { resize: vertical; min-height: 70px; }
+
+/* TOGGLES / SWITCHES */
+.switch-wrap { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.switch-input { display: none; }
+.switch-slider {
+  width: 44px; height: 24px; background: #1a2238; border-radius: 24px;
+  position: relative; transition: 0.3s;
+}
+.switch-slider::before {
+  content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px;
+  background: #fff; border-radius: 50%; transition: 0.3s;
+}
+.switch-input:checked + .switch-slider { background: var(--green); }
+.switch-input:checked + .switch-slider::before { transform: translateX(20px); }
+.switch-label { font-size: 12px; font-weight: 700; }
+
+/* BUTTONS */
+.btn-action {
+  padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 700;
+  border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  transition: 0.2s; text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--c2), var(--c1));
+  color: #fff; box-shadow: 0 4px 15px rgba(0, 212, 255, 0.25);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(0, 212, 255, 0.4); }
+.btn-secondary {
+  background: var(--card2); border: 1px solid var(--border); color: var(--text);
+}
+.btn-secondary:hover { border-color: var(--c1); color: #fff; }
+.btn-success {
+  background: linear-gradient(135deg, #059669, #10b981); color: #fff;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+}
+.btn-success:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+
+/* TOAST NOTIFICATION */
+#toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 10000;
+  padding: 14px 20px; border-radius: 12px; font-size: 13px; font-weight: 700;
+  background: var(--card); border: 1px solid var(--c1); color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 212, 255, 0.3);
+  display: flex; align-items: center; gap: 10px;
+  transform: translateY(100px); opacity: 0; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+#toast.show { transform: translateY(0); opacity: 1; }
+
+/* CODE BOX */
+.code-box {
+  background: #050713; border: 1px solid var(--border); border-radius: 12px;
+  padding: 14px; font-family: monospace; font-size: 12px; color: #a5b4fc;
+  overflow-x: auto; max-height: 250px; white-space: pre; margin-top: 10px;
+}
+
+/* BANNER PREVIEW */
+.banner-preview-box {
+  padding: 10px 14px; border-radius: 10px; font-size: 12px; font-weight: 700;
+  background: linear-gradient(90deg, #ff0055, #ff5500, #9900ff);
+/* STICKY BOTTOM ACTION BAR */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+  background: rgba(13, 18, 37, 0.95);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 12px 20px;
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.6);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+.sticky-info {
+  display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600;
+}
+.sticky-status-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+}
+.sticky-actions {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<!-- MÀN HÌNH KHÓA ĐĂNG NHẬP (PIN PROTECT) -->
+<div id="login-overlay">
+  <div class="login-box">
+    <img src="images/avatar.png" alt="Avatar" class="login-avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'72\' height=\'72\'><rect fill=\'%230055ff\' width=\'72\' height=\'72\'/><text fill=\'%23fff\' x=\'50%\' y=\'50%\' font-size=\'30\' text-anchor=\'middle\' dy=\'.35em\'>X</text></svg>'">
+    <h2 class="login-title">Quản Trị Xuan Quyen</h2>
+    <p class="login-sub">Nhập Mật Khẩu Quản Trị để cập nhật giá &amp; SALE</p>
+    <input type="password" id="pin-input" class="pin-input" placeholder="Nhập mật khẩu..." autofocus>
+    <button type="button" class="btn-login" onclick="checkPin()">Mở khóa quản trị 🔓</button>
+    <p class="login-hint">🔒 Bảo vệ an toàn bằng Google Firebase Cloud</p>
+  </div>
+</div>
+
+<!-- GIAO DIỆN CHÍNH SAU KHI MỞ KHÓA -->
+<div class="app-container" id="admin-app" style="display:none;">
+
+  <!-- HEADER -->
+  <header class="admin-header">
+    <div class="brand-left">
+      <img src="images/avatar.png" alt="Avatar" class="brand-logo" onerror="this.style.display='none'">
+      <div class="brand-info">
+        <h1>Xuan Quyen Admin <span class="badge-ver">v2026.1</span></h1>
+        <p>Bảng điều khiển giá, chương trình SALE và đồng bộ website</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="index.html" target="_blank" class="btn-top">
+        👁️ Xem trang chủ
+      </a>
+      <button type="button" class="btn-top primary" onclick="saveToLocalPreview()">
+        ⚡ Lưu xem trước
+      </button>
+      <button type="button" class="btn-top" onclick="downloadPricingJs()">
+        📥 Tải pricing.js
+      </button>
+      <button type="button" class="btn-top danger" onclick="logoutAdmin()">
+        🔒 Đăng xuất
+      </button>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <div class="tabs-nav">
+    <button type="button" class="tab-btn active" onclick="switchTab('tab-overview', this)">
+      📊 Tổng quan
+    </button>
+    <button type="button" class="tab-btn" onclick="switchTab('tab-entertainment', this)">
+      🎬 Giải trí &amp; AI (Netflix, CapCut...)
+    </button>
+    <button type="button" class="tab-btn" onclick="switchTab('tab-system', this)">
+      💻 Win / Office &amp; Locket
+    </button>
+    <button type="button" class="tab-btn" onclick="switchTab('tab-custom', this)">
+      ➕ Dịch vụ mới
+    </button>
+    <button type="button" class="tab-btn" onclick="switchTab('tab-banner-contact', this)">
+      📢 Banner Sale &amp; Liên hệ
+    </button>
+    <button type="button" class="tab-btn" onclick="switchTab('tab-sync', this)">
+      🚀 Xuất &amp; Đồng bộ GitHub
+    </button>
+  </div>
+
+  <!-- TAB 1: TỔNG QUAN -->
+  <div id="tab-overview" class="tab-panel active">
+    <div class="grid-3" style="margin-bottom: 20px;">
+      <div class="stat-box">
+        <div class="stat-icon">🏷️</div>
+        <div>
+          <div class="stat-num" id="stat-total-services">11</div>
+          <div class="stat-label">Tổng gói dịch vụ</div>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon" style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);">🔥</div>
+        <div>
+          <div class="stat-num" id="stat-sale-count" style="color:#f87171;">2</div>
+          <div class="stat-label">Dịch vụ đang SALE</div>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon" style="background:rgba(0,230,118,0.1);border-color:rgba(0,230,118,0.3);">📢</div>
+        <div>
+          <div class="stat-num" id="stat-banner-status" style="color:var(--green);font-size:1.2rem;">Đang Bật</div>
+          <div class="stat-label">Banner Khuyến mãi</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>⚡ Hành động nhanh</h2>
+          <div class="card-desc">Các thao tác thường dùng nhất khi có sự kiện hoặc điều chỉnh giá</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button type="button" class="btn-action btn-primary" onclick="quickToggleAllSales(true)">
+          🔥 Bật SALE toàn bộ dịch vụ
+        </button>
+        <button type="button" class="btn-action btn-secondary" onclick="quickToggleAllSales(false)">
+          ❌ Tắt hết SALE
+        </button>
+        <button type="button" class="btn-action btn-secondary" onclick="switchTab('tab-banner-contact', document.querySelectorAll('.tab-btn')[4])">
+          📢 Đổi nội dung Banner Sale
+        </button>
+        <button type="button" class="btn-action btn-secondary" onclick="switchTab('tab-sync', document.querySelectorAll('.tab-btn')[5])">
+          🚀 Đồng bộ lên GitHub
+        </button>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>📋 Danh sách giá tóm tắt</h2>
+          <div class="card-desc">Bấm vào từng tab bên trên để sửa chi tiết</div>
+        </div>
+      </div>
+      <div id="overview-summary-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: TÀI KHOẢN GIẢI TRÍ & AI -->
+  <div id="tab-entertainment" class="tab-panel">
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>🎬 Quản lý giá: Netflix, CapCut, YouTube, Canva</h2>
+          <div class="card-desc">Chỉnh giá bán, giá gốc bị gạch, cờ SALE và nhãn badge tương ứng</div>
+        </div>
+        <button type="button" class="btn-action btn-primary" onclick="saveToLocalPreview()">Lưu thay đổi</button>
+      </div>
+
+      <!-- NETFLIX -->
+      <div class="svc-edit-row">
+        <div class="svc-edit-top">
+          <div class="svc-title-wrap">
+            <img src="images/netflix.png" class="svc-icon-sm" alt="Netflix">
+            <div class="svc-name">Netflix 4K UHD</div>
+          </div>
+          <label class="switch-wrap">
+            <input type="checkbox" id="svc-nf-sale" class="switch-input" onchange="updateFormPreview()">
+            <span class="switch-slider"></span>
+            <span class="switch-label" style="color:#ef4444;">Đang SALE 🔥</span>
+          </label>
+        </div>
+        <div class="grid-3">
+          <div class="form-group">
+            <label class="form-label">Giá bán hiện tại</label>
+            <input type="text" id="svc-nf-price" class="form-input" value="30.000đ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Giá gốc (bị gạch khi Sale)</label>
+            <input type="text" id="svc-nf-original" class="form-input" value="60.000đ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nhãn Sale (Badge)</label>
+            <input type="text" id="svc-nf-tag" class="form-input" value="SALE">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Đơn vị / Thời hạn</label>
+            <input type="text" id="svc-nf-unit" class="form-input" value="/ tháng">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tình trạng kho</label>
+            <select id="svc-nf-status" class="form-select">
+              <option value="available">🟢 Còn hàng (Sẵn sàng)</option>
+              <option value="sold_out">🔴 Tạm hết hàng</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAPCUT 30D -->
+      <div class="svc-edit-row">
+        <div class="svc-edit-top">
+          <div class="svc-title-wrap">
+            <img src="images/capcut.png" class="svc-icon-sm" alt="CapCut">
+            <div class="svc-name">CapCut Pro (Gói 30 ngày)</div>
+          </div>
+          <label class="switch-wrap">
+            <input type="checkbox" id="svc-cc30-sale" class="switch-input">
+            <span class="switch-slider"></span>
+            <span class="switch-label" style="color:#2dd4bf;">Đang SALE 🔥</span>
+          </label>
+        </div>
+        <div class="grid-3">
+          <div class="form-group">
+            <label class="form-label">Giá bán hiện tại</label>
+            <input type="text" id="svc-cc30-price" class="form-input" value="90.000đ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Giá gốc (bị gạch khi Sale)</label>
+            <input type="text" id="svc-cc30-original" class="form-input" value="110.000đ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nhãn Sale (Badge)</label>
+            <input type="text" id="svc-cc30-tag" class="form-input" value="SALE">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Đơn vị / Thời hạn</label>
+            <input type="text" id="svc-cc30-unit" class="form-input" value="/ 30 ngày">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tình trạng kho</label>
+            <select id="svc-cc30-status" class="form-select">
+              <option value="available">🟢 Còn hàng (Sẵn sàng)</option>
+              <option value="sold_out">🔴 Tạm hết hàng</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAPCUT 7D -->
+      <div class="svc-edit-row">
+        <div class="svc-edit-top">
+          <div class="svc-title-wrap">
+            <img src="images/capcut.png" class="svc-icon-sm" alt="CapCut 7D">
+            <div class="svc-name">CapCut Pro (Gói 7 ngày)</div>
+          </div>
+          <span style="font-size:12px;color:var(--muted);">Gói trải nghiệm ngắn hạn</span>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Giá bán hiện tại</label>
+            <input type="text" id="svc-cc7-price" class="form-input" value="20.000đ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Đơn vị / Thời hạn</label>
+            <input type="text" id="svc-cc7-unit" class="form-input" value="/ 7 ngày">
+          </div>
+        </div>
+      </div>
+
+      <!-- YOUTUBE PREMIUM -->
+      <div class="svc-edit-row">
+        <div class="svc-edit-top">
+          <div class="svc-title-wrap">
+            <img src="images/youtube.png" class="svc-icon-sm" alt="YouTube">
+            <div class="svc-name">YouTube Premium</div>
+          </div>
+          <label class="switch-wrap">
+            <input type="checkbox" id="svc-yt-sale" class="switch-input">
+            <span class="switch-slider"></span>
+            <span class="switch-label" style="color:#ef4444;">Đang SALE 🔥</span>
+          </label>
+        </div>
+        <div class="grid-3">
+          <div class="form-group">
+            <label class="form-label">Giá bán hiện tại</label>
+            <input type="text" id="svc-yt-price" class="form-input" value="40.000đ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Giá gốc (nếu có)</label>
+            <input type="text" id="svc-yt-original" class="form-input" placeholder="VD: 55.000đ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nhãn Tag / Sale</label>
+            <input type="text" id="svc-yt-tag" class="form-input" value="HOT">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Đơn vị / Thời hạn</label>
+            <input type="text" id="svc-yt-unit" class="form-input" value="/ tháng">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tình trạng kho</label>
+            <select id="svc-yt-status" class="form-select">
+              <option value="available">🟢 Còn hàng (Sẵn sàng)</option>
+              <option value="sold_out">🔴 Tạm hết hàng</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- CANVA PRO -->
+      <div class="svc-edit-row">
+        <div class="svc-edit-top">
+          <div class="svc-title-wrap">
+            <img src="images/canva.png" class="svc-icon-sm" alt="Canva">
+            <div class="svc-name">Canva Pro (Gói 1 Năm)</div>
+          </div>
+          <label class="switch-wrap">
+            <input type="checkbox" id="svc-cv-sale" class="switch-input">
+            <span class="switch-slider"></span>
+            <span class="switch-label" style="color:#c084fc;">Đang SALE 🔥</span>
+          </label>
+        </div>
+        <div class="grid-3">
+          <div class="form-group">
+            <label class="form-label">Giá bán hiện tại</label>
+            <input type="text" id="svc-cv-price" class="form-input" value="130.000đ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Giá gốc (nếu có)</label>
+            <input type="text" id="svc-cv-original" class="form-input" placeholder="VD: 180.000đ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nhãn Tag / Sale</label>
+            <input type="text" id="svc-cv-tag" class="form-input" value="HOT">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Đơn vị / Thời hạn</label>
+            <input type="text" id="svc-cv-unit" class="form-input" value="/ 1 năm">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tình trạng kho</label>
+            <select id="svc-cv-status" class="form-select">
+              <option value="available">🟢 Còn hàng (Sẵn sàng)</option>
+              <option value="sold_out">🔴 Tạm hết hàng</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TAB 3: WINDOWS / OFFICE & LOCKET -->
+  <div id="tab-system" class="tab-panel">
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>🖥️ Cài đặt Windows &amp; Office</h2>
+          <div class="card-desc">Cập nhật khoảng giá dịch vụ kỹ thuật cài đặt từ xa / trực tiếp</div>
+        </div>
+        <button type="button" class="btn-action btn-primary" onclick="saveToLocalPreview()">Lưu thay đổi</button>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Windows Chuẩn Microsoft</label>
+          <input type="text" id="svc-win-std" class="form-input" value="150k – 180k">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Windows Tối Ưu (Ghost/Lite)</label>
+          <input type="text" id="svc-win-opt" class="form-input" value="100k – 120k">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Microsoft Office (365, 2021, 2019)</label>
+          <input type="text" id="svc-office" class="form-input" value="80k – 120k">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Combo Win Chuẩn + Office</label>
+          <input type="text" id="svc-combo-std" class="form-input" value="200k – 220k">
+        </div>
+        <div class="form-group" style="grid-column: 1 / -1;">
+          <label class="form-label">Combo Win Tối Ưu + Office</label>
+          <input type="text" id="svc-combo-opt" class="form-input" value="160k – 180k">
+        </div>
+      </div>
+    </div>
+
+    <!-- LOCKET GOLD -->
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>💛 Locket Gold (iOS &amp; Android)</h2>
+          <div class="card-desc">Cập nhật giá các mốc thời gian: 6 tháng, 1 năm, Vĩnh viễn</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:14px;color:#f472b6;margin-bottom:10px;">✦ Gói Quay 5 Giây</h3>
+      <div class="grid-3" style="margin-bottom:16px;">
+        <div class="form-group">
+          <label class="form-label">6 Tháng</label>
+          <input type="text" id="svc-l5-6m" class="form-input" value="50k">
+        </div>
+        <div class="form-group">
+          <label class="form-label">1 Năm</label>
+          <input type="text" id="svc-l5-1y" class="form-input" value="80k">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Vĩnh viễn ♾️</label>
+          <input type="text" id="svc-l5-life" class="form-input" value="150k">
+        </div>
+      </div>
+
+      <h3 style="font-size:14px;color:#f472b6;margin-bottom:10px;">✦ Gói Quay 15 Giây</h3>
+      <div class="grid-3">
+        <div class="form-group">
+          <label class="form-label">6 Tháng</label>
+          <input type="text" id="svc-l15-6m" class="form-input" value="60k">
+        </div>
+        <div class="form-group">
+          <label class="form-label">1 Năm</label>
+          <input type="text" id="svc-l15-1y" class="form-input" value="100k">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Vĩnh viễn ♾️</label>
+          <input type="text" id="svc-l15-life" class="form-input" value="180k">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: THÊM DỊCH VỤ MỚI -->
+  <div id="tab-custom" class="tab-panel">
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>➕ Thêm Dịch vụ / Sản phẩm Mới</h2>
+          <div class="card-desc">Sản phẩm tạo mới sẽ tự động hiển thị trong phần Premium Subscriptions ở trang chủ</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Tên dịch vụ</label>
+          <input type="text" id="new-p-name" class="form-input" placeholder="VD: Spotify Premium 1 Năm">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Đường dẫn Icon / Ảnh</label>
+          <input type="text" id="new-p-icon" class="form-input" placeholder="images/spotify.png hoặc để trống" value="images/avatar.png">
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="form-group">
+          <label class="form-label">Giá bán</label>
+          <input type="text" id="new-p-price" class="form-input" placeholder="VD: 120.000đ">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Đơn vị tính</label>
+          <input type="text" id="new-p-unit" class="form-input" placeholder="VD: / 1 năm">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Giá gốc (nếu có SALE)</label>
+          <input type="text" id="new-p-original" class="form-input" placeholder="VD: 190.000đ">
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Chính sách bảo hành</label>
+          <input type="text" id="new-p-warranty" class="form-input" value="Bảo hành full thời gian">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Các tính năng (ngăn cách bằng dấu phẩy)</label>
+          <input type="text" id="new-p-features" class="form-input" placeholder="Nghe nhạc offline, Không quảng cáo, Âm thanh High Quality">
+        </div>
+      </div>
+
+      <div style="margin-top:8px;">
+        <button type="button" class="btn-action btn-success" onclick="addCustomProduct()">
+          ➕ Thêm vào danh sách sản phẩm
+        </button>
+      </div>
+    </div>
+
+    <!-- DANH SÁCH SẢN PHẨM MỚI ĐÃ THÊM -->
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>📦 Danh sách Dịch vụ Mới đã tạo</h2>
+          <div class="card-desc">Có thể xóa hoặc tắt bất kỳ lúc nào</div>
+        </div>
+      </div>
+      <div id="custom-products-list">
+        <p style="color:var(--muted);font-style:italic;">Chưa có dịch vụ mới nào được thêm.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5: BANNER KHUYẾN MÃI & LIÊN HỆ -->
+  <div id="tab-banner-contact" class="tab-panel">
+    <!-- BANNER SALE -->
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>📢 Banner Khuyến Mãi Đầu Trang (Announcement Bar)</h2>
+          <div class="card-desc">Thanh thông báo chạy nổi bật trên cùng của toàn bộ website</div>
+        </div>
+        <label class="switch-wrap">
+          <input type="checkbox" id="banner-enabled" class="switch-input" onchange="updateBannerPreview()">
+          <span class="switch-slider"></span>
+          <span class="switch-label" style="color:var(--green);">Bật Banner</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Nội dung thông báo (hỗ trợ Emoji)</label>
+        <input type="text" id="banner-text" class="form-input" value="🔥 SIÊU SALE: Netflix 4K chỉ 30k · CapCut Pro 90k · Hỗ trợ cài đặt 24/7!" oninput="updateBannerPreview()">
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Nhãn Badge (VD: SALE, HOT, QUÀ TẶNG)</label>
+          <input type="text" id="banner-tag" class="form-input" value="SALE" oninput="updateBannerPreview()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Link chuyển đến khi bấm</label>
+          <input type="text" id="banner-link" class="form-input" value="#contact">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Xem trước Banner:</label>
+        <div id="banner-preview" class="banner-preview-box">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- LIÊN HỆ -->
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>📞 Thông tin Liên Hệ toàn hệ thống</h2>
+          <div class="card-desc">Cập nhật số Zalo / Điện thoại / Facebook ở đây sẽ tự đồng bộ toàn bộ website</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">Số Zalo</label>
+          <input type="text" id="contact-zalo" class="form-input" value="0822307662">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Số Điện Thoại Hotline</label>
+          <input type="text" id="contact-phone" class="form-input" value="0822.307.662">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Link Chat Zalo</label>
+          <input type="text" id="contact-zalolink" class="form-input" value="https://zalo.me/0822307662">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Link Facebook cá nhân</label>
+          <input type="text" id="contact-fb" class="form-input" value="https://www.facebook.com/xwuan1/">
+        </div>
+        <div class="form-group" style="grid-column: 1 / -1;">
+          <label class="form-label">Link TikTok</label>
+          <input type="text" id="contact-tiktok" class="form-input" value="https://www.tiktok.com/@xwuan2">
+        </div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <button type="button" class="btn-action btn-primary" onclick="saveToLocalPreview()">Lưu thông tin liên hệ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 6: XUẤT & ĐỒNG BỘ GITHUB -->
+  <div id="tab-sync" class="tab-panel">
+    <div class="admin-card">
+      <div class="card-header">
+        <div>
+          <h2>🚀 Tùy chọn Lưu &amp; Đồng bộ dữ liệu</h2>
+          <div class="card-desc">Lựa chọn phương thức cập nhật phù hợp với bạn</div>
+        </div>
+      <!-- FIREBASE REALTIME CLOUD SYNC (TOP OPTION) -->
+      <div class="stat-box" style="flex-direction:column;align-items:flex-start;background:linear-gradient(135deg,rgba(255,153,0,0.1),rgba(255,85,0,0.05));border-color:rgba(255,153,0,0.4);margin-bottom:20px;padding:22px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:10px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="stat-icon" style="background:rgba(255,153,0,0.15);border-color:rgba(255,153,0,0.4);font-size:24px;">🔥</div>
+            <div>
+              <strong style="font-size:1.15rem;color:#ffaa00;display:flex;align-items:center;gap:8px;">
+                CẬP NHẬT REALTIME 1S: Firebase Cloud (Khuyên dùng)
+              </strong>
+              <div style="font-size:12px;color:var(--muted);">Lưu giá lên Cloud Google: Toàn bộ khách hàng mở web sẽ thấy giá mới sau 1 giây!</div>
+            </div>
+          </div>
+          <span id="fb-status-badge" style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(255,153,0,0.15);color:#ffaa00;border:1px solid rgba(255,153,0,0.3);">
+            ⚪ Chưa nhập URL Database
+          </span>
+        </div>
+
+        <div class="grid-2" style="width:100%;margin-top:14px;">
+          <div class="form-group">
+            <label class="form-label" style="color:#ffaa00;">Firebase Realtime Database URL</label>
+            <input type="text" id="fb-url" class="form-input" value="https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app" oninput="updateFirebaseStatus()">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="color:#00e676;">🛡️ Mật khẩu bí mật Firebase (Chống F12 phá hoại)</label>
+            <input type="text" id="fb-secret" class="form-input" value="Xwuan@Secret2026!" placeholder="Mật khẩu bảo vệ...">
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+          <button type="button" class="btn-action" onclick="saveToFirebase()" style="background:linear-gradient(135deg,#ff9900,#ff5500);color:#fff;font-weight:800;box-shadow:0 4px 18px rgba(255,100,0,0.35);">
+            ☁️ Lưu lên Cloud Firebase (Khách thấy ngay trong 1s)
+          </button>
+          <button type="button" class="btn-action btn-secondary" onclick="fetchFromFirebase()">
+            📥 Nạp dữ liệu từ Cloud về Admin
+          </button>
+        </div>
+
+        <!-- Mini Guide -->
+        <details style="margin-top:14px;background:rgba(10,14,28,0.7);border:1px solid var(--border);border-radius:10px;padding:12px;width:100%;font-size:12px;color:#b0c4de;">
+          <summary style="font-weight:700;color:var(--c1);cursor:pointer;">📖 Hướng dẫn tạo Firebase Realtime Database miễn phí trong 2 phút (chỉ làm 1 lần)</summary>
+          <ol style="margin-top:10px;padding-left:20px;line-height:1.8;">
+            <li>Truy cập <a href="https://console.firebase.google.com/" target="_blank" style="color:#00d4ff;text-decoration:underline;">Firebase Console</a> và đăng nhập tài khoản Google.</li>
+            <li>Bấm <strong>Create a project</strong> (Tạo dự án) ➔ Đặt tên tùy ý (VD: <code>xwuan-store</code>) ➔ Bấm Tiếp tục.</li>
+            <li>Tại menu bên trái, chọn mục <strong>Build</strong> ➔ <strong>Realtime Database</strong> ➔ Bấm <strong>Create Database</strong>.</li>
+            <li>Chọn vị trí (Singapore hoặc US) ➔ Chọn <strong>Start in test mode</strong> (hoặc đặt Rules: <code>{ "rules": { ".read": true, ".write": true } }</code>).</li>
+            <li>Copy đường link <strong>Database URL</strong> (dạng <code>https://...firebasedatabase.app</code>) và dán vào ô bên trên. Bấm Lưu là xong!</li>
+          </ol>
+        </details>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:18px;">
+        <!-- Option 1: Preview Local -->
+        <div class="stat-box" style="flex-direction:column;align-items:flex-start;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+            <div class="stat-icon" style="font-size:18px;">⚡</div>
+            <strong style="font-size:1rem;color:#fff;">1. Lưu xem trước (Local)</strong>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:12px;">
+            Lưu ngay vào trình duyệt trên máy của bạn để mở <code>index.html</code> kiểm tra giao diện trước khi tải file hoặc đẩy lên GitHub.
+          </p>
+          <button type="button" class="btn-action btn-primary" onclick="saveToLocalPreview()" style="width:100%;justify-content:center;">
+            Lưu xem trước ngay
+          </button>
+        </div>
+
+        <!-- Option 2: Download File -->
+        <div class="stat-box" style="flex-direction:column;align-items:flex-start;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+            <div class="stat-icon" style="font-size:18px;">📥</div>
+            <strong style="font-size:1rem;color:#fff;">2. Tải file pricing.js</strong>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:12px;">
+            Tải file <code>pricing.js</code> chứa toàn bộ dữ liệu mới về máy. Bạn chỉ cần chép đè vào thư mục dự án và commit lên GitHub.
+          </p>
+          <button type="button" class="btn-action btn-success" onclick="downloadPricingJs()" style="width:100%;justify-content:center;">
+            Tải file pricing.js về máy
+          </button>
+        </div>
+      </div>
+
+      <!-- Option 3: GitHub Direct API Commit -->
+      <div class="stat-box" style="flex-direction:column;align-items:flex-start;background:#090d1f;border-color:rgba(0,212,255,0.3);margin-bottom:18px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <div class="stat-icon" style="background:rgba(0,212,255,0.15);font-size:20px;">🚀</div>
+          <div>
+            <strong style="font-size:1.05rem;color:var(--c1);">3. Đẩy trực tiếp lên GitHub (1-Click Deploy)</strong>
+            <div style="font-size:12px;color:var(--muted);">Tự động commit và deploy lên GitHub Pages sau 30 giây mà không cần mở code</div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="width:100%;margin-top:12px;">
+          <div class="form-group">
+            <label class="form-label">GitHub Personal Access Token (PAT)</label>
+            <input type="password" id="gh-token" class="form-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Repository (Owner/Repo)</label>
+            <input type="text" id="gh-repo" class="form-input" value="xwuan/xwuan.github.io">
+          </div>
+        </div>
+
+        <div class="grid-2" style="width:100%;">
+          <div class="form-group">
+            <label class="form-label">Nhánh (Branch)</label>
+            <input type="text" id="gh-branch" class="form-input" value="main">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tệp đích</label>
+            <input type="text" id="gh-path" class="form-input" value="pricing.js" disabled style="opacity:0.6;">
+          </div>
+        </div>
+
+        <button type="button" class="btn-action btn-primary" onclick="commitDirectToGithub()" style="margin-top:6px;">
+          🚀 Đẩy dữ liệu lên GitHub ngay
+        </button>
+        <p style="font-size:11px;color:var(--muted);margin-top:8px;">
+          * Token được lưu an toàn tại bộ nhớ trình duyệt của bạn (localStorage), không gửi đi bất kỳ server nào khác.
+        </p>
+      </div>
+
+      <!-- Backup / Reset -->
+      <div class="grid-2">
+        <div>
+          <h3 style="font-size:13px;color:#fff;margin-bottom:8px;">📋 Mã nguồn file pricing.js hiện tại:</h3>
+          <button type="button" class="btn-action btn-secondary" onclick="copyPricingCode()" style="margin-bottom:6px;">
+            📋 Sao chép mã JavaScript
+          </button>
+          <pre id="pricing-code-preview" class="code-box">// Đang nạp mã nguồn...</pre>
+        </div>
+
+        <div>
+          <h3 style="font-size:13px;color:#fff;margin-bottom:8px;">⚙️ Cài đặt Quản Trị &amp; Khôi phục:</h3>
+          <div class="form-group">
+            <label class="form-label">Đổi mã PIN đăng nhập Admin mới</label>
+            <div style="display:flex;gap:8px;">
+              <input type="password" id="new-pin-code" class="form-input" placeholder="Mã PIN mới (VD: 686868)">
+              <button type="button" class="btn-action btn-secondary" onclick="changeAdminPin()">Đổi PIN</button>
+            </div>
+          </div>
+          <div style="margin-top:18px;">
+            <button type="button" class="btn-action btn-secondary" onclick="resetToDefaults()" style="color:#f87171;border-color:rgba(239,68,68,0.3);">
+              🔄 Khôi phục cài đặt gốc ban đầu
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- STICKY ACTION BAR -->
+<div class="sticky-bar" id="sticky-bar" style="display:none;">
+  <div class="sticky-info">
+    <span class="sticky-status-dot" id="sticky-dot"></span>
+    <span id="sticky-status-text">🟢 Tự động lưu mọi thay đổi trên máy này (F5 không mất)</span>
+  </div>
+  <div class="sticky-actions">
+    <a href="index.html" target="_blank" class="btn-action btn-secondary" style="font-size:12px;padding:8px 14px;">
+      👁️ Xem trang chủ
+    </a>
+    <button type="button" class="btn-action btn-primary" onclick="saveToLocalPreview()" style="font-size:12px;padding:8px 14px;">
+      💾 Lưu máy (Ctrl+S)
+    </button>
+    <button type="button" class="btn-action" onclick="saveToFirebase()" style="font-size:12px;padding:8px 16px;background:linear-gradient(135deg,#ff9900,#ff5500);color:#fff;font-weight:800;box-shadow:0 4px 15px rgba(255,100,0,0.35);">
+      ☁️ Lưu Cloud (Khách thấy ngay 1s)
+    </button>
+    <button type="button" class="btn-action btn-secondary" onclick="switchTab('tab-sync', document.querySelectorAll('.tab-btn')[5])" style="font-size:12px;padding:8px 14px;">
+      🚀 Đồng bộ GitHub
+    </button>
+  </div>
+</div>
+
+<!-- TOAST MESSAGE -->
+<div id="toast">
+  <span id="toast-icon">✅</span>
+  <span id="toast-msg">Đã lưu cấu hình thành công!</span>
+</div>
+
+<script>
+// 1. SECURITY & AUTH LOGIC
+function getAdminPass() {
+  return sessionStorage.getItem("xwuan_admin_pass") || localStorage.getItem("xwuan_admin_pass") || "";
+}
+
+function checkPin() {
+  const pinInput = document.getElementById("pin-input");
+  const val = pinInput.value.trim();
+  if (!val) {
+    showToast("⚠️ Vui lòng nhập mật khẩu quản trị!", "error");
+    pinInput.focus();
+    return;
+  }
+
+  // Lưu mật khẩu trên thiết bị này (không lưu trong code công khai)
+  sessionStorage.setItem("xwuan_admin_auth", "true");
+  sessionStorage.setItem("xwuan_admin_pass", val);
+  localStorage.setItem("xwuan_admin_pass", val);
+
+  document.getElementById("login-overlay").style.display = "none";
+  document.getElementById("admin-app").style.display = "block";
+  const bar = document.getElementById("sticky-bar");
+  if (bar) bar.style.display = "flex";
+  initAdminData();
+  showToast("🔓 Đăng nhập thành công!", "success");
+}
+
+document.getElementById("pin-input").addEventListener("keyup", function(e) {
+  if (e.key === "Enter") checkPin();
+});
+
+function logoutAdmin() {
+  sessionStorage.removeItem("xwuan_admin_auth");
+  location.reload();
+}
+
+function changeAdminPin() {
+  const newPin = document.getElementById("new-pin-code").value.trim();
+  if (newPin.length < 4) {
+    showToast("⚠️ Mã PIN tối thiểu 4 ký tự!", "error");
+    return;
+  }
+  localStorage.setItem("xwuan_admin_pin", newPin);
+  document.getElementById("new-pin-code").value = "";
+  showToast("✅ Đã đổi mã PIN thành công!", "success");
+}
+
+// 2. TAB SWITCHING
+function switchTab(tabId, btn) {
+  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  const target = document.getElementById(tabId);
+  if (target) target.classList.add("active");
+  if (btn) btn.classList.add("active");
+}
+
+// 3. TOAST NOTIFICATION
+function showToast(msg, type = "success") {
+  const toast = document.getElementById("toast");
+  const msgEl = document.getElementById("toast-msg");
+  const iconEl = document.getElementById("toast-icon");
+  msgEl.textContent = msg;
+  iconEl.textContent = type === "success" ? "✅" : "⚠️";
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 3200);
+}
+
+// 4. DATA INITIALIZATION & BINDING
+let currentConfig = null;
+
+function initAdminData() {
+  currentConfig = JSON.parse(JSON.stringify(window.SITE_CONFIG || window.DEFAULT_SITE_CONFIG));
+  bindConfigToForm(currentConfig);
+  updateOverviewStats();
+  updateCodePreview();
+  loadSavedGithubCredentials();
+  loadFirebaseSettings();
+}
+
+function bindConfigToForm(cfg) {
+  const s = cfg.services;
+  // Netflix
+  if (s.netflix) {
+    document.getElementById("svc-nf-price").value = s.netflix.price || "30.000đ";
+    document.getElementById("svc-nf-original").value = s.netflix.originalPrice || "60.000đ";
+    document.getElementById("svc-nf-sale").checked = !!s.netflix.isSale;
+    document.getElementById("svc-nf-tag").value = s.netflix.saleTag || "SALE";
+    document.getElementById("svc-nf-unit").value = s.netflix.unit || "/ tháng";
+    document.getElementById("svc-nf-status").value = s.netflix.status || "available";
+  }
+  // CapCut 30d
+  if (s.capcut_30d) {
+    document.getElementById("svc-cc30-price").value = s.capcut_30d.price || "90.000đ";
+    document.getElementById("svc-cc30-original").value = s.capcut_30d.originalPrice || "110.000đ";
+    document.getElementById("svc-cc30-sale").checked = !!s.capcut_30d.isSale;
+    document.getElementById("svc-cc30-tag").value = s.capcut_30d.saleTag || "SALE";
+    document.getElementById("svc-cc30-unit").value = s.capcut_30d.unit || "/ 30 ngày";
+    document.getElementById("svc-cc30-status").value = s.capcut_30d.status || "available";
+  }
+  // CapCut 7d
+  if (s.capcut_7d) {
+    document.getElementById("svc-cc7-price").value = s.capcut_7d.price || "20.000đ";
+    document.getElementById("svc-cc7-unit").value = s.capcut_7d.unit || "/ 7 ngày";
+  }
+  // YouTube
+  if (s.youtube) {
+    document.getElementById("svc-yt-price").value = s.youtube.price || "40.000đ";
+    document.getElementById("svc-yt-original").value = s.youtube.originalPrice || "";
+    document.getElementById("svc-yt-sale").checked = !!s.youtube.isSale;
+    document.getElementById("svc-yt-tag").value = s.youtube.saleTag || "HOT";
+    document.getElementById("svc-yt-unit").value = s.youtube.unit || "/ tháng";
+    document.getElementById("svc-yt-status").value = s.youtube.status || "available";
+  }
+  // Canva
+  if (s.canva) {
+    document.getElementById("svc-cv-price").value = s.canva.price || "130.000đ";
+    document.getElementById("svc-cv-original").value = s.canva.originalPrice || "";
+    document.getElementById("svc-cv-sale").checked = !!s.canva.isSale;
+    document.getElementById("svc-cv-tag").value = s.canva.saleTag || "HOT";
+    document.getElementById("svc-cv-unit").value = s.canva.unit || "/ 1 năm";
+    document.getElementById("svc-cv-status").value = s.canva.status || "available";
+  }
+
+  // Windows & Office
+  if (s.win_std) document.getElementById("svc-win-std").value = s.win_std.price || "150k – 180k";
+  if (s.win_opt) document.getElementById("svc-win-opt").value = s.win_opt.price || "100k – 120k";
+  if (s.office) document.getElementById("svc-office").value = s.office.price || "80k – 120k";
+  if (s.combo_std) document.getElementById("svc-combo-std").value = s.combo_std.price || "200k – 220k";
+  if (s.combo_opt) document.getElementById("svc-combo-opt").value = s.combo_opt.price || "160k – 180k";
+
+  // Locket Gold
+  if (s.locket_5s) {
+    document.getElementById("svc-l5-6m").value = s.locket_5s.p6m || "50k";
+    document.getElementById("svc-l5-1y").value = s.locket_5s.p1y || "80k";
+    document.getElementById("svc-l5-life").value = s.locket_5s.pLife || "150k";
+  }
+  if (s.locket_15s) {
+    document.getElementById("svc-l15-6m").value = s.locket_15s.p6m || "60k";
+    document.getElementById("svc-l15-1y").value = s.locket_15s.p1y || "100k";
+    document.getElementById("svc-l15-life").value = s.locket_15s.pLife || "180k";
+  }
+
+  // Banner
+  if (cfg.announcement) {
+    document.getElementById("banner-enabled").checked = !!cfg.announcement.enabled;
+    document.getElementById("banner-text").value = cfg.announcement.text || "";
+    document.getElementById("banner-tag").value = cfg.announcement.tag || "SALE";
+    document.getElementById("banner-link").value = cfg.announcement.link || "#contact";
+    updateBannerPreview();
+  }
+
+  // Contact
+  if (cfg.contact) {
+    document.getElementById("contact-zalo").value = cfg.contact.zalo || "0822307662";
+    document.getElementById("contact-phone").value = cfg.contact.phone || "0822.307.662";
+    document.getElementById("contact-zalolink").value = cfg.contact.zaloLink || "https://zalo.me/0822307662";
+    document.getElementById("contact-fb").value = cfg.contact.facebook || "https://www.facebook.com/xwuan1/";
+    document.getElementById("contact-tiktok").value = cfg.contact.tiktok || "https://www.tiktok.com/@xwuan2";
+  }
+
+  // Custom Products
+  renderCustomProductsAdmin(cfg.customProducts || []);
+}
+
+function collectFormData() {
+  const cfg = JSON.parse(JSON.stringify(currentConfig));
+
+  // Services
+  cfg.services.netflix = {
+    ...cfg.services.netflix,
+    price: document.getElementById("svc-nf-price").value.trim(),
+    originalPrice: document.getElementById("svc-nf-original").value.trim(),
+    isSale: document.getElementById("svc-nf-sale").checked,
+    saleTag: document.getElementById("svc-nf-tag").value.trim(),
+    unit: document.getElementById("svc-nf-unit").value.trim(),
+    status: document.getElementById("svc-nf-status").value
+  };
+
+  cfg.services.capcut_30d = {
+    ...cfg.services.capcut_30d,
+    price: document.getElementById("svc-cc30-price").value.trim(),
+    originalPrice: document.getElementById("svc-cc30-original").value.trim(),
+    isSale: document.getElementById("svc-cc30-sale").checked,
+    saleTag: document.getElementById("svc-cc30-tag").value.trim(),
+    unit: document.getElementById("svc-cc30-unit").value.trim(),
+    status: document.getElementById("svc-cc30-status").value
+  };
+
+  cfg.services.capcut_7d = {
+    ...cfg.services.capcut_7d,
+    price: document.getElementById("svc-cc7-price").value.trim(),
+    unit: document.getElementById("svc-cc7-unit").value.trim()
+  };
+
+  cfg.services.youtube = {
+    ...cfg.services.youtube,
+    price: document.getElementById("svc-yt-price").value.trim(),
+    originalPrice: document.getElementById("svc-yt-original").value.trim(),
+    isSale: document.getElementById("svc-yt-sale").checked,
+    saleTag: document.getElementById("svc-yt-tag").value.trim(),
+    unit: document.getElementById("svc-yt-unit").value.trim(),
+    status: document.getElementById("svc-yt-status").value
+  };
+
+  cfg.services.canva = {
+    ...cfg.services.canva,
+    price: document.getElementById("svc-cv-price").value.trim(),
+    originalPrice: document.getElementById("svc-cv-original").value.trim(),
+    isSale: document.getElementById("svc-cv-sale").checked,
+    saleTag: document.getElementById("svc-cv-tag").value.trim(),
+    unit: document.getElementById("svc-cv-unit").value.trim(),
+    status: document.getElementById("svc-cv-status").value
+  };
+
+  cfg.services.win_std.price = document.getElementById("svc-win-std").value.trim();
+  cfg.services.win_opt.price = document.getElementById("svc-win-opt").value.trim();
+  cfg.services.office.price = document.getElementById("svc-office").value.trim();
+  cfg.services.combo_std.price = document.getElementById("svc-combo-std").value.trim();
+  cfg.services.combo_opt.price = document.getElementById("svc-combo-opt").value.trim();
+
+  cfg.services.locket_5s.p6m = document.getElementById("svc-l5-6m").value.trim();
+  cfg.services.locket_5s.p1y = document.getElementById("svc-l5-1y").value.trim();
+  cfg.services.locket_5s.pLife = document.getElementById("svc-l5-life").value.trim();
+
+  cfg.services.locket_15s.p6m = document.getElementById("svc-l15-6m").value.trim();
+  cfg.services.locket_15s.p1y = document.getElementById("svc-l15-1y").value.trim();
+  cfg.services.locket_15s.pLife = document.getElementById("svc-l15-life").value.trim();
+
+  // Banner
+  cfg.announcement = {
+    enabled: document.getElementById("banner-enabled").checked,
+    text: document.getElementById("banner-text").value.trim(),
+    tag: document.getElementById("banner-tag").value.trim(),
+    link: document.getElementById("banner-link").value.trim()
+  };
+
+  // Contact
+  cfg.contact = {
+    zalo: document.getElementById("contact-zalo").value.trim(),
+    phone: document.getElementById("contact-phone").value.trim(),
+    zaloLink: document.getElementById("contact-zalolink").value.trim(),
+    facebook: document.getElementById("contact-fb").value.trim(),
+    tiktok: document.getElementById("contact-tiktok").value.trim()
+  };
+
+  // Firebase
+  const fbInput = document.getElementById("fb-url");
+  cfg.firebase = {
+    databaseURL: fbInput ? fbInput.value.trim() : (localStorage.getItem("xwuan_firebase_url") || "")
+  };
+
+  cfg.lastUpdated = new Date().toISOString().split("T")[0];
+  currentConfig = cfg;
+  return cfg;
+}
+
+// 5. BANNER PREVIEW
+function updateBannerPreview() {
+  const enabled = document.getElementById("banner-enabled").checked;
+  const text = document.getElementById("banner-text").value.trim();
+  const tag = document.getElementById("banner-tag").value.trim();
+  const preview = document.getElementById("banner-preview");
+
+  if (!enabled) {
+    preview.style.display = "none";
+  } else {
+    preview.style.display = "block";
+    preview.innerHTML = `<span style="background:#fff;color:#ff0055;padding:1px 7px;border-radius:10px;font-size:10px;font-weight:900;margin-right:6px;">${tag}</span> ${text}`;
+  }
+}
+
+function updateFormPreview() {
+  updateOverviewStats();
+  updateCodePreview();
+}
+
+// 6. OVERVIEW STATS & SUMMARY
+function updateOverviewStats() {
+  if (!currentConfig) return;
+  const cfg = collectFormData();
+  const services = Object.values(cfg.services);
+  const total = services.length + (cfg.customProducts ? cfg.customProducts.length : 0);
+  const saleCount = services.filter(s => s.isSale).length;
+
+  document.getElementById("stat-total-services").textContent = total;
+  document.getElementById("stat-sale-count").textContent = saleCount;
+  const bannerEl = document.getElementById("stat-banner-status");
+  if (cfg.announcement && cfg.announcement.enabled) {
+    bannerEl.textContent = "Đang Bật 🟢";
+    bannerEl.style.color = "var(--green)";
+  } else {
+    bannerEl.textContent = "Đang Tắt ⚪";
+    bannerEl.style.color = "var(--muted)";
+  }
+
+  // Render summary grid
+  const listEl = document.getElementById("overview-summary-list");
+  listEl.innerHTML = "";
+  services.forEach(s => {
+    const item = document.createElement("div");
+    item.className = "stat-box";
+    item.style.cssText = "padding:12px;font-size:12px;display:flex;justify-content:space-between;align-items:center;";
+    const saleBadge = s.isSale
+      ? `<span style="background:rgba(239,68,68,0.2);color:#ef4444;padding:2px 6px;border-radius:8px;font-size:10px;font-weight:700;">${s.saleTag || "SALE"}</span>`
+      : "";
+    item.innerHTML = `
+      <div>
+        <strong style="color:#fff;display:block;margin-bottom:2px;">${s.name}</strong>
+        <span style="color:var(--c1);font-weight:700;">${s.price || (s.p6m ? s.p6m + ' - ' + s.pLife : '')}</span>
+      </div>
+      <div>${saleBadge}</div>
+    `;
+    listEl.appendChild(item);
+  });
+}
+
+function quickToggleAllSales(enable) {
+  document.getElementById("svc-nf-sale").checked = enable;
+  document.getElementById("svc-cc30-sale").checked = enable;
+  document.getElementById("svc-yt-sale").checked = enable;
+  document.getElementById("svc-cv-sale").checked = enable;
+  saveToLocalPreview();
+  showToast(enable ? "🔥 Đã BẬT SALE tất cả tài khoản!" : "⚪ Đã TẮT SALE tất cả tài khoản!", "success");
+}
+
+// 7. CUSTOM PRODUCTS LOGIC
+function addCustomProduct() {
+  const name = document.getElementById("new-p-name").value.trim();
+  const icon = document.getElementById("new-p-icon").value.trim() || "images/avatar.png";
+  const price = document.getElementById("new-p-price").value.trim();
+  const unit = document.getElementById("new-p-unit").value.trim();
+  const originalPrice = document.getElementById("new-p-original").value.trim();
+  const warranty = document.getElementById("new-p-warranty").value.trim();
+  const featuresRaw = document.getElementById("new-p-features").value.trim();
+
+  if (!name || !price) {
+    showToast("⚠️ Vui lòng nhập tên và giá dịch vụ!", "error");
+    return;
+  }
+
+  const features = featuresRaw ? featuresRaw.split(",").map(f => f.trim()).filter(Boolean) : [];
+  if (!currentConfig.customProducts) currentConfig.customProducts = [];
+
+  const newProd = {
+    id: "custom_" + Date.now(),
+    name: name,
+    icon: icon,
+    price: price,
+    unit: unit,
+    originalPrice: originalPrice,
+    isSale: !!originalPrice,
+    saleTag: "SALE",
+    warranty: warranty || "Bảo hành full thời gian",
+    features: features,
+    status: "available"
+  };
+
+  currentConfig.customProducts.push(newProd);
+  renderCustomProductsAdmin(currentConfig.customProducts);
+
+  // Clear inputs
+  document.getElementById("new-p-name").value = "";
+  document.getElementById("new-p-price").value = "";
+  document.getElementById("new-p-unit").value = "";
+  document.getElementById("new-p-original").value = "";
+  document.getElementById("new-p-features").value = "";
+
+  saveToLocalPreview();
+  showToast(`✅ Đã thêm dịch vụ "${name}" thành công!`, "success");
+}
+
+function removeCustomProduct(id) {
+  if (!confirm("Bạn có chắc muốn xóa dịch vụ này?")) return;
+  currentConfig.customProducts = (currentConfig.customProducts || []).filter(p => p.id !== id);
+  renderCustomProductsAdmin(currentConfig.customProducts);
+  saveToLocalPreview();
+  showToast("🗑️ Đã xóa dịch vụ thành công!", "success");
+}
+
+function renderCustomProductsAdmin(products) {
+  const container = document.getElementById("custom-products-list");
+  if (!products || products.length === 0) {
+    container.innerHTML = '<p style="color:var(--muted);font-style:italic;">Chưa có dịch vụ mới nào được thêm.</p>';
+    return;
+  }
+  container.innerHTML = "";
+  products.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "svc-edit-row";
+    card.style.cssText = "display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;";
+    card.innerHTML = `
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="${p.icon}" class="svc-icon-sm" onerror="this.src='images/avatar.png'">
+        <div>
+          <strong style="color:#fff;font-size:14px;">${p.name}</strong>
+          <div style="color:var(--c1);font-size:12px;font-weight:700;">${p.price} ${p.unit || ""}</div>
+        </div>
+      </div>
+      <button type="button" class="btn-action btn-secondary" style="color:#f87171;padding:6px 12px;font-size:12px;" onclick="removeCustomProduct('${p.id}')">
+        🗑️ Xóa
+      </button>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// 8. SAVE & EXPORT LOGIC
+function saveToLocalPreview(opts = {}) {
+  const cfg = collectFormData();
+  localStorage.setItem("xwuan_site_config", JSON.stringify(cfg));
+  window.SITE_CONFIG = cfg;
+  if (typeof window.applySitePricing === "function") {
+    window.applySitePricing();
+  }
+  updateOverviewStats();
+  updateCodePreview();
+
+  const dot = document.getElementById("sticky-dot");
+  const text = document.getElementById("sticky-status-text");
+  if (dot) {
+    dot.style.background = "#00e676";
+    dot.style.boxShadow = "0 0 10px #00e676";
+  }
+  if (text) {
+    text.textContent = "🟢 Đã tự động lưu trên máy này lúc " + new Date().toLocaleTimeString("vi-VN") + " (F5 không mất)";
+  }
+
+  if (!opts.silent) {
+    showToast("⚡ Đã lưu cấu hình vào máy! F5 trang web không bao giờ bị mất.", "success");
+  }
+}
+
+function generatePricingJsContent() {
+  const cfg = collectFormData();
+  const cfgStr = JSON.stringify(cfg, null, 2);
+
+  // Template hoàn chỉnh cho file pricing.js
+  return `/**
+ * PRICING.JS — xwuan.github.io
+ * Cập nhật tự động lúc: ${new Date().toLocaleString("vi-VN")}
+ */
+
+(function () {
+  const DEFAULT_CONFIG = ${cfgStr};
+
+  let activeConfig = DEFAULT_CONFIG;
+  try {
+    const saved = localStorage.getItem("xwuan_site_config");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      activeConfig = Object.assign({}, DEFAULT_CONFIG, parsed);
+      if (parsed.services) activeConfig.services = Object.assign({}, DEFAULT_CONFIG.services, parsed.services);
+      if (parsed.contact) activeConfig.contact = Object.assign({}, DEFAULT_CONFIG.contact, parsed.contact);
+      if (parsed.announcement) activeConfig.announcement = Object.assign({}, DEFAULT_CONFIG.announcement, parsed.announcement);
+    }
+  } catch (e) {
+    console.warn("Could not parse config:", e);
+  }
+
+  window.SITE_CONFIG = activeConfig;
+  window.DEFAULT_SITE_CONFIG = DEFAULT_CONFIG;
+
+  function applySitePricing() {
+    const cfg = window.SITE_CONFIG;
+    if (!cfg) return;
+
+    renderAnnouncementBanner(cfg.announcement);
+
+    if (cfg.contact) {
+      document.querySelectorAll('a[href*="zalo.me"]').forEach(el => {
+        el.href = cfg.contact.zaloLink || \`https://zalo.me/\${cfg.contact.zalo}\`;
+      });
+      document.querySelectorAll('a[href*="tel:"]').forEach(el => {
+        el.href = \`tel:\${cfg.contact.zalo}\`;
+        const spanText = el.querySelector(".call-text") || el;
+        if (spanText && spanText.innerHTML.includes("0822")) {
+          spanText.innerHTML = spanText.innerHTML.replace(/0822[\\.\\s\\d]+/, cfg.contact.phone || cfg.contact.zalo);
+        }
+      });
+      document.querySelectorAll('a[href*="facebook.com"]').forEach(el => {
+        if (cfg.contact.facebook) el.href = cfg.contact.facebook;
+      });
+      document.querySelectorAll('a[href*="tiktok.com"]').forEach(el => {
+        if (cfg.contact.tiktok) el.href = cfg.contact.tiktok;
+      });
+    }
+
+    const s = cfg.services;
+    if (!s) return;
+
+    function updatePriceElement(elem, svc) {
+      if (!elem || !svc) return;
+      let html = "";
+      if (svc.isSale && svc.originalPrice) {
+        html += \`<span style="font-size:0.75rem;font-weight:600;color:#6b7280;text-decoration:line-through;">\${svc.originalPrice}</span> \`;
+        html += \`<span style="color:#ef4444;font-size:0.72rem;font-weight:700;margin-left:4px;padding:1px 6px;border-radius:10px;background:rgba(239,68,68,0.15);">\${svc.saleTag || "SALE"}</span><br>\`;
+      }
+      html += svc.price;
+      if (svc.unit) {
+        html += \` <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">\${svc.unit}</span>\`;
+      }
+      elem.innerHTML = html;
+    }
+
+    if (s.netflix) {
+      document.querySelectorAll('[data-price-key="netflix"]').forEach(el => updatePriceElement(el, s.netflix));
+      const nfCard = document.querySelector(".price-card .price-amount");
+      if (nfCard && window.location.pathname.includes("netflix")) {
+        const wrap = nfCard.parentElement;
+        const strike = wrap.querySelector("span[style*='line-through']");
+        const badge = wrap.querySelector("span[style*='SALE']");
+        if (s.netflix.isSale && s.netflix.originalPrice) {
+          if (strike) { strike.textContent = s.netflix.originalPrice; strike.style.display = "inline"; }
+          if (badge) { badge.textContent = s.netflix.saleTag || "SALE"; badge.style.display = "inline"; }
+        } else {
+          if (strike) strike.style.display = "none";
+          if (badge) badge.style.display = "none";
+        }
+        nfCard.innerHTML = \`\${s.netflix.price} <span class="price-month">\${s.netflix.unit || "/ tháng"}</span>\`;
+      }
+    }
+
+    if (s.capcut_30d) {
+      document.querySelectorAll('[data-price-key="capcut_30d"]').forEach(el => updatePriceElement(el, s.capcut_30d));
+      const ccCard30 = document.querySelector(".price-card.best");
+      if (ccCard30 && window.location.pathname.includes("capcut")) {
+        const strike = ccCard30.querySelector("div[style*='line-through']");
+        const amount = ccCard30.querySelector(".price-amount");
+        if (strike) {
+          strike.textContent = s.capcut_30d.originalPrice || "";
+          strike.style.display = s.capcut_30d.isSale ? "block" : "none";
+        }
+        if (amount) {
+          let badgeHtml = s.capcut_30d.isSale
+            ? \`<span style="background:linear-gradient(135deg,#d946ef,#a855f7);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:12px;letter-spacing:.3px;">\${s.capcut_30d.saleTag || "SALE"}</span>\`
+            : "";
+          amount.innerHTML = \`\${s.capcut_30d.price} \${badgeHtml}\`;
+        }
+      }
+    }
+    if (s.capcut_7d) {
+      document.querySelectorAll('[data-price-key="capcut_7d"]').forEach(el => { el.textContent = s.capcut_7d.price; });
+      const ccCards = document.querySelectorAll(".price-card");
+      if (ccCards.length > 0 && window.location.pathname.includes("capcut")) {
+        const amt = ccCards[0].querySelector(".price-amount");
+        if (amt) amt.textContent = s.capcut_7d.price;
+      }
+    }
+
+    if (s.youtube) {
+      document.querySelectorAll('[data-price-key="youtube"]').forEach(el => updatePriceElement(el, s.youtube));
+      const ytAmt = document.querySelector(".yt-price-amount");
+      if (ytAmt && window.location.pathname.includes("youtube")) {
+        ytAmt.innerHTML = \`\${s.youtube.price} <span class="yt-price-unit">\${s.youtube.unit || "/ tháng"}</span>\`;
+      }
+    }
+
+    if (s.canva) {
+      document.querySelectorAll('[data-price-key="canva"]').forEach(el => updatePriceElement(el, s.canva));
+      const cvAmt = document.querySelector(".cv-price-amount");
+      if (cvAmt && window.location.pathname.includes("canva")) {
+        cvAmt.innerHTML = \`\${s.canva.price} <span class="cv-price-unit">\${s.canva.unit || "/ 1 năm"}</span>\`;
+      }
+    }
+
+    if (s.locket_5s) {
+      document.querySelectorAll('[data-price-key="locket_5s_6m"]').forEach(el => el.textContent = s.locket_5s.p6m);
+      document.querySelectorAll('[data-price-key="locket_5s_1y"]').forEach(el => el.textContent = s.locket_5s.p1y);
+      document.querySelectorAll('[data-price-key="locket_5s_life"]').forEach(el => el.textContent = s.locket_5s.pLife);
+    }
+    if (s.locket_15s) {
+      document.querySelectorAll('[data-price-key="locket_15s_6m"]').forEach(el => el.textContent = s.locket_15s.p6m);
+      document.querySelectorAll('[data-price-key="locket_15s_1y"]').forEach(el => el.textContent = s.locket_15s.p1y);
+      document.querySelectorAll('[data-price-key="locket_15s_life"]').forEach(el => el.textContent = s.locket_15s.pLife);
+    }
+
+    if (s.win_std) document.querySelectorAll('[data-price-key="win_std"]').forEach(el => el.textContent = s.win_std.price);
+    if (s.win_opt) document.querySelectorAll('[data-price-key="win_opt"]').forEach(el => el.textContent = s.win_opt.price);
+    if (s.office) document.querySelectorAll('[data-price-key="office"]').forEach(el => el.textContent = s.office.price);
+    if (s.combo_std) document.querySelectorAll('[data-price-key="combo_std"]').forEach(el => el.textContent = s.combo_std.price);
+    if (s.combo_opt) document.querySelectorAll('[data-price-key="combo_opt"]').forEach(el => el.textContent = s.combo_opt.price);
+
+    if (cfg.customProducts && cfg.customProducts.length > 0) {
+      renderCustomProducts(cfg.customProducts);
+    }
+  }
+
+  function renderAnnouncementBanner(an) {
+    if (!an || !an.enabled || !an.text) {
+      const existing = document.getElementById("site-announcement-bar");
+      if (existing) existing.remove();
+      return;
+    }
+    let bar = document.getElementById("site-announcement-bar");
+    if (!bar) {
+      bar = document.createElement("div");
+      bar.id = "site-announcement-bar";
+      bar.style.cssText = \`
+        position: relative; z-index: 1000;
+        background: linear-gradient(90deg, #ff0055, #ff5500, #9900ff);
+        background-size: 200% auto; animation: bannerGradient 6s ease infinite;
+        color: #fff; font-size: 13px; font-weight: 700; padding: 9px 14px;
+        text-align: center; box-shadow: 0 4px 20px rgba(255, 0, 85, 0.3);
+        display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
+      \`;
+      if (!document.getElementById("banner-keyframes")) {
+        const style = document.createElement("style");
+        style.id = "banner-keyframes";
+        style.textContent = "@keyframes bannerGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }";
+        document.head.appendChild(style);
+      }
+      document.body.prepend(bar);
+    }
+    const tagHtml = an.tag ? \`<span style="background:#fff;color:#ff0055;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:900;letter-spacing:0.5px;">\${an.tag}</span>\` : "";
+    const linkHtml = an.link ? \`<a href="\${an.link}" style="color:#fff;text-decoration:underline;margin-left:6px;font-weight:800;">Xem ngay →</a>\` : "";
+    bar.innerHTML = \`\${tagHtml} <span>\${an.text}</span> \${linkHtml}\`;
+  }
+
+  function renderCustomProducts(products) {
+    const entGrid = document.querySelector(".ent-grid");
+    if (!entGrid) return;
+    entGrid.querySelectorAll(".custom-ent-card").forEach(el => el.remove());
+    products.forEach(p => {
+      if (p.status === "disabled") return;
+      const card = document.createElement("div");
+      card.className = "ent-card custom-ent-card";
+      card.style.cssText = "background: linear-gradient(180deg, rgba(20, 25, 45, 0.9), rgba(12, 16, 32, 0.95)); border: 1px solid rgba(0, 212, 255, 0.25);";
+      const icon = p.icon || "images/avatar.png";
+      const saleHtml = p.isSale && p.originalPrice
+        ? \`<span style="font-size:0.75rem;font-weight:600;color:#6b7280;text-decoration:line-through;">\${p.originalPrice}</span> <span style="color:#00d4ff;font-size:0.72rem;font-weight:700;margin-left:4px;">\${p.saleTag || "SALE"}</span><br>\`
+        : "";
+      const featuresHtml = (p.features || []).map(f => \`<span>✨ \${f}</span>\`).join("");
+      card.innerHTML = \`
+        <img src="\${icon}" class="ent-icon" alt="\${p.name}" onerror="this.src='images/avatar.png'">
+        <div class="ent-title">\${p.name}</div>
+        <div class="ent-features"><span>🛡️ \${p.warranty || "Bảo hành uy tín"}</span>\${featuresHtml}</div>
+        <div class="ent-price">\${saleHtml}\${p.price} <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">\${p.unit || ""}</span></div>
+        <a href="\${p.orderUrl || window.SITE_CONFIG.contact.zaloLink}" class="btn-ent" style="background:rgba(0,212,255,0.15);color:#00d4ff;border:1px solid rgba(0,212,255,0.4);">Mua ngay qua Zalo</a>
+      \`;
+      entGrid.appendChild(card);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applySitePricing);
+  } else {
+    applySitePricing();
+  }
+  window.applySitePricing = applySitePricing;
+})();
+`;
+}
+
+function updateCodePreview() {
+  const preview = document.getElementById("pricing-code-preview");
+  if (preview) {
+    preview.textContent = generatePricingJsContent();
+  }
+}
+
+function downloadPricingJs() {
+  const content = generatePricingJsContent();
+  const blob = new Blob([content], { type: "application/javascript;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "pricing.js";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast("📥 Đã tải file pricing.js về máy!", "success");
+}
+
+function copyPricingCode() {
+  const content = generatePricingJsContent();
+  navigator.clipboard.writeText(content).then(() => {
+    showToast("📋 Đã sao chép toàn bộ mã nguồn pricing.js vào clipboard!", "success");
+  }).catch(() => {
+    showToast("⚠️ Không thể sao chép tự động, vui lòng chọn text và copy.", "error");
+  });
+}
+
+function resetToDefaults() {
+  if (!confirm("Bạn có chắc muốn khôi phục lại toàn bộ cài đặt và bảng giá mặc định ban đầu?")) return;
+  localStorage.removeItem("xwuan_site_config");
+  window.SITE_CONFIG = JSON.parse(JSON.stringify(window.DEFAULT_SITE_CONFIG));
+  initAdminData();
+  showToast("🔄 Đã khôi phục toàn bộ giá mặc định!", "success");
+}
+
+// 9. GITHUB DIRECT API COMMIT
+function loadSavedGithubCredentials() {
+  const savedToken = localStorage.getItem("xwuan_gh_token") || "";
+  const savedRepo = localStorage.getItem("xwuan_gh_repo") || "xwuan/xwuan.github.io";
+  const savedBranch = localStorage.getItem("xwuan_gh_branch") || "main";
+  if (document.getElementById("gh-token")) document.getElementById("gh-token").value = savedToken;
+  if (document.getElementById("gh-repo")) document.getElementById("gh-repo").value = savedRepo;
+  if (document.getElementById("gh-branch")) document.getElementById("gh-branch").value = savedBranch;
+}
+
+async function commitDirectToGithub() {
+  const token = document.getElementById("gh-token").value.trim();
+  const repo = document.getElementById("gh-repo").value.trim();
+  const branch = document.getElementById("gh-branch").value.trim() || "main";
+  const path = "pricing.js";
+
+  if (!token) {
+    showToast("⚠️ Vui lòng nhập GitHub Personal Access Token!", "error");
+    return;
+  }
+  if (!repo) {
+    showToast("⚠️ Vui lòng nhập thông tin Repository (Owner/Repo)!", "error");
+    return;
+  }
+
+  localStorage.setItem("xwuan_gh_token", token);
+  localStorage.setItem("xwuan_gh_repo", repo);
+  localStorage.setItem("xwuan_gh_branch", branch);
+
+  showToast("⏳ Đang kết nối tới GitHub...", "success");
+
+  try {
+    const fileContent = generatePricingJsContent();
+    // Convert utf-8 string to base64
+    const base64Content = btoa(unescape(encodeURIComponent(fileContent)));
+
+    // 1. Get current file sha if exists
+    let sha = null;
+    try {
+      const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Accept": "application/vnd.github.v3+json"
+        }
+      });
+      if (getRes.ok) {
+        const fileInfo = await getRes.json();
+        sha = fileInfo.sha;
+      }
+    } catch (e) {
+      console.warn("File might not exist yet:", e);
+    }
+
+    // 2. Put file to GitHub
+    const body = {
+      message: "Update pricing and sales via Admin Panel [" + new Date().toISOString() + "]",
+      content: base64Content,
+      branch: branch
+    };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+      method: "PUT",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Accept": "application/vnd.github.v3+json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (putRes.ok) {
+      showToast("🚀 Đã đẩy lên GitHub thành công! Web sẽ tự deploy sau 30-60s.", "success");
+    } else {
+      const err = await putRes.json();
+      showToast(`❌ Lỗi GitHub: ${err.message || "Không thể lưu file"}`, "error");
+    }
+  } catch (err) {
+    showToast(`❌ Lỗi kết nối mạng: ${err.message}`, "error");
+  }
+}
+
+// 9.5. FIREBASE CLOUD REALTIME SYNC
+function loadFirebaseSettings() {
+  const defaultDbUrl = "https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app";
+  const savedUrl = localStorage.getItem("xwuan_firebase_url") || (window.SITE_CONFIG && window.SITE_CONFIG.firebase && window.SITE_CONFIG.firebase.databaseURL) || defaultDbUrl;
+  const fbInput = document.getElementById("fb-url");
+  if (fbInput) {
+    fbInput.value = savedUrl;
+    updateFirebaseStatus();
+  }
+  const savedSecret = localStorage.getItem("xwuan_firebase_secret") || "Xwuan@Secret2026!";
+  const secretInput = document.getElementById("fb-secret");
+  if (secretInput) secretInput.value = savedSecret;
+}
+
+function updateFirebaseStatus() {
+  const fbInput = document.getElementById("fb-url");
+  const badge = document.getElementById("fb-status-badge");
+  if (!fbInput || !badge) return;
+  const val = fbInput.value.trim();
+  if (val && val.startsWith("http")) {
+    badge.textContent = "🟢 Sẵn sàng đồng bộ";
+    badge.style.color = "var(--green)";
+    badge.style.background = "rgba(0,230,118,0.15)";
+    badge.style.borderColor = "rgba(0,230,118,0.3)";
+  } else {
+    badge.textContent = "⚪ Chưa nhập URL Database";
+    badge.style.color = "#ffaa00";
+    badge.style.background = "rgba(255,153,0,0.15)";
+    badge.style.borderColor = "rgba(255,153,0,0.3)";
+  }
+}
+
+async function saveToFirebase() {
+  const fbInput = document.getElementById("fb-url");
+  const dbUrl = fbInput ? fbInput.value.trim() : "";
+
+  if (!dbUrl || !dbUrl.startsWith("http")) {
+    showToast("⚠️ Vui lòng nhập URL Firebase Database trước!", "error");
+    switchTab("tab-sync", document.querySelectorAll(".tab-btn")[5]);
+    if (fbInput) fbInput.focus();
+    return;
+  }
+
+  const cleanUrl = dbUrl.replace(/\/$/, "");
+  localStorage.setItem("xwuan_firebase_url", cleanUrl);
+
+  const secretInput = document.getElementById("fb-secret");
+  const secretKey = (secretInput && secretInput.value.trim()) || getAdminPass() || localStorage.getItem("xwuan_firebase_secret") || "";
+  if (secretKey) localStorage.setItem("xwuan_firebase_secret", secretKey);
+
+  updateFirebaseStatus();
+
+  showToast("⏳ Đang lưu dữ liệu lên Cloud Firebase...", "success");
+
+  try {
+    const cfg = collectFormData();
+    cfg.firebase = { databaseURL: cleanUrl };
+    cfg.adminPass = secretKey;
+
+    const res = await fetch(cleanUrl + "/site_config.json", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cfg)
+    });
+
+    if (res.ok) {
+      saveToLocalPreview({ silent: true });
+      showToast("☁️ ĐÃ LƯU THÀNH CÔNG! Toàn bộ khách hàng sẽ thấy giá mới sau 1 giây!", "success");
+    } else {
+      const errText = await res.text();
+      if (res.status === 401 || res.status === 403 || errText.includes("Permission denied")) {
+        showToast("❌ Sai Mật khẩu quản trị! Google Firebase từ chối cấp quyền cập nhật.", "error");
+      } else {
+        showToast("❌ Lỗi Firebase: " + (errText || "Không thể ghi dữ liệu (Kiểm tra Rules)"), "error");
+      }
+    }
+  } catch (err) {
+    showToast("❌ Không thể kết nối Firebase: " + err.message, "error");
+  }
+}
+
+async function fetchFromFirebase() {
+  const fbInput = document.getElementById("fb-url");
+  const dbUrl = (fbInput ? fbInput.value.trim() : "") || localStorage.getItem("xwuan_firebase_url");
+
+  if (!dbUrl || !dbUrl.startsWith("http")) {
+    showToast("⚠️ Vui lòng nhập URL Firebase Database trước!", "error");
+    return;
+  }
+
+  const cleanUrl = dbUrl.replace(/\/$/, "");
+  showToast("⏳ Đang nạp dữ liệu từ Cloud...", "success");
+
+  try {
+    const res = await fetch(cleanUrl + "/site_config.json");
+    if (res.ok) {
+      const cloudData = await res.json();
+      if (cloudData && typeof cloudData === "object" && cloudData.services) {
+        currentConfig = Object.assign({}, window.DEFAULT_SITE_CONFIG, cloudData);
+        bindConfigToForm(currentConfig);
+        saveToLocalPreview({ silent: true });
+        showToast("📥 Đã nạp thành công dữ liệu từ Cloud Firebase về Admin!", "success");
+      } else {
+        showToast("⚠️ Chưa có dữ liệu bảng giá trên Cloud Firebase.", "error");
+      }
+    } else {
+      showToast("❌ Không thể tải từ Firebase (Kiểm tra lại URL / Rules).", "error");
+    }
+  } catch (err) {
+    showToast("❌ Lỗi kết nối Firebase: " + err.message, "error");
+  }
+}
+
+// 10. AUTO LOGIN CHECK & AUTO-SAVE LISTENERS
+window.addEventListener("DOMContentLoaded", () => {
+  if (sessionStorage.getItem("xwuan_admin_auth") === "true") {
+    document.getElementById("login-overlay").style.display = "none";
+    document.getElementById("admin-app").style.display = "block";
+    const bar = document.getElementById("sticky-bar");
+    if (bar) bar.style.display = "flex";
+    initAdminData();
+  }
+
+  // Tự động lưu tức thì vào localStorage mỗi khi người dùng gõ hoặc đổi giá trị (F5 không mất)
+  document.addEventListener("input", (e) => {
+    if (e.target.closest("#admin-app")) {
+      saveToLocalPreview({ silent: true });
+    }
+  });
+  document.addEventListener("change", (e) => {
+    if (e.target.closest("#admin-app")) {
+      saveToLocalPreview({ silent: true });
+    }
+  });
+
+  // Phím tắt Ctrl + S để lưu
+  document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "s") {
+      e.preventDefault();
+      saveToLocalPreview();
+    }
+  });
+});
+</script>
+</body>
+</html>
