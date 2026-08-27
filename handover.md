@@ -19,6 +19,8 @@ xwuan.github.io-main/
 ├── netflix.html            # Netflix 4K UHD
 ├── capcut.html             # CapCut Pro
 ├── canva.html              # Canva Pro 1 Năm
+├── admin.html              # BẢNG QUẢN TRỊ: Cập nhật giá, SALE, banner, liên hệ
+├── pricing.js              # NGUỒN DỮ LIỆU TRUNG TÂM & TỰ ĐỘNG ĐỒNG BỘ UI
 │
 ├── PROMPT-MASTER.md        # Master prompt gốc (cũ)
 ├── handover.md             # File này
@@ -40,9 +42,23 @@ xwuan.github.io-main/
 
 ---
 
-## 2. THAY ĐỔI GẦN NHẤT (phiên 2026-08-18)
+## 2. THAY ĐỔI MỚI NHẤT (phiên 2026-08-27)
 
-### 2.1 Cập nhật giá — Sale
+### 2.0 Thêm trang Quản trị `admin.html` & Module dữ liệu `pricing.js`
+- **`admin.html`**: Giao diện Cyber-Minimal Dark Theme bảo vệ bằng mã PIN (mặc định: `123456`).
+  - Quản lý giá, cờ SALE (bật/tắt), giá gạch, nhãn SALE cho toàn bộ dịch vụ.
+  - Quản lý giá Windows, Office, Locket Gold (5s, 15s).
+  - Thêm sản phẩm/dịch vụ mới tùy chỉnh (tự render vào trang chủ).
+  - Bật/tắt và tùy biến Banner thông báo khuyến mãi trên đầu trang.
+  - Cập nhật số Zalo, Hotline, Facebook một lần là đồng bộ toàn web.
+  - Hỗ trợ Lưu xem trước (LocalStorage), Tải file `pricing.js` về máy, hoặc Đẩy trực tiếp lên GitHub bằng GitHub Personal Access Token (1-click deploy).
+- **`pricing.js`**: Nguồn dữ liệu trung tâm & tự động cập nhật DOM cho tất cả trang HTML.
+
+---
+
+## 3. LỊCH SỬ THAY ĐỔI CŨ (phiên 2026-08-18)
+
+### 3.1 Cập nhật giá — Sale
 
 | Dịch vụ | Giá cũ | Giá mới | File |
 |---------|--------|---------|------|

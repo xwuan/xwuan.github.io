@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Nunito:wght@700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script src="pricing.js"></script>
 <style>
 :root {
   --bg-tech: #07091a; 
@@ -405,28 +406,28 @@ footer {
         <img src="images/windows.png" class="svc-img" alt="Windows">
         <div>
           <h3>Windows Chuẩn Microsoft</h3>
-          <p>ISO gốc, driver đầy đủ. <br><strong style="color:var(--c1)">150k – 180k</strong></p>
+          <p>ISO gốc, driver đầy đủ. <br><strong style="color:var(--c1)" data-price-key="win_std">150k – 180k</strong></p>
         </div>
       </div>
       <div class="svc">
         <img src="images/winghost.png" class="svc-img" alt="Windows Tối Ưu">
         <div>
           <h3>Windows Tối Ưu</h3>
-          <p>Nhẹ, mượt cho máy cũ/yếu. <br><strong style="color:var(--c1)">100k – 120k</strong></p>
+          <p>Nhẹ, mượt cho máy cũ/yếu. <br><strong style="color:var(--c1)" data-price-key="win_opt">100k – 120k</strong></p>
         </div>
       </div>
       <div class="svc">
         <img src="images/office.png" class="svc-img" alt="Office">
         <div>
           <h3>Microsoft Office</h3>
-          <p>Bản quyền 365, 2021, 2019. <br><strong style="color:var(--c1)">80k – 120k</strong></p>
+          <p>Bản quyền 365, 2021, 2019. <br><strong style="color:var(--c1)" data-price-key="office">80k – 120k</strong></p>
         </div>
       </div>
       <div class="svc">
         <div style="font-size:28px;width:40px;flex-shrink:0;margin-top:2px;text-align:center;">🔥</div>
         <div>
           <h3>COMBO Tiết Kiệm</h3>
-          <p>Win Chuẩn + Office: <strong>200k-220k</strong><br>Win Tối Ưu + Office: <strong>160k-180k</strong></p>
+          <p>Win Chuẩn + Office: <strong data-price-key="combo_std">200k-220k</strong><br>Win Tối Ưu + Office: <strong data-price-key="combo_opt">160k-180k</strong></p>
         </div>
       </div>
     </div>
@@ -461,17 +462,17 @@ footer {
         <div class="ltier">
           <h4>Gói Quay 5s</h4>
           <ul>
-            <li><span>6 tháng</span> <span class="ltier-price">50k</span></li>
-            <li><span>1 năm</span> <span class="ltier-price">80k</span></li>
-            <li><span>Vĩnh viễn ♾️</span> <span class="ltier-price">150k</span></li>
+            <li><span>6 tháng</span> <span class="ltier-price" data-price-key="locket_5s_6m">50k</span></li>
+            <li><span>1 năm</span> <span class="ltier-price" data-price-key="locket_5s_1y">80k</span></li>
+            <li><span>Vĩnh viễn ♾️</span> <span class="ltier-price" data-price-key="locket_5s_life">150k</span></li>
           </ul>
         </div>
         <div class="ltier">
           <h4>Gói Quay 15s</h4>
           <ul>
-            <li><span>6 tháng</span> <span class="ltier-price">60k</span></li>
-            <li><span>1 năm</span> <span class="ltier-price">100k</span></li>
-            <li><span>Vĩnh viễn ♾️</span> <span class="ltier-price">180k</span></li>
+            <li><span>6 tháng</span> <span class="ltier-price" data-price-key="locket_15s_6m">60k</span></li>
+            <li><span>1 năm</span> <span class="ltier-price" data-price-key="locket_15s_1y">100k</span></li>
+            <li><span>Vĩnh viễn ♾️</span> <span class="ltier-price" data-price-key="locket_15s_life">180k</span></li>
           </ul>
         </div>
       </div>
@@ -501,7 +502,7 @@ footer {
           <span>🚫 Không quảng cáo</span>
           <span>🎵 Kèm YouTube Music</span>
         </div>
-        <div class="ent-price">40.000đ <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ tháng</span></div>
+        <div class="ent-price" data-price-key="youtube">40.000đ <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ tháng</span></div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
         <a href="youtube.html" class="ent-detail">Xem chi tiết →</a>
       </div>
@@ -515,7 +516,7 @@ footer {
           <span>🎬 Phim chất lượng 4K</span>
           <span>📱 Xem trên mọi thiết bị</span>
         </div>
-        <div class="ent-price">
+        <div class="ent-price" data-price-key="netflix">
           <span style="font-size:0.75rem;font-weight:600;color:#6b7280;text-decoration:line-through;">60.000đ</span>
           <span style="color:#ef4444;font-size:0.72rem;font-weight:700;margin-left:4px;">SALE</span><br>
           30.000đ <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ tháng</span>
@@ -531,9 +532,9 @@ footer {
         <div class="ent-features">
           <span>🛡️ Bảo hành full thời gian</span>
           <span>✨ Mở khóa mọi tính năng</span>
-          <span>🎨 20k / 7 ngày</span>
+          <span>🎨 <span data-price-key="capcut_7d">20k</span> / 7 ngày</span>
         </div>
-        <div class="ent-price">
+        <div class="ent-price" data-price-key="capcut_30d">
           <span style="font-size:0.75rem;font-weight:600;color:#6b7280;text-decoration:line-through;">110.000đ</span>
           <span style="color:#2dd4bf;font-size:0.72rem;font-weight:700;margin-left:4px;">SALE</span><br>
           90.000đ <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 30 ngày</span>
@@ -551,7 +552,7 @@ footer {
           <span>🎨 Mở khóa 100+ triệu templates</span>
           <span>✨ Background remover & AI tools</span>
         </div>
-        <div class="ent-price">130.000đ <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 1 năm</span></div>
+        <div class="ent-price" data-price-key="canva">130.000đ <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 1 năm</span></div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
         <a href="canva.html" class="ent-detail">Xem chi tiết →</a>
       </div>
@@ -591,7 +592,7 @@ footer {
     </div>
   </div>
 
-  <footer>© <span id="yr"></span> xwuan.github.io &nbsp;·&nbsp; Xuan Quyen &nbsp;·&nbsp; Dịch vụ kỹ thuật &amp; phần mềm</footer>
+  <footer>© <span id="yr"></span> xwuan.github.io &nbsp;·&nbsp; Xuan Quyen &nbsp;·&nbsp; Dịch vụ kỹ thuật &amp; phần mềm &nbsp;·&nbsp; <a href="admin.html" style="color:var(--muted);text-decoration:none;font-size:11px;opacity:0.7;">⚙️ Admin</a></footer>
 </div>
 
 <a href="https://zalo.me/0822307662" target="_blank" class="fz" title="Nhắn Zalo">
