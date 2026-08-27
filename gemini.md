@@ -1,4 +1,4 @@
-# GEMINI.md — xwuan.github.io (Cập nhật 2026-08-18)
+# GEMINI.md — xwuan.github.io (Cập nhật 2026-08-27)
 
 > Copy toàn bộ nội dung file này gửi cho Gemini để tiếp tục công việc đúng chuẩn.
 > Thay `[YÊU CẦU]` ở cuối bằng nhiệm vụ thực tế trước khi gửi.
@@ -16,7 +16,7 @@ Nhiệm vụ: update dịch vụ, update giá, nâng cấp đồ họa và tối
 
 ### 1. TỔNG QUAN DỰ ÁN
 
-Web tĩnh 7 trang, không framework, chỉ HTML + CSS thuần + JS (IntersectionObserver):
+Web tĩnh kết hợp hệ thống dữ liệu động nhẹ, không framework, chỉ HTML + CSS thuần + JS:
 
 - `index.html`           — Trang chủ tổng hợp (Dark Theme)
 - `windows-pricing.html` — Bảng giá Windows & Office (Dark Theme)
@@ -25,15 +25,52 @@ Web tĩnh 7 trang, không framework, chỉ HTML + CSS thuần + JS (Intersection
 - `netflix.html`         — Netflix 4K UHD (Dark — Đỏ đen cinematic, Syne)
 - `capcut.html`          — CapCut Pro (Dark — Tím hồng creative, Syne)
 - `canva.html`           — Canva Pro 1 Năm (Dark — Xanh tím gradient, Syne)
+- `admin.html`           — Bảng quản trị cập nhật giá, bật/tắt SALE, banner thông báo, dịch vụ mới (Mã PIN: 123456)
+- `pricing.js`           — Nguồn dữ liệu trung tâm & tự động đồng bộ giá/sale/banner vào DOM toàn website
+- `push.bat` / `push.sh` — Script 1-click commit & push code lên GitHub với URL chuẩn
 - `images/`              — Avatar, logo, icon dịch vụ (có thêm canva.png)
 
 Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch, bo góc lớn, neon nhẹ.
 
 ---
 
-### 2. DESIGN TOKENS — BẮT BUỘC GIỮ NGUYÊN
+### 2. QUY TẮC GIT & PUSH CODE (CỰC KỲ QUAN TRỌNG - BẮT BUỘC)
 
-**A. Dark Theme** (index, windows, youtube, netflix, capcut, canva):
+⚠️ **LƯU Ý ĐẨY CODE LÊN GITHUB:**
+- Máy tính này cài nhiều tài khoản GitHub trong Git Bash / Windows Credential Manager (`xwuan`, `Xwuan19`...).
+- **BẮT BUỘC PHẢI DÙNG URL CỨNG CÓ USERNAME:**
+  👉 `https://xwuan@github.com/xwuan/xwuan.github.io`
+- Branch chính: `main`
+- Lệnh push chuẩn:
+  ```bash
+  git push -u https://xwuan@github.com/xwuan/xwuan.github.io main
+  ```
+  *(hoặc click đúp file `push.bat` / chạy `./push.sh` trong Git Bash)*
+- **TUYỆT ĐỐI KHÔNG** dùng URL trơn `https://github.com/xwuan/xwuan.github.io` vì Git sẽ nhầm tài khoản khác hoặc treo do không hiện prompt nhập username trong tiến trình tự động.
+
+---
+
+### 3. HỆ THỐNG QUẢN TRỊ ADMIN.HTML & PRICING.JS
+
+- **Trang Quản Trị `admin.html`**:
+  - Mã PIN bảo mật mặc định: `123456` (có thể đổi mã PIN trong Cài đặt).
+  - Quản lý giá bán, giá gốc, nhãn SALE (SALE, -50%, HOT...), bật/tắt SALE theo từng dịch vụ.
+  - Quản lý giá Windows, Office, Locket Gold (5s, 15s).
+  - Thêm dịch vụ/tài khoản mới tùy chỉnh (tự động render vào trang chủ `index.html`).
+  - Bật/tắt thanh Banner khuyến mãi gradient ở đầu website.
+  - Cập nhật số Zalo, Hotline, link Facebook/TikTok tại một nơi duy nhất.
+  - Lưu & Đồng bộ: Lưu xem trước (LocalStorage), tải file `pricing.js`, hoặc đẩy trực tiếp GitHub API (1-click deploy).
+
+- **Module Trung Tâm `pricing.js`**:
+  - Chứa cấu hình gốc `DEFAULT_CONFIG` và tự đọc ghi đè từ `localStorage.getItem("xwuan_site_config")`.
+  - Các phần tử HTML trong `index.html` và các trang con sử dụng thuộc tính `data-price-key="..."` để `pricing.js` tự động điền giá, gạch giá cũ và badge SALE.
+  - Luôn giữ fallback HTML tĩnh nguyên bản để đảm bảo SEO và hiển thị mượt mà không bị giật lag khi chưa load JS.
+
+---
+
+### 4. DESIGN TOKENS — BẮT BUỘC GIỮ NGUYÊN
+
+**A. Dark Theme** (index, windows, youtube, netflix, capcut, canva, admin):
 ```css
 --bg: #07091a;       /* Nền chính */
 --card: #0d1225;
@@ -75,7 +112,7 @@ border: 1px solid rgba(125, 42, 232, 0.2);
 
 ---
 
-### 3. LAYOUT & COMPONENT
+### 5. LAYOUT & COMPONENT
 
 - **Container `.wrap` / `.container`**: max-width 780px (trang chủ) / 820px (pricing) / 460px (các trang dịch vụ), padding: 24px 16px 90px
 - **Card chung**: bg var(--card), border 1px solid var(--border), radius 14px / 16px, padding 20–22px. Hover: border-color tương ứng + translateY(-2px) + box-shadow
@@ -85,7 +122,7 @@ border: 1px solid rgba(125, 42, 232, 0.2);
 
 ---
 
-### 4. RESPONSIVE — MOBILE FIRST (ĐÃ ÁP DỤNG)
+### 6. RESPONSIVE — MOBILE FIRST (ĐÃ ÁP DỤNG)
 
 Breakpoints hiện tại:
 - `@media (max-width: 600px)` → windows-pricing.html (cards 1 cột)
@@ -100,7 +137,7 @@ Bảng so sánh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 
 ---
 
-### 5. GIÁ DỊCH VỤ HIỆN TẠI (đã cập nhật)
+### 7. GIÁ DỊCH VỤ HIỆN TẠI (đã cập nhật)
 
 | Dịch vụ | Giá |
 |---------|-----|
@@ -121,28 +158,30 @@ Bảng so sánh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 
 ---
 
-### 6. THÔNG TIN LIÊN HỆ
+### 8. THÔNG TIN LIÊN HỆ
 
 | | |
 |-|-|
 | Zalo | 0822307662 · https://zalo.me/0822307662 |
 | Facebook | https://www.facebook.com/xwuan1/ |
 | SĐT | 0822.307.662 |
-| Domain | https://ie1w3n.github.io/ |
+| GitHub Repo | https://github.com/xwuan/xwuan.github.io |
+| Domain | https://xwuan.github.io/ (hoặc https://ie1w3n.github.io/) |
 
 ---
 
-### 7. QUY TẮC KHI LÀM NHIỆM VỤ MỚI
+### 9. QUY TẮC KHI LÀM NHIỆM VỤ MỚI
 
 **Thêm dịch vụ mới:**
 1. Copy 100% cấu trúc `.ent-card` hoặc `.svc` có sẵn trong `index.html`
 2. Tạo CSS class riêng (`.ent-xx`) với màu brand dịch vụ đó
 3. Thêm `images/ten-dich-vu.png` vào thư mục images
 4. Tạo trang chi tiết `.html` riêng theo mẫu `canva.html` / `capcut.html`
+5. Khai báo dịch vụ mới vào `pricing.js` và trang `admin.html`
 
 **Update giá SALE:**
 1. Thêm span gạch giá cũ + badge SALE màu tương ứng brand
-2. Đồng bộ giữa `index.html` và trang chi tiết tương ứng
+2. Đồng bộ giữa `pricing.js`, `index.html` và trang chi tiết tương ứng
 3. Đồng bộ cả bảng "So sánh giá" trong trang chi tiết
 
 **Nâng cấp đồ họa:**
@@ -157,12 +196,13 @@ Bảng so sánh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 
 ---
 
-### 8. YÊU CẦU ĐẦU RA
+### 10. YÊU CẦU ĐẦU RA
 
 - Code trả về phải là đoạn HTML/CSS hoàn chỉnh, dán thẳng vào file là chạy
 - Giữ nguyên Google Fonts: Be Vietnam Pro + Syne (dark) / Nunito (locket)
 - Không xóa script IntersectionObserver và `document.getElementById('yr')`
 - Giữ float Zalo button ở MỌI trang
+- Khi commit/push, **BẮT BUỘC** dùng URL `https://xwuan@github.com/xwuan/xwuan.github.io`
 - Giải thích ngắn gọn đã sửa gì ở cuối câu trả lời
 
 ---
@@ -182,11 +222,11 @@ Bảng so sánh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 4. Đính kèm file HTML tương ứng nếu cần context chính xác
 
 **Ví dụ yêu cầu:**
-- `Thêm dịch vụ Spotify Premium 1 năm giá 120k vào trang chủ`
-- `Update giá YouTube Premium từ 40k lên 45k`
+- `Thêm dịch vụ Spotify Premium 1 năm giá 120k vào trang chủ và admin`
+- `Update giá YouTube Premium từ 40k lên 45k trong pricing.js và các trang`
 - `Tạo trang chi tiết spotify.html theo chuẩn dark theme, style tương tự canva.html`
 - `Tối ưu lại hero section trang chủ cho đẹp hơn`
 
 ---
 
-*File cập nhật: 2026-08-18 — Thay thế claude.md & PROMPT-MASTER.md*
+*File cập nhật: 2026-08-27 — Bổ sung admin.html, pricing.js, push scripts và quy tắc URL cứng Git*
