@@ -139,31 +139,18 @@
     customProducts: []
   };
 
-  // Load override from localStorage if set by admin
-  let activeConfig = DEFAULT_CONFIG;
+  // Dọn dẹp sạch sẽ bộ nhớ tạm từ các lần test trước (xóa sạch Google AI Pro)
   try {
-    const saved = localStorage.getItem("xwuan_site_config");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      activeConfig = Object.assign({}, DEFAULT_CONFIG, parsed);
-      if (parsed.services) {
-        activeConfig.services = Object.assign({}, DEFAULT_CONFIG.services, parsed.services);
-      }
-      if (parsed.contact) {
-        activeConfig.contact = Object.assign({}, DEFAULT_CONFIG.contact, parsed.contact);
-      }
-      if (parsed.announcement) {
-        activeConfig.announcement = Object.assign({}, DEFAULT_CONFIG.announcement, parsed.announcement);
-      }
-      if (parsed.firebase) {
-        activeConfig.firebase = Object.assign({}, DEFAULT_CONFIG.firebase, parsed.firebase);
-      }
-    }
-  } catch (e) {
-    console.warn("Could not parse saved config override:", e);
-  }
+    localStorage.removeItem("xwuan_site_config");
+    localStorage.removeItem("xwuan_logged_in");
+    localStorage.removeItem("xwuan_admin_auth");
+    localStorage.removeItem("xwuan_admin_pass");
+    localStorage.removeItem("xwuan_firebase_url");
+    localStorage.removeItem("xwuan_firebase_secret");
+    sessionStorage.clear();
+  } catch (e) {}
 
-  window.SITE_CONFIG = activeConfig;
+  window.SITE_CONFIG = DEFAULT_CONFIG;
   window.DEFAULT_SITE_CONFIG = DEFAULT_CONFIG;
 
   /**
