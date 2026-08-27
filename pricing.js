@@ -136,9 +136,6 @@
         detailUrl: "windows-pricing.html"
       }
     },
-    firebase: {
-      databaseURL: "https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app"
-    },
     customProducts: []
   };
 
@@ -425,76 +422,17 @@
           ${saleHtml}
           ${p.price} <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">${p.unit || ""}</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">
-          <a href="detail.html?id=${p.id}" class="btn-ent" style="background:rgba(255,255,255,0.06);color:#fff;border:1px solid rgba(255,255,255,0.2);text-align:center;font-size:12px;padding:8px 0;">
-            🔍 Chi tiết
-          </a>
-          <a href="${p.orderUrl || window.SITE_CONFIG.contact.zaloLink}" class="btn-ent" style="background:rgba(0,212,255,0.15);color:#00d4ff;border:1px solid rgba(0,212,255,0.4);text-align:center;font-size:12px;padding:8px 0;">
-            Mua Zalo
-          </a>
-        </div>
+        <a href="${p.orderUrl || window.SITE_CONFIG.contact.zaloLink}" class="btn-ent" style="background:rgba(0,212,255,0.15);color:#00d4ff;border:1px solid rgba(0,212,255,0.4);margin-top:10px;">
+          Mua ngay qua Zalo
+        </a>
       `;
       entGrid.appendChild(card);
     });
   }
 
-  // ── FIREBASE CLOUD REALTIME SYNC (CẬP NHẬT 1S CHO KHÁCH HÀNG) ──
-  function initFirebaseCloudSync() {
-    const cfg = window.SITE_CONFIG;
-    const dbUrl = (cfg && cfg.firebase && cfg.firebase.databaseURL)
-      || localStorage.getItem("xwuan_firebase_url")
-      || "";
-
-    if (!dbUrl || !dbUrl.startsWith("http")) return;
-    const cleanUrl = dbUrl.replace(/\/$/, "");
-
-    // 1. Fetch nhanh từ Firebase Cloud (< 200ms)
-    fetch(cleanUrl + "/site_config.json")
-      .then(res => res.json())
-      .then(cloudData => {
-        if (cloudData && typeof cloudData === "object" && cloudData.services) {
-          window.SITE_CONFIG = Object.assign({}, window.SITE_CONFIG, cloudData);
-          if (cloudData.services) {
-            window.SITE_CONFIG.services = Object.assign({}, window.SITE_CONFIG.services, cloudData.services);
-          }
-          if (cloudData.contact) {
-            window.SITE_CONFIG.contact = Object.assign({}, window.SITE_CONFIG.contact, cloudData.contact);
-          }
-          if (cloudData.announcement) {
-            window.SITE_CONFIG.announcement = Object.assign({}, window.SITE_CONFIG.announcement, cloudData.announcement);
-          }
-          applySitePricing();
-          try {
-            localStorage.setItem("xwuan_site_config", JSON.stringify(window.SITE_CONFIG));
-          } catch (e) {}
-        }
-      })
-      .catch(err => {
-        // Fallback im lặng nếu không kết nối được Firebase
-      });
-
-    // 2. Lắng nghe Realtime EventSource (SSE): Khách đang xem web thấy giá đổi lập tức!
-    if (window.EventSource) {
-      try {
-        const sse = new EventSource(cleanUrl + "/site_config.json");
-        sse.addEventListener("put", function (e) {
-          try {
-            const payload = JSON.parse(e.data);
-            if (payload && payload.path === "/" && payload.data && payload.data.services) {
-              const cloudData = payload.data;
-              window.SITE_CONFIG = Object.assign({}, window.SITE_CONFIG, cloudData);
-              applySitePricing();
-            }
-          } catch (err) {}
-        });
-      } catch (err) {}
-    }
-  }
-
   // Tự động kích hoạt khi DOM đã sẵn sàng
   function initAll() {
     applySitePricing();
-    initFirebaseCloudSync();
   }
 
   if (document.readyState === "loading") {
@@ -504,5 +442,4 @@
   }
 
   window.applySitePricing = applySitePricing;
-  window.initFirebaseCloudSync = initFirebaseCloudSync;
 })();

@@ -50,26 +50,21 @@ Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch
 
 ---
 
-### 3. HỆ THỐNG QUẢN TRỊ ADMIN.HTML & PRICING.JS
+### 3. QUY TRÌNH QUẢN LÝ BẢNG GIÁ & DỊCH VỤ (PAIR PROGRAMMING WORKFLOW)
 
-- **Trang Quản Trị `admin.html` (Hỗ trợ truy cập Mobile & Desktop)**:
-  - **Truy cập trực tuyến trên điện thoại**: `https://xwuan.github.io/admin.html` (có thể thêm vào màn hình chính điện thoại như 1 App).
-  - **Bảo mật tuyệt đối (Zero-Hardcode)**: Mã nguồn trên GitHub **KHÔNG chứa bất kỳ mật khẩu nào**, kẻ xấu F12 hay soi code cũng không thể tìm thấy.
-  - **Xác thực quyền ghi Firebase**: Mật khẩu do chủ shop tự nhập trên máy/điện thoại, Firebase Server sẽ so khớp với Firebase Security Rules. Nếu sai mật khẩu, Firebase từ chối cập nhật (`Permission Denied`).
-  - **Trợ lý AI Tự Động Tạo Trang Chi Tiết**: Tích hợp sẵn trong Tab "Dịch Vụ Mới". Chỉ cần gõ tên sản phẩm (Spotify, ChatGPT, Midjourney, Duolingo, Elsa, Cursor...), AI tự động sinh bảng giá, nhãn SALE, lời giới thiệu hero, 4 tính năng, bảng so sánh giá và bộ 3 câu hỏi FAQ.
-  - **Trang Chi Tiết Động `detail.html`**: Tự động hiển thị trang landing page chuẩn SEO cho bất kỳ dịch vụ mới nào theo link `detail.html?id=<service_id>`. Có nút "Xem Trang Chi Tiết" trực tiếp trong Admin và trang chủ `index.html`.
-  - Quản lý giá bán, giá gốc, nhãn SALE (SALE, -50%, HOT...), bật/tắt SALE theo từng dịch vụ.
-  - Quản lý giá Windows, Office, Locket Gold (5s, 15s).
-  - Bật/tắt thanh Banner khuyến mãi gradient ở đầu website.
-  - Cập nhật số Zalo, Hotline, link Facebook/TikTok tại một nơi duy nhất.
-- **Hệ thống Đồng Bộ Đa Tầng (Offline Local, GitHub & Firebase Cloud)**:
-  1. **Tầng 1 (LocalStorage / Auto-Save)**: Lưu tức thì trên máy Admin khi gõ, F5 không bao giờ mất.
-  2. **Tầng 2 (Firebase Realtime Cloud)**: Đồng bộ siêu tốc (< 1s) cho toàn bộ khách hàng trên thế giới. Database URL chính thức: `https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app`. Được bảo vệ bằng Secret Passphrase chống F12 phá hoại. Trong `admin.html` có nút **"☁️ Lưu lên Cloud Firebase"** kết nối qua REST API. File `pricing.js` tự động fetch và lắng nghe realtime SSE (`EventSource`) để cập nhật giá trực tiếp trên màn hình khách hàng mà không cần load lại trang.
-  3. **Tầng 3 (GitHub Deploy / push.bat)**: Dùng GitHub Token hoặc file `push.bat` với URL cứng `https://xwuan@github.com/xwuan/xwuan.github.io`.
-- **Module Trung Tâm `pricing.js`**:
-  - Chứa cấu hình gốc `DEFAULT_CONFIG`, tự động kết nối Firebase Realtime (`initFirebaseCloudSync`) và fallback `localStorage`.
-  - Các phần tử HTML trong `index.html` và các trang con sử dụng thuộc tính `data-price-key="..."` để `pricing.js` tự động điền giá, gạch giá cũ và badge SALE.
-  - Luôn giữ fallback HTML tĩnh nguyên bản để đảm bảo SEO và hiển thị mượt mà không bị giật lag khi chưa load JS.
+- **Nguyên tắc cốt lõi: Tối giản, Siêu nhẹ, Ổn định 100%**:
+  - Toàn bộ website được giữ ở dạng **Web tĩnh 100% (Static Site)** chạy mượt mà trên GitHub Pages.
+  - **ĐÃ HỦY BỎ HOÀN TOÀN**: `admin.html`, `detail.html` và cơ sở dữ liệu Firebase Cloud. Không cần cấu hình backend, không lo lộ mật khẩu F12, không lo bị hacker phá hoại, không phụ thuộc dịch vụ ngoài.
+- **Quy trình cập nhật giá & dịch vụ (AI Trợ lý làm trực tiếp)**:
+  - Bất cứ khi nào chủ shop muốn thay đổi:
+    1. Cập nhật giá sản phẩm (VD: *"sửa giá Netflix thành 35k"*, *"đổi giá cài Win thành 160k"*).
+    2. Bật / Tắt SALE, đổi nhãn khuyến mãi (VD: *"bật SALE YouTube tag HOT"*, *"tắt SALE CapCut"*).
+    3. Đổi nội dung Banner khuyến mãi đầu trang hoặc đổi số Zalo, Hotline, Facebook, TikTok.
+    4. Thêm / Xóa dịch vụ mới (VD: *"thêm Spotify 120k/năm"*, *"thêm ChatGPT Plus 220k"*).
+  - 👉 **Chỉ cần chat yêu cầu vào đây**, Antigravity sẽ cập nhật trực tiếp vào mã nguồn `pricing.js`, tự động commit và push thẳng lên GitHub Pages qua URL cứng `https://xwuan@github.com/xwuan/xwuan.github.io`.
+- **Module Dữ Liệu Tập Trung `pricing.js`**:
+  - Chứa cấu hình gốc `DEFAULT_CONFIG` lưu toàn bộ bảng giá và trạng thái SALE.
+  - Tự động map giá và badge SALE vào tất cả các thẻ có thuộc tính `data-price-key="..."` trên `index.html` và các trang con (`windows-pricing.html`, `netflix.html`, `capcut.html`, `youtube.html`, `canva.html`, `locket.html`).
 
 ---
 
