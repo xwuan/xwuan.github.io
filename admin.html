@@ -292,7 +292,26 @@ body {
 .banner-preview-box {
   padding: 10px 14px; border-radius: 10px; font-size: 12px; font-weight: 700;
   background: linear-gradient(90deg, #ff0055, #ff5500, #9900ff);
-  color: #fff; text-align: center; margin-top: 10px;
+/* STICKY BOTTOM ACTION BAR */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+  background: rgba(13, 18, 37, 0.95);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 12px 20px;
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.6);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+.sticky-info {
+  display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600;
+}
+.sticky-status-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+}
+.sticky-actions {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
 </style>
 </head>
@@ -963,6 +982,25 @@ body {
 
 </div>
 
+<!-- STICKY ACTION BAR -->
+<div class="sticky-bar" id="sticky-bar" style="display:none;">
+  <div class="sticky-info">
+    <span class="sticky-status-dot" id="sticky-dot"></span>
+    <span id="sticky-status-text">🟢 Tự động lưu mọi thay đổi trên máy này (F5 không mất)</span>
+  </div>
+  <div class="sticky-actions">
+    <a href="index.html" target="_blank" class="btn-action btn-secondary" style="font-size:12px;padding:8px 14px;">
+      👁️ Xem trang chủ
+    </a>
+    <button type="button" class="btn-action btn-primary" onclick="saveToLocalPreview()" style="font-size:12px;padding:8px 16px;">
+      💾 Lưu xem trước (Ctrl+S)
+    </button>
+    <button type="button" class="btn-action btn-success" onclick="switchTab('tab-sync', document.querySelectorAll('.tab-btn')[5])" style="font-size:12px;padding:8px 16px;">
+      🚀 Đẩy lên GitHub cho khách
+    </button>
+  </div>
+</div>
+
 <!-- TOAST MESSAGE -->
 <div id="toast">
   <span id="toast-icon">✅</span>
@@ -983,6 +1021,8 @@ function checkPin() {
     sessionStorage.setItem("xwuan_admin_auth", "true");
     document.getElementById("login-overlay").style.display = "none";
     document.getElementById("admin-app").style.display = "block";
+    const bar = document.getElementById("sticky-bar");
+    if (bar) bar.style.display = "flex";
     initAdminData();
     showToast("🔓 Đăng nhập thành công!", "success");
   } else {
@@ -1365,7 +1405,7 @@ function renderCustomProductsAdmin(products) {
 }
 
 // 8. SAVE & EXPORT LOGIC
-function saveToLocalPreview() {
+function saveToLocalPreview(opts = {}) {
   const cfg = collectFormData();
   localStorage.setItem("xwuan_site_config", JSON.stringify(cfg));
   window.SITE_CONFIG = cfg;
@@ -1374,7 +1414,20 @@ function saveToLocalPreview() {
   }
   updateOverviewStats();
   updateCodePreview();
-  showToast("⚡ Đã lưu cấu hình vào trình duyệt! Bạn có thể mở index.html để xem ngay.", "success");
+
+  const dot = document.getElementById("sticky-dot");
+  const text = document.getElementById("sticky-status-text");
+  if (dot) {
+    dot.style.background = "#00e676";
+    dot.style.boxShadow = "0 0 10px #00e676";
+  }
+  if (text) {
+    text.textContent = "🟢 Đã tự động lưu trên máy này lúc " + new Date().toLocaleTimeString("vi-VN") + " (F5 không mất)";
+  }
+
+  if (!opts.silent) {
+    showToast("⚡ Đã lưu cấu hình vào máy! F5 trang web không bao giờ bị mất.", "success");
+  }
 }
 
 function generatePricingJsContent() {
@@ -1718,13 +1771,35 @@ async function commitDirectToGithub() {
   }
 }
 
-// 10. AUTO LOGIN CHECK
+// 10. AUTO LOGIN CHECK & AUTO-SAVE LISTENERS
 window.addEventListener("DOMContentLoaded", () => {
   if (sessionStorage.getItem("xwuan_admin_auth") === "true") {
     document.getElementById("login-overlay").style.display = "none";
     document.getElementById("admin-app").style.display = "block";
+    const bar = document.getElementById("sticky-bar");
+    if (bar) bar.style.display = "flex";
     initAdminData();
   }
+
+  // Tự động lưu tức thì vào localStorage mỗi khi người dùng gõ hoặc đổi giá trị (F5 không mất)
+  document.addEventListener("input", (e) => {
+    if (e.target.closest("#admin-app")) {
+      saveToLocalPreview({ silent: true });
+    }
+  });
+  document.addEventListener("change", (e) => {
+    if (e.target.closest("#admin-app")) {
+      saveToLocalPreview({ silent: true });
+    }
+  });
+
+  // Phím tắt Ctrl + S để lưu
+  document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "s") {
+      e.preventDefault();
+      saveToLocalPreview();
+    }
+  });
 });
 </script>
 </body>
