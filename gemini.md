@@ -62,9 +62,16 @@ Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch
     3. Đổi nội dung Banner khuyến mãi đầu trang hoặc đổi số Zalo, Hotline, Facebook, TikTok.
     4. Thêm / Xóa dịch vụ mới (VD: *"thêm Spotify 120k/năm"*, *"thêm ChatGPT Plus 220k"*).
   - 👉 **Chỉ cần chat yêu cầu vào đây**, Antigravity sẽ cập nhật trực tiếp vào mã nguồn `pricing.js`, tự động commit và push thẳng lên GitHub Pages qua URL cứng `https://xwuan@github.com/xwuan/xwuan.github.io`.
+- **Bảng Giá Thống Nhất Chính Thức (Không SALE)**:
+  1. **CapCut Pro**: `20k / 7 ngày` | `80k / 30 ngày` (Bảo hành full thời gian)
+  2. **YouTube Premium**: `40k / 30 ngày` (Bảo hành full thời gian)
+  3. **Canva Pro**: `130k / 1 năm` (Bảo hành full thời gian)
+  4. **Netflix 4K UHD**: `45k / 30 ngày` (Bảo hành full thời gian)
+  5. **Google AI Pro**: `60k / 1 năm` (Không bảo hành)
+  6. **Meitu SVIP**: `80k / 30 ngày` (Bảo hành full thời gian)
 - **Module Dữ Liệu Tập Trung `pricing.js`**:
-  - Chứa cấu hình gốc `DEFAULT_CONFIG` lưu toàn bộ bảng giá và trạng thái SALE.
-  - Tự động map giá và badge SALE vào tất cả các thẻ có thuộc tính `data-price-key="..."` trên `index.html` và các trang con (`windows-pricing.html`, `netflix.html`, `capcut.html`, `youtube.html`, `canva.html`, `locket.html`).
+  - Chứa cấu hình gốc `DEFAULT_CONFIG` lưu toàn bộ bảng giá chuẩn.
+  - Tự động map giá vào tất cả các thẻ có thuộc tính `data-price-key="..."` trên `index.html` và các trang con (`windows-pricing.html`, `netflix.html`, `capcut.html`, `youtube.html`, `canva.html`, `locket.html`).
 
 ---
 

@@ -9,10 +9,10 @@
     version: "2026.1",
     lastUpdated: "2026-08-27",
     announcement: {
-      enabled: true,
-      text: "🔥 SIÊU SALE: Netflix 4K chỉ 30k · CapCut Pro 90k · Hỗ trợ cài đặt 24/7!",
-      tag: "SALE",
-      link: "#contact"
+      enabled: false,
+      text: "",
+      tag: "",
+      link: ""
     },
     contact: {
       zalo: "0822307662",
@@ -22,35 +22,23 @@
       tiktok: "https://www.tiktok.com/@xwuan2"
     },
     services: {
-      netflix: {
-        id: "netflix",
-        name: "Netflix 4K UHD",
-        price: "30.000đ",
-        unit: "/ tháng",
-        originalPrice: "60.000đ",
-        isSale: true,
-        saleTag: "SALE",
-        warranty: "Bảo hành full thời gian",
-        status: "available",
-        detailUrl: "netflix.html"
-      },
-      capcut_30d: {
-        id: "capcut_30d",
-        name: "CapCut Pro 30 Ngày",
-        price: "90.000đ",
-        unit: "/ 30 ngày",
-        originalPrice: "110.000đ",
-        isSale: true,
-        saleTag: "SALE",
+      capcut_7d: {
+        id: "capcut_7d",
+        name: "CapCut Pro 7 Ngày",
+        price: "20k",
+        unit: "/ 7 ngày",
+        originalPrice: "",
+        isSale: false,
+        saleTag: "",
         warranty: "Bảo hành full thời gian",
         status: "available",
         detailUrl: "capcut.html"
       },
-      capcut_7d: {
-        id: "capcut_7d",
-        name: "CapCut Pro 7 Ngày",
-        price: "20.000đ",
-        unit: "/ 7 ngày",
+      capcut_30d: {
+        id: "capcut_30d",
+        name: "CapCut Pro 30 Ngày",
+        price: "80k",
+        unit: "/ 30 ngày",
         originalPrice: "",
         isSale: false,
         saleTag: "",
@@ -61,11 +49,11 @@
       youtube: {
         id: "youtube",
         name: "YouTube Premium",
-        price: "40.000đ",
-        unit: "/ tháng",
+        price: "40k",
+        unit: "/ 30 ngày",
         originalPrice: "",
         isSale: false,
-        saleTag: "HOT",
+        saleTag: "",
         warranty: "Bảo hành full thời gian",
         status: "available",
         detailUrl: "youtube.html"
@@ -73,14 +61,48 @@
       canva: {
         id: "canva",
         name: "Canva Pro 1 Năm",
-        price: "130.000đ",
+        price: "130k",
         unit: "/ 1 năm",
         originalPrice: "",
         isSale: false,
-        saleTag: "HOT",
+        saleTag: "",
         warranty: "Bảo hành full thời gian",
         status: "available",
         detailUrl: "canva.html"
+      },
+      netflix: {
+        id: "netflix",
+        name: "Netflix 4K UHD",
+        price: "45k",
+        unit: "/ 30 ngày",
+        originalPrice: "",
+        isSale: false,
+        saleTag: "",
+        warranty: "Bảo hành full thời gian",
+        status: "available",
+        detailUrl: "netflix.html"
+      },
+      google_ai: {
+        id: "google_ai",
+        name: "Google AI Pro",
+        price: "60k",
+        unit: "/ 1 năm",
+        originalPrice: "",
+        isSale: false,
+        saleTag: "",
+        warranty: "Không bảo hành",
+        status: "available"
+      },
+      meitu: {
+        id: "meitu",
+        name: "Meitu SVIP",
+        price: "80k",
+        unit: "/ 30 ngày",
+        originalPrice: "",
+        isSale: false,
+        saleTag: "",
+        warranty: "Bảo hành full thời gian",
+        status: "available"
       },
       locket_5s: {
         id: "locket_5s",
@@ -277,7 +299,15 @@
       }
     }
 
-    // E. Locket Gold
+    // E. Google AI & Meitu
+    if (s.google_ai) {
+      document.querySelectorAll('[data-price-key="google_ai"]').forEach(el => updatePriceElement(el, s.google_ai));
+    }
+    if (s.meitu) {
+      document.querySelectorAll('[data-price-key="meitu"]').forEach(el => updatePriceElement(el, s.meitu));
+    }
+
+    // F. Locket Gold
     if (s.locket_5s) {
       document.querySelectorAll('[data-price-key="locket_5s_6m"]').forEach(el => (el.textContent = s.locket_5s.p6m));
       document.querySelectorAll('[data-price-key="locket_5s_1y"]').forEach(el => (el.textContent = s.locket_5s.p1y));

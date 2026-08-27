@@ -1,617 +1,430 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Netflix 4K UHD | Xwuan</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <script src="pricing.js"></script>
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --card: #141414;
-            --card2: #1a1a1a;
-            --border: #2a2a2a;
-            --accent: #e50914;
-            --accent2: #b20710;
-            --gold: #e5a00d;
-            --text: #e5e5e5;
-            --muted: #8c8c8c;
-            --r: 14px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Netflix 4K UHD Cao Cấp | Xuan Quyen</title>
+<meta name="description" content="Tài khoản Netflix 4K UHD chính hãng chỉ 45k/30 ngày. Xem phim không giới hạn, chất lượng 4K HDR, bảo hành full thời gian.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script src="pricing.js"></script>
+<style>
+:root {
+  --bg: #07080f;
+  --card: #0e111d;
+  --card2: #141829;
+  --border: #1e243d;
+  --n-red: #e50914;
+  --n-red-glow: rgba(229, 9, 20, 0.4);
+  --gold: #f5a623;
+  --green: #00e676;
+  --text: #e2e8f0;
+  --muted: #828fa6;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.15) 0%, transparent 55%),
+    radial-gradient(circle at 90% 80%, rgba(229, 9, 20, 0.06) 0%, transparent 40%);
+}
+h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 800; }
+a { text-decoration: none; color: inherit; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            /* Subtle film grain texture effect */
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.05) 0%, transparent 70%),
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-        }
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 16px 90px;
+}
 
-        .container {
-            max-width: 460px;
-            margin: 0 auto;
-            padding: 24px 20px;
-            padding-bottom: 100px;
-            position: relative;
-        }
+/* TOP BACK LINK */
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--muted); font-size: 13.5px; font-weight: 600;
+  margin-bottom: 20px; transition: color 0.2s;
+}
+.back-link:hover { color: #fff; }
 
-        h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 800; }
+/* HERO BRAND HEADER */
+.hero-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.brand-logo-wrap {
+  width: 80px; height: 80px; margin: 0 auto 14px;
+  background: #000;
+  border-radius: 20px;
+  border: 1.5px solid rgba(229, 9, 20, 0.5);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 30px var(--n-red-glow);
+  padding: 12px;
+}
+.brand-logo-wrap img {
+  width: 100%; height: 100%; object-fit: contain;
+}
+.badge-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 99px;
+  background: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  color: #ff4d58; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.5px; margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.hero-title {
+  font-size: 1.85rem; font-weight: 800; color: #fff;
+  letter-spacing: -0.5px; margin-bottom: 6px;
+}
+.hero-sub {
+  font-size: 13px; color: var(--muted); line-height: 1.5;
+}
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 24px;
-            transition: color 0.2s ease;
-        }
-        .back-link:hover { color: var(--text); }
-        .back-link svg { width: 16px; height: 16px; margin-right: 6px; }
+/* VIP PRICE CARD */
+.vip-card {
+  background: linear-gradient(180deg, var(--card2) 0%, var(--card) 100%);
+  border: 1.5px solid rgba(229, 9, 20, 0.4);
+  border-radius: 22px; padding: 22px 18px;
+  text-align: center; position: relative;
+  overflow: hidden; margin-bottom: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+.vip-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3.5px;
+  background: linear-gradient(90deg, transparent, var(--n-red), transparent);
+}
+.price-display {
+  display: flex; align-items: baseline; justify-content: center; gap: 4px;
+  margin: 10px 0 6px;
+}
+.price-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.6rem; font-weight: 800; color: #fff;
+  text-shadow: 0 0 25px var(--n-red-glow);
+}
+.price-unit {
+  font-size: 15px; color: var(--muted); font-weight: 600;
+}
+.warranty-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12.5px; font-weight: 700; color: var(--green);
+  background: rgba(0, 230, 118, 0.1);
+  padding: 4px 12px; border-radius: 20px;
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  margin-bottom: 18px;
+}
+.btn-order-big {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; height: 52px;
+  background: linear-gradient(135deg, #e50914, #b20710);
+  border: none; border-radius: 14px;
+  color: #fff; font-size: 15.5px; font-weight: 800;
+  box-shadow: 0 8px 25px rgba(229, 9, 20, 0.45);
+  cursor: pointer; transition: 0.15s;
+}
+.btn-order-big:active { transform: scale(0.98); }
 
-        /* Hero */
-        .hero {
-            text-align: center;
-            margin-bottom: 32px;
-            animation: popIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .avatar-wrap {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 16px;
-        }
-        .avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
-            padding: 2px;
-            background: var(--bg);
-        }
-        .badge-icon {
-            position: absolute;
-            bottom: -5px;
-            right: -5px;
-            width: 32px;
-            height: 32px;
-            background: var(--card);
-            border-radius: 50%;
-            padding: 4px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            border: 1px solid var(--border);
-        }
+/* QUICK CHIPS */
+.perks-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;
+  margin-top: 16px;
+}
+.perk-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 10px 6px; text-align: center;
+}
+.perk-chip span { font-size: 18px; display: block; margin-bottom: 2px; }
+.perk-chip p { font-size: 11px; font-weight: 700; color: #fff; }
 
-        .title {
-            font-size: 28px;
-            background: linear-gradient(135deg, #ff4b4b, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-        .subtitle {
-            font-size: 14px;
-            color: var(--muted);
-            font-weight: 500;
-        }
+/* SECTION HEADER */
+.sec-head {
+  font-size: 1.15rem; font-weight: 800; color: #fff;
+  margin: 24px 0 12px; display: flex; align-items: center; gap: 8px;
+}
 
-        /* Cards */
-        .card {
-            background: var(--card);
-            border-radius: var(--r);
-            padding: 20px;
-            margin-bottom: 16px;
-            border: 1px solid var(--border);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card.visible {
-            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
-            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.1);
-        }
+/* BENTO FEATURES (2X2) */
+.bento-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.bento-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 16px 14px;
+  transition: 0.2s;
+}
+.bento-card:hover { border-color: rgba(229, 9, 20, 0.4); }
+.bento-icon {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: rgba(229, 9, 20, 0.12);
+  border: 1px solid rgba(229, 9, 20, 0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 12px;
+}
+.bento-card h4 { font-size: 13.5px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.bento-card p { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
 
-        .card-title {
-            font-size: 18px;
-            margin-bottom: 16px;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+/* COMPARISON CARD */
+.comp-box {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 18px; overflow: hidden; margin-top: 10px;
+}
+.comp-row {
+  display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+  padding: 12px 14px; border-bottom: 1px solid var(--border);
+  font-size: 12.5px; align-items: center;
+}
+.comp-row:last-child { border-bottom: none; }
+.comp-row.head {
+  background: var(--card2); font-weight: 800; color: #fff; font-size: 11.5px; text-transform: uppercase;
+}
+.comp-row.highlight {
+  background: rgba(229, 9, 20, 0.08); font-weight: 700;
+}
+.comp-orig { color: #94a3b8; text-decoration: line-through; }
+.comp-shop { color: var(--green); font-weight: 800; }
 
-        /* Pricing Card */
-        .price-card {
-            background: linear-gradient(180deg, var(--card2) 0%, var(--card) 100%);
-            border: 1px solid rgba(229, 9, 20, 0.3);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .price-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent2), var(--accent), var(--accent2));
-        }
-        .price-amount {
-            font-size: 36px;
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            color: white;
-            margin: 12px 0;
-            text-shadow: 0 2px 10px rgba(229, 9, 20, 0.2);
-        }
-        .price-month {
-            font-size: 16px;
-            color: var(--muted);
-            font-weight: 500;
-        }
-        .price-badge {
-            display: inline-block;
-            background: rgba(229, 160, 13, 0.1);
-            color: var(--gold);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            border: 1px solid rgba(229, 160, 13, 0.2);
-        }
-        .price-warranty {
-            font-size: 14px;
-            color: #4ade80;
-            font-weight: 500;
-        }
+/* STEPS */
+.steps-wrap {
+  display: flex; flex-direction: column; gap: 8px; margin-top: 10px;
+}
+.step-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.step-num {
+  width: 32px; height: 32px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--n-red), #800);
+  color: #fff; font-weight: 800; font-size: 14px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-txt h5 { font-size: 13px; font-weight: 700; color: #fff; }
+.step-txt p { font-size: 11.5px; color: var(--muted); }
 
-        /* Comparison Table */
-        .table-wrap {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-            margin-top: 12px;
-        }
-        .table-wrap th, .table-wrap td {
-            padding: 10px 8px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        .table-wrap th {
-            color: var(--muted);
-            font-weight: 600;
-        }
-        .table-wrap tr:last-child td { border-bottom: none; }
-        
-        .premium-row {
-            background: rgba(229, 9, 20, 0.1);
-            border-radius: 8px;
-            position: relative;
-        }
-        .premium-row td {
-            color: white;
-            font-weight: 600;
-            border-bottom: none;
-        }
-        .premium-row td:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
-        .premium-row td:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
-        
-        .premium-highlight-text {
-            text-align: center;
-            font-size: 13px;
-            color: var(--gold);
-            margin-top: 12px;
-            font-weight: 600;
-        }
+/* FAQ ACCORDION */
+.faq-wrap { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.faq-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+}
+.faq-head {
+  padding: 14px; font-size: 13px; font-weight: 700; color: #fff;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer;
+}
+.faq-body {
+  padding: 0 14px 14px; font-size: 12px; color: var(--muted);
+  line-height: 1.6; display: none; border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 10px;
+}
+.faq-card.active .faq-body { display: block; }
+.faq-card.active .faq-arrow { transform: rotate(180deg); }
+.faq-arrow { transition: 0.2s; font-size: 11px; color: var(--muted); }
 
-        /* Lists */
-        .list { list-style: none; }
-        .list li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: var(--text);
-            transition: transform 0.2s ease;
-        }
-        .list li:last-child { margin-bottom: 0; }
-        .list li:hover { transform: translateX(4px); }
-        .list-icon {
-            margin-right: 12px;
-            font-size: 18px;
-            flex-shrink: 0;
-            line-height: 1.2;
-        }
-
-        /* Price Comparison */
-        .price-compare {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--card2);
-            padding: 12px 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-        .price-compare:last-child { margin-bottom: 0; }
-        .pc-label { font-size: 14px; color: var(--muted); }
-        .pc-value { font-size: 15px; font-weight: 600; color: white; }
-        .pc-value.strike { text-decoration: line-through; color: var(--muted); }
-        .pc-value.highlight { color: #4ade80; font-size: 16px; }
-
-        .saving-box {
-            background: rgba(74, 222, 128, 0.1);
-            border: 1px dashed #4ade80;
-            border-radius: 8px;
-            padding: 16px;
-            text-align: center;
-            margin-top: 16px;
-        }
-        .saving-text { color: #4ade80; font-weight: 600; font-size: 16px; }
-
-        /* Steps */
-        .steps {
-            position: relative;
-            padding-left: 24px;
-        }
-        .steps::before {
-            content: '';
-            position: absolute;
-            left: 11px; top: 8px; bottom: 8px;
-            width: 2px;
-            background: var(--border);
-        }
-        .step {
-            position: relative;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-        .step:last-child { margin-bottom: 0; }
-        .step::before {
-            content: '';
-            position: absolute;
-            left: -24px; top: 4px;
-            width: 10px; height: 10px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 0 4px var(--card);
-            z-index: 1;
-        }
-        .step-title { font-weight: 600; color: white; margin-bottom: 4px; }
-        .step-desc { color: var(--muted); }
-
-        /* Buttons */
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            text-decoration: none;
-            margin-bottom: 12px;
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn:active { transform: translateY(2px); }
-        
-        .btn-zalo {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: #0068ff;
-            color: white;
-            box-shadow: 0 6px 0 #0056d6, 0 8px 15px rgba(0, 104, 255, 0.3);
-        }
-        .btn-zalo img {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-        }
-        .btn-zalo:hover { background: #1a77ff; }
-        .btn-zalo:active { box-shadow: 0 2px 0 #0056d6; }
-        
-        .btn-secondary {
-            background: linear-gradient(to right, var(--accent), var(--accent2));
-            color: white;
-            box-shadow: 0 6px 0 #8a040b, 0 8px 15px rgba(229, 9, 20, 0.3);
-        }
-        .btn-secondary:active { box-shadow: 0 2px 0 #8a040b; }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 24px 0;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* Float Button */
-        .float-btn {
-            position: fixed;
-            bottom: 22px;
-            right: 18px;
-            width: 50px;
-            height: 50px;
-            background: #0068ff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 104, 255, 0.4);
-            z-index: 999;
-            text-decoration: none;
-            color: white;
-            animation: pulse 2s infinite;
-        }
-        .float-btn img { width: 28px; height: 28px; object-fit: contain; }
-
-        /* Animations */
-        @keyframes popIn {
-            0% { opacity: 0; transform: scale(0.9) translateY(10px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        @keyframes slideUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0.6); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 104, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 104, 255, 0); }
-        }
-        
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
-
-        /* Emojis */
-        .emoji { display: inline-block; }
-
-        /* ── MOBILE RESPONSIVE ── */
-        @media (max-width: 480px) {
-            .container { padding: 20px 14px 90px; max-width: 100%; }
-
-            .title { font-size: clamp(1.4rem, 6vw, 1.75rem); }
-            .subtitle { font-size: 13px; }
-
-            /* Hero avatar */
-            .avatar { width: 80px; height: 80px; }
-
-            /* Price card */
-            .price-card { padding: 20px 16px; }
-            .price-amount { font-size: clamp(26px, 7vw, 36px); }
-
-            /* Bảng so sánh: wrapper scroll ngang */
-            .card { padding: 16px 14px; }
-            .card .table-wrap { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .table-wrap { font-size: 13px; min-width: 300px; }
-            .table-wrap th, .table-wrap td { padding: 9px 6px; white-space: nowrap; }
-
-            /* So sánh giá */
-            .price-compare { gap: 8px; }
-            .pc-label { font-size: 13px; }
-            .pc-value { font-size: 14px; }
-            .pc-value.highlight { font-size: 15px; }
-
-            /* Saving box */
-            .saving-text { font-size: 14px; }
-
-            /* Lists */
-            .list li { font-size: 13px; padding: 10px 0 10px 28px; }
-
-            /* Steps */
-            .step-title { font-size: 14px; }
-            .step-desc { font-size: 13px; }
-
-            /* Buttons */
-            .btn { padding: 14px; font-size: 15px; min-height: 50px; border-radius: 14px; }
-        }
-
-        @media (max-width: 360px) {
-            .title { font-size: 1.3rem; }
-            .price-amount { font-size: 24px; }
-        }
-    </style>
+/* FOOTER & FLOATING ZALO */
+footer {
+  text-align: center; font-size: 12px; color: var(--muted);
+  margin-top: 34px;
+}
+.float-zalo {
+  position: fixed; bottom: 22px; right: 18px; z-index: 999;
+  width: 52px; height: 52px; background: #0068ff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 25px rgba(0, 104, 255, 0.45);
+  animation: pulse 2s infinite;
+}
+.float-zalo img { width: 30px; height: 30px; object-fit: contain; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,104,255,0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(0,104,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,104,255,0); }
+}
+</style>
 </head>
 <body>
 
 <div class="container">
-    <a href="index.html" class="back-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Quay về trang chủ
+  
+  <a href="index.html" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Quay lại trang chủ
+  </a>
+
+  <!-- HERO BRAND -->
+  <div class="hero-box">
+    <div class="brand-logo-wrap">
+      <img src="images/netflix.png" alt="Netflix">
+    </div>
+    <div class="badge-pill">Gói Cao Cấp Premium 4K + HDR</div>
+    <h1 class="hero-title">Netflix 4K UHD</h1>
+    <p class="hero-sub">Xem phim bản quyền không giới hạn · Chuẩn 4K HDR siêu sắc nét · Đăng nhập mọi thiết bị</p>
+  </div>
+
+  <!-- VIP PRICE CARD -->
+  <div class="vip-card">
+    <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;">Bảng Giá Thống Nhất</span>
+    <div class="price-display">
+      <span class="price-val" data-price-key="netflix">45k</span>
+      <span class="price-unit">/ 30 ngày</span>
+    </div>
+    <div>
+      <span class="warranty-chip">🛡️ Bảo hành full thời gian · 1 đổi 1 ngay</span>
+    </div>
+    
+    <a href="https://zalo.me/0822307662?text=Ch%C3%A0o%20b%E1%BA%A1n%2C%20m%C3%ACnh%20mu%E1%BB%91n%20mua%20Netflix%204K%2045k" target="_blank" class="btn-order-big">
+      <span>💬</span> Đặt Mua Ngay Qua Zalo
     </a>
 
-    <div class="hero">
-        <div class="avatar-wrap">
-            <img src="images/avatar.png" alt="Xwuan" class="avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzIyMiIvPjx0ZXh0IHg9IjUwIiB5PSI1MCIgZm9udC1mYW1pbHk9ImFyaWFsIiBmb250LXNpemU9IjQwIiBmaWxsPSIjNTU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjM1ZW0iPlg8L3RleHQ+PC9zdmc+'">
-            <img src="images/netflix.png" alt="Netflix" class="badge-icon" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iI2U1MDkxNCIvPjwvc3ZnPg=='">
-        </div>
-        <h1 class="title">Netflix 4K UHD</h1>
-        <p class="subtitle">✦ Xem phim không giới hạn · Chất lượng 4K HDR · Mọi thiết bị ✦</p>
+    <!-- QUICK PERKS -->
+    <div class="perks-row">
+      <div class="perk-chip">
+        <span>⚡</span>
+        <p>Cấp 2 - 5 Phút</p>
+      </div>
+      <div class="perk-chip">
+        <span>🎬</span>
+        <p>Chuẩn 4K HDR</p>
+      </div>
+      <div class="perk-chip">
+        <span>📱</span>
+        <p>Mọi Thiết Bị</p>
+      </div>
     </div>
+  </div>
 
-    <!-- Pricing Card -->
-    <div class="card price-card delay-1">
-        <div class="price-badge">Gói Cao Cấp Premium · 4K + HDR</div>
-        <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px;">
-            <span style="font-size:18px;font-weight:600;color:#6b7280;text-decoration:line-through;">60.000đ</span>
-            <span style="background:#ef4444;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.5px;">SALE</span>
-        </div>
-        <div class="price-amount">30.000đ <span class="price-month">/ tháng</span></div>
-        <div class="price-warranty">🛡️ Bảo hành full thời gian</div>
+  <!-- BENTO FEATURES -->
+  <div class="sec-head">✨ Đặc Quyền Gói Netflix Premium</div>
+  <div class="bento-grid">
+    <div class="bento-card">
+      <div class="bento-icon">🎬</div>
+      <h4>Hình Ảnh 4K HDR</h4>
+      <p>Thưởng thức trọn vẹn chi tiết siêu nét và màu sắc điện ảnh Dolby Vision.</p>
     </div>
-
-    <!-- Comparison Table -->
-    <div class="card delay-2">
-        <h2 class="card-title">🔍 SO SÁNH: Các gói Netflix</h2>
-        <table class="table-wrap">
-            <thead>
-                <tr>
-                    <th>Gói</th>
-                    <th>Chất lượng</th>
-                    <th>Thiết bị</th>
-                    <th>Giá gốc</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Di động</td>
-                    <td>480p SD</td>
-                    <td>1</td>
-                    <td>74k</td>
-                </tr>
-                <tr>
-                    <td>Cơ bản</td>
-                    <td>720p HD</td>
-                    <td>1</td>
-                    <td>114k</td>
-                </tr>
-                <tr>
-                    <td>Tiêu chuẩn</td>
-                    <td>1080p FHD</td>
-                    <td>2</td>
-                    <td>231k</td>
-                </tr>
-                <tr class="premium-row">
-                    <td>Cao cấp</td>
-                    <td>4K + HDR</td>
-                    <td>4</td>
-                    <td>273k</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="premium-highlight-text">
-            ✨ Bạn chỉ trả 30k cho gói cao nhất trị giá 273k! ✨
-        </div>
+    <div class="bento-card">
+      <div class="bento-icon">📱</div>
+      <h4>Mọi Thiết Bị</h4>
+      <p>Xem mượt mà trên Smart TV, Laptop, Máy tính bảng, Điện thoại.</p>
     </div>
-
-    <!-- Benefits -->
-    <div class="card delay-3">
-        <h2 class="card-title">🌟 Lợi ích Netflix Premium</h2>
-        <ul class="list">
-            <li><span class="list-icon">🎬</span> Xem phim, series chất lượng 4K + HDR</li>
-            <li><span class="list-icon">📱</span> Xem trên mọi thiết bị: TV, laptop, điện thoại, máy tính bảng</li>
-            <li><span class="list-icon">👥</span> Tối đa 4 thiết bị xem cùng lúc</li>
-            <li><span class="list-icon">📥</span> Tải phim xem offline</li>
-            <li><span class="list-icon">🌍</span> Kho phim quốc tế khổng lồ</li>
-            <li><span class="list-icon">🚫</span> Không quảng cáo, không gián đoạn</li>
-        </ul>
+    <div class="bento-card">
+      <div class="bento-icon">👤</div>
+      <h4>Profile Riêng Tư</h4>
+      <p>Có mã PIN cá nhân, lưu giữ lịch sử xem và danh sách phim yêu thích riêng.</p>
     </div>
-
-    <!-- Price Comparison details -->
-    <div class="card delay-4">
-        <h2 class="card-title">💰 SO SÁNH GIÁ</h2>
-        
-        <div class="price-compare">
-            <span class="pc-label">Giá gốc Netflix Premium:</span>
-            <span class="pc-value strike">273.000đ / tháng</span>
-        </div>
-        <div class="price-compare">
-            <span class="pc-label">Giá tại Xwuan:</span>
-            <span class="pc-value highlight">30.000đ / tháng</span>
-        </div>
-        
-        <div class="saving-box">
-            <div class="saving-text">🔥 Tiết kiệm ~89% (243k/tháng)</div>
-        </div>
+    <div class="bento-card">
+      <div class="bento-icon">📥</div>
+      <h4>Tải Phim Offline</h4>
+      <p>Tải các series và phim bom tấn về xem mọi lúc khi không có kết nối mạng.</p>
     </div>
+  </div>
 
-    <!-- Commitments -->
-    <div class="card delay-5">
-        <h2 class="card-title">💎 Cam kết từ Xwuan</h2>
-        <ul class="list">
-            <li><span class="list-icon">🛡️</span> Bảo hành full thời gian sử dụng</li>
-            <li><span class="list-icon">⚡</span> Kích hoạt trong 2–5 phút</li>
-            <li><span class="list-icon">📱</span> Hỗ trợ mọi thiết bị</li>
-            <li><span class="list-icon">🔄</span> Đổi tài khoản ngay nếu có lỗi</li>
-            <li><span class="list-icon">💬</span> Hỗ trợ 24/7, phản hồi nhanh</li>
-        </ul>
+  <!-- COMPARISON TABLE -->
+  <div class="sec-head">📊 So Sánh Lợi Ích Với Giá Gốc</div>
+  <div class="comp-box">
+    <div class="comp-row head">
+      <span>Tiêu chí</span>
+      <span>Mua tại Hãng</span>
+      <span style="color:#ff4d58;text-align:right;">Xuan Quyen</span>
     </div>
-
-    <!-- Steps -->
-    <div class="card delay-5">
-        <h2 class="card-title">🚀 Cách thức hoạt động</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-title">Bước 1: Liên hệ</div>
-                <div class="step-desc">Nhắn tin qua Zalo hoặc Facebook.</div>
-            </div>
-            <div class="step">
-                <div class="step-title">Bước 2: Kích hoạt</div>
-                <div class="step-desc">Xwuan kích hoạt tài khoản Netflix Premium cho bạn.</div>
-            </div>
-            <div class="step">
-                <div class="step-title">Bước 3: Tận hưởng</div>
-                <div class="step-desc">Đăng nhập và xem phim ngay · Bảo hành trọn đời.</div>
-            </div>
-        </div>
+    <div class="comp-row highlight">
+      <span><strong>Chi phí / tháng</strong></span>
+      <span class="comp-orig">273.000đ</span>
+      <span class="comp-shop" style="text-align:right;">45.000đ</span>
     </div>
-
-    <!-- Buttons -->
-    <div class="delay-5" style="margin-top: 24px;">
-        <a href="https://zalo.me/0822307662" target="_blank" rel="noopener noreferrer" class="btn btn-zalo">
-            <img src="images/zalo.png" alt="Zalo">
-            <span>Nhắn tin Zalo ngay</span>
-        </a>
+    <div class="comp-row">
+      <span>Chất lượng hình ảnh</span>
+      <span>4K UHD + HDR</span>
+      <span style="color:#fff;font-weight:700;text-align:right;">4K UHD + HDR</span>
     </div>
+    <div class="comp-row">
+      <span>Thanh toán</span>
+      <span>Thẻ Visa quốc tế</span>
+      <span style="color:#fff;font-weight:700;text-align:right;">Zalo / MoMo 5s</span>
+    </div>
+    <div class="comp-row">
+      <span>Bảo hành &amp; Hỗ trợ</span>
+      <span>Chờ email tiếng Anh</span>
+      <span style="color:var(--green);font-weight:700;text-align:right;">Zalo 24/7 tức thì</span>
+    </div>
+  </div>
 
-    <footer>
-        © <span id="yr">2025</span> Netflix Premium Xwuan · Uy tín tạo niềm tin 🎬
-    </footer>
+  <!-- HOW TO ORDER -->
+  <div class="sec-head">🚀 3 Bước Kích Hoạt Nhanh</div>
+  <div class="steps-wrap">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-txt">
+        <h5>Nhắn tin Zalo</h5>
+        <p>Bấm nút đặt mua hoặc nhắn Zalo 0822.307.662.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-txt">
+        <h5>Nhận Profile &amp; Mã PIN</h5>
+        <p>Kỹ thuật viên gửi thông tin đăng nhập trong 2 - 5 phút.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-txt">
+        <h5>Thưởng Thức Phim</h5>
+        <p>Đăng nhập và tận hưởng kho phim 4K không giới hạn.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec-head">❓ Câu Hỏi Thường Gặp</div>
+  <div class="faq-wrap">
+    <div class="faq-card active">
+      <div class="faq-head" onclick="toggleFaq(this)">
+        <span>Tôi có xem được trên Smart TV không?</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-body">
+        Có! Bạn có thể đăng nhập trực tiếp trên ứng dụng Netflix của Smart TV (Samsung, LG, Sony, TCL...), TV Box hoặc máy tính, điện thoại bất kỳ.
+      </div>
+    </div>
+    <div class="faq-card">
+      <div class="faq-head" onclick="toggleFaq(this)">
+        <span>Chính sách bảo hành như thế nào?</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-body">
+        Bảo hành trọn vẹn 30 ngày sử dụng. Nếu có bất kỳ trục trặc nào, bạn chỉ cần nhắn Zalo là được hỗ trợ khắc phục hoặc đổi mới ngay trong 5 phút.
+      </div>
+    </div>
+    <div class="faq-card">
+      <div class="faq-head" onclick="toggleFaq(this)">
+        <span>Profile của tôi có bị người khác xem chung không?</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-body">
+        Không! Bạn được cấp một Profile riêng biệt kèm mã PIN cá nhân, hoàn toàn riêng tư và không bị ai xem trùng hay làm mất lịch sử phim.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="yr"></span> xwuan.github.io · Xuan Quyen · Dịch vụ phần mềm &amp; tài khoản uy tín
+  </footer>
+
 </div>
 
-<!-- Float Button -->
-<a href="https://zalo.me/0822307662" target="_blank" rel="noopener noreferrer" class="float-btn" aria-label="Chat Zalo" title="Nhắn Zalo">
-    <img src="images/zalo.png" alt="Zalo">
+<!-- FLOAT ZALO -->
+<a href="https://zalo.me/0822307662" target="_blank" class="float-zalo" title="Nhắn Zalo">
+  <img src="images/zalo.png" alt="Zalo" onerror="this.parentElement.innerHTML='💬'">
 </a>
 
 <script>
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    });
-
-    document.querySelectorAll('.card').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Dynamic Year
-    document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('yr').textContent = new Date().getFullYear();
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('active');
+}
 </script>
-
 </body>
 </html>
