@@ -52,9 +52,10 @@ Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch
 
 ### 3. HỆ THỐNG QUẢN TRỊ ADMIN.HTML & PRICING.JS
 
-- **Trang Quản Trị `admin.html` (PRIVATE - LOCAL ONLY)**:
-  - **Bảo mật tuyệt đối**: File `admin.html` được giấu trong `.gitignore`, **KHÔNG đưa lên GitHub** và **KHÔNG có link trên website**. Chỉ có chủ shop mở trực tiếp trên máy tính cá nhân để quản trị.
-  - Mã PIN bảo mật mặc định: `123456` (có thể đổi mã PIN trong Cài đặt).
+- **Trang Quản Trị `admin.html` (Hỗ trợ truy cập Mobile & Desktop)**:
+  - **Truy cập trực tuyến trên điện thoại**: `https://xwuan.github.io/admin.html` (có thể thêm vào màn hình chính điện thoại như 1 App).
+  - **Bảo mật tuyệt đối (Zero-Hardcode)**: Mã nguồn trên GitHub **KHÔNG chứa bất kỳ mật khẩu nào**, kẻ xấu F12 hay soi code cũng không thể tìm thấy.
+  - **Xác thực quyền ghi Firebase**: Mật khẩu do chủ shop tự nhập trên máy/điện thoại, Firebase Server sẽ so khớp với Firebase Security Rules. Nếu sai mật khẩu, Firebase từ chối cập nhật (`Permission Denied`).
   - Quản lý giá bán, giá gốc, nhãn SALE (SALE, -50%, HOT...), bật/tắt SALE theo từng dịch vụ.
   - Quản lý giá Windows, Office, Locket Gold (5s, 15s).
   - Thêm dịch vụ/tài khoản mới tùy chỉnh (tự động render vào trang chủ `index.html`).
@@ -62,7 +63,7 @@ Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch
   - Cập nhật số Zalo, Hotline, link Facebook/TikTok tại một nơi duy nhất.
 - **Hệ thống Đồng Bộ Đa Tầng (Offline Local, GitHub & Firebase Cloud)**:
   1. **Tầng 1 (LocalStorage / Auto-Save)**: Lưu tức thì trên máy Admin khi gõ, F5 không bao giờ mất.
-  2. **Tầng 2 (Firebase Realtime Cloud)**: Đồng bộ siêu tốc (< 1s) cho toàn bộ khách hàng trên thế giới. Database URL chính thức: `https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app`. Được bảo vệ bằng Secret Key chống F12 phá hoại (`Xwuan@Secret2026!`). Trong `admin.html` có nút **"☁️ Lưu lên Cloud Firebase"** kết nối qua REST API. File `pricing.js` tự động fetch và lắng nghe realtime SSE (`EventSource`) để cập nhật giá trực tiếp trên màn hình khách hàng mà không cần load lại trang.
+  2. **Tầng 2 (Firebase Realtime Cloud)**: Đồng bộ siêu tốc (< 1s) cho toàn bộ khách hàng trên thế giới. Database URL chính thức: `https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app`. Được bảo vệ bằng Secret Passphrase chống F12 phá hoại. Trong `admin.html` có nút **"☁️ Lưu lên Cloud Firebase"** kết nối qua REST API. File `pricing.js` tự động fetch và lắng nghe realtime SSE (`EventSource`) để cập nhật giá trực tiếp trên màn hình khách hàng mà không cần load lại trang.
   3. **Tầng 3 (GitHub Deploy / push.bat)**: Dùng GitHub Token hoặc file `push.bat` với URL cứng `https://xwuan@github.com/xwuan/xwuan.github.io`.
 - **Module Trung Tâm `pricing.js`**:
   - Chứa cấu hình gốc `DEFAULT_CONFIG`, tự động kết nối Firebase Realtime (`initFirebaseCloudSync`) và fallback `localStorage`.
