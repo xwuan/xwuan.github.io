@@ -52,7 +52,8 @@ Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch
 
 ### 3. HỆ THỐNG QUẢN TRỊ ADMIN.HTML & PRICING.JS
 
-- **Trang Quản Trị `admin.html`**:
+- **Trang Quản Trị `admin.html` (PRIVATE - LOCAL ONLY)**:
+  - **Bảo mật tuyệt đối**: File `admin.html` được giấu trong `.gitignore`, **KHÔNG đưa lên GitHub** và **KHÔNG có link trên website**. Chỉ có chủ shop mở trực tiếp trên máy tính cá nhân để quản trị.
   - Mã PIN bảo mật mặc định: `123456` (có thể đổi mã PIN trong Cài đặt).
   - Quản lý giá bán, giá gốc, nhãn SALE (SALE, -50%, HOT...), bật/tắt SALE theo từng dịch vụ.
   - Quản lý giá Windows, Office, Locket Gold (5s, 15s).
@@ -61,7 +62,7 @@ Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch
   - Cập nhật số Zalo, Hotline, link Facebook/TikTok tại một nơi duy nhất.
 - **Hệ thống Đồng Bộ Đa Tầng (Offline Local, GitHub & Firebase Cloud)**:
   1. **Tầng 1 (LocalStorage / Auto-Save)**: Lưu tức thì trên máy Admin khi gõ, F5 không bao giờ mất.
-  2. **Tầng 2 (Firebase Realtime Cloud)**: Đồng bộ siêu tốc (< 1s) cho toàn bộ khách hàng trên thế giới. Database URL chính thức: `https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app`. Trong `admin.html` có nút **"☁️ Lưu lên Cloud Firebase"** kết nối qua REST API. File `pricing.js` tự động fetch và lắng nghe realtime SSE (`EventSource`) để cập nhật giá trực tiếp trên màn hình khách hàng mà không cần load lại trang.
+  2. **Tầng 2 (Firebase Realtime Cloud)**: Đồng bộ siêu tốc (< 1s) cho toàn bộ khách hàng trên thế giới. Database URL chính thức: `https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app`. Được bảo vệ bằng Secret Key chống F12 phá hoại (`Xwuan@Secret2026!`). Trong `admin.html` có nút **"☁️ Lưu lên Cloud Firebase"** kết nối qua REST API. File `pricing.js` tự động fetch và lắng nghe realtime SSE (`EventSource`) để cập nhật giá trực tiếp trên màn hình khách hàng mà không cần load lại trang.
   3. **Tầng 3 (GitHub Deploy / push.bat)**: Dùng GitHub Token hoặc file `push.bat` với URL cứng `https://xwuan@github.com/xwuan/xwuan.github.io`.
 - **Module Trung Tâm `pricing.js`**:
   - Chứa cấu hình gốc `DEFAULT_CONFIG`, tự động kết nối Firebase Realtime (`initFirebaseCloudSync`) và fallback `localStorage`.
