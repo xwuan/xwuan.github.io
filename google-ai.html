@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Google AI Pro 1 Năm (Gemini Advanced) | Xuan Quyen</title>
+<meta name="description" content="Tài khoản Google AI Pro 1 năm chỉ 60k. Trải nghiệm mô hình Gemini 1.5 Pro thông minh nhất thế giới, phân tích 1 triệu token, tích hợp Google Workspace.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script src="pricing.js"></script>
+<style>
+:root {
+  --bg: #070814;
+  --card: #0e1122;
+  --card2: #141830;
+  --border: #1e2448;
+  --g-blue: #4285f4;
+  --g-cyan: #00d4ff;
+  --g-purple: #a855f7;
+  --g-glow: rgba(66, 133, 244, 0.35);
+  --gold: #f5a623;
+  --green: #00e676;
+  --text: #e2e8f0;
+  --muted: #828fa6;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(66, 133, 244, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 45%);
+}
+h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 800; }
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 16px 90px;
+}
+
+/* TOP BACK LINK */
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--muted); font-size: 13.5px; font-weight: 600;
+  margin-bottom: 20px; transition: color 0.2s;
+}
+.back-link:hover { color: #fff; }
+
+/* HERO BRAND */
+.hero-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.brand-logo-wrap {
+  width: 80px; height: 80px; margin: 0 auto 14px;
+  background: #0d1225;
+  border-radius: 22px;
+  border: 1.5px solid rgba(66, 133, 244, 0.4);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 30px var(--g-glow);
+  padding: 12px;
+}
+.brand-logo-wrap img {
+  width: 100%; height: 100%; object-fit: contain;
+}
+.badge-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 99px;
+  background: rgba(66, 133, 244, 0.12);
+  border: 1px solid rgba(66, 133, 244, 0.35);
+  color: #60a5fa; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.5px; margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.hero-title {
+  font-size: 1.85rem; font-weight: 800; color: #fff;
+  letter-spacing: -0.5px; margin-bottom: 6px;
+}
+.hero-sub {
+  font-size: 13px; color: var(--muted); line-height: 1.5;
+}
+
+/* VIP PRICE CARD */
+.vip-card {
+  background: linear-gradient(180deg, var(--card2) 0%, var(--card) 100%);
+  border: 1.5px solid rgba(66, 133, 244, 0.35);
+  border-radius: 22px; padding: 22px 18px;
+  text-align: center; position: relative;
+  overflow: hidden; margin-bottom: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+.vip-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3.5px;
+  background: linear-gradient(90deg, var(--g-blue), var(--g-cyan), var(--g-purple));
+}
+.price-display {
+  display: flex; align-items: baseline; justify-content: center; gap: 4px;
+  margin: 10px 0 6px;
+}
+.price-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.6rem; font-weight: 800; color: #fff;
+  text-shadow: 0 0 25px var(--g-glow);
+}
+.price-unit {
+  font-size: 15px; color: var(--muted); font-weight: 600;
+}
+.warranty-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 700; color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 4px 12px; border-radius: 20px;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  margin-bottom: 18px;
+}
+.btn-order-big {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; height: 52px;
+  background: linear-gradient(135deg, #2563eb, #00d4ff);
+  border: none; border-radius: 14px;
+  color: #fff; font-size: 15.5px; font-weight: 800;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  cursor: pointer; transition: 0.15s;
+}
+.btn-order-big:active { transform: scale(0.98); }
+
+/* QUICK CHIPS */
+.perks-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;
+  margin-top: 16px;
+}
+.perk-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 10px 6px; text-align: center;
+}
+.perk-chip span { font-size: 18px; display: block; margin-bottom: 2px; }
+.perk-chip p { font-size: 11px; font-weight: 700; color: #fff; }
+
+/* SECTION HEAD */
+.sec-head {
+  font-size: 1.15rem; font-weight: 800; color: #fff;
+  margin: 24px 0 12px; display: flex; align-items: center; gap: 8px;
+}
+
+/* BENTO FEATURES */
+.bento-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.bento-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 16px 14px;
+  transition: 0.2s;
+}
+.bento-card:hover { border-color: rgba(66, 133, 244, 0.4); }
+.bento-icon {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: rgba(66, 133, 244, 0.12);
+  border: 1px solid rgba(66, 133, 244, 0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 12px;
+}
+.bento-card h4 { font-size: 13.5px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.bento-card p { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+/* COMPARISON TABLE */
+.comp-box {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 18px; overflow: hidden; margin-top: 10px;
+}
+.comp-row {
+  display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+  padding: 12px 14px; border-bottom: 1px solid var(--border);
+  font-size: 12.5px; align-items: center;
+}
+.comp-row:last-child { border-bottom: none; }
+.comp-row.head {
+  background: var(--card2); font-weight: 800; color: #fff; font-size: 11.5px; text-transform: uppercase;
+}
+.comp-row.highlight {
+  background: rgba(66, 133, 244, 0.08); font-weight: 700;
+}
+.comp-orig { color: #94a3b8; text-decoration: line-through; }
+.comp-shop { color: var(--green); font-weight: 800; }
+
+/* STEPS */
+.steps-wrap {
+  display: flex; flex-direction: column; gap: 8px; margin-top: 10px;
+}
+.step-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.step-num {
+  width: 32px; height: 32px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--g-blue), var(--g-purple));
+  color: #fff; font-weight: 800; font-size: 14px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-txt h5 { font-size: 13px; font-weight: 700; color: #fff; }
+.step-txt p { font-size: 11.5px; color: var(--muted); }
+
+/* FAQ ACCORDION */
+.faq-wrap { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.faq-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+}
+.faq-head {
+  padding: 14px; font-size: 13px; font-weight: 700; color: #fff;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer;
+}
+.faq-body {
+  padding: 0 14px 14px; font-size: 12px; color: var(--muted);
+  line-height: 1.6; display: none; border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 10px;
+}
+.faq-card.active .faq-body { display: block; }
+.faq-card.active .faq-arrow { transform: rotate(180deg); }
+.faq-arrow { transition: 0.2s; font-size: 11px; color: var(--muted); }
+
+/* FOOTER & FLOATING ZALO */
+footer {
+  text-align: center; font-size: 12px; color: var(--muted);
+  margin-top: 34px;
+}
+.float-zalo {
+  position: fixed; bottom: 22px; right: 18px; z-index: 999;
+  width: 52px; height: 52px; background: #0068ff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 25px rgba(0, 104, 255, 0.45);
+  animation: pulse 2s infinite;
+}
+.float-zalo img { width: 30px; height: 30px; object-fit: contain; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,104,255,0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(0,104,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,104,255,0); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  
+  <a href="index.html" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Quay lại trang chủ
+  </a>
+
+  <!-- HERO BRAND -->
+  <div class="hero-box">
+    <div class="brand-logo-wrap">
+      <img src="images/google-ai.png" alt="Google AI Pro">
+    </div>
+    <div class="badge-pill">Google Gemini Advanced · AI Đỉnh Cao</div>
+    <h1 class="hero-title">Google AI Pro 1 Năm</h1>
+    <p class="hero-sub">Mô hình Gemini 1.5 Pro siêu thông minh · Phân tích 1 triệu token · Tích hợp Gmail, Docs &amp; Drive</p>
+  </div>
+
+  <!-- VIP PRICE CARD -->
+  <div class="vip-card">
+    <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;">Bảng Giá Thống Nhất</span>
+    <div class="price-display">
+      <span class="price-val" data-price-key="google_ai">60k</span>
+      <span class="price-unit">/ 1 năm</span>
+    </div>
+    <div>
+      <span class="warranty-chip">⚠️ Gói siêu tiết kiệm trải nghiệm · Không bảo hành</span>
+    </div>
+    
+    <a href="https://zalo.me/0822307662?text=Ch%C3%A0o%20b%E1%BA%A1n%2C%20m%C3%ACnh%20mu%E1%BB%91n%20mua%20Google%20AI%20Pro%2060k" target="_blank" class="btn-order-big">
+      <span>💬</span> Đăng Ký Ngay Qua Zalo
+    </a>
+
+    <!-- QUICK PERKS -->
+    <div class="perks-row">
+      <div class="perk-chip">
+        <span>⚡</span>
+        <p>Cấp Sau 5 Phút</p>
+      </div>
+      <div class="perk-chip">
+        <span>🧠</span>
+        <p>Gemini 1.5 Pro</p>
+      </div>
+      <div class="perk-chip">
+        <span>📁</span>
+        <p>2TB Lưu Trữ</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENTO FEATURES -->
+  <div class="sec-head">✨ Khả Năng Vượt Trội Của Google AI Pro</div>
+  <div class="bento-grid">
+    <div class="bento-card">
+      <div class="bento-icon">🧠</div>
+      <h4>Gemini 1.5 Pro</h4>
+      <p>Mô hình thế hệ mới với khả năng hiểu ngữ cảnh lên tới 1 triệu token cực kỳ thông minh.</p>
+    </div>
+    <div class="bento-card">
+      <div class="bento-icon">📊</div>
+      <h4>Phân Tích File Lớn</h4>
+      <p>Tải lên video dài 1 tiếng, đọc sách, tài liệu PDF hàng trăm trang và bảng tính phức tạp.</p>
+    </div>
+    <div class="bento-card">
+      <div class="bento-icon">📝</div>
+      <h4>Google Workspace</h4>
+      <p>Tích hợp trực tiếp vào Gmail, Google Docs, Sheets giúp soạn thảo và viết lách thần tốc.</p>
+    </div>
+    <div class="bento-card">
+      <div class="bento-icon">🎨</div>
+      <h4>Vẽ Ảnh Imagen 3</h4>
+      <p>Tạo hình ảnh nghệ thuật AI sắc nét, chân thực với khả năng tái hiện chi tiết đỉnh cao.</p>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="sec-head">📊 So Sánh Lợi Ích Với Giá Gốc</div>
+  <div class="comp-box">
+    <div class="comp-row head">
+      <span>Tiêu chí</span>
+      <span>Mua tại Google</span>
+      <span style="color:#60a5fa;text-align:right;">Xuan Quyen</span>
+    </div>
+    <div class="comp-row highlight">
+      <span><strong>Chi phí 1 năm</strong></span>
+      <span class="comp-orig">~5.800.000đ</span>
+      <span class="comp-shop" style="text-align:right;">60.000đ</span>
+    </div>
+    <div class="comp-row">
+      <span>Mô hình AI</span>
+      <span>Gemini 1.5 Pro</span>
+      <span style="color:#fff;font-weight:700;text-align:right;">Gemini 1.5 Pro</span>
+    </div>
+    <div class="comp-row">
+      <span>Thanh toán</span>
+      <span>Thẻ tín dụng quốc tế</span>
+      <span style="color:#fff;font-weight:700;text-align:right;">Zalo / MoMo 5s</span>
+    </div>
+    <div class="comp-row">
+      <span>Chế độ bảo hành</span>
+      <span>Tự gia hạn đắt</span>
+      <span style="color:#f87171;font-weight:700;text-align:right;">Không bảo hành</span>
+    </div>
+  </div>
+
+  <!-- HOW TO ORDER -->
+  <div class="sec-head">🚀 3 Bước Đăng Ký Siêu Nhanh</div>
+  <div class="steps-wrap">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-txt">
+        <h5>Nhắn tin Zalo</h5>
+        <p>Bấm nút đăng ký hoặc nhắn Zalo 0822.307.662.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-txt">
+        <h5>Nhận Tài Khoản Trải Nghiệm</h5>
+        <p>Kỹ thuật viên gửi thông tin đăng nhập trong 2 - 5 phút.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-txt">
+        <h5>Khám Phá Sức Mạnh AI</h5>
+        <p>Đăng nhập gemini.google.com và sử dụng mô hình Advanced không giới hạn.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec-head">❓ Câu Hỏi Thường Gặp</div>
+  <div class="faq-wrap">
+    <div class="faq-card active">
+      <div class="faq-head" onclick="toggleFaq(this)">
+        <span>Google AI Pro có những tính năng gì?</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-body">
+        Bạn được sử dụng đầy đủ mô hình Gemini Advanced (Gemini 1.5 Pro) cao cấp nhất của Google, hỗ trợ phân tích dữ liệu lớn, lập trình, tóm tắt video và tạo ảnh Imagen 3.
+      </div>
+    </div>
+    <div class="faq-card">
+      <div class="faq-head" onclick="toggleFaq(this)">
+        <span>Tại sao giá lại rẻ như vậy (60k/năm)?</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-body">
+        Đây là gói dạng ưu đãi sinh viên / tài khoản trải nghiệm, được cung cấp với mức giá tượng trưng cực kỳ mềm cho các bạn học sinh, sinh viên và lập trình viên muốn tiếp cận AI đỉnh cao mà không tốn kém hàng triệu đồng mỗi tháng.
+      </div>
+    </div>
+    <div class="faq-card">
+      <div class="faq-head" onclick="toggleFaq(this)">
+        <span>Vì sao gói này lại không bảo hành?</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-body">
+        Để tối ưu hóa mức giá rẻ đến mức khó tin (chỉ 60.000đ cho cả 1 năm sử dụng, tương đương 5k/tháng), gói được cung cấp theo hình thức phi lợi nhuận không kèm chính sách bảo hành đổi mới.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="yr"></span> xwuan.github.io · Xuan Quyen · Dịch vụ phần mềm &amp; tài khoản uy tín
+  </footer>
+
+</div>
+
+<!-- FLOAT ZALO -->
+<a href="https://zalo.me/0822307662" target="_blank" class="float-zalo" title="Nhắn Zalo">
+  <img src="images/zalo.png" alt="Zalo" onerror="this.parentElement.innerHTML='💬'">
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('active');
+}
+</script>
+</body>
+</html>

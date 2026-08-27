@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Meitu SVIP 30 Ngày Chính Hãng | Xuan Quyen</title>
+<meta name="description" content="Tài khoản Meitu SVIP 30 ngày chỉ 80k. Mở khóa toàn bộ bộ lọc, làm nét ảnh 4K bằng AI, chỉnh dáng và biên tập video chuyên nghiệp. Bảo hành full thời gian.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script src="pricing.js"></script>
+<style>
+:root {
+  --bg: #0c0714;
+  --card: #140d21;
+  --card2: #1b122c;
+  --border: #2c1a44;
+  --m-pink: #ff2d75;
+  --m-purple: #9333ea;
+  --m-glow: rgba(255, 45, 117, 0.4);
+  --gold: #f5a623;
+  --green: #00e676;
+  --text: #f1e8f8;
+  --muted: #9b8ba9;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255, 45, 117, 0.16) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.1) 0%, transparent 50%);
+}
+h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 800; }
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 16px 90px;
+}
+
+/* TOP BACK LINK */
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--muted); font-size: 13.5px; font-weight: 600;
+  margin-bottom: 20px; transition: color 0.2s;
+}
+.back-link:hover { color: #fff; }
+
+/* HERO BRAND */
+.hero-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.brand-logo-wrap {
+  width: 80px; height: 80px; margin: 0 auto 14px;
+  background: #ff2d75;
+  border-radius: 22px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 30px var(--m-glow);
+  padding: 4px;
+  overflow: hidden;
+}
+.brand-logo-wrap img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 18px;
+}
+.badge-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 99px;
+  background: rgba(255, 45, 117, 0.15);
+  border: 1px solid rgba(255, 45, 117, 0.4);
+  color: #ff6097; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.5px; margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.hero-title {
+  font-size: 1.85rem; font-weight: 800; color: #fff;
+  letter-spacing: -0.5px; margin-bottom: 6px;
+}
+.hero-sub {
+  font-size: 13px; color: var(--muted); line-height: 1.5;
+}
+
+/* VIP PRICE CARD */
+.vip-card {
+  background: linear-gradient(180deg, var(--card2) 0%, var(--card) 100%);
+  border: 1.5px solid rgba(255, 45, 117, 0.35);
+  border-radius: 22px; padding: 22px 18px;
+  text-align: center; position: relative;
+  overflow: hidden; margin-bottom: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+.vip-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3.5px;
+  background: linear-gradient(90deg, var(--m-pink), #a855f7);
+}
+.price-display {
+  display: flex; align-items: baseline; justify-content: center; gap: 4px;
+  margin: 10px 0 6px;
+}
+.price-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.6rem; font-weight: 800; color: #fff;
+  text-shadow: 0 0 25px var(--m-glow);
+}
+.price-unit {
+  font-size: 15px; color: var(--muted); font-weight: 600;
+}
+.warranty-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12.5px; font-weight: 700; color: var(--green);
+  background: rgba(0, 230, 118, 0.1);
+  padding: 4px 12px; border-radius: 20px;
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  margin-bottom: 18px;
+}
+.btn-order-big {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; height: 52px;
+  background: linear-gradient(135deg, #ff2d75, #9333ea);
+  border: none; border-radius: 14px;
+  color: #fff; font-size: 15.5px; font-weight: 800;
+  box-shadow: 0 8px 25px rgba(255, 45, 117, 0.45);
+  cursor: pointer; transition: 0.15s;
+}
+.btn-order-big:active { transform: scale(0.98); }
+
+/* QUICK CHIPS */
+.perks-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;
+  margin-top: 16px;
+}
+.perk-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 10px 6px; text-align: center;
+}
+.perk-chip span { font-size: 18px; display: block; margin-bottom: 2px; }
+.perk-chip p { font-size: 11px; font-weight: 700; color: #fff; }
+
+/* SECTION HEAD */
+.sec-head {
+  font-size: 1.15rem; font-weight: 800; color: #fff;
+  margin: 24px 0 12px; display: flex; align-items: center; gap: 8px;
+}
+
+/* BENTO FEATURES */
+.bento-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.bento-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 16px 14px;
+  transition: 0.2s;
+}
+.bento-card:hover { border-color: rgba(255, 45, 117, 0.4); }
+.bento-icon {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: rgba(255, 45, 117, 0.12);
+  border: 1px solid rgba(255, 45, 117, 0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 12px;
+}
+.bento-card h4 { font-size: 13.5px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.bento-card p { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+/* COMPARISON TABLE */
+.comp-box {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 18px; overflow: hidden; margin-top: 10px;
+}
+.comp-row {
+  display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+  padding: 12px 14px; border-bottom: 1px solid var(--border);
+  font-size: 12.5px; align-items: center;
+}
+.comp-row:last-child { border-bottom: none; }
+.comp-row.head {
+  background: var(--card2); font-weight: 800; color: #fff; font-size: 11.5px; text-transform: uppercase;
+}
+.comp-row.highlight {
+  background: rgba(255, 45, 117, 0.08); font-weight: 700;
+}
+.comp-orig { color: #94a3b8; text-decoration: line-through; }
+.comp-shop { color: var(--green); font-weight: 800; }
+
+/* STEPS */
+.steps-wrap {
+  display: flex; flex-direction: column; gap: 8px; margin-top: 10px;
+}
+.step-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.step-num {
+  width: 32px; height: 32px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--m-pink), var(--m-purple));
+  color: #fff; font-weight: 800; font-size: 14px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-txt h5 { font-size: 13px; font-weight: 700; color: #fff; }
+.step-txt p { font-size: 11.5px; color: var(--muted); }
+
+/* FAQ ACCORDION */
+.faq-wrap { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.faq-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+}
+.faq-head {
+  padding: 14px; font-size: 13px; font-weight: 700; color: #fff;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer;
+}
+.faq-body {
+  padding: 0 14px 14px; font-size: 12px; color: var(--muted);
+  line-height: 1.6; display: none; border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 10px;
+}
+.faq-card.active .faq-body { display: block; }
+.faq-card.active .faq-arrow { transform: rotate(180deg); }
+.faq-arrow { transition: 0.2s; font-size: 11px; color: var(--muted); }
+
+/* FOOTER & FLOATING ZALO */
+footer {
+  text-align: center; font-size: 12px; color: var(--muted);
+  margin-top: 34px;
+}
+.float-zalo {
+  position: fixed; bottom: 22px; right: 18px; z-index: 999;
+  width: 52px; height: 52px; background: #0068ff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 25px rgba(0, 104, 255, 0.45);
+  animation: pulse 2s infinite;
+}
+.float-zalo img { width: 30px; height: 30px; object-fit: contain; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,104,255,0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(0,104,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,104,255,0); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  
+  <a href="index.html" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Quay lại trang chủ
+  </a>
+
+  <!-- HERO BRAND -->
+  <div class="hero-box">
+    <div class="brand-logo-wrap">
+      <img src="images/meitu.png" alt="Meitu SVIP">
+    </div>
+    <div class="badge-pill">Meitu SVIP Bản Quyền · Full Đặc Quyền</div>
+    <h1 class="hero-title">Meitu SVIP 30 Ngày</h1>
+    <p class="hero-sub">Làm nét ảnh AI chuẩn 4K · Trang điểm tỷ lệ vàng tự nhiên · Mở khóa 100% bộ lọc hot trend</p>
+  </div>
+
+  <!-- VIP PRICE CARD -->
+  <div class="vip-card">
+    <span style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;">Bảng Giá Thống Nhất</span>
+    <div class="price-display">
+      <span class="price-val" data-price-key="meitu">80k</span>
+      <span class="price-unit">/ 30 ngày</span>
+    </div>
+    <div>
+      <span class="warranty-chip">🛡️ Bảo hành full thời gian · 1 đổi 1 ngay lập tức</span>
+    </div>
+    
+    <a href="https://zalo.me/0822307662?text=Ch%C3%A0o%20b%E1%BA%A1n%2C%20m%C3%ACnh%20mu%E1%BB%91n%20mua%20Meitu%20SVIP%2080k" target="_blank" class="btn-order-big">
+      <span>💬</span> Nâng Cấp Ngay Qua Zalo
+    </a>
+
+    <!-- QUICK PERKS -->
+    <div class="perks-row">
+      <div class="perk-chip">
+        <span>⚡</span>
+        <p>Cấp Sau 5 Phút</p>
+      </div>
+      <div class="perk-chip">
+        <span>👑</span>
+        <p>Mở Khóa SVIP</p>
+      </div>
+      <div class="perk-chip">
+        <span>📸</span>
+        <p>Xuất Ảnh 4K</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENTO FEATURES -->
+  <div class="sec-head">✨ Đặc Quyền Chỉ Có Ở Meitu SVIP</div>
+  <div class="bento-grid">
+    <div class="bento-card">
+      <div class="bento-icon">📸</div>
+      <h4>Làm Nét Ảnh AI 4K</h4>
+      <p>Phục hồi ảnh cũ, ảnh mờ vỡ nét thành kiệt tác cực kỳ rõ nét từng sợi tóc.</p>
+    </div>
+    <div class="bento-card">
+      <div class="bento-icon">💄</div>
+      <h4>Make-up Tự Nhiên</h4>
+      <p>Trang điểm chuẩn phong cách Hàn/Trung, mịn da và chỉnh dáng thon gọn tự nhiên.</p>
+    </div>
+    <div class="bento-card">
+      <div class="bento-icon">🎬</div>
+      <h4>Biên Tập Video SVIP</h4>
+      <p>Chèn filter điện ảnh độc quyền, chỉnh sửa màu video hot trend TikTok triệu view.</p>
+    </div>
+    <div class="bento-card">
+      <div class="bento-icon">🚫</div>
+      <h4>Không Watermark</h4>
+      <p>Xuất hình ảnh và video không dính logo Meitu với độ phân giải siêu nét Ultra HD.</p>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="sec-head">📊 So Sánh Lợi Ích Với Giá Gốc</div>
+  <div class="comp-box">
+    <div class="comp-row head">
+      <span>Tiêu chí</span>
+      <span>Mua trên App</span>
+      <span style="color:#ff6097;text-align:right;">Xuan Quyen</span>
+    </div>
+    <div class="comp-row highlight">
+      <span><strong>Chi phí / 30 ngày</strong></span>
+      <span class="comp-orig">249.000đ</span>
+      <span class="comp-shop" style="text-align:right;">80.000đ</span>
+    </div>
+    <div class="comp-row">
+      <span>Tính năng SVIP</span>
+      <span>100% đầy đủ</span>
+      <span style="color:#fff;font-weight:700;text-align:right;">100% đầy đủ</span>
+    </div>
+    <div class="comp-row">
+      <span>Thanh toán</span>
+      <span>Cần thẻ quốc tế</span>
+      <span style="color:#fff;font-weight:700;text-align:right;">Zalo / MoMo 5s</span>
+    </div>
+    <div class="comp-row">
+      <span>Bảo hành</span>
+      <span>Không hỗ trợ đổi</span>
+      <span style="color:var(--green);font-weight:700;text-align:right;">Full 30 ngày 1-1</span>
+    </div>
+  </div>
+
+  <!-- HOW TO ORDER -->
+  <div class="sec-head">🚀 3 Bước Nâng Cấp Nhanh</div>
+  <div class="steps-wrap">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-txt">
+        <h5>Nhắn tin Zalo</h5>
+        <p>Bấm nút đặt mua hoặc nhắn Zalo 0822.307.662.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-txt">
+        <h5>Nhận Tài Khoản SVIP</h5>
+        <p>Kỹ thuật viên gửi thông tin đăng nhập trong 2 - 5 phút.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-txt">
+        <h5>Thỏa Sức Chỉnh Ảnh</h5>
+        <p>Đăng nhập ứng dụng Meitu và sử dụng toàn bộ tính năng SVIP không giới hạn.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec-head">❓ Câu Hỏi Thường Gặp</div>
+  <div class="faq-wrap">
+    <div class="faq-card active">
+      <div class="faq-head" onclick="toggleFaq(this)">
+        <span>Dùng được trên iPhone và Android không?</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-body">
+        Có! Hỗ trợ 100% mọi dòng máy iPhone, iPad và tất cả các dòng điện thoại Android (Samsung, Xiaomi, Oppo...).
+      </div>
+    </div>
+    <div class="faq-card">
+      <div class="faq-head" onclick="toggleFaq(this)">
+        <span>Có được cập nhật filter mới không?</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-body">
+        Có! Bạn được mở khóa trọn vẹn và cập nhật liên tục mọi bộ lọc, filter SVIP mới nhất hàng tuần của Meitu.
+      </div>
+    </div>
+    <div class="faq-card">
+      <div class="faq-head" onclick="toggleFaq(this)">
+        <span>Chính sách bảo hành 30 ngày thế nào?</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-body">
+        Bảo hành 1 đổi 1 suốt 30 ngày sử dụng. Nếu có bất kỳ sự cố nào, bạn nhắn Zalo là được hỗ trợ hoặc cấp mới ngay trong 5 phút.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="yr"></span> xwuan.github.io · Xuan Quyen · Dịch vụ phần mềm &amp; tài khoản uy tín
+  </footer>
+
+</div>
+
+<!-- FLOAT ZALO -->
+<a href="https://zalo.me/0822307662" target="_blank" class="float-zalo" title="Nhắn Zalo">
+  <img src="images/zalo.png" alt="Zalo" onerror="this.parentElement.innerHTML='💬'">
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('active');
+}
+</script>
+</body>
+</html>

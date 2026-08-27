@@ -91,7 +91,8 @@
         isSale: false,
         saleTag: "",
         warranty: "Không bảo hành",
-        status: "available"
+        status: "available",
+        detailUrl: "google-ai.html"
       },
       meitu: {
         id: "meitu",
@@ -102,7 +103,8 @@
         isSale: false,
         saleTag: "",
         warranty: "Bảo hành full thời gian",
-        status: "available"
+        status: "available",
+        detailUrl: "meitu.html"
       },
       locket_5s: {
         id: "locket_5s",
