@@ -137,7 +137,7 @@
       }
     },
     firebase: {
-      databaseURL: ""
+      databaseURL: "https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app"
     },
     customProducts: []
   };

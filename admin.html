@@ -898,7 +898,7 @@ body {
         <div style="width:100%;margin-top:14px;">
           <div class="form-group">
             <label class="form-label" style="color:#ffaa00;">Firebase Realtime Database URL</label>
-            <input type="text" id="fb-url" class="form-input" placeholder="VD: https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app" oninput="updateFirebaseStatus()">
+            <input type="text" id="fb-url" class="form-input" value="https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app" oninput="updateFirebaseStatus()">
           </div>
         </div>
 
@@ -1827,7 +1827,8 @@ async function commitDirectToGithub() {
 
 // 9.5. FIREBASE CLOUD REALTIME SYNC
 function loadFirebaseSettings() {
-  const savedUrl = localStorage.getItem("xwuan_firebase_url") || (window.SITE_CONFIG && window.SITE_CONFIG.firebase && window.SITE_CONFIG.firebase.databaseURL) || "";
+  const defaultDbUrl = "https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app";
+  const savedUrl = localStorage.getItem("xwuan_firebase_url") || (window.SITE_CONFIG && window.SITE_CONFIG.firebase && window.SITE_CONFIG.firebase.databaseURL) || defaultDbUrl;
   const fbInput = document.getElementById("fb-url");
   if (fbInput) {
     fbInput.value = savedUrl;

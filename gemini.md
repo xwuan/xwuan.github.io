@@ -61,7 +61,7 @@ Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch
   - Cập nhật số Zalo, Hotline, link Facebook/TikTok tại một nơi duy nhất.
 - **Hệ thống Đồng Bộ Đa Tầng (Offline Local, GitHub & Firebase Cloud)**:
   1. **Tầng 1 (LocalStorage / Auto-Save)**: Lưu tức thì trên máy Admin khi gõ, F5 không bao giờ mất.
-  2. **Tầng 2 (Firebase Realtime Cloud)**: Đồng bộ siêu tốc (< 1s) cho toàn bộ khách hàng trên thế giới. Trong `admin.html` có nút **"☁️ Lưu lên Cloud Firebase"** kết nối qua Realtime Database REST API. File `pricing.js` tự động fetch và lắng nghe realtime SSE (`EventSource`) để cập nhật giá trực tiếp trên màn hình khách hàng mà không cần load lại trang.
+  2. **Tầng 2 (Firebase Realtime Cloud)**: Đồng bộ siêu tốc (< 1s) cho toàn bộ khách hàng trên thế giới. Database URL chính thức: `https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app`. Trong `admin.html` có nút **"☁️ Lưu lên Cloud Firebase"** kết nối qua REST API. File `pricing.js` tự động fetch và lắng nghe realtime SSE (`EventSource`) để cập nhật giá trực tiếp trên màn hình khách hàng mà không cần load lại trang.
   3. **Tầng 3 (GitHub Deploy / push.bat)**: Dùng GitHub Token hoặc file `push.bat` với URL cứng `https://xwuan@github.com/xwuan/xwuan.github.io`.
 - **Module Trung Tâm `pricing.js`**:
   - Chứa cấu hình gốc `DEFAULT_CONFIG`, tự động kết nối Firebase Realtime (`initFirebaseCloudSync`) và fallback `localStorage`.
