@@ -136,6 +136,9 @@
         detailUrl: "windows-pricing.html"
       }
     },
+    firebase: {
+      databaseURL: ""
+    },
     customProducts: []
   };
 
@@ -154,6 +157,9 @@
       }
       if (parsed.announcement) {
         activeConfig.announcement = Object.assign({}, DEFAULT_CONFIG.announcement, parsed.announcement);
+      }
+      if (parsed.firebase) {
+        activeConfig.firebase = Object.assign({}, DEFAULT_CONFIG.firebase, parsed.firebase);
       }
     }
   } catch (e) {
@@ -427,12 +433,71 @@
     });
   }
 
+  // ── FIREBASE CLOUD REALTIME SYNC (CẬP NHẬT 1S CHO KHÁCH HÀNG) ──
+  function initFirebaseCloudSync() {
+    const cfg = window.SITE_CONFIG;
+    const dbUrl = (cfg && cfg.firebase && cfg.firebase.databaseURL)
+      || localStorage.getItem("xwuan_firebase_url")
+      || "";
+
+    if (!dbUrl || !dbUrl.startsWith("http")) return;
+    const cleanUrl = dbUrl.replace(/\/$/, "");
+
+    // 1. Fetch nhanh từ Firebase Cloud (< 200ms)
+    fetch(cleanUrl + "/site_config.json")
+      .then(res => res.json())
+      .then(cloudData => {
+        if (cloudData && typeof cloudData === "object" && cloudData.services) {
+          window.SITE_CONFIG = Object.assign({}, window.SITE_CONFIG, cloudData);
+          if (cloudData.services) {
+            window.SITE_CONFIG.services = Object.assign({}, window.SITE_CONFIG.services, cloudData.services);
+          }
+          if (cloudData.contact) {
+            window.SITE_CONFIG.contact = Object.assign({}, window.SITE_CONFIG.contact, cloudData.contact);
+          }
+          if (cloudData.announcement) {
+            window.SITE_CONFIG.announcement = Object.assign({}, window.SITE_CONFIG.announcement, cloudData.announcement);
+          }
+          applySitePricing();
+          try {
+            localStorage.setItem("xwuan_site_config", JSON.stringify(window.SITE_CONFIG));
+          } catch (e) {}
+        }
+      })
+      .catch(err => {
+        // Fallback im lặng nếu không kết nối được Firebase
+      });
+
+    // 2. Lắng nghe Realtime EventSource (SSE): Khách đang xem web thấy giá đổi lập tức!
+    if (window.EventSource) {
+      try {
+        const sse = new EventSource(cleanUrl + "/site_config.json");
+        sse.addEventListener("put", function (e) {
+          try {
+            const payload = JSON.parse(e.data);
+            if (payload && payload.path === "/" && payload.data && payload.data.services) {
+              const cloudData = payload.data;
+              window.SITE_CONFIG = Object.assign({}, window.SITE_CONFIG, cloudData);
+              applySitePricing();
+            }
+          } catch (err) {}
+        });
+      } catch (err) {}
+    }
+  }
+
   // Tự động kích hoạt khi DOM đã sẵn sàng
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", applySitePricing);
-  } else {
+  function initAll() {
     applySitePricing();
+    initFirebaseCloudSync();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAll);
+  } else {
+    initAll();
   }
 
   window.applySitePricing = applySitePricing;
+  window.initFirebaseCloudSync = initFirebaseCloudSync;
 })();

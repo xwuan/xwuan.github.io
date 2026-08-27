@@ -59,10 +59,12 @@ Triết lý: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tối giản, sạch
   - Thêm dịch vụ/tài khoản mới tùy chỉnh (tự động render vào trang chủ `index.html`).
   - Bật/tắt thanh Banner khuyến mãi gradient ở đầu website.
   - Cập nhật số Zalo, Hotline, link Facebook/TikTok tại một nơi duy nhất.
-  - Lưu & Đồng bộ: Lưu xem trước (LocalStorage), tải file `pricing.js`, hoặc đẩy trực tiếp GitHub API (1-click deploy).
-
+- **Hệ thống Đồng Bộ Đa Tầng (Offline Local, GitHub & Firebase Cloud)**:
+  1. **Tầng 1 (LocalStorage / Auto-Save)**: Lưu tức thì trên máy Admin khi gõ, F5 không bao giờ mất.
+  2. **Tầng 2 (Firebase Realtime Cloud)**: Đồng bộ siêu tốc (< 1s) cho toàn bộ khách hàng trên thế giới. Trong `admin.html` có nút **"☁️ Lưu lên Cloud Firebase"** kết nối qua Realtime Database REST API. File `pricing.js` tự động fetch và lắng nghe realtime SSE (`EventSource`) để cập nhật giá trực tiếp trên màn hình khách hàng mà không cần load lại trang.
+  3. **Tầng 3 (GitHub Deploy / push.bat)**: Dùng GitHub Token hoặc file `push.bat` với URL cứng `https://xwuan@github.com/xwuan/xwuan.github.io`.
 - **Module Trung Tâm `pricing.js`**:
-  - Chứa cấu hình gốc `DEFAULT_CONFIG` và tự đọc ghi đè từ `localStorage.getItem("xwuan_site_config")`.
+  - Chứa cấu hình gốc `DEFAULT_CONFIG`, tự động kết nối Firebase Realtime (`initFirebaseCloudSync`) và fallback `localStorage`.
   - Các phần tử HTML trong `index.html` và các trang con sử dụng thuộc tính `data-price-key="..."` để `pricing.js` tự động điền giá, gạch giá cũ và badge SALE.
   - Luôn giữ fallback HTML tĩnh nguyên bản để đảm bảo SEO và hiển thị mượt mà không bị giật lag khi chưa load JS.
 

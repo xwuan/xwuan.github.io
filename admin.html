@@ -878,6 +878,50 @@ body {
           <h2>🚀 Tùy chọn Lưu &amp; Đồng bộ dữ liệu</h2>
           <div class="card-desc">Lựa chọn phương thức cập nhật phù hợp với bạn</div>
         </div>
+      <!-- FIREBASE REALTIME CLOUD SYNC (TOP OPTION) -->
+      <div class="stat-box" style="flex-direction:column;align-items:flex-start;background:linear-gradient(135deg,rgba(255,153,0,0.1),rgba(255,85,0,0.05));border-color:rgba(255,153,0,0.4);margin-bottom:20px;padding:22px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:10px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="stat-icon" style="background:rgba(255,153,0,0.15);border-color:rgba(255,153,0,0.4);font-size:24px;">🔥</div>
+            <div>
+              <strong style="font-size:1.15rem;color:#ffaa00;display:flex;align-items:center;gap:8px;">
+                CẬP NHẬT REALTIME 1S: Firebase Cloud (Khuyên dùng)
+              </strong>
+              <div style="font-size:12px;color:var(--muted);">Lưu giá lên Cloud Google: Toàn bộ khách hàng mở web sẽ thấy giá mới sau 1 giây!</div>
+            </div>
+          </div>
+          <span id="fb-status-badge" style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(255,153,0,0.15);color:#ffaa00;border:1px solid rgba(255,153,0,0.3);">
+            ⚪ Chưa nhập URL Database
+          </span>
+        </div>
+
+        <div style="width:100%;margin-top:14px;">
+          <div class="form-group">
+            <label class="form-label" style="color:#ffaa00;">Firebase Realtime Database URL</label>
+            <input type="text" id="fb-url" class="form-input" placeholder="VD: https://xwuan-store-default-rtdb.asia-southeast1.firebasedatabase.app" oninput="updateFirebaseStatus()">
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+          <button type="button" class="btn-action" onclick="saveToFirebase()" style="background:linear-gradient(135deg,#ff9900,#ff5500);color:#fff;font-weight:800;box-shadow:0 4px 18px rgba(255,100,0,0.35);">
+            ☁️ Lưu lên Cloud Firebase (Khách thấy ngay trong 1s)
+          </button>
+          <button type="button" class="btn-action btn-secondary" onclick="fetchFromFirebase()">
+            📥 Nạp dữ liệu từ Cloud về Admin
+          </button>
+        </div>
+
+        <!-- Mini Guide -->
+        <details style="margin-top:14px;background:rgba(10,14,28,0.7);border:1px solid var(--border);border-radius:10px;padding:12px;width:100%;font-size:12px;color:#b0c4de;">
+          <summary style="font-weight:700;color:var(--c1);cursor:pointer;">📖 Hướng dẫn tạo Firebase Realtime Database miễn phí trong 2 phút (chỉ làm 1 lần)</summary>
+          <ol style="margin-top:10px;padding-left:20px;line-height:1.8;">
+            <li>Truy cập <a href="https://console.firebase.google.com/" target="_blank" style="color:#00d4ff;text-decoration:underline;">Firebase Console</a> và đăng nhập tài khoản Google.</li>
+            <li>Bấm <strong>Create a project</strong> (Tạo dự án) ➔ Đặt tên tùy ý (VD: <code>xwuan-store</code>) ➔ Bấm Tiếp tục.</li>
+            <li>Tại menu bên trái, chọn mục <strong>Build</strong> ➔ <strong>Realtime Database</strong> ➔ Bấm <strong>Create Database</strong>.</li>
+            <li>Chọn vị trí (Singapore hoặc US) ➔ Chọn <strong>Start in test mode</strong> (hoặc đặt Rules: <code>{ "rules": { ".read": true, ".write": true } }</code>).</li>
+            <li>Copy đường link <strong>Database URL</strong> (dạng <code>https://...firebasedatabase.app</code>) và dán vào ô bên trên. Bấm Lưu là xong!</li>
+          </ol>
+        </details>
       </div>
 
       <div class="grid-2" style="margin-bottom:18px;">
@@ -992,11 +1036,14 @@ body {
     <a href="index.html" target="_blank" class="btn-action btn-secondary" style="font-size:12px;padding:8px 14px;">
       👁️ Xem trang chủ
     </a>
-    <button type="button" class="btn-action btn-primary" onclick="saveToLocalPreview()" style="font-size:12px;padding:8px 16px;">
-      💾 Lưu xem trước (Ctrl+S)
+    <button type="button" class="btn-action btn-primary" onclick="saveToLocalPreview()" style="font-size:12px;padding:8px 14px;">
+      💾 Lưu máy (Ctrl+S)
     </button>
-    <button type="button" class="btn-action btn-success" onclick="switchTab('tab-sync', document.querySelectorAll('.tab-btn')[5])" style="font-size:12px;padding:8px 16px;">
-      🚀 Đẩy lên GitHub cho khách
+    <button type="button" class="btn-action" onclick="saveToFirebase()" style="font-size:12px;padding:8px 16px;background:linear-gradient(135deg,#ff9900,#ff5500);color:#fff;font-weight:800;box-shadow:0 4px 15px rgba(255,100,0,0.35);">
+      ☁️ Lưu Cloud (Khách thấy ngay 1s)
+    </button>
+    <button type="button" class="btn-action btn-secondary" onclick="switchTab('tab-sync', document.querySelectorAll('.tab-btn')[5])" style="font-size:12px;padding:8px 14px;">
+      🚀 Đồng bộ GitHub
     </button>
   </div>
 </div>
@@ -1081,6 +1128,7 @@ function initAdminData() {
   updateOverviewStats();
   updateCodePreview();
   loadSavedGithubCredentials();
+  loadFirebaseSettings();
 }
 
 function bindConfigToForm(cfg) {
@@ -1247,6 +1295,12 @@ function collectFormData() {
     zaloLink: document.getElementById("contact-zalolink").value.trim(),
     facebook: document.getElementById("contact-fb").value.trim(),
     tiktok: document.getElementById("contact-tiktok").value.trim()
+  };
+
+  // Firebase
+  const fbInput = document.getElementById("fb-url");
+  cfg.firebase = {
+    databaseURL: fbInput ? fbInput.value.trim() : (localStorage.getItem("xwuan_firebase_url") || "")
   };
 
   cfg.lastUpdated = new Date().toISOString().split("T")[0];
@@ -1768,6 +1822,105 @@ async function commitDirectToGithub() {
     }
   } catch (err) {
     showToast(`❌ Lỗi kết nối mạng: ${err.message}`, "error");
+  }
+}
+
+// 9.5. FIREBASE CLOUD REALTIME SYNC
+function loadFirebaseSettings() {
+  const savedUrl = localStorage.getItem("xwuan_firebase_url") || (window.SITE_CONFIG && window.SITE_CONFIG.firebase && window.SITE_CONFIG.firebase.databaseURL) || "";
+  const fbInput = document.getElementById("fb-url");
+  if (fbInput) {
+    fbInput.value = savedUrl;
+    updateFirebaseStatus();
+  }
+}
+
+function updateFirebaseStatus() {
+  const fbInput = document.getElementById("fb-url");
+  const badge = document.getElementById("fb-status-badge");
+  if (!fbInput || !badge) return;
+  const val = fbInput.value.trim();
+  if (val && val.startsWith("http")) {
+    badge.textContent = "🟢 Sẵn sàng đồng bộ";
+    badge.style.color = "var(--green)";
+    badge.style.background = "rgba(0,230,118,0.15)";
+    badge.style.borderColor = "rgba(0,230,118,0.3)";
+  } else {
+    badge.textContent = "⚪ Chưa nhập URL Database";
+    badge.style.color = "#ffaa00";
+    badge.style.background = "rgba(255,153,0,0.15)";
+    badge.style.borderColor = "rgba(255,153,0,0.3)";
+  }
+}
+
+async function saveToFirebase() {
+  const fbInput = document.getElementById("fb-url");
+  const dbUrl = fbInput ? fbInput.value.trim() : "";
+
+  if (!dbUrl || !dbUrl.startsWith("http")) {
+    showToast("⚠️ Vui lòng nhập URL Firebase Database trước!", "error");
+    switchTab("tab-sync", document.querySelectorAll(".tab-btn")[5]);
+    if (fbInput) fbInput.focus();
+    return;
+  }
+
+  const cleanUrl = dbUrl.replace(/\/$/, "");
+  localStorage.setItem("xwuan_firebase_url", cleanUrl);
+  updateFirebaseStatus();
+
+  showToast("⏳ Đang lưu dữ liệu lên Cloud Firebase...", "success");
+
+  try {
+    const cfg = collectFormData();
+    cfg.firebase = { databaseURL: cleanUrl };
+
+    const res = await fetch(cleanUrl + "/site_config.json", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cfg)
+    });
+
+    if (res.ok) {
+      saveToLocalPreview({ silent: true });
+      showToast("☁️ ĐÃ LƯU LÊN FIREBASE! Toàn bộ khách hàng sẽ thấy giá mới sau 1 giây!", "success");
+    } else {
+      const errText = await res.text();
+      showToast("❌ Lỗi Firebase: " + (errText || "Không thể ghi dữ liệu (Kiểm tra lại Rules)"), "error");
+    }
+  } catch (err) {
+    showToast("❌ Không thể kết nối Firebase: " + err.message, "error");
+  }
+}
+
+async function fetchFromFirebase() {
+  const fbInput = document.getElementById("fb-url");
+  const dbUrl = (fbInput ? fbInput.value.trim() : "") || localStorage.getItem("xwuan_firebase_url");
+
+  if (!dbUrl || !dbUrl.startsWith("http")) {
+    showToast("⚠️ Vui lòng nhập URL Firebase Database trước!", "error");
+    return;
+  }
+
+  const cleanUrl = dbUrl.replace(/\/$/, "");
+  showToast("⏳ Đang nạp dữ liệu từ Cloud...", "success");
+
+  try {
+    const res = await fetch(cleanUrl + "/site_config.json");
+    if (res.ok) {
+      const cloudData = await res.json();
+      if (cloudData && typeof cloudData === "object" && cloudData.services) {
+        currentConfig = Object.assign({}, window.DEFAULT_SITE_CONFIG, cloudData);
+        bindConfigToForm(currentConfig);
+        saveToLocalPreview({ silent: true });
+        showToast("📥 Đã nạp thành công dữ liệu từ Cloud Firebase về Admin!", "success");
+      } else {
+        showToast("⚠️ Chưa có dữ liệu bảng giá trên Cloud Firebase.", "error");
+      }
+    } else {
+      showToast("❌ Không thể tải từ Firebase (Kiểm tra lại URL / Rules).", "error");
+    }
+  } catch (err) {
+    showToast("❌ Lỗi kết nối Firebase: " + err.message, "error");
   }
 }
 
