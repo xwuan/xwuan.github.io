@@ -256,3 +256,5 @@ Báº£ng so sÃ¡nh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 - **[DESIGN] Mobile App Swipeable Carousels:** Xóa bỏ danh sách xếp chồng dọc nhàm chán trên Mobile. Chuyển toàn bộ danh sách dịch vụ (index.html, windows-pricing.html) sang dạng vuốt ngang (Scroll Snap) hệt như App Store, mang lại cảm giác dùng native app cực kỳ mượt mà.
 
 - **[CONTENT] Sửa đoạn mô tả:** Ngắt dòng (thêm <br>) giữa 'Dịch vụ kỹ thuật & phần mềm' và 'Nhanh · Sạch · Uy tín' ở phần Header trang chủ để tối ưu hiển thị, tránh câu quá dài.
+
+- **[CONTENT] Tối ưu URL:** Loại bỏ đuôi .html khỏi toàn bộ các liên kết nội bộ trên website. Đổi liên kết trỏ về trang chủ từ index.html thành ./ (mặc định) để khi người dùng lướt web, thanh địa chỉ trông sạch sẽ và chuyên nghiệp hơn (ví dụ: xwuan.github.io/capcut thay vì xwuan.github.io/capcut.html).

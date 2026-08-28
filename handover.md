@@ -172,3 +172,5 @@ GiÃ¡ gá»‘c bá»‹ gáº¡ch hiá»ƒn thá»‹ cÃ¹ng badge SALE mÃ 
 - **[FIXED] Lỗi nhảy tưng tưng (Infinite Bounce Loop):** Sửa lại logic IntersectionObserver, chỉ gỡ class in khi thẻ đi qua cạnh dưới màn hình, giữ nguyên nếu đi qua cạnh trên, triệt tiêu hoàn toàn vòng lặp nhảy lên nhảy xuống.
 - **[FIXED] Lỗi nhấp nháy WebKit (Backdrop-filter):** Gỡ bỏ ilter: blur(5px) khỏi class .fi để tránh xung đột render với ackdrop-filter bên trong các thẻ con (như Locket Gold), giúp thẻ không bị mất tích rồi hiện đột ngột.
 - **[FIXED] Lỗi font tiếng Việt (Mojibake):** Khắc phục lỗi PowerShell tự động đổi mã hóa UTF-8 sang ANSI bằng cách dùng Node.js để xử lý chuỗi và ghi đè file an toàn.
+
+- **[FIXED] Lỗi hiển thị card Cần tư vấn:** Đặt lại margin và padding cho .cta-banner trên trang windows-pricing.html. Trước đây nó dùng margin âm (-16px) để tràn viền, nhưng khi áp dụng style thẻ bo tròn của Apple thì nó bị phình to bất thường. Đã gỡ margin âm để ép nó gọn gàng vào trong container.
