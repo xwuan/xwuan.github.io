@@ -247,6 +247,11 @@ body { background: #09090b !important;
     box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
 }
 .av-badge { border-color: #000 !important; }
+
+/* FADE-IN ANIMATION */
+.fi { opacity: 0 !important; transform: translateY(20px) !important; transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+.fi.in { opacity: 1 !important; transform: none !important; }
+.card, .ptier, .pcard, .combo { animation: none !important; }
 </style>
 
 </head>
@@ -271,7 +276,7 @@ body { background: #09090b !important;
 
   <!-- PRICE -->
   <div class="pricing">
-    <div class="ptier">
+    <div class="ptier fi">
       <div class="ptier-name">🎥 Quay 5s</div>
       <div class="p-opts">
         <div class="p-opt"><span>6 tháng</span><span class="prc" data-price-key="locket_5s_6m">50k</span></div>
@@ -279,7 +284,7 @@ body { background: #09090b !important;
         <div class="p-opt best"><span>Vĩnh viễn ♾️</span><span class="prc" data-price-key="locket_5s_life">150k</span></div>
       </div>
     </div>
-    <div class="ptier">
+    <div class="ptier fi">
       <div class="ptier-name">🎬 Quay 15s</div>
       <div class="p-opts">
         <div class="p-opt"><span>6 tháng</span><span class="prc" data-price-key="locket_15s_6m">60k</span></div>
@@ -290,7 +295,7 @@ body { background: #09090b !important;
   </div>
 
   <!-- COMMITMENT -->
-  <div class="card">
+  <div class="card fi">
     <div class="card-head">
       <div class="card-ico">🛡️</div>
       <div class="card-ttl">Cam kết từ Xwuan</div>
@@ -306,7 +311,7 @@ body { background: #09090b !important;
   </div>
 
   <!-- HOW IT WORKS -->
-  <div class="card">
+  <div class="card fi">
     <div class="card-head">
       <div class="card-ico mint">⚡</div>
       <div class="card-ttl">Cách thức hoạt động</div>
@@ -342,6 +347,19 @@ body { background: #09090b !important;
 </a>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<script>
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add("in");
+    } else {
+      e.target.classList.remove("in");
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
+</script>
 </body>
 </html>
 

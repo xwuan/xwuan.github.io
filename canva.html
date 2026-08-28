@@ -470,6 +470,11 @@ h1 {
     border: 2px solid rgba(255,255,255,0.2) !important;
     box-shadow: none !important;
 }
+
+/* FADE-IN ANIMATION */
+.fi { opacity: 0 !important; transform: translateY(20px) !important; transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+.fi.in { opacity: 1 !important; transform: none !important; }
+.card, .ptier, .pcard, .combo { animation: none !important; }
 </style>
 
 
@@ -504,14 +509,14 @@ h1 {
             <p class="subtitle">✦ 100+ Triệu Mẫu · Xóa Phông 1 Chạm · AI Magic Studio ✦</p>
         </div>
 
-        <div class="card d-1">
+        <div class="card d-1 fi">
             <div class="price-box">
                 <div class="price" data-price-key="canva">130k<span> / 1 năm</span></div>
                 <div class="warranty">🛡️ Bảo hành full thời gian</div>
             </div>
         </div>
 
-        <div class="card d-2">
+        <div class="card d-2 fi">
             <div class="card-title">🔍 SO SÁNH: Miễn phí vs Canva Pro</div>
             <table class="vs-table">
                 <thead>
@@ -556,7 +561,7 @@ h1 {
             </table>
         </div>
 
-        <div class="card d-3">
+        <div class="card d-3 fi">
             <div class="card-title">💰 SO SÁNH GIÁ</div>
             <div class="pc-row">
                 <span class="text-muted">Giá mua chính hãng Canva Pro:</span>
@@ -571,7 +576,7 @@ h1 {
             </div>
         </div>
 
-        <div class="card d-4">
+        <div class="card d-4 fi">
             <div class="card-title">🌟 Lợi ích Canva Pro</div>
             <ul class="list">
                 <li>Nâng cấp trực tiếp trên chính Email cá nhân của bạn, giữ 100% thiết kế cũ</li>
@@ -582,7 +587,7 @@ h1 {
             </ul>
         </div>
 
-        <div class="card d-5">
+        <div class="card d-5 fi">
             <div class="card-title">💎 Cam kết từ Xwuan</div>
             <ul class="list">
                 <li>🛡️ Bảo hành full thời gian sử dụng suốt 12 tháng (1 năm)</li>
@@ -592,7 +597,7 @@ h1 {
             </ul>
         </div>
 
-        <div class="card d-5">
+        <div class="card d-5 fi">
             <div class="card-title">🚀 Cách thức hoạt động</div>
             <div class="step">
                 <div class="step-num">1</div>
@@ -608,7 +613,7 @@ h1 {
             </div>
         </div>
 
-        <div class="btn-group d-5">
+        <div class="btn-group d-5 fi">
             <a href="https://zalo.me/0822307662" target="_blank" rel="noopener noreferrer" class="btn btn-zalo">
                 <img src="images/zalo.png" alt="Zalo">
                 <span>Nhắn tin Zalo nâng cấp ngay</span>
@@ -628,6 +633,19 @@ h1 {
     <script>
         document.getElementById('yr').textContent = new Date().getFullYear();
     </script>
+
+<script>
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add("in");
+    } else {
+      e.target.classList.remove("in");
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
+</script>
 </body>
 </html>
 

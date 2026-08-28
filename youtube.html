@@ -522,6 +522,11 @@ h1 {
     border: 2px solid rgba(255,255,255,0.2) !important;
     box-shadow: none !important;
 }
+
+/* FADE-IN ANIMATION */
+.fi { opacity: 0 !important; transform: translateY(20px) !important; transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+.fi.in { opacity: 1 !important; transform: none !important; }
+.card, .ptier, .pcard, .combo { animation: none !important; }
 </style>
 
 
@@ -556,14 +561,14 @@ h1 {
             <p class="subtitle">✦ Xem không giới hạn · Không quảng cáo · Nghe nhạc nền ✦</p>
         </div>
 
-        <div class="card d-1">
+        <div class="card d-1 fi">
             <div class="price-box">
                 <div class="price" data-price-key="youtube">40k<span> / 30 ngày</span></div>
                 <div class="warranty">🛡️ Bảo hành full thời gian</div>
             </div>
         </div>
 
-        <div class="card d-2">
+        <div class="card d-2 fi">
             <div class="card-title">SO SÁNH: Premium vs Free</div>
             <table class="vs-table">
                 <tr>
@@ -599,7 +604,7 @@ h1 {
             </table>
         </div>
 
-        <div class="card d-3">
+        <div class="card d-3 fi">
             <div class="card-title">SO SÁNH GIÁ</div>
             <div class="price-compare">
                 <div class="pc-row">
@@ -617,7 +622,7 @@ h1 {
             </div>
         </div>
 
-        <div class="card d-4">
+        <div class="card d-4 fi">
             <div class="card-title">Cam kết từ Xwuan</div>
             <ul class="list">
                 <li>🛡️ Bảo hành full thời gian sử dụng</li>
@@ -628,7 +633,7 @@ h1 {
             </ul>
         </div>
 
-        <div class="card d-4">
+        <div class="card d-4 fi">
             <div class="card-title">Cách thức hoạt động</div>
             <div class="steps">
                 <div class="step">
@@ -643,7 +648,7 @@ h1 {
             </div>
         </div>
 
-        <div class="btn-group d-4">
+        <div class="btn-group d-4 fi">
             <a href="https://zalo.me/0822307662" target="_blank" class="btn btn-zalo">
                 <img src="images/zalo.png" alt="Zalo">
                 <span>Liên hệ Zalo: 0822.307.662</span>
@@ -675,5 +680,18 @@ h1 {
             observer.observe(el);
         });
     </script>
+
+<script>
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add("in");
+    } else {
+      e.target.classList.remove("in");
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
+</script>
 </body>
 </html>

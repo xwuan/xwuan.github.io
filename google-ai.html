@@ -472,6 +472,11 @@ h1 {
     border: 2px solid rgba(255,255,255,0.2) !important;
     box-shadow: none !important;
 }
+
+/* FADE-IN ANIMATION */
+.fi { opacity: 0 !important; transform: translateY(20px) !important; transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+.fi.in { opacity: 1 !important; transform: none !important; }
+.card, .ptier, .pcard, .combo { animation: none !important; }
 </style>
 
 
@@ -506,14 +511,14 @@ h1 {
             <p class="subtitle">✦ Gemini 3.1 Pro Siêu Thông Minh · 1 Triệu Token · Google One 2TB ✦</p>
         </div>
 
-        <div class="card d-1">
+        <div class="card d-1 fi">
             <div class="price-box">
                 <div class="price" data-price-key="google_ai">60k<span> / 1 năm</span></div>
                 <div class="warranty">⚠️ Gói siêu tiết kiệm · Không bảo hành</div>
             </div>
         </div>
 
-        <div class="card d-2">
+        <div class="card d-2 fi">
             <div class="card-title">🔍 SO SÁNH: Miễn phí vs AI Pro</div>
             <table class="vs-table">
                 <thead>
@@ -558,7 +563,7 @@ h1 {
             </table>
         </div>
 
-        <div class="card d-3">
+        <div class="card d-3 fi">
             <div class="card-title">💰 SO SÁNH GIÁ</div>
             <div class="pc-row">
                 <span class="text-muted">Giá chính hãng Google One AI:</span>
@@ -573,7 +578,7 @@ h1 {
             </div>
         </div>
 
-        <div class="card d-4">
+        <div class="card d-4 fi">
             <div class="card-title">🌟 Lợi ích Google AI Pro (Gemini 3.1 Pro)</div>
             <ul class="list">
                 <li>Sử dụng mô hình Gemini 3.1 Pro mới nhất với tư duy lập trình và phân tích vượt trội</li>
@@ -585,7 +590,7 @@ h1 {
             </ul>
         </div>
 
-        <div class="card d-5">
+        <div class="card d-5 fi">
             <div class="card-title">💎 Cam kết từ Xwuan</div>
             <ul class="list">
                 <li>⚡ Kích hoạt và bàn giao tài khoản trong 2–5 phút</li>
@@ -595,7 +600,7 @@ h1 {
             </ul>
         </div>
 
-        <div class="card d-5">
+        <div class="card d-5 fi">
             <div class="card-title">🚀 Cách thức hoạt động</div>
             <div class="step">
                 <div class="step-num">1</div>
@@ -611,7 +616,7 @@ h1 {
             </div>
         </div>
 
-        <div class="btn-group d-5">
+        <div class="btn-group d-5 fi">
             <a href="https://zalo.me/0822307662" target="_blank" rel="noopener noreferrer" class="btn btn-zalo">
                 <img src="images/zalo.png" alt="Zalo">
                 <span>Nhắn tin Zalo mua ngay</span>
@@ -631,6 +636,19 @@ h1 {
     <script>
         document.getElementById('yr').textContent = new Date().getFullYear();
     </script>
+
+<script>
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add("in");
+    } else {
+      e.target.classList.remove("in");
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
+</script>
 </body>
 </html>
 

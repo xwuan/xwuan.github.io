@@ -284,6 +284,11 @@ body {
 .pc-badge, .fire-badge {
     border-radius: 99px !important;
 }
+
+/* FADE-IN ANIMATION */
+.fi { opacity: 0 !important; transform: translateY(20px) !important; transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+.fi.in { opacity: 1 !important; transform: none !important; }
+.card, .ptier, .pcard, .combo { animation: none !important; }
 </style>
 </head>
 <body>
@@ -292,7 +297,7 @@ body {
   <a href="index.html" class="back">← Quay về trang chủ</a>
 
   <!-- HERO -->
-  <div class="hero fi">
+  <div class="hero">
     <div class="hero-inner">
       <img src="images/logowd2.png" class="hero-logo" alt="Install Windows">
       <h1>Báo giá <span>Windows &amp; Office</span></h1>
@@ -301,7 +306,7 @@ body {
   </div>
 
   <!-- TRUST BAR -->
-  <div class="trust fi" style="transition-delay:.06s">
+  <div class="trust" style="transition-delay:.06s">
     <div class="ti">⚡ Xong trong <strong>30–60 phút</strong></div>
     <div class="ti">🛡️ Bảo hành <strong>6 tháng</strong></div>
     <div class="ti">✅ Bản gốc <strong>Microsoft</strong></div>
@@ -309,12 +314,12 @@ body {
   </div>
 
   <!-- SERVICE CARDS -->
-  <div class="sec-label fi" style="transition-delay:.1s">💰 Đơn lẻ</div>
-  <div class="sec-title fi" style="transition-delay:.1s">Chọn gói phù hợp</div>
+  <div class="sec-label" style="transition-delay:.1s">💰 Đơn lẻ</div>
+  <div class="sec-title" style="transition-delay:.1s">Chọn gói phù hợp</div>
 
-  <div class="cards fi" style="transition-delay:.12s">
+  <div class="cards" style="transition-delay:.12s">
 
-    <div class="pcard featured">
+    <div class="pcard featured fi">
       <div class="pc-badge bc-blue">Phổ biến nhất</div>
       <div class="pc-icon-wrap">
         <img src="images/windows.png" class="pc-icon" alt="Windows">
@@ -332,7 +337,7 @@ body {
       <a href="tel:0822307662" class="btn-order">📞 Đặt lịch ngay</a>
     </div>
 
-    <div class="pcard">
+    <div class="pcard fi">
       <div class="pc-badge bc-green">Máy yếu / Cũ</div>
       <div class="pc-icon-wrap">
         <img src="images/winghost.png" class="pc-icon" alt="Windows Tối Ưu">
@@ -350,7 +355,7 @@ body {
       <a href="tel:0822307662" class="btn-order ghost-btn">📞 Hỏi thêm</a>
     </div>
 
-    <div class="pcard">
+    <div class="pcard fi">
       <div class="pc-badge bc-gold">Office 365 / 2021</div>
       <div class="pc-icon-wrap">
         <img src="images/office.png" class="pc-icon" alt="Office">
@@ -369,11 +374,11 @@ body {
   </div>
 
   <!-- COMBO -->
-  <div class="sec-label fi" style="transition-delay:.16s">🔥 Tiết kiệm hơn</div>
-  <div class="sec-title fi" style="transition-delay:.16s">Combo gộp — Giá rẻ hơn</div>
+  <div class="sec-label" style="transition-delay:.16s">🔥 Tiết kiệm hơn</div>
+  <div class="sec-title" style="transition-delay:.16s">Combo gộp — Giá rẻ hơn</div>
 
-  <div class="combos fi" style="transition-delay:.18s">
-    <div class="combo">
+  <div class="combos" style="transition-delay:.18s">
+    <div class="combo fi">
       <div class="fire-badge">🔥 Hot deal</div>
       <div class="combo-title">Win Chuẩn + Office</div>
       <div class="combo-items">
@@ -388,7 +393,7 @@ body {
       <a href="tel:0822307662" class="btn-order">📞 Chọn gói này</a>
     </div>
 
-    <div class="combo">
+    <div class="combo fi">
       <div class="fire-badge">⚡ Nhẹ nhất</div>
       <div class="combo-title">Win Tối Ưu + Office</div>
       <div class="combo-items">
@@ -405,7 +410,7 @@ body {
   </div>
 
   <!-- REPAIR -->
-  <div class="repair fi" style="transition-delay:.22s;margin-top:14px;">
+  <div class="repair" style="transition-delay:.22s;margin-top:14px;">
     <div class="repair-icon">🔧</div>
     <div class="repair-info">
       <h3>Khắc phục lỗi Windows</h3>
@@ -421,7 +426,7 @@ body {
   </div>
 
   <!-- CTA -->
-  <div class="cta-banner fi" style="transition-delay:.26s">
+  <div class="cta-banner" style="transition-delay:.26s">
     <h2>Cần tư vấn? Liên hệ ngay!</h2>
     <p>Phản hồi nhanh · Hỗ trợ online &amp; tại nhà</p>
     <div class="cta-btns">
@@ -448,6 +453,19 @@ const obs = new IntersectionObserver(es => {
   es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }});
 },{threshold:.08});
 document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+</script>
+
+<script>
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add("in");
+    } else {
+      e.target.classList.remove("in");
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
 </script>
 </body>
 </html>

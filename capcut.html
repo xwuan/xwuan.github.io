@@ -475,6 +475,11 @@ h1 {
     border: 2px solid rgba(255,255,255,0.2) !important;
     box-shadow: none !important;
 }
+
+/* FADE-IN ANIMATION */
+.fi { opacity: 0 !important; transform: translateY(20px) !important; transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+.fi.in { opacity: 1 !important; transform: none !important; }
+.card, .ptier, .pcard, .combo { animation: none !important; }
 </style>
 
 
@@ -530,7 +535,7 @@ h1 {
             </div>
         </div>
 
-        <div class="card obs-el" style="animation-delay: 0.2s">
+        <div class="card obs-el fi" style="animation-delay: 0.2s">
             <h2 class="comparison-title">SO SÁNH: Free vs Pro</h2>
             <table class="table">
                 <thead>
@@ -580,7 +585,7 @@ h1 {
             </table>
         </div>
 
-        <div class="card obs-el" style="animation-delay: 0.3s">
+        <div class="card obs-el fi" style="animation-delay: 0.3s">
             <h3 style="margin-bottom: 12px; font-size: 18px;">SO SÁNH GIÁ</h3>
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <div style="display: flex; justify-content: space-between;">
@@ -605,7 +610,7 @@ h1 {
             </div>
         </div>
 
-        <div class="card obs-el" style="animation-delay: 0.4s">
+        <div class="card obs-el fi" style="animation-delay: 0.4s">
             <h3 style="margin-bottom: 12px; font-size: 18px;">Ai nên dùng CapCut Pro?</h3>
             <ul class="feature-list">
                 <li><span class="list-icon">🎬</span> Bạn làm video TikTok, Reels, YouTube Shorts</li>
@@ -616,7 +621,7 @@ h1 {
             </ul>
         </div>
 
-        <div class="card obs-el" style="animation-delay: 0.5s">
+        <div class="card obs-el fi" style="animation-delay: 0.5s">
             <h3 style="margin-bottom: 12px; font-size: 18px;">Cam kết từ Xwuan</h3>
             <ul class="feature-list">
                 <li><span class="list-icon">🛡️</span> Bảo hành full thời gian sử dụng</li>
@@ -627,7 +632,7 @@ h1 {
             </ul>
         </div>
 
-        <div class="card obs-el" style="animation-delay: 0.6s">
+        <div class="card obs-el fi" style="animation-delay: 0.6s">
             <h3 style="margin-bottom: 16px; font-size: 18px;">Cách thức hoạt động</h3>
             <div class="step">
                 <div class="step-num">1</div>
@@ -668,6 +673,19 @@ h1 {
 
         document.querySelectorAll('.obs-el').forEach(el => observer.observe(el));
     </script>
+
+<script>
+const fadeObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add("in");
+    } else {
+      e.target.classList.remove("in");
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
+</script>
 </body>
 </html>
 
