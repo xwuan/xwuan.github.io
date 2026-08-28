@@ -408,7 +408,82 @@
             .title { font-size: 1.5rem; }
             .badge-best { font-size: 10px; padding: 2px 6px; }
         }
-    </style>
+    /* APPLE OVERRIDE */
+body {
+    background: #000 !important;
+    background-image: none !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif !important;
+}
+body::before, body::after {
+    content: ''; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.25; z-index: -1; pointer-events: none;
+}
+body::before {
+    top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--accent);
+}
+body::after {
+    bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--accent2);
+}
+.card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(40px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+.price-box {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+}
+.btn {
+    border-radius: 99px !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+.btn:active {
+    transform: scale(0.96) !important;
+}
+.btn-zalo {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif !important;
+    background: none !important;
+    -webkit-text-fill-color: #fff !important;
+    color: #fff !important;
+    text-shadow: none !important;
+}
+.emoji-float { display: none !important; }
+.zalo-float {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 99px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    animation: none !important;
+}
+.zalo-float:hover { transform: scale(1.05) !important; }
+.zalo-float:active { transform: scale(0.95) !important; }
+.avatar {
+    border-radius: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+    padding: 0 !important;
+}
+.badge {
+    border: 2px solid #000 !important;
+}
+</style>
+
 </head>
 <body>
     <a href="https://zalo.me/0822307662" target="_blank" class="zalo-float" title="Nhắn Zalo">
