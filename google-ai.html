@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta name="theme-color" content="#050505">
@@ -251,7 +251,7 @@
             font-size: 0.95rem;
         }
         .list li::before {
-            content: "âœ“";
+            content: "✓";
             position: absolute;
             left: 0;
             color: #60a5fa;
@@ -481,33 +481,12 @@ h1 {
 .card, .ptier, .pcard, .combo { animation: none !important; }
 
 /* PREMIUM APPLE GLASSMORPHISM UPGRADES */
-.svc-card, .card, .pcard, .ptier, .combo {
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
-}
-.svc-card:hover, .card:hover, .pcard:hover, .ptier:hover, .combo:hover {
-    transform: translateY(-8px) scale(1.015) !important;
-    box-shadow: 0 24px 48px rgba(0,0,0,0.5), 0 0 30px rgba(255,255,255,0.08) inset !important;
-    border-color: rgba(255,255,255,0.3) !important;
-    z-index: 10;
-}
+.svc-card, .card, .pcard, .ptier, .combo { transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease !important; }
+.svc-card:hover, .card:hover, .pcard:hover, .ptier:hover, .combo:hover { transform: translateY(-8px) scale(1.015) !important; box-shadow: 0 24px 48px rgba(0,0,0,0.5), 0 0 30px rgba(255,255,255,0.08) inset !important; border-color: rgba(255,255,255,0.3) !important; z-index: 10; }
+.btn, .btn-zalo, .p-btn, .cta-btn { transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; position: relative; overflow: hidden; }
+.btn:hover, .btn-zalo:hover, .p-btn:hover, .cta-btn:hover { transform: scale(1.05) translateY(-2px) !important; box-shadow: 0 10px 25px rgba(255,255,255,0.2), 0 0 15px rgba(255,255,255,0.1) inset !important; filter: brightness(1.1); }
+h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(255,255,255,0.15); letter-spacing: -0.01em; }
 
-/* Glowing Buttons */
-.btn, .btn-zalo, .p-btn, .cta-btn {
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
-    position: relative;
-    overflow: hidden;
-}
-.btn:hover, .btn-zalo:hover, .p-btn:hover, .cta-btn:hover {
-    transform: scale(1.05) translateY(-2px) !important;
-    box-shadow: 0 10px 25px rgba(255,255,255,0.2), 0 0 15px rgba(255,255,255,0.1) inset !important;
-    filter: brightness(1.1);
-}
-
-/* Refined Typography for Titles */
-h1, h2, .section-title, .brand-name, .card-ttl {
-    text-shadow: 0 4px 20px rgba(255,255,255,0.15);
-    letter-spacing: -0.01em;
-}
 </style>
 
 
@@ -525,13 +504,13 @@ h1, h2, .section-title, .brand-name, .card-ttl {
 </head>
 <body>
 
-    <div class="emoji-float e-1">ðŸ¤–</div>
-    <div class="emoji-float e-2">ðŸ§ </div>
-    <div class="emoji-float e-3">âš¡</div>
-    <div class="emoji-float e-4">âœ¨</div>
+    <div class="emoji-float e-1">🤖</div>
+    <div class="emoji-float e-2">🧠</div>
+    <div class="emoji-float e-3">⚡</div>
+    <div class="emoji-float e-4">✨</div>
 
     <div class="container">
-        <a href="index.html" class="back-link">â† Quay vá» trang chá»§</a>
+        <a href="index.html" class="back-link">← Quay về trang chủ</a>
 
         <div class="hero">
             <div class="avatar-wrapper">
@@ -539,128 +518,128 @@ h1, h2, .section-title, .brand-name, .card-ttl {
                 <img src="images/google-ai.png" alt="Google AI Pro" class="badge">
             </div>
             <h1>Google AI Pro</h1>
-            <p class="subtitle">âœ¦ Gemini 3.1 Pro SiÃªu ThÃ´ng Minh Â· 1 Triá»‡u Token Â· Google One 2TB âœ¦</p>
+            <p class="subtitle">✦ Gemini 3.1 Pro Siêu Thông Minh · 1 Triệu Token · Google One 2TB ✦</p>
         </div>
 
         <div class="card d-1 fi">
             <div class="price-box">
-                <div class="price" data-price-key="google_ai">60k<span> / 1 nÄƒm</span></div>
-                <div class="warranty">âš ï¸ GÃ³i siÃªu tiáº¿t kiá»‡m Â· KhÃ´ng báº£o hÃ nh</div>
+                <div class="price" data-price-key="google_ai">60k<span> / 1 năm</span></div>
+                <div class="warranty">⚠️ Gói siêu tiết kiệm · Không bảo hành</div>
             </div>
         </div>
 
         <div class="card d-2 fi">
-            <div class="card-title">ðŸ” SO SÃNH: Miá»…n phÃ­ vs AI Pro</div>
+            <div class="card-title">🔍 SO SÁNH: Miễn phí vs AI Pro</div>
             <table class="vs-table">
                 <thead>
                     <tr>
-                        <th>TÃ­nh nÄƒng</th>
-                        <th>Báº£n ThÆ°á»ng ðŸ˜</th>
-                        <th>Google AI Pro âœ¨</th>
+                        <th>Tính năng</th>
+                        <th>Bản Thường 😐</th>
+                        <th>Google AI Pro ✨</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>MÃ´ hÃ¬nh cá»‘t lÃµi</td>
+                        <td>Mô hình cốt lõi</td>
                         <td>Gemini Flash</td>
-                        <td><span class="check">âœ…</span> Gemini 3.1 Pro</td>
+                        <td><span class="check">✅</span> Gemini 3.1 Pro</td>
                     </tr>
                     <tr>
-                        <td>Ngá»¯ cáº£nh Token</td>
+                        <td>Ngữ cảnh Token</td>
                         <td>32.000 tokens</td>
-                        <td><span class="check">âœ…</span> 1.000.000 tokens</td>
+                        <td><span class="check">✅</span> 1.000.000 tokens</td>
                     </tr>
                     <tr>
-                        <td>PhÃ¢n tÃ­ch Video &amp; PDF</td>
-                        <td class="cross">Bá»‹ giá»›i háº¡n ðŸ”’</td>
-                        <td><span class="check">âœ…</span> Táº£i file 1.500 trang</td>
+                        <td>Phân tích Video &amp; PDF</td>
+                        <td class="cross">Bị giới hạn 🔒</td>
+                        <td><span class="check">✅</span> Tải file 1.500 trang</td>
                     </tr>
                     <tr>
                         <td>Google Workspace</td>
-                        <td class="cross">KhÃ´ng cÃ³ ðŸ”’</td>
-                        <td><span class="check">âœ…</span> TÃ­ch há»£p Docs, Gmail</td>
+                        <td class="cross">Không có 🔒</td>
+                        <td><span class="check">✅</span> Tích hợp Docs, Gmail</td>
                     </tr>
                     <tr>
-                        <td>Váº½ áº£nh AI Imagen 3</td>
-                        <td>Cháº¥t lÆ°á»£ng cÆ¡ báº£n</td>
-                        <td><span class="check">âœ…</span> Ultra HD khÃ´ng giá»›i háº¡n</td>
+                        <td>Vẽ ảnh AI Imagen 3</td>
+                        <td>Chất lượng cơ bản</td>
+                        <td><span class="check">✅</span> Ultra HD không giới hạn</td>
                     </tr>
                     <tr>
-                        <td>Láº­p trÃ¬nh &amp; Debug</td>
-                        <td>Má»©c Ä‘á»™ vá»«a</td>
-                        <td><span class="check">âœ…</span> ChuyÃªn sÃ¢u Ä‘a ngÃ´n ngá»¯</td>
+                        <td>Lập trình &amp; Debug</td>
+                        <td>Mức độ vừa</td>
+                        <td><span class="check">✅</span> Chuyên sâu đa ngôn ngữ</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="card d-3 fi">
-            <div class="card-title">ðŸ’° SO SÃNH GIÃ</div>
+            <div class="card-title">💰 SO SÁNH GIÁ</div>
             <div class="pc-row">
-                <span class="text-muted">GiÃ¡ chÃ­nh hÃ£ng Google One AI:</span>
-                <span class="pc-old">~5.800.000Ä‘ / nÄƒm</span>
+                <span class="text-muted">Giá chính hãng Google One AI:</span>
+                <span class="pc-old">~5.800.000đ / năm</span>
             </div>
             <div class="pc-row">
-                <span class="text-muted">GiÃ¡ táº¡i Xwuan:</span>
-                <span class="pc-new">60.000Ä‘ / 1 nÄƒm</span>
+                <span class="text-muted">Giá tại Xwuan:</span>
+                <span class="pc-new">60.000đ / 1 năm</span>
             </div>
             <div class="saving-box">
-                ðŸ”¥ Tiáº¿t kiá»‡m ~99% (Ráº» hÆ¡n 5,7 triá»‡u Ä‘á»“ng)
+                🔥 Tiết kiệm ~99% (Rẻ hơn 5,7 triệu đồng)
             </div>
         </div>
 
         <div class="card d-4 fi">
-            <div class="card-title">ðŸŒŸ Lá»£i Ã­ch Google AI Pro (Gemini 3.1 Pro)</div>
+            <div class="card-title">🌟 Lợi ích Google AI Pro (Gemini 3.1 Pro)</div>
             <ul class="list">
-                <li>Sá»­ dá»¥ng mÃ´ hÃ¬nh Gemini 3.1 Pro má»›i nháº¥t vá»›i tÆ° duy láº­p trÃ¬nh vÃ  phÃ¢n tÃ­ch vÆ°á»£t trá»™i</li>
-                <li>Xá»­ lÃ½ tÃ i liá»‡u khá»•ng lá»“, Ä‘á»c toÃ n bá»™ sÃ¡ch giÃ¡o trÃ¬nh chá»‰ vÃ i giÃ¢y</li>
-                <li>Há»— trá»£ viáº¿t luáº­n, bÃ¡o cÃ¡o khoa há»c, láº­p káº¿ hoáº¡ch kinh doanh</li>
-                <li>Viáº¿t vÃ  sá»­a lá»—i code Python, JavaScript, C++, SQL chÃ­nh xÃ¡c cao</li>
-                <li>Táº¡o áº£nh minh há»a nghá»‡ thuáº­t báº±ng cÃ´ng nghá»‡ Imagen 3 tháº¿ há»‡ má»›i</li>
-                <li>Há»i Ä‘Ã¡p tÆ° duy logic thÃ´ng minh báº­c nháº¥t hiá»‡n nay</li>
+                <li>Sử dụng mô hình Gemini 3.1 Pro mới nhất với tư duy lập trình và phân tích vượt trội</li>
+                <li>Xử lý tài liệu khổng lồ, đọc toàn bộ sách giáo trình chỉ vài giây</li>
+                <li>Hỗ trợ viết luận, báo cáo khoa học, lập kế hoạch kinh doanh</li>
+                <li>Viết và sửa lỗi code Python, JavaScript, C++, SQL chính xác cao</li>
+                <li>Tạo ảnh minh họa nghệ thuật bằng công nghệ Imagen 3 thế hệ mới</li>
+                <li>Hỏi đáp tư duy logic thông minh bậc nhất hiện nay</li>
             </ul>
         </div>
 
         <div class="card d-5 fi">
-            <div class="card-title">ðŸ’Ž Cam káº¿t tá»« Xwuan</div>
+            <div class="card-title">💎 Cam kết từ Xwuan</div>
             <ul class="list">
-                <li>âš¡ KÃ­ch hoáº¡t vÃ  bÃ n giao tÃ i khoáº£n trong 2â€“5 phÃºt</li>
-                <li>ðŸ“± Há»— trá»£ trÃªn má»i thiáº¿t bá»‹: MÃ¡y tÃ­nh, Äiá»‡n thoáº¡i, MÃ¡y tÃ­nh báº£ng</li>
-                <li>ðŸ’¬ HÆ°á»›ng dáº«n sá»­ dá»¥ng táº­n tÃ¬nh qua Zalo 24/7</li>
-                <li>âš ï¸ GÃ³i giÃ¡ siÃªu ráº» phi lá»£i nhuáº­n cho há»c sinh, sinh viÃªn (khÃ´ng báº£o hÃ nh)</li>
+                <li>⚡ Kích hoạt và bàn giao tài khoản trong 2–5 phút</li>
+                <li>📱 Hỗ trợ trên mọi thiết bị: Máy tính, Điện thoại, Máy tính bảng</li>
+                <li>💬 Hướng dẫn sử dụng tận tình qua Zalo 24/7</li>
+                <li>⚠️ Gói giá siêu rẻ phi lợi nhuận cho học sinh, sinh viên (không bảo hành)</li>
             </ul>
         </div>
 
         <div class="card d-5 fi">
-            <div class="card-title">ðŸš€ CÃ¡ch thá»©c hoáº¡t Ä‘á»™ng</div>
+            <div class="card-title">🚀 Cách thức hoạt động</div>
             <div class="step">
                 <div class="step-num">1</div>
-                <p><strong>LiÃªn há»‡ qua Zalo:</strong> Báº¥m nÃºt nháº¯n Zalo Ä‘á»ƒ Ä‘Äƒng kÃ½ gÃ³i Google AI Pro.</p>
+                <p><strong>Liên hệ qua Zalo:</strong> Bấm nút nhắn Zalo để đăng ký gói Google AI Pro.</p>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
-                <p><strong>Nháº­n tÃ i khoáº£n:</strong> Xwuan gá»­i tÃ i khoáº£n kÃ­ch hoáº¡t sáºµn Gemini 3.1 Pro sau 2-5 phÃºt.</p>
+                <p><strong>Nhận tài khoản:</strong> Xwuan gửi tài khoản kích hoạt sẵn Gemini 3.1 Pro sau 2-5 phút.</p>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
-                <p><strong>Sá»­ dá»¥ng ngay:</strong> ÄÄƒng nháº­p gemini.google.com vÃ  tráº£i nghiá»‡m Gemini 3.1 Pro Ä‘á»‰nh cao trá»n gÃ³i 1 nÄƒm.</p>
+                <p><strong>Sử dụng ngay:</strong> Đăng nhập gemini.google.com và trải nghiệm Gemini 3.1 Pro đỉnh cao trọn gói 1 năm.</p>
             </div>
         </div>
 
         <div class="btn-group d-5 fi">
             <a href="https://zalo.me/0822307662" target="_blank" rel="noopener noreferrer" class="btn btn-zalo">
                 <img src="images/zalo.png" alt="Zalo">
-                <span>Nháº¯n tin Zalo mua ngay</span>
+                <span>Nhắn tin Zalo mua ngay</span>
             </a>
         </div>
 
         <footer>
-            Â© <span id="yr"></span> Google AI Pro Â· Xwuan Â· Uy tÃ­n táº¡o niá»m tin ðŸ¤–
+            © <span id="yr"></span> Google AI Pro · Xwuan · Uy tín tạo niềm tin 🤖
         </footer>
     </div>
 
     <!-- Zalo Float -->
-    <a href="https://zalo.me/0822307662" target="_blank" class="zalo-float" title="Nháº¯n Zalo">
+    <a href="https://zalo.me/0822307662" target="_blank" class="zalo-float" title="Nhắn Zalo">
         <img src="images/zalo.png" alt="Zalo">
     </a>
 
@@ -682,6 +661,5 @@ document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
 </script>
 </body>
 </html>
-
 
 

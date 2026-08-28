@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta name="theme-color" content="#050505">
@@ -252,7 +252,7 @@
             border-bottom: none;
         }
         .list li::before {
-            content: "âœ“";
+            content: "✓";
             position: absolute;
             left: 0;
             color: var(--accent);
@@ -414,7 +414,7 @@
             50% { transform: translateY(-20px) rotate(10deg); }
         }
 
-        /* â”€â”€ MOBILE RESPONSIVE â”€â”€ */
+        /* ── MOBILE RESPONSIVE ── */
         @media (max-width: 480px) {
             .container { padding: 20px 14px 90px; }
 
@@ -431,13 +431,13 @@
             .card { padding: 16px 14px; margin-bottom: 14px; }
             .card-title { font-size: 1rem; margin-bottom: 12px; }
 
-            /* Báº£ng so sÃ¡nh: wrapper scroll */
+            /* Bảng so sánh: wrapper scroll */
             .card:has(.vs-table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
             .vs-table { font-size: 13px; min-width: 280px; }
             .vs-table th, .vs-table td { padding: 9px 6px; }
             .vs-table td:nth-child(2), .vs-table td:nth-child(3) { width: auto; white-space: nowrap; }
 
-            /* So sÃ¡nh giÃ¡ */
+            /* So sánh giá */
             .pc-row { flex-wrap: wrap; gap: 4px; padding-bottom: 10px; }
             .pc-new { font-size: 1rem; }
 
@@ -531,33 +531,12 @@ h1 {
 .card, .ptier, .pcard, .combo { animation: none !important; }
 
 /* PREMIUM APPLE GLASSMORPHISM UPGRADES */
-.svc-card, .card, .pcard, .ptier, .combo {
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
-}
-.svc-card:hover, .card:hover, .pcard:hover, .ptier:hover, .combo:hover {
-    transform: translateY(-8px) scale(1.015) !important;
-    box-shadow: 0 24px 48px rgba(0,0,0,0.5), 0 0 30px rgba(255,255,255,0.08) inset !important;
-    border-color: rgba(255,255,255,0.3) !important;
-    z-index: 10;
-}
+.svc-card, .card, .pcard, .ptier, .combo { transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease !important; }
+.svc-card:hover, .card:hover, .pcard:hover, .ptier:hover, .combo:hover { transform: translateY(-8px) scale(1.015) !important; box-shadow: 0 24px 48px rgba(0,0,0,0.5), 0 0 30px rgba(255,255,255,0.08) inset !important; border-color: rgba(255,255,255,0.3) !important; z-index: 10; }
+.btn, .btn-zalo, .p-btn, .cta-btn { transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; position: relative; overflow: hidden; }
+.btn:hover, .btn-zalo:hover, .p-btn:hover, .cta-btn:hover { transform: scale(1.05) translateY(-2px) !important; box-shadow: 0 10px 25px rgba(255,255,255,0.2), 0 0 15px rgba(255,255,255,0.1) inset !important; filter: brightness(1.1); }
+h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(255,255,255,0.15); letter-spacing: -0.01em; }
 
-/* Glowing Buttons */
-.btn, .btn-zalo, .p-btn, .cta-btn {
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
-    position: relative;
-    overflow: hidden;
-}
-.btn:hover, .btn-zalo:hover, .p-btn:hover, .cta-btn:hover {
-    transform: scale(1.05) translateY(-2px) !important;
-    box-shadow: 0 10px 25px rgba(255,255,255,0.2), 0 0 15px rgba(255,255,255,0.1) inset !important;
-    filter: brightness(1.1);
-}
-
-/* Refined Typography for Titles */
-h1, h2, .section-title, .brand-name, .card-ttl {
-    text-shadow: 0 4px 20px rgba(255,255,255,0.15);
-    letter-spacing: -0.01em;
-}
 </style>
 
 
@@ -575,13 +554,13 @@ h1, h2, .section-title, .brand-name, .card-ttl {
 </head>
 <body>
 
-    <div class="emoji-float e-1">ðŸŽ¬</div>
-    <div class="emoji-float e-2">ðŸŽµ</div>
-    <div class="emoji-float e-3">ðŸŽ§</div>
-    <div class="emoji-float e-4">â–¶ï¸</div>
+    <div class="emoji-float e-1">🎬</div>
+    <div class="emoji-float e-2">🎵</div>
+    <div class="emoji-float e-3">🎧</div>
+    <div class="emoji-float e-4">▶️</div>
 
     <div class="container">
-        <a href="index.html" class="back-link">â† Quay vá» trang chá»§</a>
+        <a href="index.html" class="back-link">← Quay về trang chủ</a>
 
         <div class="hero">
             <div class="avatar-wrapper">
@@ -589,92 +568,92 @@ h1, h2, .section-title, .brand-name, .card-ttl {
                 <img src="images/youtube.png" alt="YouTube" class="badge" onerror="this.style.display='none'">
             </div>
             <h1>YouTube Premium</h1>
-            <p class="subtitle">âœ¦ Xem khÃ´ng giá»›i háº¡n Â· KhÃ´ng quáº£ng cÃ¡o Â· Nghe nháº¡c ná»n âœ¦</p>
+            <p class="subtitle">✦ Xem không giới hạn · Không quảng cáo · Nghe nhạc nền ✦</p>
         </div>
 
         <div class="card d-1 fi">
             <div class="price-box">
-                <div class="price" data-price-key="youtube">40k<span> / 30 ngÃ y</span></div>
-                <div class="warranty">ðŸ›¡ï¸ Báº£o hÃ nh full thá»i gian</div>
+                <div class="price" data-price-key="youtube">40k<span> / 30 ngày</span></div>
+                <div class="warranty">🛡️ Bảo hành full thời gian</div>
             </div>
         </div>
 
         <div class="card d-2 fi">
-            <div class="card-title">SO SÃNH: Premium vs Free</div>
+            <div class="card-title">SO SÁNH: Premium vs Free</div>
             <table class="vs-table">
                 <tr>
-                    <th>TÃ­nh nÄƒng</th>
-                    <th>Free ðŸ˜¢</th>
-                    <th>Premium âœ¨</th>
+                    <th>Tính năng</th>
+                    <th>Free 😢</th>
+                    <th>Premium ✨</th>
                 </tr>
                 <tr>
-                    <td>Quáº£ng cÃ¡o</td>
-                    <td>LiÃªn tá»¥c</td>
-                    <td>âŒ KhÃ´ng quáº£ng cÃ¡o</td>
+                    <td>Quảng cáo</td>
+                    <td>Liên tục</td>
+                    <td>❌ Không quảng cáo</td>
                 </tr>
                 <tr>
-                    <td>PhÃ¡t ná»n</td>
-                    <td>KhÃ´ng há»— trá»£</td>
-                    <td>âœ… Táº¯t mÃ n hÃ¬nh váº«n nghe nháº¡c</td>
+                    <td>Phát nền</td>
+                    <td>Không hỗ trợ</td>
+                    <td>✅ Tắt màn hình vẫn nghe nhạc</td>
                 </tr>
                 <tr>
-                    <td>Táº£i offline</td>
-                    <td>KhÃ´ng</td>
-                    <td>âœ… Xem khÃ´ng cáº§n máº¡ng</td>
+                    <td>Tải offline</td>
+                    <td>Không</td>
+                    <td>✅ Xem không cần mạng</td>
                 </tr>
                 <tr>
                     <td>YT Music</td>
-                    <td>CÃ³ quáº£ng cÃ¡o</td>
-                    <td>âœ… Miá»…n phÃ­ Premium</td>
+                    <td>Có quảng cáo</td>
+                    <td>✅ Miễn phí Premium</td>
                 </tr>
                 <tr>
-                    <td>Cháº¥t lÆ°á»£ng</td>
-                    <td>Tá»‘i Ä‘a 1080p</td>
-                    <td>âœ… 4K + HDR</td>
+                    <td>Chất lượng</td>
+                    <td>Tối đa 1080p</td>
+                    <td>✅ 4K + HDR</td>
                 </tr>
             </table>
         </div>
 
         <div class="card d-3 fi">
-            <div class="card-title">SO SÃNH GIÃ</div>
+            <div class="card-title">SO SÁNH GIÁ</div>
             <div class="price-compare">
                 <div class="pc-row">
-                    <span>GiÃ¡ chÃ­nh hÃ£ng:</span>
-                    <span class="pc-old">79.000Ä‘ / thÃ¡ng</span>
+                    <span>Giá chính hãng:</span>
+                    <span class="pc-old">79.000đ / tháng</span>
                 </div>
                 <div class="pc-row">
-                    <span>GiÃ¡ táº¡i Xwuan:</span>
-                    <span class="pc-new">40.000Ä‘ / thÃ¡ng</span>
+                    <span>Giá tại Xwuan:</span>
+                    <span class="pc-new">40.000đ / tháng</span>
                 </div>
                 <div class="pc-row">
-                    <span>Tiáº¿t kiá»‡m:</span>
-                    <span class="pc-save">~50% má»—i thÃ¡ng</span>
+                    <span>Tiết kiệm:</span>
+                    <span class="pc-save">~50% mỗi tháng</span>
                 </div>
             </div>
         </div>
 
         <div class="card d-4 fi">
-            <div class="card-title">Cam káº¿t tá»« Xwuan</div>
+            <div class="card-title">Cam kết từ Xwuan</div>
             <ul class="list">
-                <li>ðŸ›¡ï¸ Báº£o hÃ nh full thá»i gian sá»­ dá»¥ng</li>
-                <li>âš¡ KÃ­ch hoáº¡t trong 2â€“5 phÃºt</li>
-                <li>ðŸ“± Há»— trá»£ má»i thiáº¿t bá»‹ (Ä‘iá»‡n thoáº¡i, mÃ¡y tÃ­nh, TV)</li>
-                <li>ðŸ”„ Há»— trá»£ Ä‘á»•i tÃ i khoáº£n náº¿u cÃ³ lá»—i</li>
-                <li>ðŸ’¬ LiÃªn há»‡ báº¥t cá»© lÃºc nÃ o, pháº£n há»“i nhanh</li>
+                <li>🛡️ Bảo hành full thời gian sử dụng</li>
+                <li>⚡ Kích hoạt trong 2–5 phút</li>
+                <li>📱 Hỗ trợ mọi thiết bị (điện thoại, máy tính, TV)</li>
+                <li>🔄 Hỗ trợ đổi tài khoản nếu có lỗi</li>
+                <li>💬 Liên hệ bất cứ lúc nào, phản hồi nhanh</li>
             </ul>
         </div>
 
         <div class="card d-4 fi">
-            <div class="card-title">CÃ¡ch thá»©c hoáº¡t Ä‘á»™ng</div>
+            <div class="card-title">Cách thức hoạt động</div>
             <div class="steps">
                 <div class="step">
-                    <p><strong>BÆ°á»›c 1:</strong> LiÃªn há»‡ qua Zalo hoáº·c Facebook.</p>
+                    <p><strong>Bước 1:</strong> Liên hệ qua Zalo hoặc Facebook.</p>
                 </div>
                 <div class="step">
-                    <p><strong>BÆ°á»›c 2:</strong> Xwuan kÃ­ch hoáº¡t YouTube Premium cho báº¡n.</p>
+                    <p><strong>Bước 2:</strong> Xwuan kích hoạt YouTube Premium cho bạn.</p>
                 </div>
                 <div class="step">
-                    <p><strong>BÆ°á»›c 3:</strong> DÃ¹ng ngay Â· Báº£o hÃ nh suá»‘t thá»i gian sá»­ dá»¥ng.</p>
+                    <p><strong>Bước 3:</strong> Dùng ngay · Bảo hành suốt thời gian sử dụng.</p>
                 </div>
             </div>
         </div>
@@ -682,16 +661,16 @@ h1, h2, .section-title, .brand-name, .card-ttl {
         <div class="btn-group d-4 fi">
             <a href="https://zalo.me/0822307662" target="_blank" class="btn btn-zalo">
                 <img src="images/zalo.png" alt="Zalo">
-                <span>LiÃªn há»‡ Zalo: 0822.307.662</span>
+                <span>Liên hệ Zalo: 0822.307.662</span>
             </a>
         </div>
 
         <div class="footer d-4">
-            Â© <span id="yr"></span> YouTube Premium Xwuan Â· Uy tÃ­n táº¡o niá»m tin â¤ï¸
+            © <span id="yr"></span> YouTube Premium Xwuan · Uy tín tạo niềm tin ❤️
         </div>
     </div>
 
-    <a href="https://zalo.me/0822307662" target="_blank" class="zalo-float" title="Nháº¯n Zalo">
+    <a href="https://zalo.me/0822307662" target="_blank" class="zalo-float" title="Nhắn Zalo">
         <img src="images/zalo.png" alt="Zalo">
     </a>
 
@@ -726,4 +705,3 @@ document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
 </script>
 </body>
 </html>
-
