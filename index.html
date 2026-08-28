@@ -27,7 +27,13 @@
 
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body {
+
+@keyframes ambientGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+body { background: linear-gradient(-45deg, #050505, #11091a, #06111f, #050505); background-size: 400% 400%; animation: ambientGlow 20s ease infinite;
   background-color: var(--bg-dark); 
   color: var(--text-main);
   font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif;
@@ -568,6 +574,7 @@ document.querySelectorAll('[data-theme]').forEach(el => themeObs.observe(el));
 </script>
 </body>
 </html>
+
 
 
 
