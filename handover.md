@@ -1,157 +1,157 @@
-# 📦 HANDOVER — xwuan.github.io
+﻿# ðŸ“¦ HANDOVER â€” xwuan.github.io
 
-> **Ngày bàn giao:** 2026-08-18
-> **Người bàn giao:** AI Assistant (Antigravity / Gemini)
-> **Dự án:** Landing page dịch vụ kỹ thuật & phần mềm — Xuan Quyen
+> **NgÃ y bÃ n giao:** 2026-08-18
+> **NgÆ°á»i bÃ n giao:** AI Assistant (Antigravity / Gemini)
+> **Dá»± Ã¡n:** Landing page dá»‹ch vá»¥ ká»¹ thuáº­t & pháº§n má»m â€” Xuan Quyen
 > **Domain:** https://ie1w3n.github.io/
 
 ---
 
-## 1. CẤU TRÚC DỰ ÁN
+## 1. Cáº¤U TRÃšC Dá»° ÃN
 
 ```
 xwuan.github.io-main/
-│
-├── index.html              # Trang chủ tổng hợp
-├── windows-pricing.html    # Báo giá Windows & Office chi tiết
-├── locket.html             # Locket Gold (Light Theme)
-├── youtube.html            # YouTube Premium
-├── netflix.html            # Netflix 4K UHD
-├── capcut.html             # CapCut Pro
-├── canva.html              # Canva Pro 1 Năm
-├── admin.html              # BẢNG QUẢN TRỊ: Cập nhật giá, SALE, banner, liên hệ
-├── pricing.js              # NGUỒN DỮ LIỆU TRUNG TÂM & TỰ ĐỘNG ĐỒNG BỘ UI
-│
-├── PROMPT-MASTER.md        # Master prompt gốc (cũ)
-├── handover.md             # File này
-├── gemini.md               # Master prompt cập nhật (dùng thay claude.md & PROMPT-MASTER.md)
-│
-└── images/
-    ├── avatar.png          # Ảnh đại diện Xuan Quyen
-    ├── canva.png           # Icon Canva Pro (mới thêm 2026-08-18)
-    ├── capcut.png
-    ├── facebook.png
-    ├── locket.png
-    ├── logowd.png / logowd2.png
-    ├── netflix.png
-    ├── office.png
-    ├── windows.png / winghost.png
-    ├── youtube.png
-    └── zalo.png
+â”‚
+â”œâ”€â”€ index.html              # Trang chá»§ tá»•ng há»£p
+â”œâ”€â”€ windows-pricing.html    # BÃ¡o giÃ¡ Windows & Office chi tiáº¿t
+â”œâ”€â”€ locket.html             # Locket Gold (Light Theme)
+â”œâ”€â”€ youtube.html            # YouTube Premium
+â”œâ”€â”€ netflix.html            # Netflix 4K UHD
+â”œâ”€â”€ capcut.html             # CapCut Pro
+â”œâ”€â”€ canva.html              # Canva Pro 1 NÄƒm
+â”œâ”€â”€ admin.html              # Báº¢NG QUáº¢N TRá»Š: Cáº­p nháº­t giÃ¡, SALE, banner, liÃªn há»‡
+â”œâ”€â”€ pricing.js              # NGUá»’N Dá»® LIá»†U TRUNG TÃ‚M & Tá»° Äá»˜NG Äá»’NG Bá»˜ UI
+â”‚
+â”œâ”€â”€ PROMPT-MASTER.md        # Master prompt gá»‘c (cÅ©)
+â”œâ”€â”€ handover.md             # File nÃ y
+â”œâ”€â”€ gemini.md               # Master prompt cáº­p nháº­t (dÃ¹ng thay claude.md & PROMPT-MASTER.md)
+â”‚
+â””â”€â”€ images/
+    â”œâ”€â”€ avatar.png          # áº¢nh Ä‘áº¡i diá»‡n Xuan Quyen
+    â”œâ”€â”€ canva.png           # Icon Canva Pro (má»›i thÃªm 2026-08-18)
+    â”œâ”€â”€ capcut.png
+    â”œâ”€â”€ facebook.png
+    â”œâ”€â”€ locket.png
+    â”œâ”€â”€ logowd.png / logowd2.png
+    â”œâ”€â”€ netflix.png
+    â”œâ”€â”€ office.png
+    â”œâ”€â”€ windows.png / winghost.png
+    â”œâ”€â”€ youtube.png
+    â””â”€â”€ zalo.png
 ```
 
 ---
 
-## 2. THAY ĐỔI MỚI NHẤT (phiên 2026-08-27)
+## 2. THAY Äá»”I Má»šI NHáº¤T (phiÃªn 2026-08-27)
 
-### 2.0 Thêm trang Quản trị `admin.html` & Module dữ liệu `pricing.js`
-- **`admin.html`**: Giao diện Cyber-Minimal Dark Theme bảo vệ bằng mã PIN (mặc định: `123456`).
-  - Quản lý giá, cờ SALE (bật/tắt), giá gạch, nhãn SALE cho toàn bộ dịch vụ.
-  - Quản lý giá Windows, Office, Locket Gold (5s, 15s).
-  - Thêm sản phẩm/dịch vụ mới tùy chỉnh (tự render vào trang chủ).
-  - Bật/tắt và tùy biến Banner thông báo khuyến mãi trên đầu trang.
-  - Cập nhật số Zalo, Hotline, Facebook một lần là đồng bộ toàn web.
-  - Hỗ trợ Lưu xem trước (LocalStorage), Tải file `pricing.js` về máy, hoặc Đẩy trực tiếp lên GitHub bằng GitHub Personal Access Token (1-click deploy).
-- **`pricing.js`**: Nguồn dữ liệu trung tâm & tự động cập nhật DOM cho tất cả trang HTML.
+### 2.0 ThÃªm trang Quáº£n trá»‹ `admin.html` & Module dá»¯ liá»‡u `pricing.js`
+- **`admin.html`**: Giao diá»‡n Cyber-Minimal Dark Theme báº£o vá»‡ báº±ng mÃ£ PIN (máº·c Ä‘á»‹nh: `123456`).
+  - Quáº£n lÃ½ giÃ¡, cá» SALE (báº­t/táº¯t), giÃ¡ gáº¡ch, nhÃ£n SALE cho toÃ n bá»™ dá»‹ch vá»¥.
+  - Quáº£n lÃ½ giÃ¡ Windows, Office, Locket Gold (5s, 15s).
+  - ThÃªm sáº£n pháº©m/dá»‹ch vá»¥ má»›i tÃ¹y chá»‰nh (tá»± render vÃ o trang chá»§).
+  - Báº­t/táº¯t vÃ  tÃ¹y biáº¿n Banner thÃ´ng bÃ¡o khuyáº¿n mÃ£i trÃªn Ä‘áº§u trang.
+  - Cáº­p nháº­t sá»‘ Zalo, Hotline, Facebook má»™t láº§n lÃ  Ä‘á»“ng bá»™ toÃ n web.
+  - Há»— trá»£ LÆ°u xem trÆ°á»›c (LocalStorage), Táº£i file `pricing.js` vá» mÃ¡y, hoáº·c Äáº©y trá»±c tiáº¿p lÃªn GitHub báº±ng GitHub Personal Access Token (1-click deploy).
+- **`pricing.js`**: Nguá»“n dá»¯ liá»‡u trung tÃ¢m & tá»± Ä‘á»™ng cáº­p nháº­t DOM cho táº¥t cáº£ trang HTML.
 
 ---
 
-## 3. LỊCH SỬ THAY ĐỔI CŨ (phiên 2026-08-18)
+## 3. Lá»ŠCH Sá»¬ THAY Äá»”I CÅ¨ (phiÃªn 2026-08-18)
 
-### 3.1 Cập nhật giá — Sale
+### 3.1 Cáº­p nháº­t giÃ¡ â€” Sale
 
-| Dịch vụ | Giá cũ | Giá mới | File |
+| Dá»‹ch vá»¥ | GiÃ¡ cÅ© | GiÃ¡ má»›i | File |
 |---------|--------|---------|------|
-| Netflix 4K UHD | 60k/tháng | **30k/tháng** 🔴SALE | index.html, netflix.html |
-| CapCut Pro 30 ngày | 110k | **90k** 🔴SALE | index.html, capcut.html |
+| Netflix 4K UHD | 60k/thÃ¡ng | **30k/thÃ¡ng** ðŸ”´SALE | index.html, netflix.html |
+| CapCut Pro 30 ngÃ y | 110k | **90k** ðŸ”´SALE | index.html, capcut.html |
 
-Giá gốc bị gạch hiển thị cùng badge SALE màu tương ứng brand.
+GiÃ¡ gá»‘c bá»‹ gáº¡ch hiá»ƒn thá»‹ cÃ¹ng badge SALE mÃ u tÆ°Æ¡ng á»©ng brand.
 
-### 2.2 Thêm dịch vụ mới — Canva Pro
+### 2.2 ThÃªm dá»‹ch vá»¥ má»›i â€” Canva Pro
 
-- **Canva Pro 1 năm — 130k** thêm vào index.html
-- Icon: images/canva.png (gradient teal→purple)
-- CSS class: .ent-cv — màu brand #00c4cc → #7d2ae8
-- Vị trí: cuối section "Tài khoản giải trí & sáng tạo"
-- **Chưa có trang chi tiết canva.html** — cần tạo nếu muốn
+- **Canva Pro 1 nÄƒm â€” 130k** thÃªm vÃ o index.html
+- Icon: images/canva.png (gradient tealâ†’purple)
+- CSS class: .ent-cv â€” mÃ u brand #00c4cc â†’ #7d2ae8
+- Vá»‹ trÃ­: cuá»‘i section "TÃ i khoáº£n giáº£i trÃ­ & sÃ¡ng táº¡o"
+- **ChÆ°a cÃ³ trang chi tiáº¿t canva.html** â€” cáº§n táº¡o náº¿u muá»‘n
 
-### 2.3 Loại bỏ
+### 2.3 Loáº¡i bá»
 
-- Nút "CHECK FEEDBACK KHÁCH IU" (link Google Drive) xóa khỏi 4 trang:
+- NÃºt "CHECK FEEDBACK KHÃCH IU" (link Google Drive) xÃ³a khá»i 4 trang:
   netflix.html, capcut.html, youtube.html, locket.html
 
-### 2.4 Tối ưu Mobile (toàn hệ thống)
+### 2.4 Tá»‘i Æ°u Mobile (toÃ n há»‡ thá»‘ng)
 
-| File | Fix chính |
+| File | Fix chÃ­nh |
 |------|-----------|
-| capcut.html | Pricing grid 2→1 cột <480px, font clamp, bảng scroll ngang, touch 50px |
-| netflix.html | h1 clamp, bảng scroll, price clamp, nút min-height 50px |
-| youtube.html | h1 2rem→clamp, vs-table scroll, pc-row wrap |
-| windows-pricing.html | Cards/Combos 1 cột <600px, CTA stack dọc, repair flex-col |
-| index.html | ent-grid minmax 220px→160px (fix iPhone 375px) |
-| locket.html | Đã OK từ trước — không đổi |
+| capcut.html | Pricing grid 2â†’1 cá»™t <480px, font clamp, báº£ng scroll ngang, touch 50px |
+| netflix.html | h1 clamp, báº£ng scroll, price clamp, nÃºt min-height 50px |
+| youtube.html | h1 2remâ†’clamp, vs-table scroll, pc-row wrap |
+| windows-pricing.html | Cards/Combos 1 cá»™t <600px, CTA stack dá»c, repair flex-col |
+| index.html | ent-grid minmax 220pxâ†’160px (fix iPhone 375px) |
+| locket.html | ÄÃ£ OK tá»« trÆ°á»›c â€” khÃ´ng Ä‘á»•i |
 
 ---
 
-## 3. TRẠNG THÁI HIỆN TẠI — GIÁ DỊCH VỤ
+## 3. TRáº NG THÃI HIá»†N Táº I â€” GIÃ Dá»ŠCH Vá»¤
 
-| Dịch vụ | Giá | Ghi chú |
+| Dá»‹ch vá»¥ | GiÃ¡ | Ghi chÃº |
 |---------|-----|---------|
-| Windows Chuẩn Microsoft | 150k – 180k | |
-| Windows Tối Ưu | 100k – 120k | |
-| Microsoft Office | 80k – 120k | |
-| Combo Win Chuẩn + Office | 200k – 220k | Tiết kiệm ~30k |
-| Combo Win Tối Ưu + Office | 160k – 180k | Tiết kiệm ~20k |
-| Locket Gold (Quay 5s) | 50k/6th · 80k/1năm · 150k/∞ | |
-| Locket Gold (Quay 15s) | 60k/6th · 100k/1năm · 180k/∞ | |
-| YouTube Premium | 40k/tháng | |
-| Netflix 4K UHD | ~~60k~~ → **30k/tháng** | 🔴 SALE |
-| CapCut Pro 7 ngày | 20k | |
-| CapCut Pro 30 ngày | ~~110k~~ → **90k** | 🔴 SALE |
-| Canva Pro 1 năm | 130k | Mới thêm |
+| Windows Chuáº©n Microsoft | 150k â€“ 180k | |
+| Windows Tá»‘i Æ¯u | 100k â€“ 120k | |
+| Microsoft Office | 80k â€“ 120k | |
+| Combo Win Chuáº©n + Office | 200k â€“ 220k | Tiáº¿t kiá»‡m ~30k |
+| Combo Win Tá»‘i Æ¯u + Office | 160k â€“ 180k | Tiáº¿t kiá»‡m ~20k |
+| Locket Gold (Quay 5s) | 50k/6th Â· 80k/1nÄƒm Â· 150k/âˆž | |
+| Locket Gold (Quay 15s) | 60k/6th Â· 100k/1nÄƒm Â· 180k/âˆž | |
+| YouTube Premium | 40k/thÃ¡ng | |
+| Netflix 4K UHD | ~~60k~~ â†’ **30k/thÃ¡ng** | ðŸ”´ SALE |
+| CapCut Pro 7 ngÃ y | 20k | |
+| CapCut Pro 30 ngÃ y | ~~110k~~ â†’ **90k** | ðŸ”´ SALE |
+| Canva Pro 1 nÄƒm | 130k | Má»›i thÃªm |
 
 ---
 
-## 4. LIÊN HỆ & KÊNH
+## 4. LIÃŠN Há»† & KÃŠNH
 
-| Kênh | Thông tin |
+| KÃªnh | ThÃ´ng tin |
 |------|-----------|
-| Zalo | 0822307662 · https://zalo.me/0822307662 |
+| Zalo | 0822307662 Â· https://zalo.me/0822307662 |
 | Facebook | https://www.facebook.com/xwuan1/ |
-| Điện thoại | 0822.307.662 |
+| Äiá»‡n thoáº¡i | 0822.307.662 |
 
 ---
 
-## 5. KỸ THUẬT — NOTES
+## 5. Ká»¸ THUáº¬T â€” NOTES
 
 ### Stack
-- Pure HTML + CSS + JS — không framework, không build tool
-- Deploy: GitHub Pages tại https://ie1w3n.github.io/
-- JS: chỉ dùng IntersectionObserver (fade-in, theme scroll) + new Date().getFullYear()
+- Pure HTML + CSS + JS â€” khÃ´ng framework, khÃ´ng build tool
+- Deploy: GitHub Pages táº¡i https://ie1w3n.github.io/
+- JS: chá»‰ dÃ¹ng IntersectionObserver (fade-in, theme scroll) + new Date().getFullYear()
 
-### Breakpoints đã áp dụng
-- max-width: 600px → windows-pricing.html
-- max-width: 480px → capcut, netflix, youtube
-- max-width: 500px → index.html (svc-grid, locket-tiers)
-- max-width: 420px → locket.html (pricing)
-- max-width: 360px → breakpoint nhỏ nhất (fallback)
+### Breakpoints Ä‘Ã£ Ã¡p dá»¥ng
+- max-width: 600px â†’ windows-pricing.html
+- max-width: 480px â†’ capcut, netflix, youtube
+- max-width: 500px â†’ index.html (svc-grid, locket-tiers)
+- max-width: 420px â†’ locket.html (pricing)
+- max-width: 360px â†’ breakpoint nhá» nháº¥t (fallback)
 
 ### Fonts (CDN Google Fonts)
-- Be Vietnam Pro — nội dung mọi trang
-- Syne 700/800 — tiêu đề Dark Theme
-- Nunito 900 — tiêu đề Locket (Light Theme)
+- Be Vietnam Pro â€” ná»™i dung má»i trang
+- Syne 700/800 â€” tiÃªu Ä‘á» Dark Theme
+- Nunito 900 â€” tiÃªu Ä‘á» Locket (Light Theme)
 
 ---
 
-## 6. VIỆC CÒN TỒN ĐỌNG / TODO
+## 6. VIá»†C CÃ’N Tá»’N Äá»ŒNG / TODO
 
-- [x] Tạo trang chi tiết canva.html (đã hoàn thành)
-- [x] Update footer year windows-pricing.html (đã chuyển sang dynamic getFullYear())
-- [ ] Test thực tế trên iPhone SE (375px) và Android nhỏ sau khi deploy
+- [x] Táº¡o trang chi tiáº¿t canva.html (Ä‘Ã£ hoÃ n thÃ nh)
+- [x] Update footer year windows-pricing.html (Ä‘Ã£ chuyá»ƒn sang dynamic getFullYear())
+- [ ] Test thá»±c táº¿ trÃªn iPhone SE (375px) vÃ  Android nhá» sau khi deploy
 
 ---
 
-*Handover tự động tạo — 2026-08-18*
+*Handover tá»± Ä‘á»™ng táº¡o â€” 2026-08-18*
 
 ## 7. NHAT KY SUA LOI & TIEN TRINH (2026-08-28)
 
@@ -169,3 +169,6 @@ Giá gốc bị gạch hiển thị cùng badge SALE màu tương ứng brand.
 - Sua, fix loi bug: Phai cap nhat tien trinh vao file handover.md.
 - Sua loi thiet ke, them bot noi dung: Phai cap nhat huong dan vao file gemini.md.
 - Quy trinh: LUON cap nhat Document -> Commit -> Push code.
+- **[FIXED] Lỗi nhảy tưng tưng (Infinite Bounce Loop):** Sửa lại logic IntersectionObserver, chỉ gỡ class in khi thẻ đi qua cạnh dưới màn hình, giữ nguyên nếu đi qua cạnh trên, triệt tiêu hoàn toàn vòng lặp nhảy lên nhảy xuống.
+- **[FIXED] Lỗi nhấp nháy WebKit (Backdrop-filter):** Gỡ bỏ ilter: blur(5px) khỏi class .fi để tránh xung đột render với ackdrop-filter bên trong các thẻ con (như Locket Gold), giúp thẻ không bị mất tích rồi hiện đột ngột.
+- **[FIXED] Lỗi font tiếng Việt (Mojibake):** Khắc phục lỗi PowerShell tự động đổi mã hóa UTF-8 sang ANSI bằng cách dùng Node.js để xử lý chuỗi và ghi đè file an toàn.

@@ -308,6 +308,27 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
 .e-4, .d4, .f4 { top: 75% !important; right: 8% !important; animation-delay: 4.5s !important; }
 @keyframes floatPremium { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(12deg); } }
 
+
+/* MOBILE APP CAROUSEL UPGRADE */
+@media(max-width: 550px) {
+  .cards, .combos {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 0 -16px !important;
+    padding: 0 16px 20px 16px !important;
+    scroll-padding-left: 16px !important;
+  }
+  .cards::-webkit-scrollbar, .combos::-webkit-scrollbar { display: none !important; }
+  .pcard, .combo {
+    min-width: 85% !important;
+    max-width: 85% !important;
+    scroll-snap-align: center !important;
+    flex-shrink: 0 !important;
+  }
+}
 </style>
 </head>
 <body>

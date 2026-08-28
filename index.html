@@ -307,6 +307,27 @@ footer {
 .btn:hover, .btn-zalo:hover, .p-btn:hover, .cta-btn:hover { transform: scale(1.05) translateY(-2px) !important; box-shadow: 0 10px 25px rgba(255,255,255,0.2), 0 0 15px rgba(255,255,255,0.1) inset !important; filter: brightness(1.1); }
 h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(255,255,255,0.15); letter-spacing: -0.01em; }
 
+
+/* MOBILE APP CAROUSEL UPGRADE */
+@media(max-width: 550px) {
+  .svc-grid, .ent-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 0 -16px !important;
+    padding: 0 16px 20px 16px !important;
+    scroll-padding-left: 16px !important;
+  }
+  .svc-grid::-webkit-scrollbar, .ent-grid::-webkit-scrollbar { display: none !important; }
+  .svc, .ent-card {
+    min-width: 85% !important;
+    max-width: 85% !important;
+    scroll-snap-align: center !important;
+    flex-shrink: 0 !important;
+  }
+}
 </style>
 </head>
 <body>
