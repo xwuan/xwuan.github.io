@@ -237,3 +237,18 @@ Bảng so sánh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 ---
 
 *File cập nhật: 2026-08-27 — Bổ sung admin.html, pricing.js, push scripts và quy tắc URL cứng Git*
+
+
+### 4. LOI THIET KE DOI MOI (APPLE GLASSMORPHISM)
+- Giao dien cot loi: Ap dung triet de phong cach Apple Glassmorphism.
+- The noi dung (Cards): Kinh mo (Frost Glass), vien bo tron manh (border-radius: 24px), do bong mem mai (soft shadow). Mau nen thuong la rgba(255, 255, 255, 0.05) ket hop backdrop-filter: blur(40px).
+- Nut bam (Buttons): Hinh vien thuoc (border-radius: 99px), phan hoi cham lo xo (cubic-bezier(0.25, 1, 0.5, 1)).
+- Phong nen (Background):
+  - Trang chu (index.html): Cuc quang (Aurora) Gradient chuyen dong chim cuc ky tinh te, toi mau (#050505 ket hop #11091a) kem luoi (grid/dots) dong thay doi theo section.
+  - Trang chi tiet: Giu nguyen phong nen luoi/dots nguyen thuy (dam chat note), emoji bay luon, ket hop voi cac the kinh mo noi bat o tren. Trang locket.html dung dai mau Tim tham - Den sau.
+- Hieu ung cuon: Su dung IntersectionObserver lap lai lien tuc. Vuot len/xuong thi cac the (.fi) se mo dan va truot len (fade-in / translateY).
+
+### 5. QUY TAC LAM VIEC (WORKFLOW RULES)
+- Sua, fix loi bug: Phai cap nhat tien trinh vao file handover.md.
+- Sua loi thiet ke, them bot noi dung: Phai cap nhat huong dan vao file gemini.md.
+- Quy trinh: LUON cap nhat Document -> Commit -> Push code.

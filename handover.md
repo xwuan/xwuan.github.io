@@ -152,3 +152,18 @@ Giá gốc bị gạch hiển thị cùng badge SALE màu tương ứng brand.
 ---
 
 *Handover tự động tạo — 2026-08-18*
+
+## 7. NHAT KY SUA LOI & TIEN TRINH (2026-08-28)
+
+- [x] Fix loi opacity xep chong khien nen trang chu bi den thui.
+- [x] Sua loi CSS timeline (duong doc + cham tron) bi dinh vien xam tren nen Glassmorphism.
+- [x] Fix cu phap CSS @keyframes lam vo layout .wrap bung toan man hinh.
+- [x] Khoi phuc nen hoa tiet (grid/dots) nguyen thuy va tha cac emoji bay luon cho trang chi tiet.
+- [x] Fix loi nen trang tren trang locket.html khien van ban bi tang hinh.
+- [x] Khac phuc thong tin bang so sanh Locket Gold (Thoi luong quay 5s/15s, Bo quang cao).
+- [x] Them hieu ung cuon Fade-in (IntersectionObserver) muot ma cho toan bo cac trang chi tiet.
+
+## 8. QUY TAC LAM VIEC (WORKFLOW RULES)
+- Sua, fix loi bug: Phai cap nhat tien trinh vao file handover.md.
+- Sua loi thiet ke, them bot noi dung: Phai cap nhat huong dan vao file gemini.md.
+- Quy trinh: LUON cap nhat Document -> Commit -> Push code.
