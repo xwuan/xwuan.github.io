@@ -270,104 +270,9 @@ footer{text-align:center;font-size:.7rem;color:var(--muted);padding:22px 0 0;}
 
 /* APPLE OVERRIDE */
 body {
-    background: #000 !important;
-    background-image: none !important;
     font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif !important;
 }
-body::before, body::after { animation: float2 15s infinite ease-in-out !important;
-    content: ''; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.35; z-index: -1; pointer-events: none;
-    
-}
-body::before { animation: float1 12s infinite ease-in-out !important;
-    top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--c1);
-}
-body::after { animation: float2 15s infinite ease-in-out !important;
-    bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--c2);
-}
-.card {
-    background: rgba(255, 255, 255, 0.05) !important;
-    backdrop-filter: blur(40px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 24px !important;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
-}
-.price-box {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 16px !important;
-}
-.btn {
-    border-radius: 99px !important;
-    border: none !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-}
-.btn:active {
-    transform: scale(0.96) !important;
-}
-.btn-zalo {
-    background: rgba(255, 255, 255, 0.1) !important;
-    color: #fff !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.05) !important;
-}
-h1 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif !important;
-    background: none !important;
-    -webkit-text-fill-color: #fff !important;
-    color: #fff !important;
-    text-shadow: none !important;
-}
-.emoji-float { display: none !important; }
-.zalo-float {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 99px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-    animation: none !important;
-}
-.zalo-float:hover { transform: scale(1.05) !important; }
-.zalo-float:active { transform: scale(0.95) !important; }
-.avatar {
-    border-radius: 20px !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
-    padding: 0 !important;
-}
-.badge {
-    border: 2px solid #000 !important;
-}
-.btn-order, .btn-fb, .btn-call {
-    border-radius: 99px !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-    border: none !important;
-}
-.btn-order:active, .btn-fb:active, .btn-call:active {
-    transform: scale(0.96) !important;
-}
-.btn-order { background: rgba(255, 255, 255, 0.15) !important; color: #fff !important; }
-.btn-order.ghost-btn { background: rgba(255, 255, 255, 0.05) !important; }
-.btn-fb { background: rgba(24, 119, 242, 0.2) !important; color: #fff !important; }
-.btn-call { background: rgba(0, 230, 118, 0.2) !important; color: #fff !important; }
-@keyframes float1 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-  33% { transform: translate(15vw, 10vh) scale(1.3); opacity: 0.25; }
-  66% { transform: translate(-10vw, 15vh) scale(0.9); opacity: 0.1; }
-  100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-}
-@keyframes float2 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.1; }
-  33% { transform: translate(-15vw, -15vh) scale(1.2); opacity: 0.2; }
-  66% { transform: translate(10vw, -10vh) scale(0.8); opacity: 0.05; }
-  100% { transform: translate(0, 0) scale(1); opacity: 0.1; }
-}
+
 .pcard, .combo, .repair, .hero, .cta-banner {
     background: rgba(255, 255, 255, 0.05) !important;
     backdrop-filter: blur(40px) saturate(180%) !important;
@@ -546,6 +451,7 @@ document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
+
 
 
 
