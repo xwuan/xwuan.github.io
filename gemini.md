@@ -254,3 +254,5 @@ Báº£ng so sÃ¡nh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 - Quy trinh: LUON cap nhat Document -> Commit -> Push code.
 - **[DESIGN] Đồng bộ Premium Backgrounds:** Nâng cấp tất cả các trang phụ (Capcut, Locket, Youtube, Canva...) lên chuẩn thiết kế mới với nền lưới ma trận phát sáng (grid) và hiệu ứng Emoji trôi nổi, xoay vòng 360 độ (position: fixed).
 - **[DESIGN] Mobile App Swipeable Carousels:** Xóa bỏ danh sách xếp chồng dọc nhàm chán trên Mobile. Chuyển toàn bộ danh sách dịch vụ (index.html, windows-pricing.html) sang dạng vuốt ngang (Scroll Snap) hệt như App Store, mang lại cảm giác dùng native app cực kỳ mượt mà.
+
+- **[CONTENT] Sửa đoạn mô tả:** Ngắt dòng (thêm <br>) giữa 'Dịch vụ kỹ thuật & phần mềm' và 'Nhanh · Sạch · Uy tín' ở phần Header trang chủ để tối ưu hiển thị, tránh câu quá dài.
