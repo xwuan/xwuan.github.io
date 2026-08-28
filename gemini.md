@@ -258,3 +258,7 @@ Báº£ng so sÃ¡nh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 - **[CONTENT] Sửa đoạn mô tả:** Ngắt dòng (thêm <br>) giữa 'Dịch vụ kỹ thuật & phần mềm' và 'Nhanh · Sạch · Uy tín' ở phần Header trang chủ để tối ưu hiển thị, tránh câu quá dài.
 
 - **[CONTENT] Tối ưu URL:** Loại bỏ đuôi .html khỏi toàn bộ các liên kết nội bộ trên website. Đổi liên kết trỏ về trang chủ từ index.html thành ./ (mặc định) để khi người dùng lướt web, thanh địa chỉ trông sạch sẽ và chuyên nghiệp hơn (ví dụ: xwuan.github.io/capcut thay vì xwuan.github.io/capcut.html).
+
+- **[Design Upgrade] Universal Bi-directional Scroll**: Implemented bi-directional fade-in animations across ALL detail pages (capcut.html, locket.html, etc.) so cards gracefully fade in and out regardless of scroll direction (up or down).
+- **[Design Upgrade] Cascading Stagger Effect**: Added CSS variable --delay to .fi elements to create a beautiful cascading waterfall effect (staggered fade-in) for CSS grid layouts, specifically on windows-pricing.html, without interfering with hover transitions.
+- **[Design Upgrade] Refined Emojis**: Slightly reduced the size of .floater emojis across all pages (from 2.2rem to 1.8rem) for a more elegant and less overpowering aesthetic.

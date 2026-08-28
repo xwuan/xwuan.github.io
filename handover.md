@@ -174,3 +174,7 @@ GiÃ¡ gá»‘c bá»‹ gáº¡ch hiá»ƒn thá»‹ cÃ¹ng badge SALE mÃ 
 - **[FIXED] Lỗi font tiếng Việt (Mojibake):** Khắc phục lỗi PowerShell tự động đổi mã hóa UTF-8 sang ANSI bằng cách dùng Node.js để xử lý chuỗi và ghi đè file an toàn.
 
 - **[FIXED] Lỗi hiển thị card Cần tư vấn:** Đặt lại margin và padding cho .cta-banner trên trang windows-pricing.html. Trước đây nó dùng margin âm (-16px) để tràn viền, nhưng khi áp dụng style thẻ bo tròn của Apple thì nó bị phình to bất thường. Đã gỡ margin âm để ép nó gọn gàng vào trong container.
+
+- **[Bug Fix] IntersectionObserver Infinite Loop (Final)**: Reverted cards from "scale(0.96)" back to "translateY(20px)" to restore the slide-up animation. Added "rootMargin: 50px 0px" to the IntersectionObserver to extend the viewport detection zone, preventing the bounce loop while keeping the slide-up effect.
+- **[Bug Fix] Missing Bi-directional Animations**: Fixed a bug where windows-pricing.html lacked the bi-directional scroll observer and stagger effects due to an accidental rollback. Restored the premium cinematic grid background and cascading staggered animations using CSS variables (--delay).
+- **[Bug Fix] Browser Zoom Confusion**: Identified that the user accidentally zoomed their browser to 130%, which caused the layout to appear massive. Resolved by instructing them to press Ctrl+0.
