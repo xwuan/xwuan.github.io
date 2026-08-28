@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta name="theme-color" content="#050505">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>Xuan Quyen — Dịch vụ kỹ thuật & phần mềm</title>
+<title>Xuan Quyen â€” Dá»‹ch vá»¥ ká»¹ thuáº­t & pháº§n má»m</title>
 <link rel="icon" href="images/avatar.png" type="image/png">
-<meta property="og:title" content="Xuan Quyen — Dịch vụ kỹ thuật & phần mềm">
-<meta property="og:description" content="Cài Windows, Office, Locket Gold, Giải trí — nhanh · sạch · uy tín · bảo hành tận tâm.">
+<meta property="og:title" content="Xuan Quyen â€” Dá»‹ch vá»¥ ká»¹ thuáº­t & pháº§n má»m">
+<meta property="og:description" content="CÃ i Windows, Office, Locket Gold, Giáº£i trÃ­ â€” nhanh Â· sáº¡ch Â· uy tÃ­n Â· báº£o hÃ nh táº­n tÃ¢m.">
 <meta property="og:image" content="https://ie1w3n.github.io/images/avatar.png">
 <meta property="og:url" content="https://ie1w3n.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -299,6 +299,35 @@ footer {
 .fz:hover { transform: scale(1.05); background: rgba(255, 255, 255, 0.2); }
 .fz:active { transform: scale(0.95); }
 .fz img { width: 30px; height: 30px; object-fit: contain; }
+
+/* PREMIUM APPLE GLASSMORPHISM UPGRADES */
+.svc-card, .card, .pcard, .ptier {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+.svc-card:hover, .card:hover, .pcard:hover, .ptier:hover {
+    transform: translateY(-8px) scale(1.015) !important;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.5), 0 0 30px rgba(255,255,255,0.08) inset !important;
+    border-color: rgba(255,255,255,0.3) !important;
+    z-index: 10;
+}
+
+/* Glowing Buttons */
+.btn, .btn-zalo, .p-btn, .cta-btn {
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+.btn:hover, .btn-zalo:hover, .p-btn:hover, .cta-btn:hover {
+    transform: scale(1.05) translateY(-2px) !important;
+    box-shadow: 0 10px 25px rgba(255,255,255,0.2), 0 0 15px rgba(255,255,255,0.1) inset !important;
+    filter: brightness(1.1);
+}
+
+/* Refined Typography for Titles */
+h1, h2, .section-title, .brand-name {
+    text-shadow: 0 4px 20px rgba(255,255,255,0.15);
+    letter-spacing: -0.02em;
+}
 </style>
 </head>
 <body>
@@ -319,43 +348,43 @@ footer {
       <img src="images/avatar.png" class="avatar" alt="Xuan Quyen">
       <div class="hero-text">
         <h1>Xuan Quyen</h1>
-        <p>⚡ Dịch vụ kỹ thuật &amp; phần mềm · Nhanh · Sạch · Uy tín</p>
+        <p>âš¡ Dá»‹ch vá»¥ ká»¹ thuáº­t &amp; pháº§n má»m Â· Nhanh Â· Sáº¡ch Â· Uy tÃ­n</p>
       </div>
     </div>
-    <a href="#contact" class="btn-cta">💬 Liên hệ ngay</a>
+    <a href="#contact" class="btn-cta">ðŸ’¬ LiÃªn há»‡ ngay</a>
   </header>
 
   <!-- WINDOWS & OFFICE (Tech World) -->
   <div class="tech-block" data-theme="tech">
-    <div class="sec-label fi">🖥️ Cài đặt hệ thống</div>
+    <div class="sec-label fi">ðŸ–¥ï¸ CÃ i Ä‘áº·t há»‡ thá»‘ng</div>
     <div class="sec-title fi">Windows &amp; Office</div>
     <div class="svc-grid">
       <div class="svc fi">
         <img src="images/windows.png" class="svc-img" alt="Windows">
         <div>
-          <h3>Windows Chuẩn Microsoft</h3>
-          <p>ISO gốc, driver đầy đủ. <br><strong style="color:var(--c1)" data-price-key="win_std">150k – 180k</strong></p>
+          <h3>Windows Chuáº©n Microsoft</h3>
+          <p>ISO gá»‘c, driver Ä‘áº§y Ä‘á»§. <br><strong style="color:var(--c1)" data-price-key="win_std">150k â€“ 180k</strong></p>
         </div>
       </div>
       <div class="svc fi">
-        <img src="images/winghost.png" class="svc-img" alt="Windows Tối Ưu">
+        <img src="images/winghost.png" class="svc-img" alt="Windows Tá»‘i Æ¯u">
         <div>
-          <h3>Windows Tối Ưu</h3>
-          <p>Nhẹ, mượt cho máy cũ/yếu. <br><strong style="color:var(--c1)" data-price-key="win_opt">100k – 120k</strong></p>
+          <h3>Windows Tá»‘i Æ¯u</h3>
+          <p>Nháº¹, mÆ°á»£t cho mÃ¡y cÅ©/yáº¿u. <br><strong style="color:var(--c1)" data-price-key="win_opt">100k â€“ 120k</strong></p>
         </div>
       </div>
       <div class="svc fi">
         <img src="images/office.png" class="svc-img" alt="Office">
         <div>
           <h3>Microsoft Office</h3>
-          <p>Bản quyền 365, 2021, 2019. <br><strong style="color:var(--c1)" data-price-key="office">80k – 120k</strong></p>
+          <p>Báº£n quyá»n 365, 2021, 2019. <br><strong style="color:var(--c1)" data-price-key="office">80k â€“ 120k</strong></p>
         </div>
       </div>
       <div class="svc fi">
-        <div style="font-size:28px;width:40px;flex-shrink:0;margin-top:2px;text-align:center;">🔥</div>
+        <div style="font-size:28px;width:40px;flex-shrink:0;margin-top:2px;text-align:center;">ðŸ”¥</div>
         <div>
-          <h3>COMBO Tiết Kiệm</h3>
-          <p>Win Chuẩn + Office: <strong data-price-key="combo_std">200k-220k</strong><br>Win Tối Ưu + Office: <strong data-price-key="combo_opt">160k-180k</strong></p>
+          <h3>COMBO Tiáº¿t Kiá»‡m</h3>
+          <p>Win Chuáº©n + Office: <strong data-price-key="combo_std">200k-220k</strong><br>Win Tá»‘i Æ¯u + Office: <strong data-price-key="combo_opt">160k-180k</strong></p>
         </div>
       </div>
     </div>
@@ -364,11 +393,11 @@ footer {
       <div class="ps-left">
         <img src="images/logowd2.png" class="ps-icon" alt="Install">
         <div class="ps-text">
-          <h3>🔧 Khắc phục lỗi Windows</h3>
-          <p>Máy đơ, lag, BSOD · Kiểm tra &amp; báo giá</p>
+          <h3>ðŸ”§ Kháº¯c phá»¥c lá»—i Windows</h3>
+          <p>MÃ¡y Ä‘Æ¡, lag, BSOD Â· Kiá»ƒm tra &amp; bÃ¡o giÃ¡</p>
         </div>
       </div>
-      <a href="windows-pricing.html" class="btn-see">Xem bảng giá →</a>
+      <a href="windows-pricing.html" class="btn-see">Xem báº£ng giÃ¡ â†’</a>
     </div>
   </div>
 
@@ -382,42 +411,42 @@ footer {
         </div>
         <div>
           <div class="locket-title">Locket Gold</div>
-          <div class="locket-sub">Hỗ trợ iOS &amp; Android · Bảo hành uy tín</div>
+          <div class="locket-sub">Há»— trá»£ iOS &amp; Android Â· Báº£o hÃ nh uy tÃ­n</div>
         </div>
       </div>
       
       <div class="locket-tiers">
         <div class="ltier">
-          <h4>Gói Quay 5s</h4>
+          <h4>GÃ³i Quay 5s</h4>
           <ul>
-            <li><span>6 tháng</span> <span class="ltier-price" data-price-key="locket_5s_6m">50k</span></li>
-            <li><span>1 năm</span> <span class="ltier-price" data-price-key="locket_5s_1y">80k</span></li>
-            <li><span>Vĩnh viễn ♾️</span> <span class="ltier-price" data-price-key="locket_5s_life">150k</span></li>
+            <li><span>6 thÃ¡ng</span> <span class="ltier-price" data-price-key="locket_5s_6m">50k</span></li>
+            <li><span>1 nÄƒm</span> <span class="ltier-price" data-price-key="locket_5s_1y">80k</span></li>
+            <li><span>VÄ©nh viá»…n â™¾ï¸</span> <span class="ltier-price" data-price-key="locket_5s_life">150k</span></li>
           </ul>
         </div>
         <div class="ltier">
-          <h4>Gói Quay 15s</h4>
+          <h4>GÃ³i Quay 15s</h4>
           <ul>
-            <li><span>6 tháng</span> <span class="ltier-price" data-price-key="locket_15s_6m">60k</span></li>
-            <li><span>1 năm</span> <span class="ltier-price" data-price-key="locket_15s_1y">100k</span></li>
-            <li><span>Vĩnh viễn ♾️</span> <span class="ltier-price" data-price-key="locket_15s_life">180k</span></li>
+            <li><span>6 thÃ¡ng</span> <span class="ltier-price" data-price-key="locket_15s_6m">60k</span></li>
+            <li><span>1 nÄƒm</span> <span class="ltier-price" data-price-key="locket_15s_1y">100k</span></li>
+            <li><span>VÄ©nh viá»…n â™¾ï¸</span> <span class="ltier-price" data-price-key="locket_15s_life">180k</span></li>
           </ul>
         </div>
       </div>
 
       <div class="locket-bottom">
         <div class="locket-tags">
-          <span class="ltag">✅ An toàn 100%</span>
-          <span class="ltag">⚡ Kích hoạt siêu tốc</span>
+          <span class="ltag">âœ… An toÃ n 100%</span>
+          <span class="ltag">âš¡ KÃ­ch hoáº¡t siÃªu tá»‘c</span>
         </div>
-        <span class="btn-locket">Đăng ký ngay ✨</span>
+        <span class="btn-locket">ÄÄƒng kÃ½ ngay âœ¨</span>
       </div>
     </a>
   </div>
 
   <!-- ENTERTAINMENT SUBSCRIPTIONS -->
   <div class="ent-block" data-theme="ent" style="transition-delay: 0.2s;">
-    <div class="sec-label fi">🍿 Tài khoản giải trí &amp; sáng tạo</div>
+    <div class="sec-label fi">ðŸ¿ TÃ i khoáº£n giáº£i trÃ­ &amp; sÃ¡ng táº¡o</div>
     <div class="sec-title fi">Premium Subscriptions</div>
     
     <div class="ent-grid">
@@ -426,13 +455,13 @@ footer {
         <img src="images/capcut.png" class="ent-icon" alt="CapCut Pro">
         <div class="ent-title">CapCut Pro</div>
         <div class="ent-features">
-          <span>🛡️ Bảo hành full thời gian</span>
-          <span>✨ Mở khóa mọi tính năng Pro</span>
-          <span>🎨 20k / 7 ngày · 80k / 30 ngày</span>
+          <span>ðŸ›¡ï¸ Báº£o hÃ nh full thá»i gian</span>
+          <span>âœ¨ Má»Ÿ khÃ³a má»i tÃ­nh nÄƒng Pro</span>
+          <span>ðŸŽ¨ 20k / 7 ngÃ y Â· 80k / 30 ngÃ y</span>
         </div>
-        <div class="ent-price" data-price-key="capcut_30d">80k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 30 ngày</span></div>
+        <div class="ent-price" data-price-key="capcut_30d">80k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 30 ngÃ y</span></div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
-        <a href="capcut.html" class="ent-detail">Xem chi tiết →</a>
+        <a href="capcut.html" class="ent-detail">Xem chi tiáº¿t â†’</a>
       </div>
 
       <!-- YouTube Premium -->
@@ -440,13 +469,13 @@ footer {
         <img src="images/youtube.png" class="ent-icon" alt="YouTube Premium">
         <div class="ent-title">YouTube Premium</div>
         <div class="ent-features">
-          <span>🛡️ Bảo hành full thời gian</span>
-          <span>🚫 Chặn 100% quảng cáo</span>
-          <span>🎵 Kèm YouTube Music</span>
+          <span>ðŸ›¡ï¸ Báº£o hÃ nh full thá»i gian</span>
+          <span>ðŸš« Cháº·n 100% quáº£ng cÃ¡o</span>
+          <span>ðŸŽµ KÃ¨m YouTube Music</span>
         </div>
-        <div class="ent-price" data-price-key="youtube">40k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 30 ngày</span></div>
+        <div class="ent-price" data-price-key="youtube">40k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 30 ngÃ y</span></div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
-        <a href="youtube.html" class="ent-detail">Xem chi tiết →</a>
+        <a href="youtube.html" class="ent-detail">Xem chi tiáº¿t â†’</a>
       </div>
 
       <!-- Canva Pro -->
@@ -454,13 +483,13 @@ footer {
         <img src="images/canva.png" class="ent-icon" alt="Canva Pro">
         <div class="ent-title">Canva Pro</div>
         <div class="ent-features">
-          <span>🛡️ Bảo hành full thời gian</span>
-          <span>🎨 Mở khóa 100+ triệu templates</span>
-          <span>✨ Xóa phông &amp; công cụ AI</span>
+          <span>ðŸ›¡ï¸ Báº£o hÃ nh full thá»i gian</span>
+          <span>ðŸŽ¨ Má»Ÿ khÃ³a 100+ triá»‡u templates</span>
+          <span>âœ¨ XÃ³a phÃ´ng &amp; cÃ´ng cá»¥ AI</span>
         </div>
-        <div class="ent-price" data-price-key="canva">130k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 1 năm</span></div>
+        <div class="ent-price" data-price-key="canva">130k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 1 nÄƒm</span></div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
-        <a href="canva.html" class="ent-detail">Xem chi tiết →</a>
+        <a href="canva.html" class="ent-detail">Xem chi tiáº¿t â†’</a>
       </div>
 
       <!-- Netflix 4K -->
@@ -468,13 +497,13 @@ footer {
         <img src="images/netflix.png" class="ent-icon" alt="Netflix">
         <div class="ent-title">Netflix 4K UHD</div>
         <div class="ent-features">
-          <span>🛡️ Bảo hành full thời gian</span>
-          <span>🎬 Phim chuẩn 4K HDR</span>
-          <span>📱 Xem trên TV, máy tính, điện thoại</span>
+          <span>ðŸ›¡ï¸ Báº£o hÃ nh full thá»i gian</span>
+          <span>ðŸŽ¬ Phim chuáº©n 4K HDR</span>
+          <span>ðŸ“± Xem trÃªn TV, mÃ¡y tÃ­nh, Ä‘iá»‡n thoáº¡i</span>
         </div>
-        <div class="ent-price" data-price-key="netflix">45k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 30 ngày</span></div>
+        <div class="ent-price" data-price-key="netflix">45k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 30 ngÃ y</span></div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
-        <a href="netflix.html" class="ent-detail">Xem chi tiết →</a>
+        <a href="netflix.html" class="ent-detail">Xem chi tiáº¿t â†’</a>
       </div>
 
       <!-- Google AI Pro -->
@@ -482,13 +511,13 @@ footer {
         <img src="images/google-ai.png" class="ent-icon" alt="Google AI Pro">
         <div class="ent-title">Google AI Pro</div>
         <div class="ent-features">
-          <span>⚠️ Không bảo hành</span>
-          <span>🤖 Trí tuệ nhân tạo Gemini 3.1 Pro</span>
-          <span>⚡ Không giới hạn tính năng</span>
+          <span>âš ï¸ KhÃ´ng báº£o hÃ nh</span>
+          <span>ðŸ¤– TrÃ­ tuá»‡ nhÃ¢n táº¡o Gemini 3.1 Pro</span>
+          <span>âš¡ KhÃ´ng giá»›i háº¡n tÃ­nh nÄƒng</span>
         </div>
-        <div class="ent-price" data-price-key="google_ai">60k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 1 năm</span></div>
+        <div class="ent-price" data-price-key="google_ai">60k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 1 nÄƒm</span></div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
-        <a href="google-ai.html" class="ent-detail">Xem chi tiết →</a>
+        <a href="google-ai.html" class="ent-detail">Xem chi tiáº¿t â†’</a>
       </div>
 
       <!-- Meitu SVIP -->
@@ -496,34 +525,34 @@ footer {
         <img src="images/meitu.png" class="ent-icon" alt="Meitu SVIP">
         <div class="ent-title">Meitu SVIP</div>
         <div class="ent-features">
-          <span>🛡️ Bảo hành full thời gian</span>
-          <span>👑 Mở khóa toàn bộ tính năng SVIP</span>
-          <span>📸 Chỉnh sửa ảnh &amp; video chuyên nghiệp</span>
+          <span>ðŸ›¡ï¸ Báº£o hÃ nh full thá»i gian</span>
+          <span>ðŸ‘‘ Má»Ÿ khÃ³a toÃ n bá»™ tÃ­nh nÄƒng SVIP</span>
+          <span>ðŸ“¸ Chá»‰nh sá»­a áº£nh &amp; video chuyÃªn nghiá»‡p</span>
         </div>
-        <div class="ent-price" data-price-key="meitu">80k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 30 ngày</span></div>
+        <div class="ent-price" data-price-key="meitu">80k <span style="font-size:0.8rem;font-weight:600;color:#9ca3af;">/ 30 ngÃ y</span></div>
         <a href="https://zalo.me/0822307662" class="btn-ent">Mua ngay qua Zalo</a>
-        <a href="meitu.html" class="ent-detail">Xem chi tiết →</a>
+        <a href="meitu.html" class="ent-detail">Xem chi tiáº¿t â†’</a>
       </div>
     </div>
   </div>
 
   <!-- BADGES (Bridge) -->
   <div class="bridge-block" data-theme="tech" style="transition-delay: 0.15s;">
-    <div class="sec-label fi">🛡️ Cam kết chất lượng</div>
+    <div class="sec-label fi">ðŸ›¡ï¸ Cam káº¿t cháº¥t lÆ°á»£ng</div>
     <div class="badge-grid">
-      <div class="badge fi"><span class="badge-icon">💾</span>Sao lưu dữ liệu an toàn</div>
-      <div class="badge fi"><span class="badge-icon">⚡</span>Hỗ trợ cực kỳ nhanh chóng</div>
-      <div class="badge fi"><span class="badge-icon">💬</span>Hỗ trợ hỏi đáp 24/24</div>
-      <div class="badge fi"><span class="badge-icon">🛡️</span>Win/Office bảo hành 6 tháng</div>
-      <div class="badge fi"><span class="badge-icon">♾️</span>Locket bảo hành tận tâm</div>
-      <div class="badge fi"><span class="badge-icon">🍿</span>Tài khoản Premium ổn định</div>
+      <div class="badge fi"><span class="badge-icon">ðŸ’¾</span>Sao lÆ°u dá»¯ liá»‡u an toÃ n</div>
+      <div class="badge fi"><span class="badge-icon">âš¡</span>Há»— trá»£ cá»±c ká»³ nhanh chÃ³ng</div>
+      <div class="badge fi"><span class="badge-icon">ðŸ’¬</span>Há»— trá»£ há»i Ä‘Ã¡p 24/24</div>
+      <div class="badge fi"><span class="badge-icon">ðŸ›¡ï¸</span>Win/Office báº£o hÃ nh 6 thÃ¡ng</div>
+      <div class="badge fi"><span class="badge-icon">â™¾ï¸</span>Locket báº£o hÃ nh táº­n tÃ¢m</div>
+      <div class="badge fi"><span class="badge-icon">ðŸ¿</span>TÃ i khoáº£n Premium á»•n Ä‘á»‹nh</div>
     </div>
   </div>
 
   <!-- CONTACT -->
   <div class="contact-block" id="contact" data-theme="tech" style="transition-delay: 0.2s;">
-    <div class="sec-label fi">📞 Liên hệ</div>
-    <div class="sec-title fi">Tìm mình ở đây 👋</div>
+    <div class="sec-label fi">ðŸ“ž LiÃªn há»‡</div>
+    <div class="sec-title fi">TÃ¬m mÃ¬nh á»Ÿ Ä‘Ã¢y ðŸ‘‹</div>
     <div class="contact-grid">
       <a href="https://zalo.me/0822307662" target="_blank" class="cbtn fi zalo">
         <img src="images/zalo.png" alt="Zalo">Zalo
@@ -535,15 +564,15 @@ footer {
         <img src="images/tiktok.png" alt="TikTok">TikTok
       </a>
       <a href="tel:0822307662" class="cbtn fi call">
-        <span class="call-icon">📞</span>0822.307.662
+        <span class="call-icon">ðŸ“ž</span>0822.307.662
       </a>
     </div>
   </div>
 
-  <footer>© <span id="yr"></span> xwuan.github.io &nbsp;·&nbsp; Xuan Quyen &nbsp;·&nbsp; Dịch vụ kỹ thuật &amp; phần mềm</footer>
+  <footer>Â© <span id="yr"></span> xwuan.github.io &nbsp;Â·&nbsp; Xuan Quyen &nbsp;Â·&nbsp; Dá»‹ch vá»¥ ká»¹ thuáº­t &amp; pháº§n má»m</footer>
 </div>
 
-<a href="https://zalo.me/0822307662" target="_blank" class="fz" title="Nhắn Zalo">
+<a href="https://zalo.me/0822307662" target="_blank" class="fz" title="Nháº¯n Zalo">
   <img src="images/zalo.png" alt="Zalo">
 </a>
 
@@ -575,6 +604,7 @@ document.querySelectorAll('[data-theme]').forEach(el => themeObs.observe(el));
 </script>
 </body>
 </html>
+
 
 
 
