@@ -35,33 +35,32 @@ body {
   overflow-x: hidden; -webkit-font-smoothing: antialiased;
 }
 
-/* APPLE GLOW BACKGROUND */
+/* BACKGROUND TEXTURES */
 .bg-layer {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  transition: opacity 0.8s ease; opacity: 0;
 }
-.bg-layer::before, .bg-layer::after {
-  content: ''; position: absolute; border-radius: 50%; filter: blur(120px); 
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0,212,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,.025) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
-.bg-layer::before {
-  top: -10%; left: -10%; width: 60vw; height: 60vw; background: #00d4ff;
-  animation: float1 12s infinite ease-in-out;
+.bg-dots {
+  background-image: radial-gradient(circle, rgba(168,85,247,.07) 1px, transparent 1px);
+  background-size: 26px 26px;
 }
-.bg-layer::after {
-  bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: #5e5ce6;
-  animation: float2 15s infinite ease-in-out;
+.bg-cinematic {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(229, 9, 20, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(0, 212, 255, 0.03) 0%, transparent 50%);
 }
-@keyframes float1 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-  33% { transform: translate(15vw, 10vh) scale(1.3); opacity: 0.25; }
-  66% { transform: translate(-10vw, 15vh) scale(0.9); opacity: 0.1; }
-  100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-}
-@keyframes float2 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.1; }
-  33% { transform: translate(-15vw, -15vh) scale(1.2); opacity: 0.2; }
-  66% { transform: translate(10vw, -10vh) scale(0.8); opacity: 0.05; }
-  100% { transform: translate(0, 0) scale(1); opacity: 0.1; }
-}
+
+body:not([data-current-theme]) .bg-grid,
+body[data-current-theme="tech"] .bg-grid { opacity: 1; }
+body[data-current-theme="cute"] .bg-dots { opacity: 1; }
+body[data-current-theme="ent"] .bg-cinematic { opacity: 1; }
+
 .wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 24px 16px 90px; }
 
 /* FADE-IN */
@@ -298,9 +297,9 @@ footer {
 <body>
 
 <!-- BACKGROUND LAYERS -->
-<div class="bg-layer"></div>
-
-<!-- BACKGROUND LAYERS -->
+<div class="bg-layer bg-grid"></div>
+<div class="bg-layer bg-dots"></div>
+<div class="bg-layer bg-cinematic"></div>
 
 
 
@@ -569,6 +568,7 @@ document.querySelectorAll('[data-theme]').forEach(el => themeObs.observe(el));
 </script>
 </body>
 </html>
+
 
 
 
