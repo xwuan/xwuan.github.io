@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta name="theme-color" content="#050505">
@@ -359,26 +359,26 @@
             50% { transform: translateY(-20px) rotate(10deg); }
         }
 
-        /* â”€â”€ MOBILE RESPONSIVE â”€â”€ */
+        /* ── MOBILE RESPONSIVE ── */
         @media (max-width: 480px) {
             .container { padding: 20px 14px 80px; }
 
             .title { font-size: clamp(1.6rem, 7vw, 2rem); }
             .subtitle { font-size: 13px; }
 
-            /* Pricing: stack 1 cá»™t trÃªn mobile */
+            /* Pricing: stack 1 cột trên mobile */
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
             .price-card { padding: 18px 16px; }
             .price-amount { font-size: clamp(20px, 6vw, 24px); }
 
-            /* Table: scroll ngang thay vÃ¬ trÃ n */
+            /* Table: scroll ngang thay vì tràn */
             .card { padding: 16px 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
             .table { font-size: 13px; min-width: 320px; }
             .table th, .table td { padding: 10px 6px; }
 
-            /* So sÃ¡nh giÃ¡ */
+            /* So sánh giá */
             .card > div[style*="flex-direction: column"] > div[style*="justify-content: space-between"] {
                 flex-wrap: wrap;
                 gap: 4px;
@@ -387,7 +387,7 @@
                 font-size: 15px !important;
             }
 
-            /* Buttons: Ä‘á»§ touch target */
+            /* Buttons: đủ touch target */
             .btn { padding: 14px 16px; font-size: 15px; min-height: 50px; }
             .btn-zalo, .btn-secondary { border-radius: 14px; }
 
@@ -398,7 +398,7 @@
             /* Feature list */
             .feature-list li { font-size: 14px; padding: 11px 0; }
 
-            /* Floaters áº©n trÃªn mobile nhá» Ä‘á»ƒ trÃ¡nh rá»‘i */
+            /* Floaters ẩn trên mobile nhỏ để tránh rối */
             .floater { display: none; }
 
             /* Avatar */
@@ -519,20 +519,20 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
 
 </head>
 <body>
-    <a href="https://zalo.me/0822307662" target="_blank" class="zalo-float" title="Nháº¯n Zalo">
+    <a href="https://zalo.me/0822307662" target="_blank" class="zalo-float" title="Nhắn Zalo">
         <img src="images/zalo.png" alt="Zalo">
     </a>
 
     <div class="container">
         <!-- Decorative Emojis -->
-        <div class="floater f1">âœ¨</div>
-        <div class="floater f2">ðŸŽ¨</div>
-        <div class="floater f3">ðŸŽ¬</div>
-        <div class="floater f4">â­</div>
+        <div class="floater f1">✨</div>
+        <div class="floater f2">🎨</div>
+        <div class="floater f3">🎬</div>
+        <div class="floater f4">⭐</div>
 
         <a href="index.html" class="back-link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-            Quay vá» trang chá»§
+            Quay về trang chủ
         </a>
 
         <div class="hero">
@@ -541,145 +541,145 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
                 <img src="images/capcut.png" alt="CapCut" class="badge" onerror="this.style.display='none'">
             </div>
             <h1 class="title">CapCut Pro</h1>
-            <p class="subtitle">âœ¦ Má»Ÿ khÃ³a toÃ n bá»™ tÃ­nh nÄƒng chá»‰nh sá»­a chuyÃªn nghiá»‡p âœ¦</p>
+            <p class="subtitle">✦ Mở khóa toàn bộ tính năng chỉnh sửa chuyên nghiệp ✦</p>
         </div>
 
         <div class="pricing-grid obs-el" style="animation-delay: 0.1s">
             <div class="price-card">
-                <div class="price-title">GÃ³i 7 ngÃ y</div>
+                <div class="price-title">Gói 7 ngày</div>
                 <div class="price-amount" data-price-key="capcut_7d">20k</div>
-                <div class="price-shield">ðŸ›¡ï¸ Báº£o hÃ nh full thá»i gian</div>
+                <div class="price-shield">🛡️ Bảo hành full thời gian</div>
             </div>
             <div class="price-card best">
-                <div class="badge-best">Phá»• biáº¿n nháº¥t</div>
-                <div class="price-title">GÃ³i 30 ngÃ y</div>
+                <div class="badge-best">Phổ biến nhất</div>
+                <div class="price-title">Gói 30 ngày</div>
                 <div class="price-amount" data-price-key="capcut_30d">80k</div>
-                <div class="price-shield">ðŸ›¡ï¸ Báº£o hÃ nh full thá»i gian</div>
+                <div class="price-shield">🛡️ Bảo hành full thời gian</div>
             </div>
         </div>
 
         <div class="card obs-el fi" style="animation-delay: 0.2s">
-            <h2 class="comparison-title">SO SÃNH: Free vs Pro</h2>
+            <h2 class="comparison-title">SO SÁNH: Free vs Pro</h2>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>TÃ­nh nÄƒng</th>
-                        <th>Free ðŸ˜</th>
-                        <th>Pro âœ¨</th>
+                        <th>Tính năng</th>
+                        <th>Free 😐</th>
+                        <th>Pro ✨</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Watermark CapCut</td>
-                        <td class="cross">CÃ³ watermark</td>
-                        <td><span class="check">âŒ</span> KhÃ´ng watermark</td>
+                        <td class="cross">Có watermark</td>
+                        <td><span class="check">❌</span> Không watermark</td>
                     </tr>
                     <tr>
-                        <td>Hiá»‡u á»©ng cao cáº¥p</td>
-                        <td class="cross">Bá»‹ khÃ³a ðŸ”’</td>
-                        <td><span class="check">âœ…</span> Má»Ÿ khÃ³a toÃ n bá»™</td>
+                        <td>Hiệu ứng cao cấp</td>
+                        <td class="cross">Bị khóa 🔒</td>
+                        <td><span class="check">✅</span> Mở khóa toàn bộ</td>
                     </tr>
                     <tr>
-                        <td>Font chá»¯ Premium</td>
-                        <td class="cross">Giá»›i háº¡n</td>
-                        <td><span class="check">âœ…</span> 500+ font chá»¯</td>
+                        <td>Font chữ Premium</td>
+                        <td class="cross">Giới hạn</td>
+                        <td><span class="check">✅</span> 500+ font chữ</td>
                     </tr>
                     <tr>
-                        <td>Nháº¡c báº£n quyá»n</td>
-                        <td class="cross">Giá»›i háº¡n</td>
-                        <td><span class="check">âœ…</span> Kho nháº¡c khÃ´ng giá»›i háº¡n</td>
+                        <td>Nhạc bản quyền</td>
+                        <td class="cross">Giới hạn</td>
+                        <td><span class="check">✅</span> Kho nhạc không giới hạn</td>
                     </tr>
                     <tr>
-                        <td>Bá»™ lá»c & sticker Pro</td>
-                        <td class="cross">Bá»‹ khÃ³a ðŸ”’</td>
-                        <td><span class="check">âœ…</span> ToÃ n bá»™ bá»™ lá»c Pro</td>
+                        <td>Bộ lọc & sticker Pro</td>
+                        <td class="cross">Bị khóa 🔒</td>
+                        <td><span class="check">✅</span> Toàn bộ bộ lọc Pro</td>
                     </tr>
                     <tr>
-                        <td>Xuáº¥t video</td>
+                        <td>Xuất video</td>
                         <td>1080p max</td>
-                        <td><span class="check">âœ…</span> Xuáº¥t 4K cháº¥t lÆ°á»£ng cao</td>
+                        <td><span class="check">✅</span> Xuất 4K chất lượng cao</td>
                     </tr>
                     <tr>
-                        <td>Dung lÆ°á»£ng Ä‘Ã¡m mÃ¢y</td>
+                        <td>Dung lượng đám mây</td>
                         <td>500MB</td>
-                        <td><span class="check">âœ…</span> 100GB cloud</td>
+                        <td><span class="check">✅</span> 100GB cloud</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="card obs-el fi" style="animation-delay: 0.3s">
-            <h3 style="margin-bottom: 12px; font-size: 18px;">SO SÃNH GIÃ</h3>
+            <h3 style="margin-bottom: 12px; font-size: 18px;">SO SÁNH GIÁ</h3>
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <div style="display: flex; justify-content: space-between;">
-                    <span class="text-muted">GiÃ¡ chÃ­nh hÃ£ng CapCut Pro:</span>
-                    <span class="text-strike">~250.000Ä‘ / thÃ¡ng</span>
+                    <span class="text-muted">Giá chính hãng CapCut Pro:</span>
+                    <span class="text-strike">~250.000đ / tháng</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span class="text-muted">GiÃ¡ cÅ© (30 ngÃ y):</span>
-                    <span class="text-strike">110.000Ä‘</span>
+                    <span class="text-muted">Giá cũ (30 ngày):</span>
+                    <span class="text-strike">110.000đ</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; font-size: 18px; align-items: center;">
-                    <span>GiÃ¡ sale táº¡i Xwuan (30 ngÃ y):</span>
-                    <span class="text-accent">90.000Ä‘</span>
+                    <span>Giá sale tại Xwuan (30 ngày):</span>
+                    <span class="text-accent">90.000đ</span>
                 </div>
                 <div style="display: flex; justify-content: space-between;">
-                    <span class="text-green font-weight-600">Tiáº¿t kiá»‡m:</span>
+                    <span class="text-green font-weight-600">Tiết kiệm:</span>
                     <span class="text-green">~64%</span>
                 </div>
                 <div style="margin-top: 8px; font-size: 14px; text-align: center; color: var(--muted);">
-                    Or try 7 ngÃ y chá»‰ vá»›i <span class="text-accent">20.000Ä‘</span>
+                    Or try 7 ngày chỉ với <span class="text-accent">20.000đ</span>
                 </div>
             </div>
         </div>
 
         <div class="card obs-el fi" style="animation-delay: 0.4s">
-            <h3 style="margin-bottom: 12px; font-size: 18px;">Ai nÃªn dÃ¹ng CapCut Pro?</h3>
+            <h3 style="margin-bottom: 12px; font-size: 18px;">Ai nên dùng CapCut Pro?</h3>
             <ul class="feature-list">
-                <li><span class="list-icon">ðŸŽ¬</span> Báº¡n lÃ m video TikTok, Reels, YouTube Shorts</li>
-                <li><span class="list-icon">ðŸ“¸</span> Báº¡n chá»‰nh áº£nh, edit video cho cÃ´ng viá»‡c</li>
-                <li><span class="list-icon">ðŸŽ“</span> Sinh viÃªn lÃ m bÃ i thuyáº¿t trÃ¬nh, video project</li>
-                <li><span class="list-icon">ðŸ’¼</span> Freelancer, content creator cáº§n cÃ´ng cá»¥ chuyÃªn nghiá»‡p</li>
-                <li><span class="list-icon">ðŸŽ¨</span> Báº¥t ká»³ ai muá»‘n video Ä‘áº¹p hÆ¡n, chuyÃªn nghiá»‡p hÆ¡n</li>
+                <li><span class="list-icon">🎬</span> Bạn làm video TikTok, Reels, YouTube Shorts</li>
+                <li><span class="list-icon">📸</span> Bạn chỉnh ảnh, edit video cho công việc</li>
+                <li><span class="list-icon">🎓</span> Sinh viên làm bài thuyết trình, video project</li>
+                <li><span class="list-icon">💼</span> Freelancer, content creator cần công cụ chuyên nghiệp</li>
+                <li><span class="list-icon">🎨</span> Bất kỳ ai muốn video đẹp hơn, chuyên nghiệp hơn</li>
             </ul>
         </div>
 
         <div class="card obs-el fi" style="animation-delay: 0.5s">
-            <h3 style="margin-bottom: 12px; font-size: 18px;">Cam káº¿t tá»« Xwuan</h3>
+            <h3 style="margin-bottom: 12px; font-size: 18px;">Cam kết từ Xwuan</h3>
             <ul class="feature-list">
-                <li><span class="list-icon">ðŸ›¡ï¸</span> Báº£o hÃ nh full thá»i gian sá»­ dá»¥ng</li>
-                <li><span class="list-icon">âš¡</span> KÃ­ch hoáº¡t trong 2â€“5 phÃºt</li>
-                <li><span class="list-icon">ðŸ“±</span> Há»— trá»£ cáº£ Ä‘iá»‡n thoáº¡i vÃ  mÃ¡y tÃ­nh</li>
-                <li><span class="list-icon">ðŸ”„</span> Há»— trá»£ Ä‘á»•i náº¿u cÃ³ lá»—i</li>
-                <li><span class="list-icon">ðŸ’¬</span> LiÃªn há»‡ báº¥t cá»© lÃºc nÃ o</li>
+                <li><span class="list-icon">🛡️</span> Bảo hành full thời gian sử dụng</li>
+                <li><span class="list-icon">⚡</span> Kích hoạt trong 2–5 phút</li>
+                <li><span class="list-icon">📱</span> Hỗ trợ cả điện thoại và máy tính</li>
+                <li><span class="list-icon">🔄</span> Hỗ trợ đổi nếu có lỗi</li>
+                <li><span class="list-icon">💬</span> Liên hệ bất cứ lúc nào</li>
             </ul>
         </div>
 
         <div class="card obs-el fi" style="animation-delay: 0.6s">
-            <h3 style="margin-bottom: 16px; font-size: 18px;">CÃ¡ch thá»©c hoáº¡t Ä‘á»™ng</h3>
+            <h3 style="margin-bottom: 16px; font-size: 18px;">Cách thức hoạt động</h3>
             <div class="step">
                 <div class="step-num">1</div>
-                <div>LiÃªn há»‡ qua Zalo hoáº·c Facebook</div>
+                <div>Liên hệ qua Zalo hoặc Facebook</div>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
-                <div>Xwuan kÃ­ch hoáº¡t CapCut Pro cho báº¡n</div>
+                <div>Xwuan kích hoạt CapCut Pro cho bạn</div>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
-                <div>SÃ¡ng táº¡o ngay Â· Báº£o hÃ nh suá»‘t thá»i gian sá»­ dá»¥ng</div>
+                <div>Sáng tạo ngay · Bảo hành suốt thời gian sử dụng</div>
             </div>
         </div>
 
         <div class="obs-el" style="margin-top: 24px; animation-delay: 0.7s">
             <a href="https://zalo.me/0822307662" target="_blank" class="btn btn-zalo">
                 <img src="images/zalo.png" alt="Zalo">
-                <span>LIÃŠN Há»† ZALO</span>
+                <span>LIÊN HỆ ZALO</span>
             </a>
         </div>
 
         <div class="footer obs-el" style="animation-delay: 0.8s">
-            Â© <span id="yr">2025</span> CapCut Pro Xwuan Â· Uy tÃ­n táº¡o niá»m tin ðŸŽ¨
+            © <span id="yr">2025</span> CapCut Pro Xwuan · Uy tín tạo niềm tin 🎨
         </div>
     </div>
 
@@ -703,6 +703,5 @@ document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
 </script>
 </body>
 </html>
-
 
 
