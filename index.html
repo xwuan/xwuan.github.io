@@ -313,6 +313,22 @@ body[data-current-theme="ent"] .bg-cinematic { opacity: 1; }
 .ent-cv:hover .btn-ent { background: linear-gradient(135deg, #00c4cc, #7d2ae8); color: #fff; }
 
 
+/* Google AI Pro Style */
+.ent-gai { background: linear-gradient(180deg, rgba(14, 17, 34, 0.9), rgba(10, 12, 26, 0.95)); border: 1px solid rgba(66, 133, 244, 0.2); }
+.ent-gai::before { background: linear-gradient(90deg, #4285f4, #00d4ff); }
+.ent-gai:hover { border-color: rgba(66, 133, 244, 0.5); box-shadow: 0 10px 30px rgba(66, 133, 244, 0.15); }
+.ent-gai .ent-price { color: #93c5fd; }
+.ent-gai .btn-ent { background: rgba(66, 133, 244, 0.1); color: #93c5fd; border: 1px solid rgba(66, 133, 244, 0.3); }
+.ent-gai:hover .btn-ent { background: linear-gradient(135deg, #4285f4, #00d4ff); color: #fff; }
+
+/* Meitu SVIP Style */
+.ent-mt { background: linear-gradient(180deg, rgba(27, 18, 44, 0.9), rgba(14, 10, 22, 0.95)); border: 1px solid rgba(255, 45, 117, 0.2); }
+.ent-mt::before { background: linear-gradient(90deg, #ff2d75, #ff7ab3); }
+.ent-mt:hover { border-color: rgba(255, 45, 117, 0.5); box-shadow: 0 10px 30px rgba(255, 45, 117, 0.15); }
+.ent-mt .ent-price { color: #fbcfe8; }
+.ent-mt .btn-ent { background: rgba(255, 45, 117, 0.1); color: #fbcfe8; border: 1px solid rgba(255, 45, 117, 0.3); }
+.ent-mt:hover .btn-ent { background: linear-gradient(135deg, #ff2d75, #ff7ab3); color: #fff; }
+
 /* BADGES (Bridge style) */
 .bridge-block {
   background: rgba(13, 18, 37, 0.6); border: 1px solid var(--border-tech);
@@ -550,7 +566,7 @@ footer {
       </div>
 
       <!-- Google AI Pro -->
-      <div class="ent-card" style="border: 1px solid rgba(66, 133, 244, 0.35); background: linear-gradient(180deg, rgba(14, 17, 34, 0.9), rgba(10, 12, 26, 0.95));">
+      <div class="ent-card ent-gai">
         <img src="images/google-ai.png" class="ent-icon" alt="Google AI Pro">
         <div class="ent-title">Google AI Pro</div>
         <div class="ent-features">
@@ -564,7 +580,7 @@ footer {
       </div>
 
       <!-- Meitu SVIP -->
-      <div class="ent-card" style="border: 1px solid rgba(255, 45, 117, 0.35); background: linear-gradient(180deg, rgba(27, 18, 44, 0.9), rgba(14, 10, 22, 0.95));">
+      <div class="ent-card ent-mt">
         <img src="images/meitu.png" class="ent-icon" alt="Meitu SVIP">
         <div class="ent-title">Meitu SVIP</div>
         <div class="ent-features">
@@ -646,3 +662,5 @@ document.querySelectorAll('[data-theme]').forEach(el => themeObs.observe(el));
 </script>
 </body>
 </html>
+
+
