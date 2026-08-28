@@ -163,6 +163,8 @@ Giá gốc bị gạch hiển thị cùng badge SALE màu tương ứng brand.
 - [x] Khac phuc thong tin bang so sanh Locket Gold (Thoi luong quay 5s/15s, Bo quang cao).
 - [x] Them hieu ung cuon Fade-in (IntersectionObserver) muot ma cho toan bo cac trang chi tiet.
 
+- [x] Fix loi overscroll hien nen trang tren Safari mobile va them meta theme-color dong bo thanh taskbar.
+
 ## 8. QUY TAC LAM VIEC (WORKFLOW RULES)
 - Sua, fix loi bug: Phai cap nhat tien trinh vao file handover.md.
 - Sua loi thiet ke, them bot noi dung: Phai cap nhat huong dan vao file gemini.md.

@@ -1,4 +1,5 @@
 /* APPLE OVERRIDE */
+html { background-color: #050505 !important; }
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif !important;
 }
