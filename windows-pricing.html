@@ -274,14 +274,14 @@ body {
     background-image: none !important;
     font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif !important;
 }
-body::before, body::after {
+body::before, body::after { animation: float2 15s infinite ease-in-out !important;
     content: ''; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.35; z-index: -1; pointer-events: none;
-    animation: ambientBreathe 6s infinite alternate ease-in-out !important;
+    
 }
-body::before {
+body::before { animation: float1 12s infinite ease-in-out !important;
     top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--c1);
 }
-body::after {
+body::after { animation: float2 15s infinite ease-in-out !important;
     bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--c2);
 }
 .card {
@@ -356,8 +356,18 @@ h1 {
 .btn-order.ghost-btn { background: rgba(255, 255, 255, 0.05) !important; }
 .btn-fb { background: rgba(24, 119, 242, 0.2) !important; color: #fff !important; }
 .btn-call { background: rgba(0, 230, 118, 0.2) !important; color: #fff !important; }
-@keyframes ambientBreathe {
-  0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+@keyframes float1 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.35; }
+  33% { transform: translate(15vw, 10vh) scale(1.3); opacity: 0.6; }
+  66% { transform: translate(-10vw, 15vh) scale(0.9); opacity: 0.4; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.35; }
+}
+@keyframes float2 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+  33% { transform: translate(-15vw, -15vh) scale(1.2); opacity: 0.5; }
+  66% { transform: translate(10vw, -10vh) scale(0.8); opacity: 0.35; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+}
   100% { transform: scale(1.1) translate(30px, 20px); opacity: 0.4; }
 }
 .pcard, .combo, .repair, .hero, .cta-banner {
@@ -538,6 +548,8 @@ document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
+
+
 
 
 
