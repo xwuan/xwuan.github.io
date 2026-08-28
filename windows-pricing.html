@@ -275,13 +275,14 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif !important;
 }
 body::before, body::after {
-    content: ''; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.25; z-index: -1; pointer-events: none;
+    content: ''; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.35; z-index: -1; pointer-events: none;
+    animation: ambientBreathe 6s infinite alternate ease-in-out !important;
 }
 body::before {
-    top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--accent);
+    top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--c1);
 }
 body::after {
-    bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--accent2);
+    bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--c2);
 }
 .card {
     background: rgba(255, 255, 255, 0.05) !important;
@@ -342,7 +343,6 @@ h1 {
 .badge {
     border: 2px solid #000 !important;
 }
-</style>
 .btn-order, .btn-fb, .btn-call {
     border-radius: 99px !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
@@ -356,8 +356,22 @@ h1 {
 .btn-order.ghost-btn { background: rgba(255, 255, 255, 0.05) !important; }
 .btn-fb { background: rgba(24, 119, 242, 0.2) !important; color: #fff !important; }
 .btn-call { background: rgba(0, 230, 118, 0.2) !important; color: #fff !important; }
-
-
+@keyframes ambientBreathe {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+  100% { transform: scale(1.1) translate(30px, 20px); opacity: 0.4; }
+}
+.pcard, .combo, .repair, .hero, .cta-banner {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(40px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+.pc-badge, .fire-badge {
+    border-radius: 99px !important;
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -524,3 +538,6 @@ document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
+
+
+
