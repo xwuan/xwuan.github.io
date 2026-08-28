@@ -41,12 +41,11 @@ body {
 }
 .bg-layer::before, .bg-layer::after {
   content: ''; position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.6;
+  animation: breathe 8s infinite alternate ease-in-out;
 }
-.bg-layer::before {
-  top: -10%; left: -10%; width: 50vw; height: 50vw; background: rgba(10, 132, 255, 0.25);
-}
-.bg-layer::after {
-  bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: rgba(94, 92, 230, 0.15);
+@keyframes breathe {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+  100% { transform: scale(1.1) translate(20px, 20px); opacity: 0.8; }
 }
 
 .wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 24px 16px 90px; }
@@ -243,7 +242,7 @@ body {
 .badge:hover { background: rgba(255, 255, 255, 0.1); color: #fff; transform: translateY(-2px); }
 
 /* CONTACT */
-.cgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .cbtn {
   background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px; padding: 16px; display: flex; align-items: center; gap: 12px;
@@ -266,7 +265,7 @@ footer {
   .ps-left { flex-direction: column; gap: 12px; }
   .btn-see { justify-content: center; width: 100%; }
   .locket-top { flex-direction: column; text-align: center; }
-  .cgrid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
 }
 /* FLOAT ZALO */
 .fz {
@@ -281,16 +280,13 @@ footer {
 .fz:active { transform: scale(0.95); }
 .fz img { width: 30px; height: 30px; object-fit: contain; }
 </style>
-
-
-
 </head>
 <body>
 
 <!-- BACKGROUND LAYERS -->
-<div class="bg-layer bg-grid"></div>
-<div class="bg-layer bg-dots"></div>
-<div class="bg-layer bg-cinematic"></div>
+
+
+
 
 <div class="wrap">
 
@@ -307,32 +303,32 @@ footer {
   </header>
 
   <!-- WINDOWS & OFFICE (Tech World) -->
-  <div class="tech-block fi" data-theme="tech">
-    <div class="sec-label">🖥️ Cài đặt hệ thống</div>
-    <div class="sec-title">Windows &amp; Office</div>
+  <div class="tech-block" data-theme="tech">
+    <div class="sec-label fi">🖥️ Cài đặt hệ thống</div>
+    <div class="sec-title fi">Windows &amp; Office</div>
     <div class="svc-grid">
-      <div class="svc">
+      <div class="svc fi">
         <img src="images/windows.png" class="svc-img" alt="Windows">
         <div>
           <h3>Windows Chuẩn Microsoft</h3>
           <p>ISO gốc, driver đầy đủ. <br><strong style="color:var(--c1)" data-price-key="win_std">150k – 180k</strong></p>
         </div>
       </div>
-      <div class="svc">
+      <div class="svc fi">
         <img src="images/winghost.png" class="svc-img" alt="Windows Tối Ưu">
         <div>
           <h3>Windows Tối Ưu</h3>
           <p>Nhẹ, mượt cho máy cũ/yếu. <br><strong style="color:var(--c1)" data-price-key="win_opt">100k – 120k</strong></p>
         </div>
       </div>
-      <div class="svc">
+      <div class="svc fi">
         <img src="images/office.png" class="svc-img" alt="Office">
         <div>
           <h3>Microsoft Office</h3>
           <p>Bản quyền 365, 2021, 2019. <br><strong style="color:var(--c1)" data-price-key="office">80k – 120k</strong></p>
         </div>
       </div>
-      <div class="svc">
+      <div class="svc fi">
         <div style="font-size:28px;width:40px;flex-shrink:0;margin-top:2px;text-align:center;">🔥</div>
         <div>
           <h3>COMBO Tiết Kiệm</h3>
@@ -397,13 +393,13 @@ footer {
   </div>
 
   <!-- ENTERTAINMENT SUBSCRIPTIONS -->
-  <div class="ent-block fi" data-theme="ent" style="transition-delay: 0.2s;">
-    <div class="sec-label">🍿 Tài khoản giải trí &amp; sáng tạo</div>
-    <div class="sec-title">Premium Subscriptions</div>
+  <div class="ent-block" data-theme="ent" style="transition-delay: 0.2s;">
+    <div class="sec-label fi">🍿 Tài khoản giải trí &amp; sáng tạo</div>
+    <div class="sec-title fi">Premium Subscriptions</div>
     
     <div class="ent-grid">
       <!-- CapCut Pro -->
-      <div class="ent-card">
+      <div class="ent-card fi">
         <img src="images/capcut.png" class="ent-icon" alt="CapCut Pro">
         <div class="ent-title">CapCut Pro</div>
         <div class="ent-features">
@@ -417,7 +413,7 @@ footer {
       </div>
 
       <!-- YouTube Premium -->
-      <div class="ent-card">
+      <div class="ent-card fi">
         <img src="images/youtube.png" class="ent-icon" alt="YouTube Premium">
         <div class="ent-title">YouTube Premium</div>
         <div class="ent-features">
@@ -431,7 +427,7 @@ footer {
       </div>
 
       <!-- Canva Pro -->
-      <div class="ent-card">
+      <div class="ent-card fi">
         <img src="images/canva.png" class="ent-icon" alt="Canva Pro">
         <div class="ent-title">Canva Pro</div>
         <div class="ent-features">
@@ -445,7 +441,7 @@ footer {
       </div>
 
       <!-- Netflix 4K -->
-      <div class="ent-card">
+      <div class="ent-card fi">
         <img src="images/netflix.png" class="ent-icon" alt="Netflix">
         <div class="ent-title">Netflix 4K UHD</div>
         <div class="ent-features">
@@ -459,7 +455,7 @@ footer {
       </div>
 
       <!-- Google AI Pro -->
-      <div class="ent-card">
+      <div class="ent-card fi">
         <img src="images/google-ai.png" class="ent-icon" alt="Google AI Pro">
         <div class="ent-title">Google AI Pro</div>
         <div class="ent-features">
@@ -473,7 +469,7 @@ footer {
       </div>
 
       <!-- Meitu SVIP -->
-      <div class="ent-card">
+      <div class="ent-card fi">
         <img src="images/meitu.png" class="ent-icon" alt="Meitu SVIP">
         <div class="ent-title">Meitu SVIP</div>
         <div class="ent-features">
@@ -489,33 +485,33 @@ footer {
   </div>
 
   <!-- BADGES (Bridge) -->
-  <div class="bridge-block fi" data-theme="tech" style="transition-delay: 0.15s;">
-    <div class="sec-label">🛡️ Cam kết chất lượng</div>
+  <div class="bridge-block" data-theme="tech" style="transition-delay: 0.15s;">
+    <div class="sec-label fi">🛡️ Cam kết chất lượng</div>
     <div class="badge-grid">
-      <div class="badge"><span class="badge-icon">💾</span>Sao lưu dữ liệu an toàn</div>
-      <div class="badge"><span class="badge-icon">⚡</span>Hỗ trợ cực kỳ nhanh chóng</div>
-      <div class="badge"><span class="badge-icon">💬</span>Hỗ trợ hỏi đáp 24/24</div>
-      <div class="badge"><span class="badge-icon">🛡️</span>Win/Office bảo hành 6 tháng</div>
-      <div class="badge"><span class="badge-icon">♾️</span>Locket bảo hành tận tâm</div>
-      <div class="badge"><span class="badge-icon">🍿</span>Tài khoản Premium ổn định</div>
+      <div class="badge fi"><span class="badge-icon">💾</span>Sao lưu dữ liệu an toàn</div>
+      <div class="badge fi"><span class="badge-icon">⚡</span>Hỗ trợ cực kỳ nhanh chóng</div>
+      <div class="badge fi"><span class="badge-icon">💬</span>Hỗ trợ hỏi đáp 24/24</div>
+      <div class="badge fi"><span class="badge-icon">🛡️</span>Win/Office bảo hành 6 tháng</div>
+      <div class="badge fi"><span class="badge-icon">♾️</span>Locket bảo hành tận tâm</div>
+      <div class="badge fi"><span class="badge-icon">🍿</span>Tài khoản Premium ổn định</div>
     </div>
   </div>
 
   <!-- CONTACT -->
-  <div class="contact-block fi" id="contact" data-theme="tech" style="transition-delay: 0.2s;">
-    <div class="sec-label">📞 Liên hệ</div>
-    <div class="sec-title">Tìm mình ở đây 👋</div>
+  <div class="contact-block" id="contact" data-theme="tech" style="transition-delay: 0.2s;">
+    <div class="sec-label fi">📞 Liên hệ</div>
+    <div class="sec-title fi">Tìm mình ở đây 👋</div>
     <div class="contact-grid">
-      <a href="https://zalo.me/0822307662" target="_blank" class="cbtn zalo">
+      <a href="https://zalo.me/0822307662" target="_blank" class="cbtn fi zalo">
         <img src="images/zalo.png" alt="Zalo">Zalo
       </a>
-      <a href="https://www.facebook.com/xwuan1/" target="_blank" class="cbtn fb">
+      <a href="https://www.facebook.com/xwuan1/" target="_blank" class="cbtn fi fb">
         <img src="images/facebook.png" alt="Facebook">Facebook
       </a>
-      <a href="https://www.tiktok.com/@xwuan2" target="_blank" class="cbtn tt">
+      <a href="https://www.tiktok.com/@xwuan2" target="_blank" class="cbtn fi tt">
         <img src="images/tiktok.png" alt="TikTok">TikTok
       </a>
-      <a href="tel:0822307662" class="cbtn call">
+      <a href="tel:0822307662" class="cbtn fi call">
         <span class="call-icon">📞</span>0822.307.662
       </a>
     </div>
@@ -537,7 +533,8 @@ const fadeObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('in');
-      fadeObs.unobserve(e.target);
+    } else {
+      e.target.classList.remove('in');
     }
   });
 }, { threshold: 0.1 });
@@ -555,5 +552,4 @@ document.querySelectorAll('[data-theme]').forEach(el => themeObs.observe(el));
 </script>
 </body>
 </html>
-
 
