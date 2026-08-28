@@ -498,6 +498,13 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
 /* PREMIUM GRID BACKGROUND UNIFICATION */
 body { background-color: #0c0814 !important; background-image: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 60%), linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important; background-size: 100% 100%, 20px 20px, 20px 20px !important; }
 
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 24px; margin-top: 16px; }
+        .price-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; text-align: center; position: relative; }
+        .price-card.best { background: linear-gradient(to bottom, var(--card), var(--card2)); border-color: var(--accent); box-shadow: 0 4px 12px rgba(0, 212, 255, 0.15); }
+        .badge-best { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--accent), #0055ff); color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; white-space: nowrap; }
+        .price-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+        .price-amount { font-size: 24px; font-weight: 700; font-family: 'Syne', sans-serif; color: var(--accent); margin-bottom: 4px; }
+        .price-shield { font-size: 12px; color: var(--muted); margin-top: 8px; }
 </style>
 
 
@@ -532,10 +539,17 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
             <p class="subtitle">✦ 100+ Triệu Mẫu · Xóa Phông 1 Chạm · AI Magic Studio ✦</p>
         </div>
 
-        <div class="card d-1 fi">
-            <div class="price-box">
-                <div class="price" data-price-key="canva">130k<span> / 1 năm</span></div>
-                <div class="warranty">🛡️ Bảo hành full thời gian</div>
+        <div class="pricing-grid obs-el fi" style="--delay: 0.1s">
+            <div class="price-card">
+                <div class="price-title">Gói 30 ngày</div>
+                <div class="price-amount" data-price-key="canva_1m">20k</div>
+                <div class="price-shield">🛡️ Bảo hành full thời gian</div>
+            </div>
+            <div class="price-card best">
+                <div class="badge-best">Phổ biến nhất</div>
+                <div class="price-title">Gói 1 Năm</div>
+                <div class="price-amount" data-price-key="canva">130k</div>
+                <div class="price-shield">🛡️ Bảo hành full thời gian</div>
             </div>
         </div>
 
