@@ -347,7 +347,7 @@
             100% { opacity: 1; transform: scale(1); }
         }
         @keyframes slideUp {
-            0% { opacity: 0; transform: scale(0.96); }
+            0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: scale(1); }
         }
         @keyframes pulse {
@@ -429,7 +429,7 @@ body {
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 .btn:active {
-    transform: scale(0.96) !important;
+    transform: translateY(20px) !important;
 }
 .btn-zalo {
     background: rgba(255, 255, 255, 0.1) !important;
@@ -474,7 +474,7 @@ h1 {
 }
 
 /* FADE-IN ANIMATION */
-.fi { opacity: 0 !important; transform: scale(0.96) !important; transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+.fi { opacity: 0 !important; transform: translateY(20px) !important; transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; }
 .fi.in { opacity: 1 !important; transform: none !important; }
 .card, .ptier, .pcard, .combo { animation: none !important; }
 
@@ -487,7 +487,7 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
 
 
 /* GLOBAL EMOJI FLOAT & DECO ENHANCEMENT */
-.emoji-float, .deco, .floater { position: fixed !important; font-size: 2.2rem !important; opacity: 0.15 !important; animation: floatPremium 6s ease-in-out infinite !important; z-index: 0 !important; pointer-events: none !important; }
+.emoji-float, .deco, .floater { position: fixed !important; font-size: 1.8rem !important; opacity: 0.15 !important; animation: floatPremium 6s ease-in-out infinite !important; z-index: 0 !important; pointer-events: none !important; }
 .e-1, .d1, .f1 { top: 10% !important; left: 5% !important; animation-delay: 0s !important; }
 .e-2, .d2, .f2 { top: 25% !important; right: 5% !important; animation-delay: 1.5s !important; }
 .e-3, .d3, .f3 { top: 60% !important; left: 7% !important; animation-delay: 3s !important; }
@@ -647,7 +647,7 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
     </script>
 
 <script>
-const fadeObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); } else { e.target.classList.remove("in"); } }); }, { threshold: 0.05 });
+const fadeObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); } else { e.target.classList.remove("in"); } }); }, { threshold: 0.05, rootMargin: "50px 0px" });
 document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
 </script>
 </body>
