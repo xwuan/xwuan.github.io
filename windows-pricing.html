@@ -288,7 +288,7 @@ body {
 }
 
 /* FADE-IN ANIMATION */
-.fi { opacity: 0 !important; transform: scale(0.96) !important; transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+.fi { opacity: 0 !important; transform: scale(0.96) !important; transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1) var(--delay, 0s), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) var(--delay, 0s) !important; }
 .fi.in { opacity: 1 !important; transform: none !important; }
 .card, .ptier, .pcard, .combo { animation: none !important; }
 
@@ -355,7 +355,7 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
   </div>
 
   <!-- TRUST BAR -->
-  <div class="trust" style="transition-delay:.06s">
+  <div class="trust" style="--delay: 0.06s">
     <div class="ti">⚡ Xong trong <strong>30–60 phút</strong></div>
     <div class="ti">🛡️ Bảo hành <strong>6 tháng</strong></div>
     <div class="ti">✅ Bản gốc <strong>Microsoft</strong></div>
@@ -363,12 +363,12 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
   </div>
 
   <!-- SERVICE CARDS -->
-  <div class="sec-label" style="transition-delay:.1s">💰 Đơn lẻ</div>
-  <div class="sec-title" style="transition-delay:.1s">Chọn gói phù hợp</div>
+  <div class="sec-label" style="--delay: 0.1s">💰 Đơn lẻ</div>
+  <div class="sec-title" style="--delay: 0.1s">Chọn gói phù hợp</div>
 
-  <div class="cards" style="transition-delay:.12s">
+  <div class="cards" style="--delay: 0.12s">
 
-    <div class="pcard featured fi">
+    <div class="pcard featured fi" style="--delay: 0.1s">
       <div class="pc-badge bc-blue">Phổ biến nhất</div>
       <div class="pc-icon-wrap">
         <img src="images/windows.png" class="pc-icon" alt="Windows">
@@ -386,7 +386,7 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
       <a href="tel:0822307662" class="btn-order">📞 Đặt lịch ngay</a>
     </div>
 
-    <div class="pcard fi">
+    <div class="pcard fi" style="--delay: 0.2s">
       <div class="pc-badge bc-green">Máy yếu / Cũ</div>
       <div class="pc-icon-wrap">
         <img src="images/winghost.png" class="pc-icon" alt="Windows Tối Ưu">
@@ -404,7 +404,7 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
       <a href="tel:0822307662" class="btn-order ghost-btn">📞 Hỏi thêm</a>
     </div>
 
-    <div class="pcard fi">
+    <div class="pcard fi" style="--delay: 0.3s">
       <div class="pc-badge bc-gold">Office 365 / 2021</div>
       <div class="pc-icon-wrap">
         <img src="images/office.png" class="pc-icon" alt="Office">
@@ -423,11 +423,11 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
   </div>
 
   <!-- COMBO -->
-  <div class="sec-label" style="transition-delay:.16s">🔥 Tiết kiệm hơn</div>
-  <div class="sec-title" style="transition-delay:.16s">Combo gộp — Giá rẻ hơn</div>
+  <div class="sec-label" style="--delay: 0.16s">🔥 Tiết kiệm hơn</div>
+  <div class="sec-title" style="--delay: 0.16s">Combo gộp — Giá rẻ hơn</div>
 
-  <div class="combos" style="transition-delay:.18s">
-    <div class="combo fi">
+  <div class="combos" style="--delay: 0.18s">
+    <div class="combo fi" style="--delay: 0.1s">
       <div class="fire-badge">🔥 Hot deal</div>
       <div class="combo-title">Win Chuẩn + Office</div>
       <div class="combo-items">
@@ -442,7 +442,7 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
       <a href="tel:0822307662" class="btn-order">📞 Chọn gói này</a>
     </div>
 
-    <div class="combo fi">
+    <div class="combo fi" style="--delay: 0.2s">
       <div class="fire-badge">⚡ Nhẹ nhất</div>
       <div class="combo-title">Win Tối Ưu + Office</div>
       <div class="combo-items">
@@ -459,7 +459,7 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
   </div>
 
   <!-- REPAIR -->
-  <div class="repair fi" style="transition-delay:.22s;margin-top:14px;">
+  <div class="repair fi" style="--delay: 0.22s; margin-top:14px;">
     <div class="repair-icon">🔧</div>
     <div class="repair-info">
       <h3>Khắc phục lỗi Windows</h3>
@@ -475,7 +475,7 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
   </div>
 
   <!-- CTA -->
-  <div class="cta-banner fi" style="transition-delay:.26s">
+  <div class="cta-banner fi" style="--delay: 0.26s">
     <h2>Cần tư vấn? Liên hệ ngay!</h2>
     <p>Phản hồi nhanh · Hỗ trợ online &amp; tại nhà</p>
     <div class="cta-btns">
