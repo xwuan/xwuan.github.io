@@ -648,15 +648,7 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
     </script>
 
 <script>
-const fadeObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add("in");
-    } else {
-      e.target.classList.remove("in");
-    }
-  });
-}, { threshold: 0.1 });
+const fadeObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); } else if (e.boundingClientRect.top > 50) { e.target.classList.remove("in"); } }); }, { threshold: 0.15 });
 document.querySelectorAll(".fi").forEach(el => fadeObs.observe(el));
 </script>
 </body>
