@@ -330,13 +330,16 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
   }
 }
 .cta-banner { margin: 14px 0 24px 0 !important; padding: 24px !important; }
+
+/* PREMIUM GRID BACKGROUND UNIFICATION */
+body { background-color: #0c0814 !important; background-image: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 60%), linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important; background-size: 100% 100%, 20px 20px, 20px 20px !important; }
 </style>
 </head>
 <body>
-<div class="emoji-float e-1">💻</div>
-<div class="emoji-float e-2">⚙️</div>
-<div class="emoji-float e-3">🛠️</div>
-<div class="emoji-float e-4">🔥</div>
+<div class="floater f1">💻</div>
+<div class="floater f2">⚙️</div>
+<div class="floater f3">🛠️</div>
+<div class="floater f4">🔥</div>
 
 <div class="wrap">
 
@@ -456,7 +459,7 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
   </div>
 
   <!-- REPAIR -->
-  <div class="repair" style="transition-delay:.22s;margin-top:14px;">
+  <div class="repair fi" style="transition-delay:.22s;margin-top:14px;">
     <div class="repair-icon">🔧</div>
     <div class="repair-info">
       <h3>Khắc phục lỗi Windows</h3>
@@ -472,7 +475,7 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
   </div>
 
   <!-- CTA -->
-  <div class="cta-banner" style="transition-delay:.26s">
+  <div class="cta-banner fi" style="transition-delay:.26s">
     <h2>Cần tư vấn? Liên hệ ngay!</h2>
     <p>Phản hồi nhanh · Hỗ trợ online &amp; tại nhà</p>
     <div class="cta-btns">
@@ -495,10 +498,6 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
-const obs = new IntersectionObserver(es => {
-  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }});
-},{threshold:.08});
-document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 </script>
 
 <script>
