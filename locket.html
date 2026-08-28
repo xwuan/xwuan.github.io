@@ -181,79 +181,78 @@ footer{text-align:center;font-size:.7rem;color:var(--muted);padding-top:8px;font
 }
 .fz img{width:28px;height:28px;object-fit:contain;}
 /* APPLE OVERRIDE */
+:root { --text: #fff; --muted: #a1a1aa; }
 body {
     background: #000 !important;
     background-image: none !important;
     font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif !important;
 }
 body::before, body::after {
-    content: ''; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.25; z-index: -1; pointer-events: none;
+    content: ''; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.35; z-index: -1; pointer-events: none;
+    animation: ambientBreathe 6s infinite alternate ease-in-out !important;
 }
-body::before {
-    top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--accent);
-}
-body::after {
-    bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--accent2);
-}
-.card {
+body::before { top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--p1); }
+body::after { bottom: -10%; right: -10%; width: 70vw; height: 70vw; background: var(--p2); }
+
+.ptier {
     background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: blur(40px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 24px !important;
+}
+.ptier-name { color: #fff !important; }
+.p-opt {
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: #fff !important; border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+.p-opt.best { background: rgba(245, 158, 11, 0.1) !important; border: 1px solid rgba(245, 158, 11, 0.3) !important; color: #fcd34d !important; }
+.p-opt.best .prc { color: #fcd34d !important; }
+
+.card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(40px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
     border-radius: 24px !important;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
 }
-.price-box {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 16px !important;
+.clist li {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: #fff !important;
 }
-.btn {
+.clist li:hover { background: rgba(255, 255, 255, 0.08) !important; }
+
+.step h4 { color: #fff !important; }
+
+.btn-z, .btn-fb {
     border-radius: 99px !important;
-    border: none !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
-.btn:active {
-    transform: scale(0.96) !important;
+.btn-z:active, .btn-fb:active {
+    transform: scale(0.96) !important; box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
 }
-.btn-zalo {
+.btn-z { background: rgba(255,255,255,0.15) !important; border: 1px solid rgba(255,255,255,0.1) !important; }
+.btn-fb { background: rgba(168,85,247,0.2) !important; border: 1px solid rgba(168,85,247,0.3) !important; }
+
+.fz {
     background: rgba(255, 255, 255, 0.1) !important;
-    color: #fff !important;
+    backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 99px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important; animation: none !important;
 }
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.05) !important;
-}
-h1 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Be Vietnam Pro', sans-serif !important;
-    background: none !important;
-    -webkit-text-fill-color: #fff !important;
-    color: #fff !important;
-    text-shadow: none !important;
-}
-.emoji-float { display: none !important; }
-.zalo-float {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
+.fz:hover { transform: scale(1.05) !important; }
+.fz:active { transform: scale(0.95) !important; }
+
+.av {
+    border-radius: 24px !important; /* Squircle */
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 99px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-    animation: none !important;
-}
-.zalo-float:hover { transform: scale(1.05) !important; }
-.zalo-float:active { transform: scale(0.95) !important; }
-.avatar {
-    border-radius: 20px !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
-    padding: 0 !important;
 }
-.badge {
-    border: 2px solid #000 !important;
-}
+.av-badge { border-color: #000 !important; }
 </style>
 
 </head>
@@ -351,3 +350,4 @@ h1 {
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
