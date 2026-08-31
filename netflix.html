@@ -519,9 +519,15 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
   });
   // Bulletproof fallback for Microsoft Fluent 3D variant selectors (e.g. shield emoji)
   document.addEventListener("error", function(e) {
-    if (e.target.tagName === "IMG" && e.target.classList.contains("emoji") && !e.target.dataset.retried) {
-      e.target.dataset.retried = true;
-      e.target.src = e.target.src.replace(".webp", "-fe0f.webp");
+    if (e.target.tagName === "IMG" && e.target.classList.contains("emoji")) {
+      if (!e.target.dataset.fallback) {
+        e.target.dataset.fallback = "1";
+        e.target.src = e.target.src.replace(".webp", "-fe0f.webp");
+      } else if (e.target.dataset.fallback === "1") {
+        e.target.dataset.fallback = "2";
+        let icon = e.target.src.split("/").pop().replace("-fe0f.webp", "").replace(".webp", "");
+        e.target.src = "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/" + icon + ".svg";
+      }
     }
   }, true);
 </script>
