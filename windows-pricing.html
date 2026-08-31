@@ -337,8 +337,11 @@ body { background-color: #0c0814 !important; background-image: radial-gradient(c
 <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.0/dist/twemoji.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
+    // Some Microsoft 3D emojis require the -fe0f variation selector suffix to match LobeHub CDN
+    const needsFe0f = ["1f5a5", "267e", "1f6e1", "26a0", "2699", "1f6e0", "2764", "1f39e"];
     twemoji.parse(document.body, {
       callback: function(icon, options, variant) {
+        if (needsFe0f.includes(icon)) icon += "-fe0f";
         return "https://cdn.jsdelivr.net/npm/@lobehub/fluent-emoji-3d@1.1.0/assets/" + icon + ".webp";
       }
     });
