@@ -328,6 +328,25 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
     flex-shrink: 0 !important;
   }
 }
+
+/* FLOATING EMOJIS */
+.floater { position: fixed; font-size: 1.8rem; opacity: 0.15; animation: floatPremium 15s linear infinite; z-index: 0; pointer-events: none; }
+.f1 { top: 12%; left: 6%; animation-delay: 0s; }
+.f2 { top: 22%; right: 7%; animation-delay: -3s; }
+.f3 { top: 55%; left: 4%; animation-delay: -6s; }
+.f4 { top: 65%; right: 5%; animation-delay: -9s; }
+.f5 { top: 38%; left: 12%; animation-delay: -12s; }
+.f6 { top: 82%; right: 15%; animation-delay: -2s; }
+@keyframes floatPremium {
+  0% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-25px) rotate(120deg); }
+  66% { transform: translateY(15px) rotate(240deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+@media (max-width: 600px) {
+  .floater.f5, .floater.f6 { display: none; }
+  .floater { font-size: 1.4rem; opacity: 0.1; }
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.0/dist/twemoji.min.js"></script>
 <script>
@@ -370,6 +389,14 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
 <div class="bg-layer bg-grid"></div>
 <div class="bg-layer bg-dots"></div>
 <div class="bg-layer bg-cinematic"></div>
+  <!-- FLOATING EMOJIS -->
+  <div class="floater f1">💻</div>
+  <div class="floater f2">🍿</div>
+  <div class="floater f3">✨</div>
+  <div class="floater f4">🎨</div>
+  <div class="floater f5">📸</div>
+  <div class="floater f6">🎬</div>
+
 
 
 
