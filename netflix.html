@@ -511,8 +511,19 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
 <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.0/dist/twemoji.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    twemoji.parse(document.body, { folder: "svg", ext: ".svg" });
+    twemoji.parse(document.body, {
+      callback: function(icon, options, variant) {
+        return "https://cdn.jsdelivr.net/npm/@lobehub/fluent-emoji-3d@1.1.0/assets/" + icon + ".webp";
+      }
+    });
   });
+  // Bulletproof fallback for Microsoft Fluent 3D variant selectors (e.g. shield emoji)
+  document.addEventListener("error", function(e) {
+    if (e.target.tagName === "IMG" && e.target.classList.contains("emoji") && !e.target.dataset.retried) {
+      e.target.dataset.retried = true;
+      e.target.src = e.target.src.replace(".webp", "-fe0f.webp");
+    }
+  }, true);
 </script>
 <style>
   img.emoji {
