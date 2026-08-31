@@ -329,6 +329,20 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
   }
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.0/dist/twemoji.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    twemoji.parse(document.body, { folder: "svg", ext: ".svg" });
+  });
+</script>
+<style>
+  img.emoji {
+    height: 1.2em;
+    width: 1.2em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.2em;
+  }
+</style>
 </head>
 <body>
 

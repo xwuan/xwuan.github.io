@@ -334,6 +334,20 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
 /* PREMIUM GRID BACKGROUND UNIFICATION */
 body { background-color: #0c0814 !important; background-image: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 60%), linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important; background-size: 100% 100%, 20px 20px, 20px 20px !important; }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.0/dist/twemoji.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    twemoji.parse(document.body, { folder: "svg", ext: ".svg" });
+  });
+</script>
+<style>
+  img.emoji {
+    height: 1.2em;
+    width: 1.2em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.2em;
+  }
+</style>
 </head>
 <body>
 <div class="floater f1">💻</div>
