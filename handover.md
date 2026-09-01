@@ -178,3 +178,11 @@ GiÃ¡ gá»‘c bá»‹ gáº¡ch hiá»ƒn thá»‹ cÃ¹ng badge SALE mÃ 
 - **[Bug Fix] IntersectionObserver Infinite Loop (Final)**: Reverted cards from "scale(0.96)" back to "translateY(20px)" to restore the slide-up animation. Added "rootMargin: 50px 0px" to the IntersectionObserver to extend the viewport detection zone, preventing the bounce loop while keeping the slide-up effect.
 - **[Bug Fix] Missing Bi-directional Animations**: Fixed a bug where windows-pricing.html lacked the bi-directional scroll observer and stagger effects due to an accidental rollback. Restored the premium cinematic grid background and cascading staggered animations using CSS variables (--delay).
 - **[Bug Fix] Browser Zoom Confusion**: Identified that the user accidentally zoomed their browser to 130%, which caused the layout to appear massive. Resolved by instructing them to press Ctrl+0.
+### Cập nhật 2026-09-01 (Hoàn thiện Giao diện & Hệ thống Emoji)
+- **Cập nhật Bảng giá Canva**: Đã nâng cấp UI báo giá Canva Pro thành dạng Grid 2 cột chuyên nghiệp, bổ sung gói 20k / 30 ngày bên cạnh gói 1 Năm, đồng bộ với thiết kế của Capcut.
+- **Hệ thống Microsoft Fluent Emoji 3D**:
+  - Gỡ bỏ Twemoji phẳng, thay bằng bộ Emoji 3D bóng bẩy của Microsoft qua CDN `@lobehub/fluent-emoji-3d`.
+  - Viết giải pháp dự phòng kép (Dual Fallback) cực kỳ thông minh: Tự động ánh xạ cứng các emoji cần hậu tố `-fe0f` (như 🛡️, 🖥️, ⚙️, 🛠️) để tải mượt mà không delay.
+  - Bổ sung `onerror` listener chặn đứng 100% lỗi 404 (chuyển hướng sang SVG nếu vỡ ảnh).
+- **Background Emoji Trang chủ (`index.html`)**: Bổ sung dàn 9 emoji 3D lơ lửng xoay 360 độ (💻, 🍿, ✨, 🎨, 📸, 🎬, ⚙️, 🖥️, 🛠️) vào nền trang chủ, mang lại cảm giác sống động và đồng bộ tuyệt đối với các trang dịch vụ con. Khéo léo làm mờ tự nhiên (opacity 0.15) và ẩn bớt trên mobile để tránh rối mắt.
+- Dọn dẹp các script nháp và các thư mục `node_modules` bị add nhầm vào git.

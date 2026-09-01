@@ -239,27 +239,23 @@ Báº£ng so sÃ¡nh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 *File cáº­p nháº­t: 2026-08-27 â€” Bá»• sung admin.html, pricing.js, push scripts vÃ  quy táº¯c URL cá»©ng Git*
 
 
-### 4. LOI THIET KE DOI MOI (APPLE GLASSMORPHISM)
-- Giao dien cot loi: Ap dung triet de phong cach Apple Glassmorphism.
-- The noi dung (Cards): Kinh mo (Frost Glass), vien bo tron manh (border-radius: 24px), do bong mem mai (soft shadow). Mau nen thuong la rgba(255, 255, 255, 0.05) ket hop backdrop-filter: blur(40px).
-- Nut bam (Buttons): Hinh vien thuoc (border-radius: 99px), phan hoi cham lo xo (cubic-bezier(0.25, 1, 0.5, 1)).
-- Phong nen (Background):
-  - Trang chu (index.html): Cuc quang (Aurora) Gradient chuyen dong chim cuc ky tinh te, toi mau (#050505 ket hop #11091a) kem luoi (grid/dots) dong thay doi theo section.
-  - Trang chi tiet: Giu nguyen phong nen luoi/dots nguyen thuy (dam chat note), emoji bay luon, ket hop voi cac the kinh mo noi bat o tren. Trang locket.html dung dai mau Tim tham - Den sau.
-- Hieu ung cuon: Su dung IntersectionObserver lap lai lien tuc. Vuot len/xuong thi cac the (.fi) se mo dan va truot len (fade-in / translateY).
 
-### 5. QUY TAC LAM VIEC (WORKFLOW RULES)
-- Sua, fix loi bug: Phai cap nhat tien trinh vao file handover.md.
-- Sua loi thiet ke, them bot noi dung: Phai cap nhat huong dan vao file gemini.md.
-- Quy trinh: LUON cap nhat Document -> Commit -> Push code.
-- **[DESIGN] Đồng bộ Premium Backgrounds:** Nâng cấp tất cả các trang phụ (Capcut, Locket, Youtube, Canva...) lên chuẩn thiết kế mới với nền lưới ma trận phát sáng (grid) và hiệu ứng Emoji trôi nổi, xoay vòng 360 độ (position: fixed).
-- **[DESIGN] Mobile App Swipeable Carousels:** Xóa bỏ danh sách xếp chồng dọc nhàm chán trên Mobile. Chuyển toàn bộ danh sách dịch vụ (index.html, windows-pricing.html) sang dạng vuốt ngang (Scroll Snap) hệt như App Store, mang lại cảm giác dùng native app cực kỳ mượt mà.
+### 4. LỐI THIẾT KẾ ĐỔI MỚI (APPLE GLASSMORPHISM)
+- **Giao diện cốt lõi**: Áp dụng triệt để phong cách Apple Glassmorphism.
+- **Thẻ nội dung (Cards)**: Kính mờ (Frost Glass), viền bo tròn mạnh (border-radius: 24px), độ bóng mềm mại (soft shadow). Màu nền thường là rgba(255, 255, 255, 0.05) kết hợp `backdrop-filter: blur(40px)`.
+- **Nút bấm (Buttons)**: Hình viên thuốc (border-radius: 99px), phản hồi chạm lò xo (cubic-bezier(0.25, 1, 0.5, 1)).
+- **Phông nền (Background)**:
+  - Tất cả các trang đều dùng nền lưới ma trận phát sáng (grid/dots) tinh tế.
+  - Hiệu ứng Emoji trôi nổi: Xoay vòng 360 độ (position: fixed) mượt mà bằng CSS `@keyframes floatPremium` `15s linear infinite`.
+- **Hiệu ứng cuộn 2 chiều (Bi-directional Scroll)**: Các phần tử `.fi` sẽ mờ dần và trượt lên (fade-in / translateY) khi xuất hiện trên màn hình, và tự động mờ đi khi vuốt khuất khỏi màn hình, tạo cảm giác cực kỳ tương tác.
+- **Hiệu ứng xếp chồng (Cascading Stagger Effect)**: Sử dụng CSS biến `--delay` để tạo hiệu ứng thẻ hiện ra lần lượt như thác nước.
+- **Hệ thống Emoji 3D Cao cấp**: 
+  - Toàn bộ website sử dụng **Microsoft Fluent Emoji 3D** bóng bẩy để đồng bộ với phong cách Glassmorphism.
+  - Kỹ thuật: Dùng `twemoji.parse` kết nối với CDN của `@lobehub/fluent-emoji-3d`.
+  - Có cơ chế ánh xạ cứng (hardcode mapping) cho các icon đặc thù cần hậu tố `-fe0f` (như 🛡️, ⚙️, 🖥️) và cơ chế `onerror` fallback về thẻ SVG của Twitter để đảm bảo 100% không bao giờ bị vỡ ảnh 404.
 
-- **[CONTENT] Sửa đoạn mô tả:** Ngắt dòng (thêm <br>) giữa 'Dịch vụ kỹ thuật & phần mềm' và 'Nhanh · Sạch · Uy tín' ở phần Header trang chủ để tối ưu hiển thị, tránh câu quá dài.
-
-- **[CONTENT] Tối ưu URL:** Loại bỏ đuôi .html khỏi toàn bộ các liên kết nội bộ trên website. Đổi liên kết trỏ về trang chủ từ index.html thành ./ (mặc định) để khi người dùng lướt web, thanh địa chỉ trông sạch sẽ và chuyên nghiệp hơn (ví dụ: xwuan.github.io/capcut thay vì xwuan.github.io/capcut.html).
-
-- **[Design Upgrade] Universal Bi-directional Scroll**: Implemented bi-directional fade-in animations across ALL detail pages (capcut.html, locket.html, etc.) so cards gracefully fade in and out regardless of scroll direction (up or down).
-- **[Design Upgrade] Cascading Stagger Effect**: Added CSS variable --delay to .fi elements to create a beautiful cascading waterfall effect (staggered fade-in) for CSS grid layouts, specifically on windows-pricing.html, without interfering with hover transitions.
-- **[Design Upgrade] Refined Emojis**: Slightly reduced the size of .floater emojis across all pages (from 2.2rem to 1.8rem) for a more elegant and less overpowering aesthetic.
-- **[Feature] Universal Microsoft Fluent Emoji 3D Integration**: Swapped Twemoji for Microsoft's Fluent Emoji 3D using @lobehub/fluent-emoji-3d CDN and Twemoji's parser. Includes a robust onerror event capturing fallback to handle e0f variation selectors (like the shield emoji), giving the entire UI a premium, glossy Apple-like Glassmorphism aesthetic.
+### 5. QUY TẮC LÀM VIỆC (WORKFLOW RULES)
+- **Sửa, fix lỗi bug**: Phải cập nhật tiến trình vào file `handover.md`.
+- **Sửa lối thiết kế, thêm bớt nội dung**: Phải cập nhật hướng dẫn vào file `gemini.md`.
+- **Quy trình**: LUÔN cập nhật Document -> Commit -> Push code.
+- **Tuyệt đối không dùng PowerShell Get-Content/Set-Content** để thay thế chuỗi có dấu tiếng Việt, vì sẽ gây lỗi font (Mojibake). Bắt buộc dùng Node.js (`fs.readFileSync("...", "utf8")`) để chỉnh sửa mã nguồn.
