@@ -97,7 +97,7 @@
       meitu: {
         id: "meitu",
         name: "Meitu SVIP",
-        price: "80k",
+        price: "90k",
         unit: "/ 30 ngày",
         originalPrice: "",
         isSale: false,

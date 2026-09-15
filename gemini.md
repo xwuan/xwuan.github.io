@@ -68,7 +68,7 @@ Triáº¿t lÃ½: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tá»‘i giá�
   3. **Canva Pro**: `130k / 1 nÄƒm` (Báº£o hÃ nh full thá»i gian)
   4. **Netflix 4K UHD**: `45k / 30 ngÃ y` (Báº£o hÃ nh full thá»i gian)
   5. **Google AI Pro**: `60k / 1 nÄƒm` (KhÃ´ng báº£o hÃ nh)
-  6. **Meitu SVIP**: `80k / 30 ngÃ y` (Báº£o hÃ nh full thá»i gian)
+  6. **Meitu SVIP**: `90k / 30 ngày` (Báº£o hÃ nh full thá»i gian)
 - **Module Dá»¯ Liá»‡u Táº­p Trung `pricing.js`**:
   - Chá»©a cáº¥u hÃ¬nh gá»‘c `DEFAULT_CONFIG` lÆ°u toÃ n bá»™ báº£ng giÃ¡ chuáº©n.
   - Tá»± Ä‘á»™ng map giÃ¡ vÃ o táº¥t cáº£ cÃ¡c tháº» cÃ³ thuá»™c tÃ­nh `data-price-key="..."` trÃªn `index.html` vÃ  cÃ¡c trang con (`windows-pricing.html`, `netflix.html`, `capcut.html`, `youtube.html`, `canva.html`, `locket.html`).

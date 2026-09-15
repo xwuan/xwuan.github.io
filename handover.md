@@ -186,3 +186,7 @@ GiÃ¡ gá»‘c bá»‹ gáº¡ch hiá»ƒn thá»‹ cÃ¹ng badge SALE mÃ 
   - Bổ sung `onerror` listener chặn đứng 100% lỗi 404 (chuyển hướng sang SVG nếu vỡ ảnh).
 - **Background Emoji Trang chủ (`index.html`)**: Bổ sung dàn 9 emoji 3D lơ lửng xoay 360 độ (💻, 🍿, ✨, 🎨, 📸, 🎬, ⚙️, 🖥️, 🛠️) vào nền trang chủ, mang lại cảm giác sống động và đồng bộ tuyệt đối với các trang dịch vụ con. Khéo léo làm mờ tự nhiên (opacity 0.15) và ẩn bớt trên mobile để tránh rối mắt.
 - Dọn dẹp các script nháp và các thư mục `node_modules` bị add nhầm vào git.
+
+### Cập nhật 2026-09-15 (Cập nhật giá Meitu SVIP)
+- **Meitu SVIP**: Điều chỉnh giá từ `80k` lên `90k / 30 ngày` (Bảo hành full thời gian).
+- Đồng bộ dữ liệu tại: `pricing.js`, `index.html`, `meitu.html`, `GEMINI.md`.
