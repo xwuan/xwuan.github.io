@@ -190,12 +190,3 @@ GiÃ¡ gá»‘c bá»‹ gáº¡ch hiá»ƒn thá»‹ cÃ¹ng badge SALE mÃ 
 ### Cập nhật 2026-09-15 (Cập nhật giá Meitu SVIP)
 - **Meitu SVIP**: Điều chỉnh giá từ `80k` lên `90k / 30 ngày` (Bảo hành full thời gian).
 - Đồng bộ dữ liệu tại: `pricing.js`, `index.html`, `meitu.html`, `GEMINI.md`.
-
-### Cập nhật 2026-09-24 (Tối ưu Sổ Lật 3D - Không nút ngoài quyển sổ cho Mobile & Desktop)
-- **Thiết kế Clean Notebook**: Loại bỏ hoàn toàn thanh topbar, controls, dots, floating Zalo bên ngoài quyển sổ trên cả Mobile và Desktop. Trải nghiệm tập trung 100% vào quyển sổ đặt trên nền ma trận neon/glassmorphism.
-- **Điều hướng tích hợp nội bộ**:
-  - Bìa trước (Front Cover): Tích hợp danh mục dịch vụ (.cov-nav), nút chạm mở sổ xem giá, nút bật tắt âm thanh và link về Sổ Tổng.
-  - Bìa sau (Back Cover): Tích hợp nút 'Về bìa trước', danh bạ liên hệ và điều hướng nhanh.
-  - Trang nội dung: Tích hợp thanh danh mục dịch vụ trực tiếp bên trong trang.
-- **[Fix Bug] Lò xo đè chữ trên Mobile**: Bổ sung padding-left: 54px cho .book-wrap.single .face-in, giải quyết triệt để lỗi vòng lò xo che mất icon và tiêu đề trên màn hình hẹp (iPhone SE 375px, iPhone 12/13/14 390px).
-- **Auto Viewport Fit**: Tự động tính toán tỷ lệ trang tối ưu, không xuất hiện thanh cuộn dọc ngoài ý muốn.

@@ -259,9 +259,3 @@ Báº£ng so sÃ¡nh: `overflow-x: auto; -webkit-overflow-scrolling: touch`.
 - **Sửa lối thiết kế, thêm bớt nội dung**: Phải cập nhật hướng dẫn vào file `gemini.md`.
 - **Quy trình**: LUÔN cập nhật Document -> Commit -> Push code.
 - **Tuyệt đối không dùng PowerShell Get-Content/Set-Content** để thay thế chuỗi có dấu tiếng Việt, vì sẽ gây lỗi font (Mojibake). Bắt buộc dùng Node.js (`fs.readFileSync("...", "utf8")`) để chỉnh sửa mã nguồn.
-
-### 6. LỐI THIẾT KẾ QUYỂN SỔ 3D (FLIPBOOK NOTEBOOK) - KHÔNG NÚT BÊN NGOÀI (Cập nhật 2026-09-24)
-- **Triết lý không gian**: Trải nghiệm thực thụ như một quyển sổ ghi chép 3D đặt trên bàn (Desk Flipbook), giao diện tối giản, tập trung tuyệt đối vào nội dung.
-- **Quy tắc vàng**: Toàn bộ nút bấm, thanh điều hướng, nút chuyển trang, nút liên hệ/Zalo, bật/tắt âm thanh... đều nằm **BÊN TRONG** quyển sổ (ngay trên trang bìa hoặc các trang nội dung). Tuyệt đối **KHÔNG CÓ** nút bấm, thanh topbar, controls hay floating button lơ lửng bên ngoài quyển sổ trên cả Mobile và Desktop.
-- **Cơ chế lật trang**: Chạm vuốt mép trang, phím mũi tên bàn phím, hoặc bấm các nút điều hướng tích hợp trên bìa/trang.
-- **Gáy lò xo Mobile**: Chế độ 1 trang (single page) trên mobile có vòng lò xo bên trái; nội dung trang luôn được cách lề an toàn (`padding-left: 54px`) để tránh bị che khuất bởi lò xo xoắn.
