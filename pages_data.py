@@ -54,7 +54,7 @@ def toc_face(items, note='bấm vào dòng nào — sổ tự lật đến trang
             % (SQ('#4a7fb5'), toc(items), note))
 
 
-def cover_face(title, sub, sticker, hint, foot, badges=None, icon=None, burst=None):
+def cover_face(title, sub, sticker, hint, foot, badges=None, icon=None, burst=None, nav=None, is_home=False):
     mid = ''
     if icon:
         mid += '<div class="cov-icon">%s</div>' % icon
@@ -63,10 +63,25 @@ def cover_face(title, sub, sticker, hint, foot, badges=None, icon=None, burst=No
     bd = ''
     if badges:
         bd = '<div class="cov-badges">%s</div>' % ''.join('<span>%s</span>' % b for b in badges)
-    return F('<p class="cov-kicker">✦ SỔ ACC XWUAN ✦</p>%s<h1 class="cov-title" style="font-size:1.9em">%s</h1>'
+    
+    nb = ''
+    if nav:
+        nb_items = ''.join('<button class="cov-btn" data-goto="%d">%s</button>' % (k, lbl) for k, lbl in nav)
+        nb = '<div class="cov-nav" aria-label="Mục lục nhanh">%s</div>' % nb_items
+        
+    top_tools = '<div class="cov-tools">'
+    if not is_home:
+        top_tools += '<a href="index.html" class="cov-tool-btn" title="Về Sổ Tổng Hợp">🏠 Sổ Tổng</a>'
+    top_tools += '<button class="cov-tool-btn" id="btnSnd" aria-label="Bật/tắt âm thanh" title="Âm thanh lật sổ">🔊</button>'
+    top_tools += '</div>'
+
+    open_txt = hint if '📖' in hint else ('📖 ' + hint)
+
+    return F('%s<p class="cov-kicker">✦ SỔ ACC XWUAN ✦</p>%s<h1 class="cov-title" style="font-size:1.8em">%s</h1>'
              '<p class="cov-sub">%s</p><span class="cov-sticker">%s</span>%s%s'
-             '<p class="cov-hint">%s</p><p class="cov-foot">%s</p>'
-             % (mid, title, sub, sticker, bd, '', hint, foot), cls='cov-in', cover=True)
+             '<button class="btn btn-red cov-open-btn" data-goto="1">%s</button>'
+             '<p class="cov-foot">%s</p>'
+             % (top_tools, mid, title, sub, sticker, bd, nb, open_txt, foot), cls='cov-in', cover=True)
 
 
 def back_cover(selected=None, extra_note=None):
@@ -94,6 +109,7 @@ def back_cover(selected=None, extra_note=None):
              '<button class="btn btn-red" type="submit">📨 Gửi đơn qua Zalo</button>'
              '<p id="formHint" hidden style="color:#ffe9b8;font-size:.85em;margin-top:.4em">Đã chép đơn vào bộ nhớ tạm — dán vào khung chat Zalo nha! 💜</p>'
              '</form>'
+             '<div style="text-align:center;margin-top:.5em"><button type="button" class="btn btn-line" data-goto="0">📖 Về bìa trước</button></div>'
              '<p class="fineprint">© 2026 Sổ Acc Xwuan · nhanh · sạch · uy tín · Made with 📓✏️</p>'
              % (note, ZALO, ZALO_TXT, '\n'.join(o)), cls='backcover-in', cover=True)
 
@@ -171,14 +187,26 @@ def fb_face():
 
 
 # ═══════════════════════════════ TRANG CHỦ — 11 MẶT ═══════════════════════════════
+HOME_NAV = [
+    (3, '💥 Bảng giá acc'),
+    (5, '💻 Win & Locket'),
+    (6, '🤝 Cam kết & BH'),
+    (7, '⭐ Feedback'),
+    (8, '❓ Hỏi – đáp'),
+    (10, '📞 Đặt acc / Zalo')
+]
+HOME_END = '<div class="big">📓 Hết sổ rồi!</div><p>cảm ơn bạn đã xem hết — muốn mua acc thì lật lại bìa sau nha 💜</p>'
+
 HOME_FACES = [
     # 0 — bìa trước
     cover_face('Sổ Acc <em>Xwuan</em>',
                'CapCut · Canva · Netflix · YouTube · Gemini · Meitu · Locket · Win/Office',
                'giá chỉ 2–5/10 giá gốc!',
-               'chạm để mở sổ 📖',
+               'chạm mở sổ xem giá ›',
                'kích hoạt 2–5 phút · bảo hành full · hỗ trợ 24/24',
-               burst=burst_svg('RẺ HƠN', '50–90%', 'so với giá gốc!')),
+               burst=burst_svg('RẺ HƠN', '50–90%', 'so với giá gốc!'),
+               nav=HOME_NAV,
+               is_home=True),
     # 1 — mục lục
     F(toc_face([(3, '💥 Bảng giá acc (1)'), (4, '🍿 Bảng giá acc (2)'),
                 (5, '✨ Locket Gold &amp; 💻 Win/Office'), (6, '🤝 Cam kết &amp; 3 bước đặt'),
@@ -251,17 +279,22 @@ HOME_FACES = [
     back_cover(),
 ]
 
-HOME_NAV = [(3, 'GIÁ RẺ'), (5, 'DỊCH VỤ'), (6, 'CAM KẾT'), (7, 'FEEDBACK'), (8, 'NOTE'), (10, 'LIÊN HỆ')]
-HOME_END = '<div class="big">📓 Hết sổ rồi!</div><p>cảm ơn bạn đã xem hết — muốn mua acc thì lật lại bìa sau nha 💜</p>'
-
-
 # ═══════════════════════════ TRANG CHI TIẾT ACC ═══════════════════════════
+ACC_NAV = [
+    (2, '💰 Gói giá'),
+    (3, '⚖️ So sánh'),
+    (4, '💵 Tiết kiệm'),
+    (5, '🌟 Lợi ích'),
+    (6, '🛡️ Cam kết'),
+    (7, '📞 Liên hệ')
+]
+
 def acc_faces(icon, name, tagline, sticker, badges, pkgs, cmp_rows, receipt_rows, save,
               benefits, commit_l, commit_r, steps3, selected, faq=None, warn=None,
               toc_note=None, cmp_head=('Tính năng', 'Free 😐', 'Pro ✨'), cmp_hot=None):
     faces = [
-        cover_face(name, tagline, sticker, 'chạm để mở sổ — xem giá bên trong ›',
-                   ' · '.join(badges), icon=icon),
+        cover_face(name, tagline, sticker, 'chạm mở sổ xem giá ›',
+                   ' · '.join(badges), icon=icon, nav=ACC_NAV, is_home=False),
         F(toc_face([(2, '💰 Gói giá trong sổ'), (3, '⚖️ Bảng so sánh'), (4, '💰 So sánh giá tiền'),
                     (5, '🌟 Lợi ích khi dùng'), (6, '🛡️ Cam kết &amp; 3 bước'), (7, '📞 Liên hệ &amp; đặt acc')],
                    note=toc_note or 'giá trong sổ là giá tốt nhất hiện nay nha 😉')),
@@ -278,9 +311,6 @@ def acc_faces(icon, name, tagline, sticker, badges, pkgs, cmp_rows, receipt_rows
         back_cover(selected),
     ]
     return faces
-
-
-ACC_NAV = [(2, 'GIÁ'), (3, 'SO SÁNH'), (5, 'LỢI ÍCH'), (7, 'LIÊN HỆ')]
 
 CAPCUT = dict(
     icon='🎬', name='CapCut Pro',
@@ -483,10 +513,18 @@ MEITU = dict(
 
 
 # ═══════════════════════════ LOCKET — 8 MẶT RIÊNG ═══════════════════════════
+LOCKET_NAV = [
+    (2, '💛 Gói giá'),
+    (3, '🏆 So sánh'),
+    (5, '🛡️ Cam kết'),
+    (6, '❓ Hỏi đáp'),
+    (7, '📞 Đặt Locket')
+]
+
 LOCKET_FACES = [
     cover_face('Locket <em>Gold</em>', '✦ Ghim khoảnh khắc · Kết nối người thương ✦',
-               'từ 50k · có gói vĩnh viễn ♾️', 'chạm để mở sổ — xem giá bên trong ›',
-               'an toàn iCloud · iOS & Android · BH tận tâm', icon='✨'),
+               'từ 50k · có gói vĩnh viễn ♾️', 'chạm mở sổ xem giá ›',
+               'an toàn iCloud · iOS & Android · BH tận tâm', icon='✨', nav=LOCKET_NAV, is_home=False),
     F(toc_face([(2, '💰 Gói giá Locket'), (3, '🏆 Gold vs Free'), (4, '💡 Mẹo hay khi dùng'),
                 (5, '🛡️ Cam kết &amp; 3 bước'), (6, '❓ Hỏi – đáp'), (7, '📞 Liên hệ &amp; đặt acc')])),
     F('<h2 class="f-h"><span class="ico">💰</span>Gói giá Locket</h2>%s'
@@ -529,14 +567,21 @@ LOCKET_FACES = [
     ], title='Hỏi – đáp về Locket')),
     back_cover('Locket Gold'),
 ]
-LOCKET_NAV = [(2, 'GIÁ'), (3, 'GOLD vs FREE'), (5, 'CAM KẾT'), (7, 'LIÊN HỆ')]
 
 
 # ═══════════════════════════ WINDOWS & OFFICE — 8 MẶT RIÊNG ═══════════════════════════
+WIN_NAV = [
+    (2, '🪟 Bảng giá'),
+    (3, '🔥 Combo rẻ'),
+    (4, '🤝 Cam kết'),
+    (5, '🚀 3 bước'),
+    (7, '📞 Đặt lịch')
+]
+
 WIN_FACES = [
     cover_face('Windows <em>&amp; Office</em>', '✦ Cài đặt kỹ thuật · Giá minh bạch · Giữ nguyên dữ liệu ✦',
-               'từ 80k · BH lỗi phát sinh 6 tháng', 'chạm để mở sổ — xem giá bên trong ›',
-               'ISO gốc Microsoft · xong 30–60 phút', icon='💻'),
+               'từ 80k · BH lỗi phát sinh 6 tháng', 'chạm mở sổ xem giá ›',
+               'ISO gốc Microsoft · xong 30–60 phút', icon='💻', nav=WIN_NAV, is_home=False),
     F(toc_face([(2, '💰 Bảng giá dịch vụ'), (3, '🔥 Combo gộp tiết kiệm'), (4, '🤝 Cam kết khi cài'),
                 (5, '🚀 3 bước nhanh gọn'), (6, '❓ Hỏi – đáp'), (7, '📞 Liên hệ &amp; đặt lịch')])),
     F('<h2 class="f-h"><span class="ico">💰</span>Bảng giá dịch vụ</h2>%s%s%s%s'

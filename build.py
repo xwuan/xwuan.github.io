@@ -37,4 +37,4 @@ render_page('windows-pricing.html',
             'Cài Windows chuẩn Microsoft / tối ưu máy yếu / Office 365-2021-2019. Giá minh bạch, giữ nguyên dữ liệu, xong 30–60 phút, bảo hành 6 tháng.',
             D.WIN_FACES, D.WIN_NAV)
 
-print('✅ Xong! 9 trang bản lật trang đã được tạo.')
+print('[OK] Xong! 9 trang ban lat trang da duoc tao.')
