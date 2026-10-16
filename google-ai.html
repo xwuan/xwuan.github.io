@@ -4,7 +4,7 @@
   <meta name="theme-color" content="#050505">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Google AI Pro (Gemini 4 Argon) - Xwuan</title>
+    <title>Google AI Pro (Gemini 4 Argon & 2TB Google One) - Xwuan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
@@ -510,6 +510,38 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.0/dist/twemoji.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const needsFe0f = ["1f5a5", "267e", "1f6e1", "26a0", "2699", "1f6e0", "2764", "1f39e"];
+    twemoji.parse(document.body, {
+      callback: function(icon, options, variant) {
+        if (needsFe0f.includes(icon)) icon += "-fe0f";
+        return "https://cdn.jsdelivr.net/npm/@lobehub/fluent-emoji-3d@1.1.0/assets/" + icon + ".webp";
+      }
+    });
+  });
+  document.addEventListener("error", function(e) {
+    if (e.target.tagName === "IMG" && e.target.classList.contains("emoji")) {
+      if (!e.target.dataset.fallback) {
+        e.target.dataset.fallback = "1";
+        e.target.src = e.target.src.replace(".webp", "-fe0f.webp");
+      } else if (e.target.dataset.fallback === "1") {
+        e.target.dataset.fallback = "2";
+        let icon = e.target.src.split("/").pop().replace("-fe0f.webp", "").replace(".webp", "");
+        e.target.src = "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/" + icon + ".svg";
+      }
+    }
+  }, true);
+</script>
+<style>
+  img.emoji {
+    height: 1.2em;
+    width: 1.2em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.2em;
+  }
+</style>
 </head>
 <body>
 
@@ -527,7 +559,7 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
                 <img src="images/google-ai.png" alt="Google AI Pro" class="badge">
             </div>
             <h1>Google AI Pro</h1>
-            <p class="subtitle">✦ Gói Pro Truy Cập Model Gemini 4 Argon Mới Nhất · 1 Triệu Token · Google One 2TB ✦</p>
+            <p class="subtitle">✦ Gemini 4 Argon Frontier · 1 Triệu Token · Tạo Gems &amp; Deep Research · 2TB Google One ✦</p>
         </div>
 
         <div class="card d-1 fi">
@@ -538,7 +570,8 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
         </div>
 
         <div class="card d-2 fi">
-            <div class="card-title">🔍 SO SÁNH: Miễn phí vs AI Pro</div>
+            <div class="card-title">🔍 SO SÁNH: Bản Miễn Phí vs Google AI Pro</div>
+            <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
             <table class="vs-table">
                 <thead>
                     <tr>
@@ -549,73 +582,97 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Mô hình cốt lõi</td>
-                        <td>Gemini Flash</td>
-                        <td><span class="check">✅</span> Gemini 4 Argon (Mới nhất)</td>
+                        <td>Mô hình trí tuệ AI</td>
+                        <td>Gemini Flash cơ bản</td>
+                        <td><span class="check">✅</span> Gemini 4 Argon (Đỉnh cao nhất)</td>
                     </tr>
                     <tr>
-                        <td>Ngữ cảnh Token</td>
+                        <td>Cửa sổ ngữ cảnh (Context)</td>
                         <td>32.000 tokens</td>
-                        <td><span class="check">✅</span> 1.000.000 tokens</td>
+                        <td><span class="check">✅</span> 1.000.000 tokens (1.500 trang)</td>
                     </tr>
                     <tr>
-                        <td>Phân tích Video &amp; PDF</td>
-                        <td class="cross">Bị giới hạn 🔒</td>
-                        <td><span class="check">✅</span> Tải file 1.500 trang</td>
+                        <td>Trợ lý chuyên gia (Custom Gems)</td>
+                        <td class="cross">Không hỗ trợ 🔒</td>
+                        <td><span class="check">✅</span> Tạo không giới hạn Gems chuyên biệt</td>
                     </tr>
                     <tr>
-                        <td>Google Workspace</td>
+                        <td>Tích hợp Google Workspace</td>
                         <td class="cross">Không có 🔒</td>
-                        <td><span class="check">✅</span> Tích hợp Docs, Gmail</td>
+                        <td><span class="check">✅</span> Trực tiếp trong Gmail, Docs, Drive, Slides</td>
                     </tr>
                     <tr>
-                        <td>Vẽ ảnh AI Imagen 3</td>
-                        <td>Chất lượng cơ bản</td>
-                        <td><span class="check">✅</span> Ultra HD không giới hạn</td>
+                        <td>Thực thi Code Python Sandbox</td>
+                        <td>Xuất text mã tĩnh</td>
+                        <td><span class="check">✅</span> Chạy code &amp; Vẽ biểu đồ tương tác</td>
                     </tr>
                     <tr>
-                        <td>Lập trình &amp; Debug</td>
-                        <td>Mức độ vừa</td>
-                        <td><span class="check">✅</span> Chuyên sâu đa ngôn ngữ</td>
+                        <td>Sáng tạo hình ảnh Imagen 3</td>
+                        <td>Độ phân giải thường</td>
+                        <td><span class="check">✅</span> Ultra HD Photorealistic &amp; Chỉnh sửa chi tiết</td>
+                    </tr>
+                    <tr>
+                        <td>Nghiên cứu Deep Research</td>
+                        <td class="cross">Không hỗ trợ 🔒</td>
+                        <td><span class="check">✅</span> Tự động quét hàng trăm web xuất báo cáo</td>
+                    </tr>
+                    <tr>
+                        <td>Đàm thoại Gemini Live</td>
+                        <td class="cross">Bị giới hạn 🔒</td>
+                        <td><span class="check">✅</span> Hội thoại giọng nói 2 chiều thời gian thực</td>
+                    </tr>
+                    <tr>
+                        <td>Dung lượng lưu trữ Google One</td>
+                        <td>15 GB mặc định</td>
+                        <td><span class="check">✅</span> 2.000 GB (2TB) cho Drive, Gmail &amp; Photos</td>
+                    </tr>
+                    <tr>
+                        <td>Đặc quyền Google Labs</td>
+                        <td>Chờ phát hành chung</td>
+                        <td><span class="check">✅</span> Ưu tiên trải nghiệm tính năng AI mới nhất</td>
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
 
         <div class="card d-3 fi">
             <div class="card-title">💰 SO SÁNH GIÁ</div>
             <div class="pc-row">
                 <span class="text-muted">Giá chính hãng Google One AI:</span>
-                <span class="pc-old">~5.800.000đ / năm</span>
+                <span class="pc-old">489.000đ/tháng (~5.868.000đ/năm)</span>
             </div>
             <div class="pc-row">
                 <span class="text-muted">Giá tại Xwuan:</span>
                 <span class="pc-new">60.000đ / 1 năm</span>
             </div>
             <div class="saving-box">
-                🔥 Tiết kiệm ~99% (Rẻ hơn 5,7 triệu đồng)
+                🔥 Tiết kiệm ~99% (Rẻ hơn 5,8 triệu đồng/năm)
             </div>
         </div>
 
         <div class="card d-4 fi">
-            <div class="card-title">🌟 Lợi ích Google AI Pro (Gemini 4 Argon)</div>
+            <div class="card-title">🌟 Toàn Bộ Đặc Quyền Google AI Pro</div>
             <ul class="list">
-                <li>Sử dụng mô hình Gemini 4 Argon mới nhất với năng lực suy luận, lập trình và phân tích vượt trội</li>
-                <li>Xử lý tài liệu khổng lồ, đọc toàn bộ sách giáo trình chỉ vài giây</li>
-                <li>Hỗ trợ viết luận, báo cáo khoa học, lập kế hoạch kinh doanh</li>
-                <li>Viết và sửa lỗi code Python, JavaScript, C++, SQL chính xác cao</li>
-                <li>Tạo ảnh minh họa nghệ thuật bằng công nghệ Imagen 3 thế hệ mới</li>
-                <li>Hỏi đáp tư duy logic thông minh bậc nhất hiện nay</li>
+                <li><strong>Mô hình suy luận Gemini 4 Argon:</strong> Kiến trúc frontier reasoning tối tân từ Google DeepMind, vượt trội tuyệt đối về tư duy logic toán học, phân tích đa bước và giải quyết các bài toán lập trình phức tạp.</li>
+                <li><strong>Cửa sổ ngữ cảnh 1.000.000 tokens khổng lồ:</strong> Tải lên và phân tích toàn bộ cuốn sách giáo trình, luận văn thạc sĩ dày 1.500 trang, video dài 1 tiếng hoặc codebase 30.000 dòng chỉ trong vài giây.</li>
+                <li><strong>Tùy biến Custom Gems theo nhu cầu:</strong> Tự huấn luyện các trợ lý chuyên gia riêng (Gia sư học tập, Chuyên gia Debug code, Trợ lý viết content SEO, Cố vấn kinh doanh...).</li>
+                <li><strong>Sandbox chạy Python &amp; Data Analysis:</strong> Tải tệp Excel, CSV lên để Gemini tự viết mã Python, thực thi tính toán và kết xuất biểu đồ trực quan tương tác ngay trong khung chat.</li>
+                <li><strong>Trợ lý Gemini trong Google Workspace:</strong> Trực tiếp soạn thảo văn bản trong Google Docs, trả lời email thông minh trên Gmail, tự động lên dàn ý bài thuyết trình Google Slides.</li>
+                <li><strong>Sáng tạo hình ảnh đỉnh cao Imagen 3:</strong> Tạo ảnh chân thực chuẩn điện ảnh photorealistic, hiểu prompt tiếng Việt/tiếng Anh chuẩn xác và hỗ trợ chỉnh sửa chi tiết từng vùng ảnh.</li>
+                <li><strong>Tính năng Deep Research độc quyền:</strong> Tự động duyệt tìm hàng trăm nguồn tài nguyên học thuật và tin tức trên internet, tổng hợp thành báo cáo nghiên cứu hoàn chỉnh kèm trích dẫn nguồn.</li>
+                <li><strong>Trò chuyện giọng nói Gemini Live:</strong> Giao tiếp 2 chiều siêu tự nhiên như người thật, phản hồi tức thì với độ trễ cực thấp, hỗ trợ luyện đàm thoại ngoại ngữ mượt mà.</li>
+                <li><strong>2TB dung lượng đám mây Google One:</strong> Thoải mái sao lưu hàng trăm ngàn ảnh chất lượng gốc trên Google Photos, lưu trữ tệp dữ liệu công việc dung lượng lớn trên Google Drive &amp; Gmail.</li>
             </ul>
         </div>
 
         <div class="card d-5 fi">
             <div class="card-title">💎 Cam kết từ Xwuan</div>
             <ul class="list">
-                <li>⚡ Kích hoạt và bàn giao tài khoản trong 2–5 phút</li>
-                <li>📱 Hỗ trợ trên mọi thiết bị: Máy tính, Điện thoại, Máy tính bảng</li>
-                <li>💬 Hướng dẫn sử dụng tận tình qua Zalo 24/7</li>
-                <li>⚠️ Gói giá siêu rẻ phi lợi nhuận cho học sinh, sinh viên (không bảo hành)</li>
+                <li>⚡ Kích hoạt và bàn giao tài khoản siêu tốc trong 2–5 phút</li>
+                <li>📱 Hoạt động hoàn hảo trên mọi thiết bị: Máy tính, Điện thoại (iOS/Android), Máy tính bảng</li>
+                <li>💬 Hướng dẫn đăng nhập và mẹo khai thác tối đa tính năng qua Zalo 24/7</li>
+                <li>⚠️ Gói giá siêu rẻ phi lợi nhuận hỗ trợ học sinh, sinh viên, lập trình viên (không bảo hành)</li>
             </ul>
         </div>
 
@@ -623,15 +680,15 @@ h1, h2, .section-title, .brand-name, .card-ttl { text-shadow: 0 4px 20px rgba(25
             <div class="card-title">🚀 Cách thức hoạt động</div>
             <div class="step">
                 <div class="step-num">1</div>
-                <p><strong>Liên hệ qua Zalo:</strong> Bấm nút nhắn Zalo để đăng ký gói Google AI Pro.</p>
+                <p><strong>Liên hệ qua Zalo:</strong> Bấm nút nhắn Zalo để đăng ký gói Google AI Pro 60k/năm.</p>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
-                <p><strong>Nhận tài khoản:</strong> Xwuan gửi tài khoản kích hoạt sẵn gói Pro truy cập Gemini 4 Argon sau 2-5 phút.</p>
+                <p><strong>Nhận tài khoản:</strong> Xwuan gửi tài khoản kích hoạt sẵn gói Google One AI Premium (Gemini 4 Argon + 2TB) sau 2-5 phút.</p>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
-                <p><strong>Sử dụng ngay:</strong> Đăng nhập gemini.google.com và trải nghiệm model Gemini 4 Argon mới nhất trọn gói 1 năm.</p>
+                <p><strong>Sử dụng ngay:</strong> Đăng nhập gemini.google.com và trải nghiệm toàn bộ đặc quyền AI đỉnh cao trọn gói 1 năm.</p>
             </div>
         </div>
 
