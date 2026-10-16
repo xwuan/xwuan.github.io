@@ -191,8 +191,10 @@ GiÃ¡ gá»‘c bá»‹ gáº¡ch hiá»ƒn thá»‹ cÃ¹ng badge SALE mÃ 
 - **Meitu SVIP**: Điều chỉnh giá từ `80k` lên `90k / 30 ngày` (Bảo hành full thời gian).
 - Đồng bộ dữ liệu tại: `pricing.js`, `index.html`, `meitu.html`, `GEMINI.md`.
 
-### Cập nhật 2026-10-16 (Cập nhật Google AI Pro - Model Gemini 4 Argon)
+### Cập nhật 2026-10-16 (Cập nhật Google AI Pro & Đồng bộ giá Meitu SVIP)
 - **Google AI Pro**: Điều chỉnh thông tin gói Pro hỗ trợ truy cập model Gemini 4 Argon mới nhất.
 - Cập nhật chi tiết trang `google-ai.html`: tiêu đề, subtitle, bảng so sánh tính năng (Gemini 4 Argon Mới nhất), danh sách lợi ích mô hình và các bước kích hoạt.
-- Đồng bộ dữ liệu tại: `google-ai.html`, `index.html`, `pricing.js`, `gemini.md`, `handover.md`.
+- **Meitu SVIP**: Đồng bộ giá `90.000đ / 30 ngày` và tỷ lệ tiết kiệm (~64%) trong bảng "SO SÁNH GIÁ" tại trang chi tiết `meitu.html`.
+- Đồng bộ dữ liệu tại: `google-ai.html`, `meitu.html`, `index.html`, `pricing.js`, `gemini.md`, `handover.md`.
+
 
