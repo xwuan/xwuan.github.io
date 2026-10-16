@@ -84,7 +84,7 @@
       },
       google_ai: {
         id: "google_ai",
-        name: "Google AI Pro (Gemini 3.1 Pro)",
+        name: "Google AI Pro (Gemini 4 Argon)",
         price: "60k",
         unit: "/ 1 năm",
         originalPrice: "",
