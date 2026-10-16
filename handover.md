@@ -191,13 +191,14 @@ GiÃ¡ gá»‘c bá»‹ gáº¡ch hiá»ƒn thá»‹ cÃ¹ng badge SALE mÃ 
 - **Meitu SVIP**: Điều chỉnh giá từ `80k` lên `90k / 30 ngày` (Bảo hành full thời gian).
 - Đồng bộ dữ liệu tại: `pricing.js`, `index.html`, `meitu.html`, `GEMINI.md`.
 
-### Cập nhật 2026-10-16 (Đại tu toàn diện trang chi tiết Google AI Pro & Đồng bộ giá Meitu SVIP)
-- **Google AI Pro (Gemini 4 Argon & 2TB Google One)**:
-  - Khảo sát và hiệu chỉnh toàn bộ đặc quyền gói Google One AI Premium / Gemini Advanced vào trang chi tiết `google-ai.html`.
-  - Nâng cấp bảng so sánh chi tiết 10 tiêu chí: Mô hình Gemini 4 Argon frontier reasoning, Cửa sổ ngữ cảnh 1.000.000 tokens, Tạo Custom Gems chuyên biệt không giới hạn, Tích hợp Google Workspace (Docs, Gmail, Drive, Slides), Sandbox thực thi mã Python & Data Analysis, Tạo ảnh nghệ thuật Imagen 3 photorealistic, Nghiên cứu chuyên sâu Deep Research, Đàm thoại giọng nói thời gian thực Gemini Live, Dung lượng lưu trữ 2TB Google One và đặc quyền ưu tiên từ Google Labs.
-  - Cập nhật chuẩn giá gốc Google One AI Premium tại Việt Nam (489.000đ/tháng ~ 5.868.000đ/năm) và mức tiết kiệm ~99% khi mua gói 60k/năm.
+### Cập nhật 2026-10-16 (Đại tu toàn diện trang chi tiết Google AI Pro 5TB & Đồng bộ giá Meitu SVIP)
+- **Google AI Pro (Gemini 4 Argon & 5TB Cloud Google One)**:
+  - Khảo sát dữ liệu thực tế: Google chính thức nâng cấp dung lượng gói Google AI Pro lên **5 TB (5.000 GB)** dùng chung cho Google Drive, Gmail và Photos, hỗ trợ Family Sharing.
+  - Loại bỏ các thuật ngữ kỹ thuật khó hiểu (không dùng "token" gây rối rắm), chuyển sang diễn đạt thực tế, trực quan: khả năng đọc và phân tích trọn vẹn sách giáo trình, luận văn 1.500 trang hoặc video 1 giờ.
+  - Nâng cấp bảng so sánh chi tiết: Mô hình Gemini 4 Argon frontier reasoning, Xử lý siêu tài liệu không giới hạn, Tạo Custom Gems chuyên biệt không giới hạn, Tích hợp Google Workspace (Docs, Gmail, Drive, Slides, Vids), Sandbox thực thi mã Python & Data Analysis, Sáng tạo đa phương tiện Imagen 3 & Veo, Nghiên cứu chuyên sâu Deep Research, Đàm thoại giọng nói thời gian thực Gemini Live, Dung lượng lưu trữ 5TB Google One (Family Sharing) và đặc quyền ưu tiên từ Google Labs.
+  - Cập nhật chuẩn giá gốc Google AI Pro (5TB) tại Việt Nam (489.000đ/tháng ~ 5.868.000đ/năm) và mức tiết kiệm ~99% khi mua gói 60k/năm.
   - Tích hợp bộ script Microsoft Fluent Emoji 3D (`@lobehub/fluent-emoji-3d`) đồng bộ thiết kế Apple Glassmorphism của dự án.
-  - Cập nhật thẻ hiển thị tại `index.html`: Nêu bật Model Gemini 4 Argon + 2TB Google One, Custom Gems & Workspace.
+  - Cập nhật thẻ hiển thị tại `index.html`: Nêu bật Model Gemini 4 Argon + 5TB Google One, Custom Gems & Workspace.
 - **Meitu SVIP**: Đồng bộ giá `90.000đ / 30 ngày` và tỷ lệ tiết kiệm (~64%) trong bảng "SO SÁNH GIÁ" tại trang chi tiết `meitu.html`.
 - Đồng bộ dữ liệu tại: `google-ai.html`, `meitu.html`, `index.html`, `pricing.js`, `gemini.md`, `handover.md`.
 

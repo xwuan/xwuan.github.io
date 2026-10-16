@@ -67,7 +67,7 @@ Triáº¿t lÃ½: **Cyber-Minimal / Tech-Neon + Soft-Friendly**. Tá»‘i giá�
   2. **YouTube Premium**: `40k / 30 ngÃ y` (Báº£o hÃ nh full thá»i gian)
   3. **Canva Pro**: `130k / 1 nÄƒm` (Báº£o hÃ nh full thá»i gian)
   4. **Netflix 4K UHD**: `45k / 30 ngÃ y` (Báº£o hÃ nh full thá»i gian)
-  5. **Google AI Pro**: `60k / 1 nÄƒm` (KhÃ´ng báº£o hÃ nh - GÃ³i Pro truy cáº­p model Gemini 4 Argon má»›i nháº¥t)
+  5. **Google AI Pro**: `60k / 1 nÄƒm` (KhÃ´ng báº£o hÃ nh - GÃ³i Pro Gemini 4 Argon + 5TB Cloud)
   6. **Meitu SVIP**: `90k / 30 ngày` (Báº£o hÃ nh full thá»i gian)
 - **Module Dá»¯ Liá»‡u Táº­p Trung `pricing.js`**:
   - Chá»©a cáº¥u hÃ¬nh gá»‘c `DEFAULT_CONFIG` lÆ°u toÃ n bá»™ báº£ng giÃ¡ chuáº©n.
